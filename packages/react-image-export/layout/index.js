@@ -26,6 +26,7 @@ meaning one View has a component node and a host node. We can keep track of the 
 instance for layouts, but we end up using the host node for rendering.
 */
 const computeLayout = (
+  backend,
   testRendererInstance,
   previousLayouts = new WeakMap()
 ) => {
@@ -51,9 +52,9 @@ const computeLayout = (
       texts.set(instance, [styledText]);
 
       node.setMeasureFunc(width => {
-        const lines = breakLines(styledText, width);
+        const lines = breakLines(backend, styledText, width);
         texts.set(instance, lines);
-        return measureLines(lines);
+        return measureLines(backend, lines);
       });
 
       returnValue = false;
@@ -98,7 +99,7 @@ const computeLayout = (
   });
 
   return updateRecords.size > 0
-    ? computeLayout(testRendererInstance, layouts)
+    ? computeLayout(backend, testRendererInstance, layouts)
     : { styles, layouts, texts };
 };
 

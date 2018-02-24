@@ -1,35 +1,25 @@
 import * as LineBreaker from "linebreak";
-import { fontForStyle } from "../fontLoader";
 
-const lineWidth = ({ text, attributedStyles }) =>
+const max = numbers => numbers.reduce(Math.max, 0);
+
+const lineWidth = (backend, { text, attributedStyles }) =>
   attributedStyles.reduce((x, { start, end, style }, i) => {
     let body = text.slice(start, end);
     // Trim trailling whitespace
     if (i === attributedStyles.length - 1) {
       body = body.replace(/\s+$/, "");
     }
-    const font = fontForStyle(style);
-    return (
-      x + font.layout(body).advanceWidth / font.unitsPerEm * style.fontSize
-    );
+    return x + backend.measureText(body, style);
   }, 0);
 
 const lineHeight = line =>
-  Math.max(0, ...line.attributedStyles.map(({ style }) => style.lineHeight));
+  max(line.attributedStyles.map(({ style }) => style.lineHeight));
 
 module.exports.lineWidth = lineWidth;
 module.exports.lineHeight = lineHeight;
 
 module.exports.lineFontSize = line =>
-  Math.max(0, ...line.attributedStyles.map(({ style }) => style.fontSize));
-
-const baselineForAttributedStyle = ({ style }) => {
-  const font = fontForStyle(style);
-  return font.ascent / font.unitsPerEm * style.fontSize;
-};
-
-module.exports.lineBaseline = line =>
-  Math.max(0, ...line.attributedStyles.map(baselineForAttributedStyle));
+  max(line.attributedStyles.map(({ style }) => style.fontSize));
 
 const textSlice = (textStyle, start, end) => ({
   text: textStyle.text.slice(start, end),
@@ -42,7 +32,7 @@ const textSlice = (textStyle, start, end) => ({
     }))
 });
 
-module.exports.breakLines = (textStyle, width) => {
+module.exports.breakLines = (backend, textStyle, width) => {
   const { text } = textStyle;
   const breaker = new LineBreaker(text);
 
@@ -56,7 +46,10 @@ module.exports.breakLines = (textStyle, width) => {
   while (bk != null) {
     const { position, required } = bk;
     const testLine = textSlice(textStyle, lineStart, position);
-    if (lastLine === null || (!shouldBreak && lineWidth(testLine) <= width)) {
+    if (
+      lastLine === null ||
+      (!shouldBreak && lineWidth(backend, testLine) <= width)
+    ) {
       lastLine = testLine;
     } else {
       lines.push(lastLine);
@@ -75,7 +68,7 @@ module.exports.breakLines = (textStyle, width) => {
   return lines;
 };
 
-module.exports.measureLines = lines => ({
-  width: Math.max(0, ...lines.map(lineWidth)),
+module.exports.measureLines = (backend, lines) => ({
+  width: max(lines.map(line => lineWidth(backend, line))),
   height: lines.reduce((a, b) => a + lineHeight(b), 0)
 });
