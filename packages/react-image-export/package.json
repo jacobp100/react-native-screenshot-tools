@@ -1,0 +1,25 @@
+{
+  "name": "react-image-export",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "d3-path": "^1.0.5",
+    "font-manager": "^0.2.2",
+    "fontkit": "^1.7.7",
+    "line-break": "^1.1.0",
+    "linebreak": "^0.3.0",
+    "react": "^16.2.0",
+    "react-is": "^1.0.0",
+    "react-test-renderer": "^16.2.0",
+    "xml-formatter": "^1.0.1",
+    "yoga-layout": "^1.9.3"
+  },
+  "devDependencies": {
+    "canvas-prebuilt": "^1.6.5-prerelease.1",
+    "jest": "^22.4.2",
+    "react-native": "^0.53.3",
+    "react-test-renderer": "^16.2.0"
+  }
+}
