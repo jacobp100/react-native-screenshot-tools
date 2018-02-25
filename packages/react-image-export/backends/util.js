@@ -1,4 +1,4 @@
-import { lineFontSize, lineHeight } from "../layout/textLayout";
+const { lineFontSize, lineHeight } = require("../layout/textLayout");
 
 module.exports.enumerateLines = (lines, callback) => {
   lines.reduce((top, line) => {

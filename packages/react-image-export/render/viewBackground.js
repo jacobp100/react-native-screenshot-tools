@@ -31,15 +31,15 @@ const getBorderColor = ({
 }) => [borderTopColor, borderRightColor, borderBottomColor, borderLeftColor];
 
 const getBorderRadius = ({
-  borderTopLeftWidth = 0,
-  borderTopRightWidth = 0,
-  borderBottomRightWidth = 0,
-  borderBottomLeftWidth = 0
+  borderTopLeftRadius = 0,
+  borderTopRightRadius = 0,
+  borderBottomRightRadius = 0,
+  borderBottomLeftRadius = 0
 }) => [
-  borderTopLeftWidth,
-  borderTopRightWidth,
-  borderBottomRightWidth,
-  borderBottomLeftWidth
+  borderTopLeftRadius,
+  borderTopRightRadius,
+  borderBottomRightRadius,
+  borderBottomLeftRadius
 ];
 
 const getScaledBorderRadius = (style, width, height) => {

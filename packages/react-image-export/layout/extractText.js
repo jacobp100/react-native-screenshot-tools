@@ -1,4 +1,5 @@
 const { flattenStyle } = require("../stylesheet");
+const { depthFirst, STOP_ITERATION } = require("./util");
 
 /*
 type AttributedStyle = { start: number, end: number, style: any }
@@ -34,25 +35,27 @@ const appendStyleTo = (attributedStyles, text, style) => {
   }
 };
 
-module.exports = element => {
+module.exports = rootTextElement => {
   let text = "";
   const attributedStyles = [];
 
-  const iterate = (c, style = { ...defaultStyles, ...flattenStyle(c) }) => {
-    (c.children || []).forEach(child => {
-      if (child == null) {
-        /* Do nothing */
-      } else if (typeof child !== "object") {
-        const childText = String(child); // child might be a number
-        text += childText;
-        appendStyleTo(attributedStyles, childText, style);
-      } else {
-        iterate(child, { ...style, ...flattenStyle(child) });
-      }
-    });
-  };
-
-  iterate(element);
+  depthFirst((element, style) => {
+    if (element == null || element === false) {
+      console.log("Should this happen?");
+      // Do nothing
+    } else if (typeof element !== "object") {
+      const childText = String(element); // child might be a number
+      text += childText;
+      appendStyleTo(attributedStyles, childText, style);
+    } else if (element.nodeType === "host" && element.type === "Text") {
+      const nextStyle = {
+        ...defaultStyles,
+        ...flattenStyle(element.props.style)
+      };
+      return nextStyle;
+    }
+    return style;
+  }, rootTextElement);
 
   return { text, attributedStyles };
 };

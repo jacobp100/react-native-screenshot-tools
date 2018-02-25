@@ -1,4 +1,4 @@
-import { enumerateLines } from "./util";
+const { enumerateLines } = require("./util");
 
 module.exports = class CanvasBackend {
   constructor(ctx) {
@@ -7,6 +7,21 @@ module.exports = class CanvasBackend {
 
   // eslint-disable-next-line
   setDimensions() {}
+
+  pushTransform(transform, { top, left, width, height }) {
+    const x = left + width / 2;
+    const y = top + height / 2;
+    const { ctx } = this;
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(1);
+    ctx.translate(-x, -y);
+  }
+
+  popTransform() {
+    const { ctx } = this;
+    ctx.restore();
+  }
 
   beginShape() {
     this.ctx.beginPath();

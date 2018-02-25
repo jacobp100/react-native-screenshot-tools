@@ -1,17 +1,23 @@
 {
-  "name": "react-image-export",
+  "name": "react-image-export-monorepo",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "scripts": {
+    "test": "jest"
+  },
+  "workspaces": ["packages/*"],
   "devDependencies": {
+    "babel-preset-react-native": "^4.0.0",
     "eslint": "^4.18.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.9.0",
+    "jest": "^22.4.2",
     "prettier": "^1.10.2"
+  },
+  "jest": {
+    "preset": "react-native"
   }
 }

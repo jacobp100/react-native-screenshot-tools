@@ -1,14 +1,12 @@
-import * as LineBreaker from "linebreak";
+const LineBreaker = require("linebreak");
 
-const max = numbers => numbers.reduce(Math.max, 0);
+const max = numbers => numbers.reduce((a, b) => Math.max(a, b), 0);
 
 const lineWidth = (backend, { text, attributedStyles }) =>
   attributedStyles.reduce((x, { start, end, style }, i) => {
     let body = text.slice(start, end);
     // Trim trailling whitespace
-    if (i === attributedStyles.length - 1) {
-      body = body.replace(/\s+$/, "");
-    }
+    if (i === attributedStyles.length - 1) body = body.replace(/\s+$/, "");
     return x + backend.measureText(body, style);
   }, 0);
 

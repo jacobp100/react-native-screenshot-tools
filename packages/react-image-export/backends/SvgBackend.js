@@ -1,9 +1,9 @@
 /* eslint-disable class-methods-use-this */
-import * as cheerio from "cheerio";
-import { path } from "d3-path";
-import * as format from "xml-formatter";
-import { fontForStyle } from "../fontLoader";
-import { enumerateLines } from "./util";
+const cheerio = require("cheerio");
+const { path } = require("d3-path");
+const format = require("xml-formatter");
+const { fontForStyle } = require("../fontLoader");
+const { enumerateLines } = require("./util");
 
 const textAligns = {
   left: 0,
@@ -17,7 +17,7 @@ const textAnchors = {
   right: "end"
 };
 
-export default class SvgBackend {
+module.exports = class SvgBackend {
   constructor() {
     this.$ = cheerio.load(
       `<?xml version="1.0" encoding="UTF-8" ?>
@@ -27,10 +27,27 @@ export default class SvgBackend {
       ></svg>`,
       { xmlMode: true }
     );
+    this.$container = this.$("svg");
   }
 
   toString() {
     return format(this.$.xml());
+  }
+
+  pushTransform(transform, { top, left, width, height }) {
+    const angle = parseInt(transform[0].rotate, 10);
+    const x = left + width / 2;
+    const y = top + height / 2;
+    const $container = this.$("<g />").attr(
+      "transform",
+      `translate(${x}, ${y}) rotate(${angle}) translate(${-x}, ${-y})`
+    );
+    this.$container.append($container);
+    this.$container = $container;
+  }
+
+  popTransform() {
+    this.$container = this.$container.parent();
   }
 
   setDimensions({ width, height }) {
@@ -51,7 +68,7 @@ export default class SvgBackend {
         .attr("fill", fill)
         .attr("stroke", stroke)
         .attr("stroke-width", lineWidth);
-      this.$("svg").append($path);
+      this.$container.append($path);
     }
     this.ctx = null;
   }
@@ -68,6 +85,7 @@ export default class SvgBackend {
   fillLines(lines, { top, left, width }) {
     const { textAlign = "left" } = lines[0].attributedStyles[0].style;
     const originX = left + width * textAligns[textAlign];
+    const originY = top;
 
     const $text = this.$(`<text />`).attr(
       "text-anchor",
@@ -75,19 +93,22 @@ export default class SvgBackend {
     );
 
     enumerateLines(lines, ({ y, body, style, i }) => {
-      $text
-        .append(`<tspan/>`)
-        .attr("x", i === 0 ? left + originX : null)
-        .attr("y", i === 0 ? top + y : null)
+      const font = fontForStyle(style);
+      const baselineShift = font.ascent / font.unitsPerEm * style.fontSize;
+
+      const $tspan = this.$("<tspan/>")
+        .attr("x", i === 0 ? originX : null)
+        .attr("y", i === 0 ? originY + y + baselineShift : null)
         .attr("fill", style.color)
         .text(body);
+      $text.append($tspan);
     });
 
-    this.$("svg").append($text);
+    this.$container.append($text);
   }
 
   measureText(text, style) {
     const font = fontForStyle(style);
     return font.layout(text).advanceWidth / font.unitsPerEm * style.fontSize;
   }
-}
+};

@@ -1,5 +1,5 @@
 const { create } = require("react-test-renderer");
-const { isElement } = require("react-is");
+// const { isElement } = require("react-is");
 const { CanvasBackend, SvgBackend } = require("./backends");
 const layoutRoot = require("./layout");
 const render = require("./render");
@@ -17,7 +17,8 @@ const getInstance = rootInstanceOrJsx => {
   if (typeof rootInstanceOrJsx.toTree === "function") {
     const rootInstance = rootInstanceOrJsx;
     return rootInstance;
-  } else if (isElement(rootInstanceOrJsx)) {
+  } else if (rootInstanceOrJsx) {
+    // FIXME: Use react-is
     const element = rootInstanceOrJsx;
     return create(element);
   }

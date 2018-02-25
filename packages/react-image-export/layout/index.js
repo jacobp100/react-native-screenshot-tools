@@ -3,7 +3,7 @@ const { flattenStyle } = require("../stylesheet");
 const computeYogaNode = require("./computeYogaNode");
 const extractText = require("./extractText");
 const { breakLines, measureLines } = require("./textLayout");
-const { childrenToArray, depthFirst } = require("./util");
+const { childrenToArray, depthFirst, STOP_ITERATION } = require("./util");
 
 const layoutChanged = (a, b) =>
   a == null ||
@@ -38,16 +38,17 @@ const computeLayout = (
   const updateRecords = new Set();
 
   let rootNode = null;
-  depthFirst(element => {
-    let returnValue = true;
-    if (element.nodeType !== "host") return undefined;
+  depthFirst((element, parentNode) => {
+    const childHostInstanceType = getChildHostInstanceType(element);
+    if (childHostInstanceType == null) return parentNode;
     const { instance, props } = element;
     const style = flattenStyle(props.style);
     styles.set(instance, style);
 
     const node = computeYogaNode(style);
 
-    if (getChildHostInstanceType(element) === "Text") {
+    let returnValue;
+    if (childHostInstanceType === "Text") {
       const styledText = extractText(element);
       texts.set(instance, [styledText]);
 
@@ -57,12 +58,18 @@ const computeLayout = (
         return measureLines(backend, lines);
       });
 
-      returnValue = false;
+      returnValue = STOP_ITERATION;
+    } else {
+      returnValue = node;
     }
 
     nodes.set(instance, node);
 
-    if (rootNode == null) rootNode = node;
+    if (rootNode == null) {
+      rootNode = node;
+    } else {
+      parentNode.insertChild(node, parentNode.getChildCount());
+    }
 
     return returnValue;
   }, rootElement);
@@ -72,7 +79,7 @@ const computeLayout = (
   rootNode.calculateLayout(500, 500, yoga.DIRECTION_LTR);
 
   depthFirst(element => {
-    if (element.nodeType !== "host") return;
+    if (getChildHostInstanceType(element) == null) return;
     const { instance } = element;
     const node = nodes.get(instance);
     const layout = {
@@ -104,7 +111,7 @@ const computeLayout = (
 };
 
 /* eslint-disable no-use-before-define */
-const childrenToJson = (children, layouts, params, style, text) =>
+const childrenToJson = (children, params, layout, style, text) =>
   childrenToArray(children).reduce((accum, child) => {
     let resolvedChild;
     if (child == null || child === false) {
@@ -112,7 +119,7 @@ const childrenToJson = (children, layouts, params, style, text) =>
     } else if (typeof child !== "object") {
       resolvedChild = child;
     } else {
-      resolvedChild = treeToJson(child, layouts, params, style, text);
+      resolvedChild = treeToJson(child, params, layout, style, text);
     }
     return accum.concat(resolvedChild);
   }, []);
@@ -120,34 +127,34 @@ const childrenToJson = (children, layouts, params, style, text) =>
 
 const removeChildren = ({ children, ...props }) => props;
 
-const treeToJson = (node, params, layout, style, text) => {
-  switch (node.nodeType) {
+const treeToJson = (element, params, layout, style, text) => {
+  switch (element.nodeType) {
     case "component":
       return childrenToJson(
-        node.rendered,
+        element.rendered,
         params,
-        params.layouts.get(node.instance),
-        params.styles.get(node.instance),
-        params.texts.get(node.instanece)
+        params.layouts.get(element.instance),
+        params.styles.get(element.instance),
+        params.texts.get(element.instance)
       );
     case "host":
       return {
-        type: node.type,
-        props: removeChildren(node.props),
-        children: childrenToJson(node.rendered, params),
+        type: element.type,
+        props: removeChildren(element.props),
+        children:
+          element.type !== "Text"
+            ? childrenToJson(element.rendered, params)
+            : null,
         layout,
         style,
         text
       };
     default:
-      throw new Error("Unknown node");
+      throw new Error("Unknown element");
   }
 };
 
 module.exports = (backend, testRendererInstance) => {
-  const { layouts, styles, texts } = computeLayout(
-    backend,
-    testRendererInstance
-  );
-  return treeToJson(testRendererInstance.toTree(), layouts, styles, texts)[0];
+  const params = computeLayout(backend, testRendererInstance);
+  return treeToJson(testRendererInstance.toTree(), params)[0];
 };
