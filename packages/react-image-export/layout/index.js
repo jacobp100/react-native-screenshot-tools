@@ -42,7 +42,7 @@ const computeLayout = (
     const childHostInstanceType = getChildHostInstanceType(element);
     if (childHostInstanceType == null) return parentNode;
     const { instance, props } = element;
-    const style = flattenStyle(props.style);
+    const style = flattenStyle(props.style) || {};
     styles.set(instance, style);
 
     const node = computeYogaNode(style);

@@ -2,6 +2,7 @@
 const cheerio = require("cheerio");
 const { path } = require("d3-path");
 const format = require("xml-formatter");
+const chroma = require("chroma-js");
 const { fontForStyle } = require("../fontLoader");
 const { enumerateLines } = require("./util");
 
@@ -24,10 +25,11 @@ module.exports = class SvgBackend {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-      ></svg>`,
+      ><defs /></svg>`,
       { xmlMode: true }
     );
     this.$container = this.$("svg");
+    this.defId = 0;
   }
 
   toString() {
@@ -61,13 +63,61 @@ module.exports = class SvgBackend {
     return this.ctx;
   }
 
-  commitShape({ fill = "none", stroke = "none", lineWidth = 0 }) {
+  commitShape({
+    fill = "none",
+    stroke = "none",
+    lineWidth = 0,
+    shadowColor = "black",
+    shadowBlur = 0,
+    shadowOffsetX = 0,
+    shadowOffsetY = 0
+  }) {
+    let filter = null;
+    if (shadowBlur !== 0 || shadowOffsetX !== 0 || shadowOffsetY !== 0) {
+      const color = chroma(shadowColor);
+      filter = this.defId;
+
+      const pad = 100;
+      const $filter = this.$("<filter />")
+        .attr("id", filter)
+        .attr("x", `${-pad}%`)
+        .attr("y", `${-pad}%`)
+        .attr("width", `${100 + 2 * pad}%`)
+        .attr("height", `${100 + 2 * pad}%`);
+      this.$("<feGaussianBlur />")
+        .attr("in", "SourceAlpha")
+        .attr("stdDeviation", shadowBlur)
+        .appendTo($filter);
+      this.$("<feOffset />")
+        .attr("dx", shadowOffsetX)
+        .attr("dy", shadowOffsetY)
+        .attr("result", "onBlur")
+        .appendTo($filter);
+      this.$("<feFlood />")
+        .attr("flood-color", color.hex())
+        .attr("flood-opacity", color.alpha())
+        .appendTo($filter);
+      this.$("<feComposite />")
+        .attr("in2", "onBlur")
+        .attr("operator", "in")
+        .appendTo($filter);
+      const $merge = this.$("<feMerge />");
+      this.$("<feMergeNode />").appendTo($merge);
+      this.$("<feMergeNode")
+        .attr("in", "SourceGraphic")
+        .appendTo($merge);
+      $merge.appendTo($filter);
+      $filter.appendTo("defs");
+      this.defId += 1;
+    }
+
     if (fill !== "none" || !(stroke === "none" || lineWidth === 0)) {
       const $path = this.$(`<path />`)
         .attr("d", String(this.ctx))
         .attr("fill", fill)
         .attr("stroke", stroke)
-        .attr("stroke-width", lineWidth);
+        .attr("stroke-width", lineWidth)
+        .attr("filter", filter != null ? `url(#${filter})` : null);
       this.$container.append($path);
     }
     this.ctx = null;

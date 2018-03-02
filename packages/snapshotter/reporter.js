@@ -15,6 +15,7 @@ module.exports = class Reporter {
       suiteResults.testResults.forEach(result => {
         result.failureMessages.forEach(e => {
           console.error(chalk.red(e.message));
+          console.error(e.stack);
         });
       });
     });

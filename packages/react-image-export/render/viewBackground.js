@@ -1,3 +1,4 @@
+const chroma = require("chroma-js");
 const {
   ContinuationCommand,
   drawArc,
@@ -199,13 +200,28 @@ module.exports = (backend, layout, style) => {
   const borderColors = getBorderColor(style);
   const borderRadii = getScaledBorderRadius(style, layout.width, layout.height);
 
-  const borderStyle = style.borderStyle || "solid";
+  const {
+    borderStyle = "solid",
+    shadowColor = "black",
+    shadowOpacity = 0,
+    shadowRadius = 0,
+    shadowOffset = { width: 0, height: 0 }
+  } = style;
 
   const borderInsets =
     borderStyle === "solid" ? scaleSides(borderWidths, 0.5) : [0, 0, 0, 0];
+  const [r, g, b, a] = chroma(shadowColor)
+    .alpha(shadowOpacity)
+    .rgba();
   const backgroundCtx = backend.beginShape();
   drawRect(backgroundCtx, layout, borderRadii, borderInsets);
-  backend.commitShape({ fill: style.backgroundColor || "none" });
+  backend.commitShape({
+    fill: style.backgroundColor || "none",
+    shadowColor: `rgba(${r}, ${g}, ${b}, ${a})`,
+    shadowBlur: shadowRadius,
+    shadowOffsetX: shadowOffset.width,
+    shadowOffsetY: shadowOffset.height
+  });
 
   if (sidesEqual(borderWidths) && sidesEqual(borderColors)) {
     // The border is consistent in width and colour. It doesn't matter if it's solid

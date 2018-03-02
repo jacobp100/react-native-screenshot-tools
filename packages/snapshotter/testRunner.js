@@ -16,6 +16,7 @@ module.exports = async (
     tests.push({ title, fn });
   };
 
+  runtime.requireModule(require.resolve("./customMocks"));
   runtime.requireModule(testFilePath);
 
   const errorPromises = tests.map(async ({ fn, title }) => {
