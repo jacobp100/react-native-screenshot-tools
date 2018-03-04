@@ -14,6 +14,7 @@ module.exports = async (
   const settings = config.testEnvironmentOptions;
 
   const tests = [];
+  environment.global.snapshotterSettings = settings;
   environment.global.snapshot = (title, fn) => {
     tests.push({ title, fn });
   };
@@ -26,7 +27,7 @@ module.exports = async (
       const jsx = fn();
       const svg = await renderToSvg(jsx, settings);
       await promisify(fs.writeFile)(
-        path.join(testFilePath, "..", `${title}.svg`),
+        path.join(testFilePath, "..", `${title}-${settings.name}.svg`),
         svg
       );
       return { title, error: null };

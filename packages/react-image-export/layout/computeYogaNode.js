@@ -73,6 +73,8 @@ module.exports = (style, config) => {
   if (style.maxHeight != null) yogaNode.setMaxHeight(style.maxHeight);
   if (style.maxWidth != null) yogaNode.setMaxWidth(style.maxWidth);
 
+  if (style.aspectRatio != null) yogaNode.setAspectRatio(style.aspectRatio);
+
   // Margin
   if (style.marginTop != null) {
     yogaNode.setMargin(yoga.EDGE_TOP, style.marginTop);

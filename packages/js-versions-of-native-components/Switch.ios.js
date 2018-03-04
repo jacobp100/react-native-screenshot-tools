@@ -1,10 +1,12 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 
+const baseBorderWidth = 1 + StyleSheet.hairlineWidth;
+
 const base = {
-  width: 51,
-  height: 31,
-  borderWidth: 1 + StyleSheet.hairlineWidth,
+  width: 48 + 2 * baseBorderWidth,
+  height: 28 + 2 * baseBorderWidth,
+  borderWidth: baseBorderWidth,
   borderRadius: 1000,
   flexDirection: "row",
   alignItems: "center"
@@ -63,7 +65,7 @@ module.exports = ({
 
   return (
     <View style={[base, trackStyle]}>
-      <View style={{ width: 28, height: 28 }}>
+      <View style={{ height: "100%", aspectRatio: 1 }}>
         <ThumbDropShadow
           backgroundColor={trackBackground}
           radius={8}
