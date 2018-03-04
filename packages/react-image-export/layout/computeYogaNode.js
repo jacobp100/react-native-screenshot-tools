@@ -59,10 +59,7 @@ const flexWrap = {
   "wrap-reverse": yoga.WRAP_WRAP_REVERSE
 };
 
-const config = yoga.Config.create();
-config.setPointScaleFactor(2);
-
-module.exports = style => {
+module.exports = (style, config) => {
   const yogaNode = yoga.Node.createWithConfig(config);
 
   if (style == null) return yogaNode;

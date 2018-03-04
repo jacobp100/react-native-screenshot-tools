@@ -11,6 +11,8 @@ module.exports = async (
   runtime,
   testFilePath
 ) => {
+  const settings = config.testEnvironmentOptions;
+
   const tests = [];
   environment.global.snapshot = (title, fn) => {
     tests.push({ title, fn });
@@ -22,7 +24,7 @@ module.exports = async (
   const errorPromises = tests.map(async ({ fn, title }) => {
     try {
       const jsx = fn();
-      const svg = await renderToSvg(jsx);
+      const svg = await renderToSvg(jsx, settings);
       await promisify(fs.writeFile)(
         path.join(testFilePath, "..", `${title}.svg`),
         svg

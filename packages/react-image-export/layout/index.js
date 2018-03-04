@@ -20,6 +20,12 @@ const getChildHostInstanceType = element =>
 
 const viewsWithLayout = ["View", "Text", "Image"];
 
+const getConfig = settings => {
+  const config = yoga.Config.create();
+  config.setPointScaleFactor(settings.dpi);
+  return config;
+};
+
 /*
 jest-preset-react-native mocks View components with a class that renders View host components,
 meaning one View has a component node and a host node. We can keep track of the component node's
@@ -28,6 +34,8 @@ instance for layouts, but we end up using the host node for rendering.
 const computeLayout = (
   backend,
   testRendererInstance,
+  settings,
+  config = getConfig(settings),
   previousLayouts = new WeakMap()
 ) => {
   const rootElement = testRendererInstance.toTree();
@@ -45,7 +53,7 @@ const computeLayout = (
     const style = flattenStyle(props.style) || {};
     styles.set(instance, style);
 
-    const node = computeYogaNode(style);
+    const node = computeYogaNode(style, config);
 
     let returnValue;
     if (childHostInstanceType === "Text") {
@@ -76,7 +84,7 @@ const computeLayout = (
 
   if (!rootNode) throw new Error("Expected to find a root node");
 
-  rootNode.calculateLayout(500, 500, yoga.DIRECTION_LTR);
+  rootNode.calculateLayout(settings.width, settings.height, yoga.DIRECTION_LTR);
 
   depthFirst(element => {
     if (getChildHostInstanceType(element) == null) return;
@@ -106,7 +114,7 @@ const computeLayout = (
   });
 
   return updateRecords.size > 0
-    ? computeLayout(backend, testRendererInstance, layouts)
+    ? computeLayout(backend, testRendererInstance, settings, config, layouts)
     : { styles, layouts, texts };
 };
 
@@ -154,7 +162,7 @@ const treeToJson = (element, params, layout, style, text) => {
   }
 };
 
-module.exports = (backend, testRendererInstance) => {
-  const params = computeLayout(backend, testRendererInstance);
+module.exports = (backend, testRendererInstance, settings) => {
+  const params = computeLayout(backend, testRendererInstance, settings);
   return treeToJson(testRendererInstance.toTree(), params)[0];
 };

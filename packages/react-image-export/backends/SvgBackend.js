@@ -103,7 +103,7 @@ module.exports = class SvgBackend {
         .appendTo($filter);
       const $merge = this.$("<feMerge />");
       this.$("<feMergeNode />").appendTo($merge);
-      this.$("<feMergeNode")
+      this.$("<feMergeNode />")
         .attr("in", "SourceGraphic")
         .appendTo($merge);
       $merge.appendTo($filter);

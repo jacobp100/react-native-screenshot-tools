@@ -7,10 +7,7 @@ const render = require("./render");
 const defaultSettings = {
   width: 500,
   height: 500,
-  fontCache: { fonts: {}, fallbacks: {} },
-  basePath: "./",
-  renderPath: "./",
-  assetMap: {}
+  dpi: 2
 };
 
 const getInstance = rootInstanceOrJsx => {
