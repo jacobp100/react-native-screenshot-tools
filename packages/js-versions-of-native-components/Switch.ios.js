@@ -1,7 +1,8 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 
-const baseBorderWidth = 1 + StyleSheet.hairlineWidth;
+// Only tested for 2x and 3x. We don't have a 1x device.
+const baseBorderWidth = 2 - StyleSheet.hairlineWidth;
 
 const base = {
   width: 48 + 2 * baseBorderWidth,
