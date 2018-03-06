@@ -42,6 +42,13 @@ const devices = [
     height: 812,
     dpi: 3,
     platform: "ios"
+  },
+  {
+    name: "Some-Android-Phone",
+    width: 320,
+    height: 568,
+    dpi: 2,
+    platform: "android"
   }
 ];
 
@@ -50,6 +57,11 @@ devices.reduce(async (p, settings) => {
 
   const config = {
     preset: "react-native",
+    haste: {
+      defaultPlatform: settings.platform,
+      platforms: ["android", "ios", "native"],
+      providesModuleNodeModules: ["react-native"]
+    },
     testMatch: ["**/__snapshotter__/**/*.js"],
     testRunner: require.resolve("./testRunner"),
     reporters: [require.resolve("./reporter")],
