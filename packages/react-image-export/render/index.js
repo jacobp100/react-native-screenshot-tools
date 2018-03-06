@@ -1,16 +1,16 @@
 const renderViewBackground = require("./viewBackground");
 
 const renderers = {
-  View(backend, node, layout) {
-    renderViewBackground(backend, layout, node.style);
+  View(backend, node, layout, settings) {
+    renderViewBackground(backend, layout, settings, node.style);
   },
   Text(backend, node, layout) {
     backend.fillLines(node.text, layout);
   }
 };
 
-const renderNode = (backend, node, settings) =>
-  renderers[node.type](backend, node, settings);
+const renderNode = (backend, node, layout, settings) =>
+  renderers[node.type](backend, node, layout, settings);
 
 const recurseTree = async (
   backend,

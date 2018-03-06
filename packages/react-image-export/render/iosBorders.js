@@ -1,743 +1,509 @@
-function addCustomRoundedRect1() {
-  context.moveTo(
-    originX + 1.52866483 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius
+function addCustomRoundedRect1(ctx, x, y, width, height, r, r2) {
+  ctx.moveTo(x + 1.528 * r2, y);
+  ctx.lineTo(x + width - 1.528 * r2, y);
+  ctx.bezierCurveTo(
+    x + width - 1.088 * r2,
+    y,
+    x + width - 0.868 * r2,
+    y,
+    x + width - 0.669 * r2,
+    y + 0.065 * r2
   );
-  context.lineTo(
-    originX + width - 1.52866471 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius
+  ctx.lineTo(x + width - 0.631 * r2, y + 0.074 * r2);
+  ctx.bezierCurveTo(
+    x + width - 0.372 * r2,
+    y + 0.169 * r2,
+    x + width - 0.169 * r2,
+    y + 0.372 * r2,
+    x + width - 0.074 * r2,
+    y + 0.631 * r2
   );
-  context.bezierCurveTo(
-    originX + width - 1.08849323 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius,
-    originX + width - 0.86840689 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius,
-    originX + width - 0.66993427 * limitedCornerRadius,
-    originY + 0.065496 * limitedCornerRadius
+  ctx.bezierCurveTo(
+    x + width,
+    y + 0.868 * r2,
+    x + width,
+    y + 1.088 * r2,
+    x + width,
+    y + 1.528 * r2
   );
-  context.lineTo(
-    originX + width - 0.63149399 * limitedCornerRadius,
-    originY + 0.074911 * limitedCornerRadius
+  ctx.lineTo(x + width, y + height - 1.528 * r2);
+  ctx.bezierCurveTo(
+    x + width,
+    y + height - 1.088 * r2,
+    x + width,
+    y + height - 0.868 * r2,
+    x + width - 0.065 * r2,
+    y + height - 0.669 * r2
   );
-  context.bezierCurveTo(
-    originX + width - 0.37282392 * limitedCornerRadius,
-    originY + 0.16905899 * limitedCornerRadius,
-    originX + width - 0.16906013 * limitedCornerRadius,
-    originY + 0.37282401 * limitedCornerRadius,
-    originX + width - 0.07491176 * limitedCornerRadius,
-    originY + 0.63149399 * limitedCornerRadius
+  ctx.lineTo(x + width - 0.074 * r2, y + height - 0.631 * r2);
+  ctx.bezierCurveTo(
+    x + width - 0.169 * r2,
+    y + height - 0.372 * r2,
+    x + width - 0.372 * r2,
+    y + height - 0.169 * r2,
+    x + width - 0.631 * r2,
+    y + height - 0.074 * r2
   );
-  context.bezierCurveTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + 0.86840701 * limitedCornerRadius,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + 1.08849299 * limitedCornerRadius,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + 1.52866483 * limitedCornerRadius
+  ctx.bezierCurveTo(
+    x + width - 0.868 * r2,
+    y + height,
+    x + width - 1.088 * r2,
+    y + height,
+    x + width - 1.528 * r2,
+    y + height
   );
-  context.lineTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height - 1.52866471 * limitedCornerRadius
+  ctx.lineTo(x + 1.528 * r2, y + height);
+  ctx.bezierCurveTo(
+    x + 1.088 * r2,
+    y + height,
+    x + 0.868 * r2,
+    y + height,
+    x + 0.669 * r2,
+    y + height - 0.065 * r2
   );
-  context.bezierCurveTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height - 1.08849323 * limitedCornerRadius,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height - 0.86840689 * limitedCornerRadius,
-    originX + width - 0.06549569 * limitedCornerRadius,
-    originY + height - 0.66993493 * limitedCornerRadius
+  ctx.lineTo(x + 0.631 * r2, y + height - 0.074 * r2);
+  ctx.bezierCurveTo(
+    x + 0.372 * r2,
+    y + height - 0.169 * r2,
+    x + 0.169 * r2,
+    y + height - 0.372 * r2,
+    x + 0.074 * r2,
+    y + height - 0.631 * r2
   );
-  context.lineTo(
-    originX + width - 0.07491111 * limitedCornerRadius,
-    originY + height - 0.63149399 * limitedCornerRadius
+  ctx.bezierCurveTo(
+    x,
+    y + height - 0.868 * r2,
+    x,
+    y + height - 1.088 * r2,
+    x,
+    y + height - 1.528 * r2
   );
-  context.bezierCurveTo(
-    originX + width - 0.16905883 * limitedCornerRadius,
-    originY + height - 0.37282392 * limitedCornerRadius,
-    originX + width - 0.37282392 * limitedCornerRadius,
-    originY + height - 0.16905883 * limitedCornerRadius,
-    originX + width - 0.63149399 * limitedCornerRadius,
-    originY + height - 0.07491111 * limitedCornerRadius
+  ctx.lineTo(x, y + 1.528 * r2);
+  ctx.bezierCurveTo(
+    x,
+    y + 1.088 * r2,
+    x,
+    y + 0.868 * r2,
+    x + 0.065 * r2,
+    y + 0.669 * r2
   );
-  context.bezierCurveTo(
-    originX + width - 0.86840689 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width - 1.08849323 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width - 1.52866471 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius
+  ctx.lineTo(x + 0.074 * r2, y + 0.631 * r2);
+  ctx.bezierCurveTo(
+    x + 0.169 * r2,
+    y + 0.372 * r2,
+    x + 0.372 * r2,
+    y + 0.169 * r2,
+    x + 0.631 * r2,
+    y + 0.074 * r2
   );
-  context.lineTo(
-    originX + 1.52866483 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 1.08849299 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + 0.86840701 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + 0.66993397 * limitedCornerRadius,
-    originY + height - 0.06549569 * limitedCornerRadius
-  );
-  context.lineTo(
-    originX + 0.63149399 * limitedCornerRadius,
-    originY + height - 0.07491111 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 0.37282401 * limitedCornerRadius,
-    originY + height - 0.16905883 * limitedCornerRadius,
-    originX + 0.16906001 * limitedCornerRadius,
-    originY + height - 0.37282392 * limitedCornerRadius,
-    originX + 0.074911 * limitedCornerRadius,
-    originY + height - 0.63149399 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 0.0 * limitedCornerRadius,
-    originY + height - 0.86840689 * limitedCornerRadius,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height - 1.08849323 * limitedCornerRadius,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height - 1.52866471 * limitedCornerRadius
-  );
-  context.lineTo(
-    originX + 0.0 * limitedCornerRadius,
-    originY + 1.52866483 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 0.0 * limitedCornerRadius,
-    originY + 1.08849299 * limitedCornerRadius,
-    originX + 0.0 * limitedCornerRadius,
-    originY + 0.86840701 * limitedCornerRadius,
-    originX + 0.065496 * limitedCornerRadius,
-    originY + 0.66993397 * limitedCornerRadius
-  );
-  context.lineTo(
-    originX + 0.074911 * limitedCornerRadius,
-    originY + 0.63149399 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 0.16906001 * limitedCornerRadius,
-    originY + 0.37282401 * limitedCornerRadius,
-    originX + 0.37282401 * limitedCornerRadius,
-    originY + 0.16906001 * limitedCornerRadius,
-    originX + 0.63149399 * limitedCornerRadius,
-    originY + 0.074911 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 0.86840701 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius,
-    originX + 1.08849299 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius,
-    originX + 1.52866483 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius
-  );
+  ctx.bezierCurveTo(x + 0.868 * r2, y, x + 1.088 * r2, y, x + 1.528 * r2, y);
 }
 
-function addCustomRoundedRect2a() {
-  context.moveTo(
-    originX + 2.00593972 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius
+function addCustomRoundedRect2a(ctx, x, y, width, height, r, r2) {
+  ctx.moveTo(x + 2.005 * r2, y);
+  ctx.lineTo(x + width - 1.528 * r, y);
+  ctx.bezierCurveTo(
+    x + width - 1.635 * r2,
+    y,
+    x + width - 1.298 * r2,
+    y,
+    x + width - 0.995 * r2,
+    y + 0.1 * r2
   );
-  context.lineTo(
-    originX + width - 1.52866483 * cornerRadius,
-    originY + 0 * cornerRadius
+  ctx.lineTo(x + width - 0.936 * r2, y + 0.114 * r2);
+  ctx.bezierCurveTo(
+    x + width - 0.374 * r2,
+    y + 0.319 * r2,
+    x + width,
+    y + 0.853 * r2,
+    x + width,
+    y + 1.452 * r2
   );
-  context.bezierCurveTo(
-    originX + width - 1.63527834 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius,
-    originX + width - 1.2988404 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius,
-    originX + width - 0.99544263 * limitedCornerRadius,
-    originY + 0.10012127 * limitedCornerRadius
+  ctx.bezierCurveTo(
+    x + width,
+    y + height / 2,
+    x + width,
+    y + height / 2,
+    x + width,
+    y + height / 2
   );
-  context.lineTo(
-    originX + width - 0.93667978 * limitedCornerRadius,
-    originY + 0.11451437 * limitedCornerRadius
+  ctx.lineTo(x + width, y + height / 2);
+  ctx.bezierCurveTo(
+    x + width,
+    y + height / 2,
+    x + width,
+    y + height / 2,
+    x + width,
+    y + height / 2
   );
-  context.bezierCurveTo(
-    originX + width - 0.37430558 * limitedCornerRadius,
-    originY + 0.31920183 * limitedCornerRadius,
-    originX + width - 0.00000051 * limitedCornerRadius,
-    originY + 0.85376567 * limitedCornerRadius,
-    originX + width - 0.00000051 * limitedCornerRadius,
-    originY + 1.45223188 * limitedCornerRadius
+  ctx.lineTo(x + width, y + height - 1.452 * r2);
+  ctx.bezierCurveTo(
+    x + width,
+    y + height - 0.853 * r2,
+    x + width - 0.374 * r2,
+    y + height - 0.319 * r2,
+    x + width - 0.936 * r2,
+    y + height - 0.114 * r2
   );
-  context.bezierCurveTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2
+  ctx.bezierCurveTo(
+    x + width - 1.298 * r2,
+    y + height,
+    x + width - 1.635 * r2,
+    y + height,
+    x + width - 2.308 * r2,
+    y + height
   );
-  context.lineTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2
+  ctx.lineTo(x + 1.528 * r, y + height);
+  ctx.bezierCurveTo(
+    x + 1.635 * r2,
+    y + height,
+    x + 1.298 * r2,
+    y + height,
+    x + 0.995 * r2,
+    y + height - 0.1 * r2
   );
-  context.bezierCurveTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2
+  ctx.lineTo(x + 0.936 * r2, y + height - 0.114 * r2);
+  ctx.bezierCurveTo(
+    x + 0.374 * r2,
+    y + height - 0.319 * r2,
+    x,
+    y + height - 0.853 * r2,
+    x,
+    y + height - 1.452 * r2
   );
-  context.lineTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height - 1.45223165 * limitedCornerRadius
+  ctx.bezierCurveTo(x, y + height / 2, x, y + height / 2, x, y + height / 2);
+  ctx.lineTo(x, y + height / 2);
+  ctx.bezierCurveTo(x, y + height / 2, x, y + height / 2, x, y + height / 2);
+  ctx.lineTo(x, y + 1.452 * r2);
+  ctx.bezierCurveTo(
+    x,
+    y + 0.853 * r2,
+    x + 0.374 * r2,
+    y + 0.319 * r2,
+    x + 0.936 * r2,
+    y + 0.114 * r2
   );
-  context.bezierCurveTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height - 0.85376561 * limitedCornerRadius,
-    originX + width - 0.37430558 * limitedCornerRadius,
-    originY + height - 0.31920174 * limitedCornerRadius,
-    originX + width - 0.93667978 * limitedCornerRadius,
-    originY + height - 0.11451438 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + width - 1.2988404 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width - 1.63527834 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width - 2.30815363 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius
-  );
-  context.lineTo(
-    originX + 1.52866483 * cornerRadius,
-    originY + height - 0 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 1.63527822 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + 1.2988404 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + 0.99544257 * limitedCornerRadius,
-    originY + height - 0.10012124 * limitedCornerRadius
-  );
-  context.lineTo(
-    originX + 0.93667972 * limitedCornerRadius,
-    originY + height - 0.11451438 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 0.37430549 * limitedCornerRadius,
-    originY + height - 0.31920174 * limitedCornerRadius,
-    originX + -0.00000007 * limitedCornerRadius,
-    originY + height - 0.85376561 * limitedCornerRadius,
-    originX + -0.00000001 * limitedCornerRadius,
-    originY + height - 1.45223176 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height / 2
-  );
-  context.lineTo(originX + 0.0 * limitedCornerRadius, originY + height / 2);
-  context.bezierCurveTo(
-    originX + 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height / 2
-  );
-  context.lineTo(
-    originX + -0.00000001 * limitedCornerRadius,
-    originY + 1.45223153 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 0.00000004 * limitedCornerRadius,
-    originY + 0.85376537 * limitedCornerRadius,
-    originX + 0.37430561 * limitedCornerRadius,
-    originY + 0.31920177 * limitedCornerRadius,
-    originX + 0.93667978 * limitedCornerRadius,
-    originY + 0.11451436 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 1.2988404 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius,
-    originX + 1.63527822 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius,
-    originX + 2.30815363 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius
-  );
-  context.lineTo(
-    originX + 1.52866483 * cornerRadius,
-    originY + 0 * cornerRadius
-  );
-  context.lineTo(
-    originX + 2.00593972 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius
-  );
+  ctx.bezierCurveTo(x + 1.298 * r2, y, x + 1.635 * r2, y, x + 2.308 * r2, y);
+  ctx.lineTo(x + 1.528 * r, y);
+  ctx.lineTo(x + 2.005 * r2, y);
 }
 
-function addCustomRoundedRect2b() {
-  context.moveTo(originX + width / 2, originY + 0.0 * limitedCornerRadius);
-  context.lineTo(originX + width / 2, originY + 0.0 * limitedCornerRadius);
-  context.bezierCurveTo(
-    originX + width / 2,
-    originY + 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + 0.0 * limitedCornerRadius
+function addCustomRoundedRect2b(ctx, x, y, width, height, r, r2) {
+  ctx.moveTo(x + width / 2, y);
+  ctx.lineTo(x + width / 2, y);
+  ctx.bezierCurveTo(x + width / 2, y, x + width / 2, y, x + width / 2, y);
+  ctx.lineTo(x + width - 1.452 * r2, y);
+  ctx.bezierCurveTo(
+    x + width - 0.853 * r2,
+    y,
+    x + width - 0.319 * r2,
+    y + 0.374 * r2,
+    x + width - 0.114 * r2,
+    y + 0.936 * r2
   );
-  context.lineTo(
-    originX + width - 1.45223153 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius
+  ctx.bezierCurveTo(
+    x + width,
+    y + 1.298 * r2,
+    x + width,
+    y + 1.635 * r2,
+    x + width,
+    y + 2.308 * r2
   );
-  context.bezierCurveTo(
-    originX + width - 0.85376573 * limitedCornerRadius,
-    originY + 0.00000001 * limitedCornerRadius,
-    originX + width - 0.31920189 * limitedCornerRadius,
-    originY + 0.37430537 * limitedCornerRadius,
-    originX + width - 0.11451442 * limitedCornerRadius,
-    originY + 0.93667936 * limitedCornerRadius
+  ctx.lineTo(x + width, y + height - 1.528 * r);
+  ctx.bezierCurveTo(
+    x + width,
+    y + height - 1.635 * r2,
+    x + width,
+    y + height - 1.298 * r2,
+    x + width - 0.1 * r2,
+    y + height - 0.995 * r2
   );
-  context.bezierCurveTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + 1.2988404 * limitedCornerRadius,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + 1.63527822 * limitedCornerRadius,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + 2.30815387 * limitedCornerRadius
+  ctx.lineTo(x + width - 0.114 * r2, y + height - 0.936 * r2);
+  ctx.bezierCurveTo(
+    x + width - 0.319 * r2,
+    y + height - 0.374 * r2,
+    x + width - 0.853 * r2,
+    y + height,
+    x + width - 1.452 * r2,
+    y + height
   );
-  context.lineTo(
-    originX + width - 0 * cornerRadius,
-    originY + height - 1.52866483 * cornerRadius
+  ctx.bezierCurveTo(
+    x + width / 2,
+    y + height,
+    x + width / 2,
+    y + height,
+    x + width / 2,
+    y + height
   );
-  context.bezierCurveTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height - 1.63527822 * limitedCornerRadius,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height - 1.29884028 * limitedCornerRadius,
-    originX + width - 0.10012137 * limitedCornerRadius,
-    originY + height - 0.99544269 * limitedCornerRadius
+  ctx.lineTo(x + width / 2, y + height);
+  ctx.bezierCurveTo(
+    x + width / 2,
+    y + height,
+    x + width / 2,
+    y + height,
+    x + width / 2,
+    y + height
   );
-  context.lineTo(
-    originX + width - 0.11451442 * limitedCornerRadius,
-    originY + height - 0.93667972 * limitedCornerRadius
+  ctx.lineTo(x + 1.452 * r2, y + height);
+  ctx.bezierCurveTo(
+    x + 0.853 * r2,
+    y + height,
+    x + 0.319 * r2,
+    y + height - 0.374 * r2,
+    x + 0.114 * r2,
+    y + height - 0.936 * r2
   );
-  context.bezierCurveTo(
-    originX + width - 0.31920189 * limitedCornerRadius,
-    originY + height - 0.37430552 * limitedCornerRadius,
-    originX + width - 0.85376549 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width - 1.45223165 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius
+  ctx.bezierCurveTo(
+    x,
+    y + height - 1.298 * r2,
+    x,
+    y + height - 1.635 * r2,
+    x,
+    y + height - 2.308 * r2
   );
-  context.bezierCurveTo(
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius
+  ctx.lineTo(x, y + 1.528 * r);
+  ctx.bezierCurveTo(
+    x,
+    y + 1.635 * r2,
+    x,
+    y + 1.298 * r2,
+    x + 0.1 * r2,
+    y + 0.995 * r2
   );
-  context.lineTo(
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius
+  ctx.lineTo(x + 0.114 * r2, y + 0.936 * r2);
+  ctx.bezierCurveTo(
+    x + 0.319 * r2,
+    y + 0.374 * r2,
+    x + 0.853 * r2,
+    y,
+    x + 1.452 * r2,
+    y
   );
-  context.bezierCurveTo(
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius
-  );
-  context.lineTo(
-    originX + 1.45223141 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 0.85376543 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + 0.31920192 * limitedCornerRadius,
-    originY + height - 0.37430552 * limitedCornerRadius,
-    originX + 0.11451446 * limitedCornerRadius,
-    originY + height - 0.93667972 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 0.0 * limitedCornerRadius,
-    originY + height - 1.29884028 * limitedCornerRadius,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height - 1.63527822 * limitedCornerRadius,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height - 2.30815387 * limitedCornerRadius
-  );
-  context.lineTo(
-    originX + 0 * cornerRadius,
-    originY + 1.52866483 * cornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 0.0 * limitedCornerRadius,
-    originY + 1.63527822 * limitedCornerRadius,
-    originX + 0.0 * limitedCornerRadius,
-    originY + 1.2988404 * limitedCornerRadius,
-    originX + 0.10012126 * limitedCornerRadius,
-    originY + 0.99544257 * limitedCornerRadius
-  );
-  context.lineTo(
-    originX + 0.11451443 * limitedCornerRadius,
-    originY + 0.93667966 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 0.31920189 * limitedCornerRadius,
-    originY + 0.37430552 * limitedCornerRadius,
-    originX + 0.85376549 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius,
-    originX + 1.45223153 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + width / 2,
-    originY + 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + 0.0 * limitedCornerRadius
-  );
-  context.lineTo(originX + width / 2, originY + 0.0 * limitedCornerRadius);
+  ctx.bezierCurveTo(x + width / 2, y, x + width / 2, y, x + width / 2, y);
+  ctx.lineTo(x + width / 2, y);
 }
 
-function addCustomRoundedRect3a() {
-  context.moveTo(originX + width / 2, originY + 0.0 * limitedCornerRadius);
-  context.lineTo(originX + width / 2, originY + 0.0 * limitedCornerRadius);
-  context.bezierCurveTo(
-    originX + width / 2,
-    originY + 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + 0.0 * limitedCornerRadius
+function addCustomRoundedRect3a(ctx, x, y, width, height, r, r2) {
+  ctx.moveTo(x + width / 2, y);
+  ctx.lineTo(x + width / 2, y);
+  ctx.bezierCurveTo(x + width / 2, y, x + width / 2, y, x + width / 2, y);
+  ctx.lineTo(x + width / 2, y);
+  ctx.bezierCurveTo(
+    x + width - 0.684 * r2,
+    y,
+    x + width,
+    y + 0.684 * r2,
+    x + width,
+    y + 1.528 * r2
   );
-  context.lineTo(originX + width / 2, originY + 0.0 * limitedCornerRadius);
-  context.bezierCurveTo(
-    originX + width - 0.68440646 * limitedCornerRadius,
-    originY + 0.00000001 * limitedCornerRadius,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + 0.68440658 * limitedCornerRadius,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + 1.52866483 * limitedCornerRadius
+  ctx.bezierCurveTo(
+    x + width,
+    y + 1.528 * r2,
+    x + width,
+    y + 1.528 * r2,
+    x + width,
+    y + 1.528 * r2
   );
-  context.bezierCurveTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + 1.52866495 * limitedCornerRadius,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + 1.52866495 * limitedCornerRadius,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + 1.52866507 * limitedCornerRadius
+  ctx.bezierCurveTo(
+    x + width,
+    y + 1.528 * r2,
+    x + width,
+    y + 1.528 * r2,
+    x + width,
+    y + 1.528 * r2
   );
-  context.bezierCurveTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + 1.52866483 * limitedCornerRadius,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + 1.52866483 * limitedCornerRadius,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + 1.52866483 * limitedCornerRadius
+  ctx.lineTo(x + width, y + height / 2);
+  ctx.bezierCurveTo(
+    x + width,
+    y + height - 1.528 * r2,
+    x + width,
+    y + height - 1.528 * r2,
+    x + width,
+    y + height - 1.528 * r2
   );
-  context.lineTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2
+  ctx.lineTo(x + width, y + height - 1.528 * r2);
+  ctx.bezierCurveTo(
+    x + width,
+    y + height - 0.684 * r2,
+    x + width - 0.684 * r2,
+    y + height,
+    x + width / 2,
+    y + height
   );
-  context.bezierCurveTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height - 1.52866471 * limitedCornerRadius,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height - 1.52866471 * limitedCornerRadius,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height - 1.52866471 * limitedCornerRadius
+  ctx.bezierCurveTo(
+    x + width / 2,
+    y + height,
+    x + width / 2,
+    y + height,
+    x + width / 2,
+    y + height
   );
-  context.lineTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height - 1.52866471 * limitedCornerRadius
+  ctx.bezierCurveTo(
+    x + width / 2,
+    y + height,
+    x + width / 2,
+    y + height,
+    x + width / 2,
+    y + height
   );
-  context.bezierCurveTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height - 0.68440646 * limitedCornerRadius,
-    originX + width - 0.68440646 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius
+  ctx.lineTo(x + width / 2, y + height);
+  ctx.bezierCurveTo(
+    x + width / 2,
+    y + height,
+    x + width / 2,
+    y + height,
+    x + width / 2,
+    y + height
   );
-  context.bezierCurveTo(
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius
+  ctx.lineTo(x + width / 2, y + height);
+  ctx.bezierCurveTo(
+    x + 0.684 * r2,
+    y + height,
+    x,
+    y + height - 0.684 * r2,
+    x,
+    y + height - 1.528 * r2
   );
-  context.bezierCurveTo(
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius
+  ctx.bezierCurveTo(
+    x,
+    y + height - 1.528 * r2,
+    x,
+    y + height - 1.528 * r2,
+    x,
+    y + height - 1.528 * r2
   );
-  context.lineTo(
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius
+  ctx.bezierCurveTo(
+    x,
+    y + height - 1.528 * r2,
+    x,
+    y + height - 1.528 * r2,
+    x,
+    y + height - 1.528 * r2
   );
-  context.bezierCurveTo(
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius
-  );
-  context.lineTo(
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 0.68440646 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + -0.00000004 * limitedCornerRadius,
-    originY + height - 0.68440646 * limitedCornerRadius,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height - 1.52866471 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 0.0 * limitedCornerRadius,
-    originY + height - 1.52866471 * limitedCornerRadius,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height - 1.52866495 * limitedCornerRadius,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height - 1.52866495 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 0.0 * limitedCornerRadius,
-    originY + height - 1.52866471 * limitedCornerRadius,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height - 1.52866471 * limitedCornerRadius,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height - 1.52866471 * limitedCornerRadius
-  );
-  context.lineTo(originX + 0.0 * limitedCornerRadius, originY + height / 2);
-  context.bezierCurveTo(
-    originX + 0.0 * limitedCornerRadius,
-    originY + 1.52866483 * limitedCornerRadius,
-    originX + 0.0 * limitedCornerRadius,
-    originY + 1.52866483 * limitedCornerRadius,
-    originX + 0.0 * limitedCornerRadius,
-    originY + 1.52866483 * limitedCornerRadius
-  );
-  context.lineTo(
-    originX + 0.0 * limitedCornerRadius,
-    originY + 1.52866471 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 0.00000007 * limitedCornerRadius,
-    originY + 0.68440652 * limitedCornerRadius,
-    originX + 0.68440658 * limitedCornerRadius,
-    originY + -0.00000001 * limitedCornerRadius,
-    originX + width / 2,
-    originY + 0.0 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + width / 2,
-    originY + 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + 0.0 * limitedCornerRadius,
-    originX + width / 2,
-    originY + 0.0 * limitedCornerRadius
-  );
-  context.lineTo(originX + width / 2, originY + 0.0 * limitedCornerRadius);
+  ctx.lineTo(x, y + height / 2);
+  ctx.bezierCurveTo(x, y + 1.528 * r2, x, y + 1.528 * r2, x, y + 1.528 * r2);
+  ctx.lineTo(x, y + 1.528 * r2);
+  ctx.bezierCurveTo(x, y + 0.684 * r2, x + 0.684 * r2, y, x + width / 2, y);
+  ctx.bezierCurveTo(x + width / 2, y, x + width / 2, y, x + width / 2, y);
+  ctx.lineTo(x + width / 2, y);
 }
 
-function addCustomRoundedRect3b() {
-  context.moveTo(originX + width / 2, originY + 0.0 * limitedCornerRadius);
-  context.lineTo(originX + width / 2, originY + 0.0 * limitedCornerRadius);
-  context.bezierCurveTo(
-    originX + width - 1.52866495 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius,
-    originX + width - 1.52866495 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius,
-    originX + width - 1.52866495 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius
+function addCustomRoundedRect3b(ctx, x, y, width, height, r, r2) {
+  ctx.moveTo(x + width / 2, y);
+  ctx.lineTo(x + width / 2, y);
+  ctx.bezierCurveTo(
+    x + width - 1.528 * r2,
+    y,
+    x + width - 1.528 * r2,
+    y,
+    x + width - 1.528 * r2,
+    y
   );
-  context.lineTo(
-    originX + width - 1.52866495 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius
+  ctx.lineTo(x + width - 1.528 * r2, y);
+  ctx.bezierCurveTo(
+    x + width - 0.684 * r2,
+    y,
+    x + width,
+    y + 0.684 * r2,
+    x + width,
+    y + height / 2
   );
-  context.bezierCurveTo(
-    originX + width - 0.68440676 * limitedCornerRadius,
-    originY + 0.00000001 * limitedCornerRadius,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + 0.68440658 * limitedCornerRadius,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2
+  ctx.bezierCurveTo(
+    x + width,
+    y + height / 2,
+    x + width,
+    y + height / 2,
+    x + width,
+    y + height / 2
   );
-  context.bezierCurveTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2
+  ctx.bezierCurveTo(
+    x + width,
+    y + height / 2,
+    x + width,
+    y + height / 2,
+    x + width,
+    y + height / 2
   );
-  context.bezierCurveTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2
+  ctx.lineTo(x + width, y + height / 2);
+  ctx.bezierCurveTo(
+    x + width,
+    y + height / 2,
+    x + width,
+    y + height / 2,
+    x + width,
+    y + height / 2
   );
-  context.lineTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2
+  ctx.lineTo(x + width, y + height / 2);
+  ctx.bezierCurveTo(
+    x + width,
+    y + height - 0.684 * r2,
+    x + width - 0.684 * r2,
+    y + height,
+    x + width - 1.528 * r2,
+    y + height
   );
-  context.bezierCurveTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2
+  ctx.bezierCurveTo(
+    x + width - 1.528 * r2,
+    y + height,
+    x + width - 1.528 * r2,
+    y + height,
+    x + width - 1.528 * r2,
+    y + height
   );
-  context.lineTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height / 2
+  ctx.bezierCurveTo(
+    x + width - 1.528 * r2,
+    y + height,
+    x + width - 1.528 * r2,
+    y + height,
+    x + width - 1.528 * r2,
+    y + height
   );
-  context.bezierCurveTo(
-    originX + width - 0.0 * limitedCornerRadius,
-    originY + height - 0.68440652 * limitedCornerRadius,
-    originX + width - 0.68440676 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width - 1.52866495 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius
+  ctx.lineTo(x + width / 2, y + height);
+  ctx.bezierCurveTo(
+    x + 1.528 * r2,
+    y + height,
+    x + 1.528 * r2,
+    y + height,
+    x + 1.528 * r2,
+    y + height
   );
-  context.bezierCurveTo(
-    originX + width - 1.52866495 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width - 1.52866495 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width - 1.52866495 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius
+  ctx.lineTo(x + 1.528 * r2, y + height);
+  ctx.bezierCurveTo(
+    x + 0.684 * r2,
+    y + height,
+    x,
+    y + height - 0.684 * r2,
+    x,
+    y + height / 2
   );
-  context.bezierCurveTo(
-    originX + width - 1.52866495 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width - 1.52866495 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + width - 1.52866495 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius
-  );
-  context.lineTo(
-    originX + width / 2,
-    originY + height - 0.0 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 1.52866483 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + 1.52866483 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + 1.52866483 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius
-  );
-  context.lineTo(
-    originX + 1.52866471 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 0.68440646 * limitedCornerRadius,
-    originY + height - 0.0 * limitedCornerRadius,
-    originX + -0.00000004 * limitedCornerRadius,
-    originY + height - 0.68440676 * limitedCornerRadius,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height / 2
-  );
-  context.bezierCurveTo(
-    originX + 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height / 2
-  );
-  context.bezierCurveTo(
-    originX + 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height / 2
-  );
-  context.lineTo(originX + 0.0 * limitedCornerRadius, originY + height / 2);
-  context.bezierCurveTo(
-    originX + 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height / 2,
-    originX + 0.0 * limitedCornerRadius,
-    originY + height / 2
-  );
-  context.lineTo(originX + 0.0 * limitedCornerRadius, originY + height / 2);
-  context.bezierCurveTo(
-    originX + 0.00000007 * limitedCornerRadius,
-    originY + 0.68440652 * limitedCornerRadius,
-    originX + 0.68440664 * limitedCornerRadius,
-    originY + -0.00000001 * limitedCornerRadius,
-    originX + 1.52866483 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius
-  );
-  context.bezierCurveTo(
-    originX + 1.52866483 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius,
-    originX + 1.52866483 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius,
-    originX + 1.52866483 * limitedCornerRadius,
-    originY + 0.0 * limitedCornerRadius
-  );
-  context.lineTo(originX + width / 2, originY + 0.0 * limitedCornerRadius);
+  ctx.bezierCurveTo(x, y + height / 2, x, y + height / 2, x, y + height / 2);
+  ctx.bezierCurveTo(x, y + height / 2, x, y + height / 2, x, y + height / 2);
+  ctx.lineTo(x, y + height / 2);
+  ctx.bezierCurveTo(x, y + height / 2, x, y + height / 2, x, y + height / 2);
+  ctx.lineTo(x, y + height / 2);
+  ctx.bezierCurveTo(x, y + 0.684 * r2, x + 0.684 * r2, y, x + 1.528 * r2, y);
+  ctx.bezierCurveTo(x + 1.528 * r2, y, x + 1.528 * r2, y, x + 1.528 * r2, y);
+  ctx.lineTo(x + width / 2, y);
 }
 
-module.exports = (ctx, { width, height }) => {
-  //// Color Declarations
-  var blackColor = "rgba(0, 0, 0, 1)";
-  var backgroundColor = "rgba(255, 255, 255, 1)";
-
-  //// Background Drawing
-  ctx.beginPath();
-  ctx.rect(0, 0, 640, 600);
-  ctx.fill();
-
-  originX = 25.0;
-  originY = 25.0;
-  limitedCornerRadius = Math.min(
+module.exports = (ctx, x, y, width, height, cornerRadius) => {
+  const limitedCornerRadius = Math.min(
     cornerRadius,
-    Math.min(width, height) / 2.0 / 1.52866483
+    Math.min(width, height) / 2.0 / 1.528
   );
 
-  //// Rounded Rectangle Drawing
-  ctx.beginPath();
-
-  if (
-    width > 1.52866495 * 2 * cornerRadius &&
-    height > 1.52866495 * 2 * cornerRadius
-  ) {
-    addCustomRoundedRect1();
-  } else if (width > 1.52866495 * 2 * cornerRadius) {
-    addCustomRoundedRect2a();
-  } else if (height > 1.52866495 * 2 * cornerRadius) {
-    addCustomRoundedRect2b();
+  const params = [ctx, x, y, width, height, cornerRadius, limitedCornerRadius];
+  if (width > 1.528 * 2 * cornerRadius && height > 1.528 * 2 * cornerRadius) {
+    addCustomRoundedRect1(...params);
+  } else if (width > 1.528 * 2 * cornerRadius) {
+    addCustomRoundedRect2a(...params);
+  } else if (height > 1.528 * 2 * cornerRadius) {
+    addCustomRoundedRect2b(...params);
   } else if (height > width) {
-    addCustomRoundedRect3a();
+    addCustomRoundedRect3a(...params);
   } else {
-    addCustomRoundedRect3b();
+    addCustomRoundedRect3b(...params);
   }
 
   ctx.closePath();
-
-  ctx.lineWidth = 2;
-  ctx.stroke();
-
-  ctx.stroke();
 };

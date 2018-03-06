@@ -1,4 +1,5 @@
 const chroma = require("chroma-js");
+const drawIosBorder = require("./iosBorders");
 const {
   ContinuationCommand,
   drawArc,
@@ -200,18 +201,30 @@ const drawSideStroke = (
 const drawAsSingleShape = (
   backend,
   layout,
+  settings,
   backgroundParams,
   borderRadius,
   borderWidth,
   borderColor
 ) => {
   const backgroundCtx = backend.beginShape();
-  drawRect(
-    backgroundCtx,
-    layout,
-    sidesOf(borderRadius),
-    sidesOf(borderWidth * 0.5)
-  );
+  if (settings.platform === "ios") {
+    drawIosBorder(
+      backgroundCtx,
+      layout.left + borderWidth / 2,
+      layout.top + borderWidth / 2,
+      layout.width - borderWidth,
+      layout.height - borderWidth,
+      borderRadius
+    );
+  } else {
+    drawRect(
+      backgroundCtx,
+      layout,
+      sidesOf(borderRadius),
+      sidesOf(borderWidth * 0.5)
+    );
+  }
   backend.commitShape({
     ...backgroundParams,
     stroke: borderColor,
@@ -222,6 +235,7 @@ const drawAsSingleShape = (
 const drawAsMultipleShapes = (
   backend,
   layout,
+  settings,
   backgroundParams,
   borderRadii,
   borderWidths,
@@ -262,7 +276,7 @@ const drawAsMultipleShapes = (
   }
 };
 
-module.exports = (backend, layout, style) => {
+module.exports = (backend, layout, settings, style) => {
   const borderWidths = getBorderWidth(style);
   const borderColors = getBorderColor(style);
   const borderRadii = getScaledBorderRadius(style, layout.width, layout.height);
@@ -297,6 +311,7 @@ module.exports = (backend, layout, style) => {
     drawAsSingleShape(
       backend,
       layout,
+      settings,
       backgroundParams,
       borderRadii[0],
       borderWidths[0],
@@ -306,6 +321,7 @@ module.exports = (backend, layout, style) => {
     drawAsMultipleShapes(
       backend,
       layout,
+      settings,
       backgroundParams,
       borderRadii,
       borderWidths,
