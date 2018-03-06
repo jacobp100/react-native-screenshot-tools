@@ -304,7 +304,8 @@ module.exports = (backend, layout, settings, style) => {
     sidesEqual(borderRadii) &&
     sidesEqual(borderWidths) &&
     sidesEqual(borderColors) &&
-    borderStyle === "solid"
+    borderStyle === "solid" &&
+    chroma(borderColors[0]).alpha() === 1
   ) {
     // This follows the logic in iOS for `useIOSBorderRendering`.
     // When we are here, we can (eventually) do smooth iOS borders (bugs and all).
