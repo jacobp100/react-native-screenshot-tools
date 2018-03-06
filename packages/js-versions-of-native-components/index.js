@@ -1,1 +1,2 @@
-module.exports.Switch = require("./Switch");
+export { default as Slider } from "./Slider";
+export { default as Switch } from "./Switch";

@@ -1,5 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
+import Thumb from "./util/Thumb";
 
 // Only tested for 2x and 3x. We don't have a 1x device.
 const baseBorderWidth = 2 - StyleSheet.hairlineWidth;
@@ -13,49 +14,12 @@ const base = {
   alignItems: "center"
 };
 
-const thumbElement = {
-  position: "absolute",
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  borderRadius: 1000
-};
-
-const ThumbDropShadow = ({ backgroundColor, radius, offsetY, opacity }) => (
-  <View
-    style={[
-      thumbElement,
-      {
-        backgroundColor,
-        shadowRadius: radius,
-        shadowOffset: { width: 0, height: offsetY },
-        shadowOpacity: opacity
-      }
-    ]}
-  />
-);
-
-const ThumbOutsideStroke = ({ width, color }) => (
-  <View
-    style={[
-      thumbElement,
-      {
-        top: -width,
-        right: -width,
-        bottom: -width,
-        left: -width,
-        backgroundColor: color
-      }
-    ]}
-  />
-);
-
-module.exports = ({
-  value,
+export default ({
+  disabled,
   onTintColor = "#4CD964",
   thumbTintColor = "white",
-  tintColor = "#E5E5EA"
+  tintColor = "#E5E5EA",
+  value
 }) => {
   const trackBackground = value ? onTintColor : "#FEFEFE";
   const trackStyle = {
@@ -66,31 +30,10 @@ module.exports = ({
 
   return (
     <View style={[base, trackStyle]}>
-      <View style={{ height: "100%", aspectRatio: 1 }}>
-        <ThumbDropShadow
-          backgroundColor={trackBackground}
-          radius={8}
-          offsetY={3}
-          opacity={0.15}
-        />
-        <ThumbDropShadow
-          backgroundColor={trackBackground}
-          radius={1}
-          offsetY={1}
-          opacity={0.16}
-        />
-        <ThumbDropShadow
-          backgroundColor={trackBackground}
-          radius={1}
-          offsetY={3}
-          opacity={0.1}
-        />
-        <ThumbOutsideStroke
-          width={StyleSheet.hairlineWidth}
-          color="rgba(0, 0, 0, 0.04)"
-        />
-        <View style={[thumbElement, { backgroundColor: thumbTintColor }]} />
-      </View>
+      <Thumb
+        backgroundColor={trackBackground}
+        thumbTintColor={thumbTintColor}
+      />
     </View>
   );
 };

@@ -4,4 +4,4 @@ StyleSheet.hairlineWidth = 1 / snapshotterSettings.dpi;
 
 const JS = require("js-versions-of-native-components");
 
-jest.doMock("Switch", () => JS.Switch);
+Object.keys(JS).forEach(mock => jest.doMock(mock, () => JS[mock]));
