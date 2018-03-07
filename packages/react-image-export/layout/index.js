@@ -3,7 +3,13 @@ const { flattenStyle } = require("../stylesheet");
 const computeYogaNode = require("./computeYogaNode");
 const extractText = require("./extractText");
 const { breakLines, measureLines } = require("./textLayout");
-const { childrenToArray, depthFirst, STOP_ITERATION } = require("./util");
+const readImage = require("../imageLoader");
+const {
+  childrenToArray,
+  depthFirst,
+  asyncDepthFirst,
+  STOP_ITERATION
+} = require("./util");
 
 const layoutChanged = (a, b) =>
   a == null ||
@@ -31,7 +37,7 @@ jest-preset-react-native mocks View components with a class that renders View ho
 meaning one View has a component node and a host node. We can keep track of the component node's
 instance for layouts, but we end up using the host node for rendering.
 */
-const computeLayout = (
+const computeLayout = async (
   backend,
   testRendererInstance,
   settings,
@@ -43,17 +49,27 @@ const computeLayout = (
   const styles = new WeakMap();
   const layouts = new WeakMap();
   const texts = new WeakMap();
+  const images = new WeakMap();
   const updateRecords = new Set();
 
   let rootNode = null;
-  depthFirst((element, parentNode) => {
+  await asyncDepthFirst(async (element, parentNode) => {
     const childHostInstanceType = getChildHostInstanceType(element);
     if (childHostInstanceType == null) return parentNode;
     const { instance, props } = element;
     const style = flattenStyle(props.style) || {};
     styles.set(instance, style);
 
-    const node = computeYogaNode(style, config);
+    const hostStyles = {};
+    if (childHostInstanceType === "Image") {
+      const image = await readImage(props.src.testUri, settings.testFilePath);
+      images.set(instance, image);
+      hostStyles.width = image.width;
+      hostStyles.height = image.height;
+      hostStyles.aspectRatio = image.width / image.height;
+    }
+
+    const node = computeYogaNode({ ...hostStyles, ...style }, config);
 
     let returnValue;
     if (childHostInstanceType === "Text") {
@@ -115,11 +131,11 @@ const computeLayout = (
 
   return updateRecords.size > 0
     ? computeLayout(backend, testRendererInstance, settings, config, layouts)
-    : { styles, layouts, texts };
+    : { styles, layouts, texts, images };
 };
 
 /* eslint-disable no-use-before-define */
-const childrenToJson = (children, params, layout, style, text) =>
+const childrenToJson = (children, params, ...passedProps) =>
   childrenToArray(children).reduce((accum, child) => {
     let resolvedChild;
     if (child == null || child === false) {
@@ -127,7 +143,7 @@ const childrenToJson = (children, params, layout, style, text) =>
     } else if (typeof child !== "object") {
       resolvedChild = child;
     } else {
-      resolvedChild = treeToJson(child, params, layout, style, text);
+      resolvedChild = treeToJson(child, params, ...passedProps);
     }
     return accum.concat(resolvedChild);
   }, []);
@@ -135,7 +151,7 @@ const childrenToJson = (children, params, layout, style, text) =>
 
 const removeChildren = ({ children, ...props }) => props;
 
-const treeToJson = (element, params, layout, style, text) => {
+const treeToJson = (element, params, layout, style, text, image) => {
   switch (element.nodeType) {
     case "component":
       return childrenToJson(
@@ -143,7 +159,8 @@ const treeToJson = (element, params, layout, style, text) => {
         params,
         params.layouts.get(element.instance),
         params.styles.get(element.instance),
-        params.texts.get(element.instance)
+        params.texts.get(element.instance),
+        params.images.get(element.instance)
       );
     case "host":
       return {
@@ -155,14 +172,15 @@ const treeToJson = (element, params, layout, style, text) => {
             : null,
         layout,
         style,
-        text
+        text,
+        image
       };
     default:
       throw new Error("Unknown element");
   }
 };
 
-module.exports = (backend, testRendererInstance, settings) => {
-  const params = computeLayout(backend, testRendererInstance, settings);
+module.exports = async (backend, testRendererInstance, settings) => {
+  const params = await computeLayout(backend, testRendererInstance, settings);
   return treeToJson(testRendererInstance.toTree(), params)[0];
 };

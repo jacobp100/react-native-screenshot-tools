@@ -8,6 +8,9 @@ const renderers = {
   },
   Text(backend, node, layout) {
     backend.fillLines(node.text, layout);
+  },
+  Image(backend, node, layout) {
+    backend.drawImage(node.image, layout, node.props.resizeMode);
   }
 };
 

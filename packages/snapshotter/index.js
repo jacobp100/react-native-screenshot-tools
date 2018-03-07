@@ -52,21 +52,29 @@ const devices = [
   }
 ];
 
-devices.reduce(async (p, settings) => {
-  await p;
+devices
+  .reduce(async (p, settings) => {
+    await p;
 
-  const config = {
-    preset: "react-native",
-    haste: {
-      defaultPlatform: settings.platform,
-      platforms: ["android", "ios", "native"],
-      providesModuleNodeModules: ["react-native"]
-    },
-    testMatch: ["**/__snapshotter__/**/*.js"],
-    testRunner: require.resolve("./testRunner"),
-    reporters: [require.resolve("./reporter")],
-    testEnvironmentOptions: settings
-  };
+    const config = {
+      preset: "react-native",
+      haste: {
+        defaultPlatform: settings.platform,
+        platforms: ["android", "ios", "native"],
+        providesModuleNodeModules: ["react-native"]
+      },
+      transform: {
+        "^.+\\.js$": require.resolve("babel-jest"),
+        "^[./a-zA-Z0-9$_-]+\\.(bmp|gif|jpg|jpeg|mp4|png|psd|svg|webp)$": require.resolve(
+          "./assetFileTransformer.js"
+        )
+      },
+      testMatch: ["**/__snapshotter__/**/*.js"],
+      testRunner: require.resolve("./testRunner"),
+      reporters: [require.resolve("./reporter")],
+      testEnvironmentOptions: settings
+    };
 
-  return jest.run(["--config", JSON.stringify(config)]);
-}, Promise.resolve());
+    return jest.run(["--config", JSON.stringify(config)]);
+  }, Promise.resolve())
+  .catch(e => console.error(e));

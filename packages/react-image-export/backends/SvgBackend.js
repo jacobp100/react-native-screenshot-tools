@@ -4,7 +4,7 @@ const { path } = require("d3-path");
 const format = require("xml-formatter");
 const chroma = require("chroma-js");
 const { fontForStyle } = require("../fontLoader");
-const { enumerateLines } = require("./util");
+const { enumerateLines, positionForImage } = require("./util");
 
 const textAligns = {
   left: 0,
@@ -34,6 +34,12 @@ module.exports = class SvgBackend {
 
   toString() {
     return format(this.$.xml());
+  }
+
+  generateId() {
+    const id = this.defId;
+    this.defId += 1;
+    return id;
   }
 
   pushTransform(transform, { top, left, width, height }) {
@@ -75,7 +81,7 @@ module.exports = class SvgBackend {
     let filter = null;
     if (shadowBlur !== 0 || shadowOffsetX !== 0 || shadowOffsetY !== 0) {
       const color = chroma(shadowColor);
-      filter = this.defId;
+      filter = this.generateId();
 
       const pad = 100;
       const $filter = this.$("<filter />")
@@ -108,7 +114,6 @@ module.exports = class SvgBackend {
         .appendTo($merge);
       $merge.appendTo($filter);
       $filter.appendTo("defs");
-      this.defId += 1;
     }
 
     if (fill !== "none" || !(stroke === "none" || lineWidth === 0)) {
@@ -160,5 +165,31 @@ module.exports = class SvgBackend {
   measureText(text, style) {
     const font = fontForStyle(style);
     return font.layout(text).advanceWidth / font.unitsPerEm * style.fontSize;
+  }
+
+  drawImage(image, layout, resizeMode) {
+    const { x, y, width, height } = positionForImage(image, layout, resizeMode);
+
+    const clipPath = this.generateId();
+    const $clipPath = this.$("<clipPath />").attr("id", clipPath);
+    const $clipBody = this.$("<rect />")
+      .attr("x", layout.left)
+      .attr("y", layout.top)
+      .attr("width", layout.width)
+      .attr("height", layout.height);
+    $clipBody.appendTo($clipPath);
+    $clipPath.appendTo("defs");
+
+    const $image = this.$("<image />")
+      .attr("x", layout.left + x)
+      .attr("y", layout.top + y)
+      .attr("width", width)
+      .attr("height", height)
+      .attr(
+        "xlink:href",
+        `data:image/png;base64,${image.imageData.toString("base64")}`
+      )
+      .attr("clip-path", `url(#${clipPath})`);
+    this.$container.append($image);
   }
 };

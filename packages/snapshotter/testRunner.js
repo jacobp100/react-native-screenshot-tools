@@ -11,13 +11,14 @@ module.exports = async (
   runtime,
   testFilePath
 ) => {
-  const settings = config.testEnvironmentOptions;
+  const settings = { ...config.testEnvironmentOptions, testFilePath };
 
   const tests = [];
   environment.global.snapshotterSettings = settings;
   environment.global.snapshot = (title, fn) => {
     tests.push({ title, fn });
   };
+  environment.global.testFilePath = testFilePath;
 
   runtime.requireModule(require.resolve("./customMocks"));
   runtime.requireModule(testFilePath);

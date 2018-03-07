@@ -17,7 +17,18 @@ const depthFirst = (cb, element, value) => {
   }
 };
 
+const asyncDepthFirst = async (cb, element, value) => {
+  const nextValue = await cb(element, value);
+  if (nextValue === STOP_ITERATION) return;
+  /* eslint-disable no-restricted-syntax, no-await-in-loop */
+  for (const child of childrenToArray(element.rendered)) {
+    await asyncDepthFirst(cb, child, nextValue);
+  }
+  /* eslint-enable */
+};
+
 module.exports.childrenToArray = childrenToArray;
 module.exports.forEachChild = forEachChild;
 module.exports.depthFirst = depthFirst;
+module.exports.asyncDepthFirst = asyncDepthFirst;
 module.exports.STOP_ITERATION = STOP_ITERATION;

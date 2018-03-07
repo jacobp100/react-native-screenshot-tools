@@ -28,7 +28,7 @@ const renderBackend = async (
   settings = defaultSettings
 ) => {
   const rootInstance = getInstance(rootInstanceOrJsx);
-  const formattedRoot = layoutRoot(backend, rootInstance, settings);
+  const formattedRoot = await layoutRoot(backend, rootInstance, settings);
   backend.setDimensions(formattedRoot.layout);
   await render(backend, formattedRoot, settings);
   return backend;

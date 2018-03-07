@@ -1,5 +1,5 @@
 const { flattenStyle } = require("../stylesheet");
-const { depthFirst, STOP_ITERATION } = require("./util");
+const { depthFirst } = require("./util");
 
 /*
 type AttributedStyle = { start: number, end: number, style: any }
