@@ -20,9 +20,9 @@ export default ({
   style,
   disabled,
   maximumValue = 1,
-  minimumTrackTintColor = "#C7C7CC",
+  minimumTrackTintColor = "#007AFF",
   minimumValue = 0,
-  maximumTrackTintColor = "#007AFF",
+  maximumTrackTintColor = "#C7C7CC",
   value = 0,
   thumbTintColor,
   maximumTrackImage,
@@ -37,11 +37,11 @@ export default ({
   return (
     <View style={style}>
       <Track
-        backgroundColor={maximumTrackTintColor}
+        backgroundColor={minimumTrackTintColor}
         position={{ left: 0, width: position }}
       />
       <Track
-        backgroundColor={minimumTrackTintColor}
+        backgroundColor={maximumTrackTintColor}
         position={{ left: position, right: 0 }}
       />
       <View style={{ paddingHorizontal: inset }}>

@@ -193,7 +193,7 @@ const drawSideStroke = (
   insets,
   side
 ) => {
-  drawSide(ctx, x, y, width, height, radii, scaleSides(insets, 0.5), side, {
+  drawSide(ctx, x, y, width, height, radii, insets, side, {
     continuationCommand: MOVE
   });
 };
@@ -215,7 +215,7 @@ const drawAsSingleShape = (
       layout.top + borderWidth / 2,
       layout.width - borderWidth,
       layout.height - borderWidth,
-      borderRadius
+      borderRadius - borderWidth / 2
     );
   } else {
     drawRect(
@@ -232,6 +232,10 @@ const drawAsSingleShape = (
   });
 };
 
+const isSolidBorder = ({ borderColors, borderStyle }) =>
+  borderStyle === "solid" &&
+  borderColors.every(color => chroma(color).alpha() === 1);
+
 const drawAsMultipleShapes = (
   backend,
   layout,
@@ -243,8 +247,9 @@ const drawAsMultipleShapes = (
   borderStyle
 ) => {
   const backgroundCtx = backend.beginShape();
-  const borderInsets =
-    borderStyle === "solid" ? scaleSides(borderWidths, 0.5) : [0, 0, 0, 0];
+  const borderInsets = isSolidBorder({ borderStyle, borderColors })
+    ? scaleSides(borderWidths, 0.5)
+    : sidesOf(0);
   drawRect(backgroundCtx, layout, borderRadii, borderInsets);
   backend.commitShape(backgroundParams);
 
@@ -256,7 +261,7 @@ const drawAsMultipleShapes = (
     drawRect(borderCtx, layout, borderRadii, scaleSides(borderWidths, 0.5));
     backend.commitShape({ stroke: borderColors[0], lineWidth: borderWidth });
   } else if (borderStyle === "solid") {
-    // Solid border - use a filled shape
+    // Solid border - use a filled shape (alpha values for border are okay here)
     borderColors.forEach((borderColor, side) => {
       const borderCtx = backend.beginShape();
       drawSideFill(borderCtx, layout, borderRadii, borderWidths, side);
@@ -267,7 +272,13 @@ const drawAsMultipleShapes = (
     // Will look bad when border width varies.
     borderColors.forEach((borderColor, side) => {
       const borderCtx = backend.beginShape();
-      drawSideStroke(borderCtx, layout, borderRadii, borderWidths, side);
+      drawSideStroke(
+        borderCtx,
+        layout,
+        borderRadii,
+        scaleSides(borderWidths, 0.5),
+        side
+      );
       backend.commitShape({
         stroke: borderColor,
         lineWidth: borderWidths[side]
@@ -276,7 +287,7 @@ const drawAsMultipleShapes = (
   }
 };
 
-module.exports = (backend, layout, settings, style) => {
+module.exports = (backend, layout, settings, style, drawShadow = true) => {
   const borderWidths = getBorderWidth(style);
   const borderColors = getBorderColor(style);
   const borderRadii = getScaledBorderRadius(style, layout.width, layout.height);
@@ -292,20 +303,24 @@ module.exports = (backend, layout, settings, style) => {
   const [r, g, b, a] = chroma(shadowColor)
     .alpha(shadowOpacity)
     .rgba();
+  const shadowParams = drawShadow
+    ? {
+        shadowBlur: shadowRadius,
+        shadowOffsetX: shadowOffset.width,
+        shadowOffsetY: shadowOffset.height
+      }
+    : null;
   const backgroundParams = {
     fill: style.backgroundColor || "none",
     shadowColor: `rgba(${r}, ${g}, ${b}, ${a})`,
-    shadowBlur: shadowRadius,
-    shadowOffsetX: shadowOffset.width,
-    shadowOffsetY: shadowOffset.height
+    ...shadowParams
   };
 
   if (
     sidesEqual(borderRadii) &&
     sidesEqual(borderWidths) &&
     sidesEqual(borderColors) &&
-    borderStyle === "solid" &&
-    chroma(borderColors[0]).alpha() === 1
+    isSolidBorder({ borderStyle, borderColors })
   ) {
     // This follows the logic in iOS for `useIOSBorderRendering`.
     // When we are here, we can (eventually) do smooth iOS borders (bugs and all).

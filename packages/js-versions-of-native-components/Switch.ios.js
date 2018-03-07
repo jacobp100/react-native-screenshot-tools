@@ -6,12 +6,12 @@ import Thumb from "./util/Thumb";
 const baseBorderWidth = 2 - StyleSheet.hairlineWidth;
 
 const base = {
+  flexDirection: "row",
+  alignItems: "center",
   width: 48 + 2 * baseBorderWidth,
   height: 28 + 2 * baseBorderWidth,
   borderWidth: baseBorderWidth,
-  borderRadius: 1000,
-  flexDirection: "row",
-  alignItems: "center"
+  borderRadius: 1000
 };
 
 export default ({

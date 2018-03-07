@@ -2,7 +2,9 @@ const renderViewBackground = require("./viewBackground");
 
 const renderers = {
   View(backend, node, layout, settings) {
-    renderViewBackground(backend, layout, settings, node.style);
+    const drawShadow =
+      settings.platform === "ios" || node.props.forceDrawShadow === true;
+    renderViewBackground(backend, layout, settings, node.style, drawShadow);
   },
   Text(backend, node, layout) {
     backend.fillLines(node.text, layout);
