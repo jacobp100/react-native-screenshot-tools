@@ -19,7 +19,7 @@ const textAnchors = {
 };
 
 module.exports = class SvgBackend {
-  constructor() {
+  constructor({ width, height }) {
     this.$ = cheerio.load(
       `<?xml version="1.0" encoding="UTF-8" ?>
       <svg
@@ -28,6 +28,10 @@ module.exports = class SvgBackend {
       ><defs /></svg>`,
       { xmlMode: true }
     );
+    this.$("svg")
+      .attr("width", width)
+      .attr("height", height);
+
     this.$container = this.$("svg");
     this.defId = 0;
   }
@@ -42,26 +46,37 @@ module.exports = class SvgBackend {
     return id;
   }
 
+  pushGroup($group) {
+    this.$container.append($group);
+    this.$container = $group;
+  }
+
+  popGroup() {
+    this.$container = this.$container.parent();
+  }
+
   pushTransform(transform, { top, left, width, height }) {
     const angle = parseInt(transform[0].rotate, 10);
     const x = left + width / 2;
     const y = top + height / 2;
-    const $container = this.$("<g />").attr(
+    const $group = this.$("<g />").attr(
       "transform",
       `translate(${x}, ${y}) rotate(${angle}) translate(${-x}, ${-y})`
     );
-    this.$container.append($container);
-    this.$container = $container;
+    this.pushGroup($group);
   }
 
   popTransform() {
-    this.$container = this.$container.parent();
+    this.popGroup();
   }
 
-  setDimensions({ width, height }) {
-    this.$("svg")
-      .attr("width", width)
-      .attr("height", height);
+  pushAlpha(alpha) {
+    const $group = this.$("<g />").attr("opacity", alpha);
+    this.pushGroup($group);
+  }
+
+  popAlpha() {
+    this.popGroup();
   }
 
   beginShape() {

@@ -29,15 +29,20 @@ const renderBackend = async (
 ) => {
   const rootInstance = getInstance(rootInstanceOrJsx);
   const formattedRoot = await layoutRoot(backend, rootInstance, settings);
-  backend.setDimensions(formattedRoot.layout);
   await render(backend, formattedRoot, settings);
   return backend;
 };
 
 module.exports.renderToSvg = async (rootInstanceOrJsx, settings) =>
-  String(await renderBackend(new SvgBackend(), rootInstanceOrJsx, settings));
+  String(
+    await renderBackend(new SvgBackend(settings), rootInstanceOrJsx, settings)
+  );
 
 module.exports.renderToCanvas = async (ctx, rootInstanceOrJsx, settings) => {
-  await renderBackend(new CanvasBackend(ctx), rootInstanceOrJsx, settings);
+  await renderBackend(
+    new CanvasBackend(ctx, settings),
+    rootInstanceOrJsx,
+    settings
+  );
   return ctx;
 };
