@@ -65,6 +65,19 @@ module.exports = class CanvasBackend {
     ctx.putImageData(imageData, 0, 0);
   }
 
+  beginClip() {
+    this.save();
+    return this.ctx;
+  }
+
+  pushClip() {
+    this.ctx.clip();
+  }
+
+  popClip() {
+    this.restore();
+  }
+
   beginShape() {
     this.ctx.beginPath();
     return this.ctx;
