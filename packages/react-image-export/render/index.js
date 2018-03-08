@@ -1,4 +1,5 @@
 const renderViewBackground = require("./viewBackground");
+const processTransform = require("./transform");
 
 const renderers = {
   View(backend, node, layout, settings) {
@@ -28,8 +29,14 @@ const recurseTree = async (
     node.style != null &&
     node.style.opacity != null &&
     node.style.opacity !== 1;
-  if (hasTransform) backend.pushTransform(node.style.transform, node.layout);
-  if (hasAlpha) backend.pushAlpha(node.style.opacity);
+
+  if (hasTransform) {
+    backend.pushTransform(processTransform(node.style.transform), node.layout);
+  }
+
+  if (hasAlpha) {
+    backend.pushAlpha(node.style.opacity);
+  }
 
   const layout = {
     top: node.layout.top + origin.y,

@@ -34,13 +34,13 @@ module.exports = class CanvasBackend {
     this.stackingContext = [];
   }
 
-  pushTransform(transform, { top, left, width, height }) {
+  pushTransform(m, { top, left, width, height }) {
     const x = left + width / 2;
     const y = top + height / 2;
     const { ctx } = this;
     ctx.save();
     ctx.translate(x, y);
-    ctx.rotate(1);
+    ctx.transform(...m);
     ctx.translate(-x, -y);
   }
 

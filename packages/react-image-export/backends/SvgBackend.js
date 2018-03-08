@@ -55,13 +55,12 @@ module.exports = class SvgBackend {
     this.$container = this.$container.parent();
   }
 
-  pushTransform(transform, { top, left, width, height }) {
-    const angle = parseInt(transform[0].rotate, 10);
+  pushTransform(m, { top, left, width, height }) {
     const x = left + width / 2;
     const y = top + height / 2;
     const $group = this.$("<g />").attr(
       "transform",
-      `translate(${x}, ${y}) rotate(${angle}) translate(${-x}, ${-y})`
+      `translate(${x}, ${y}) matrix(${m.join(", ")}) translate(${-x}, ${-y})`
     );
     this.pushGroup($group);
   }
