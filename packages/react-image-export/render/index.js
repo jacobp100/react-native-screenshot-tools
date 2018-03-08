@@ -1,3 +1,4 @@
+const { sortBy, getOr } = require("lodash/fp");
 const renderViewBackground = require("./viewBackground");
 const processTransform = require("./transform");
 
@@ -24,18 +25,27 @@ const recurseTree = async (
   settings,
   origin = { x: 0, y: 0 }
 ) => {
-  const hasTransform = node.style != null && node.style.transform != null;
+  const { style = {} } = node;
+
+  if (style.display === "none") return;
+
+  const hasTransform = style != null && style.transform != null;
   const hasAlpha =
-    node.style != null &&
-    node.style.opacity != null &&
-    node.style.opacity !== 1;
+    style != null && style.opacity != null && style.opacity !== 1;
+  const hasClip = node.type === "View" && style.overflow === "hidden";
 
   if (hasTransform) {
-    backend.pushTransform(processTransform(node.style.transform), node.layout);
+    backend.pushTransform(processTransform(style.transform), node.layout);
   }
 
   if (hasAlpha) {
-    backend.pushAlpha(node.style.opacity);
+    backend.pushAlpha(style.opacity);
+  }
+
+  if (hasClip) {
+    const ctx = backend.beginClip();
+    renderViewBackground.clip(ctx, node.layout, settings, style);
+    backend.pushClip();
   }
 
   const layout = {
@@ -52,11 +62,13 @@ const recurseTree = async (
 
   /* eslint-disable no-restricted-syntax, no-await-in-loop */
   const nextOrigin = { x: layout.left, y: layout.top };
-  for (const child of node.children) {
+  const childrenByZIndex = sortBy(getOr("style.zIndex", 0), node.children);
+  for (const child of childrenByZIndex) {
     await recurseTree(backend, child, settings, nextOrigin);
   }
   /* eslint-enable */
 
+  if (hasClip) backend.popClip();
   if (hasAlpha) backend.popAlpha();
   if (hasTransform) backend.popTransform();
 };

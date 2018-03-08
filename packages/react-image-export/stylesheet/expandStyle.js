@@ -38,10 +38,6 @@ const styleShortHands = {
     marginTop: true,
     marginBottom: true
   },
-  overflow: {
-    overflowX: true,
-    overflowY: true
-  },
   padding: {
     paddingTop: true,
     paddingRight: true,

@@ -12,6 +12,12 @@ module.exports = class Reporter {
     } = results;
 
     testResults.forEach(suiteResults => {
+      if (suiteResults.testExecError) {
+        const e = suiteResults.testExecError;
+        console.error(chalk.red(e.message));
+        console.error(e.stack);
+      }
+
       suiteResults.testResults.forEach(result => {
         result.failureMessages.forEach(e => {
           console.error(chalk.red(e.message));

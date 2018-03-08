@@ -52,6 +52,7 @@ const devices = [
   }
 ];
 
+/* eslint-disable no-console */
 devices
   .reduce(async (p, settings) => {
     await p;

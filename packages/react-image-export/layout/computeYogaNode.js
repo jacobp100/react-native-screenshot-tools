@@ -5,12 +5,6 @@ const display = {
   none: yoga.DISPLAY_NONE
 };
 
-const overflow = {
-  visible: yoga.OVERFLOW_VISIBLE,
-  scroll: yoga.OVERFLOW_SCROLL,
-  hidden: yoga.OVERFLOW_HIDDEN
-};
-
 const flexDirection = {
   row: yoga.FLEX_DIRECTION_ROW,
   column: yoga.FLEX_DIRECTION_COLUMN,
@@ -173,10 +167,6 @@ module.exports = (style, config) => {
 
   if (style.display != null && style.display in display) {
     yogaNode.setDisplay(display[style.display]);
-  }
-
-  if (style.overflow != null && style.overflow in overflow) {
-    yogaNode.setDisplay(overflow[style.overflow]);
   }
 
   if (style.flexDirection != null && style.flexDirection in flexDirection) {

@@ -20,21 +20,21 @@ const scaleSides = (sides, scale) => [
   sides[3] * scale
 ];
 
-const getBorderWidth = ({
+const getBorderWidths = ({
   borderTopWidth = 0,
   borderRightWidth = 0,
   borderBottomWidth = 0,
   borderLeftWidth = 0
 }) => [borderTopWidth, borderRightWidth, borderBottomWidth, borderLeftWidth];
 
-const getBorderColor = ({
+const getBorderColors = ({
   borderTopColor = "black",
   borderRightColor = "black",
   borderBottomColor = "black",
   borderLeftColor = "black"
 }) => [borderTopColor, borderRightColor, borderBottomColor, borderLeftColor];
 
-const getBorderRadius = ({
+const getBorderRadii = ({
   borderTopLeftRadius = 0,
   borderTopRightRadius = 0,
   borderBottomRightRadius = 0,
@@ -46,8 +46,8 @@ const getBorderRadius = ({
   borderBottomLeftRadius
 ];
 
-const getScaledBorderRadius = (style, width, height) => {
-  let borderRadii = getBorderRadius(style);
+const getScaledBorderRadii = (style, width, height) => {
+  let borderRadii = getBorderRadii(style);
 
   const borderScale = Math.max(
     (borderRadii[0] + borderRadii[2]) / width,
@@ -287,10 +287,23 @@ const drawAsMultipleShapes = (
   }
 };
 
+const canDrawSingleShape = style => {
+  const borderWidths = getBorderWidths(style);
+  const borderColors = getBorderColors(style);
+  const borderRadii = getBorderRadii(style);
+  const { borderStyle = "solid" } = style;
+  return (
+    sidesEqual(borderRadii) &&
+    sidesEqual(borderWidths) &&
+    sidesEqual(borderColors) &&
+    isSolidBorder({ borderStyle, borderColors })
+  );
+};
+
 module.exports = (backend, layout, settings, style, drawShadow = true) => {
-  const borderWidths = getBorderWidth(style);
-  const borderColors = getBorderColor(style);
-  const borderRadii = getScaledBorderRadius(style, layout.width, layout.height);
+  const borderWidths = getBorderWidths(style);
+  const borderColors = getBorderColors(style);
+  const borderRadii = getScaledBorderRadii(style, layout.width, layout.height);
 
   const {
     borderStyle = "solid",
@@ -316,12 +329,7 @@ module.exports = (backend, layout, settings, style, drawShadow = true) => {
     ...shadowParams
   };
 
-  if (
-    sidesEqual(borderRadii) &&
-    sidesEqual(borderWidths) &&
-    sidesEqual(borderColors) &&
-    isSolidBorder({ borderStyle, borderColors })
-  ) {
+  if (canDrawSingleShape(style)) {
     // This follows the logic in iOS for `useIOSBorderRendering`.
     // When we are here, we can (eventually) do smooth iOS borders (bugs and all).
     drawAsSingleShape(
@@ -344,5 +352,22 @@ module.exports = (backend, layout, settings, style, drawShadow = true) => {
       borderColors,
       borderStyle
     );
+  }
+};
+
+module.exports.clip = (ctx, layout, settings, style) => {
+  const borderRadii = getScaledBorderRadii(style, layout.width, layout.height);
+
+  if (canDrawSingleShape(style) && settings.platform === "ios") {
+    drawIosBorder(
+      ctx,
+      layout.left,
+      layout.top,
+      layout.width,
+      layout.height,
+      borderRadii[0]
+    );
+  } else {
+    drawRect(ctx, layout, borderRadii, sidesOf(0));
   }
 };

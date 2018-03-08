@@ -78,6 +78,28 @@ module.exports = class SvgBackend {
     this.popGroup();
   }
 
+  beginClip() {
+    this.ctx = path();
+    return this.ctx;
+  }
+
+  pushClip() {
+    const clipPath = this.generateId();
+    const $clipPath = this.$("<clipPath />").attr("id", clipPath);
+    const $clipBody = this.$("<path />").attr("d", String(this.ctx));
+    $clipBody.appendTo($clipPath);
+    $clipPath.appendTo("defs");
+
+    const $group = this.$("<g />").attr("clip-path", `url(#${clipPath})`);
+    this.pushGroup($group);
+
+    this.ctx = null;
+  }
+
+  popClip() {
+    this.popGroup();
+  }
+
   beginShape() {
     this.ctx = path();
     return this.ctx;
