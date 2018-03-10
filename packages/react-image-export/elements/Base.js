@@ -41,7 +41,7 @@ module.exports = class Base {
   }
   /* eslint-enable */
 
-  async render(parentFrame = { x: 0, y: 0, width: 0, height: 0 }) {
+  async render(parentOffset = { x: 0, y: 0 }) {
     const { backend, settings, frame, style } = this;
 
     if (style.display === "none") return;
@@ -66,8 +66,8 @@ module.exports = class Base {
     }
 
     const screenFrame = {
-      x: this.frame.x + parentFrame.x,
-      y: this.frame.y + parentFrame.y,
+      x: this.frame.x + parentOffset.x,
+      y: this.frame.y + parentOffset.y,
       width: this.frame.width,
       height: this.frame.height
     };
@@ -75,8 +75,9 @@ module.exports = class Base {
     await this.draw(screenFrame);
     const children = sortBy(getOr("style.zIndex", 0), this.filteredChildren());
     /* eslint-disable */
+    const offset = { x: screenFrame.x, y: screenFrame.y };
     for (const child of children) {
-      await child.render(screenFrame);
+      await child.render(offset);
     }
     /* eslint-enable */
 

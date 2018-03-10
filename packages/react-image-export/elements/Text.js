@@ -11,6 +11,12 @@ const defaultStyles = {
   textAlign: "left"
 };
 
+const textAligns = {
+  left: 0,
+  center: 0.5,
+  right: 1
+};
+
 const appendStyleTo = (attributedStyles, text, style) => {
   const lastAttributedStyle =
     attributedStyles.length > 0
@@ -73,6 +79,9 @@ module.exports = class Text extends Base {
   }
 
   draw(screenFrame) {
-    this.backend.fillLines(this.text, screenFrame);
+    const { textAlign = "left" } = this.text[0].attributedStyles[0].style;
+    const x = screenFrame.x + screenFrame.width * textAligns[textAlign];
+    const { y } = screenFrame;
+    this.backend.fillLines(this.text, x, y);
   }
 };

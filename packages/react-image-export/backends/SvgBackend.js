@@ -4,13 +4,7 @@ const { path } = require("d3-path");
 const format = require("xml-formatter");
 const chroma = require("chroma-js");
 const { fontForStyle } = require("../fontLoader");
-const { enumerateLines, positionForImage } = require("./util");
-
-const textAligns = {
-  left: 0,
-  center: 0.5,
-  right: 1
-};
+const { enumerateLines } = require("./util");
 
 const textAnchors = {
   left: "start",
@@ -174,10 +168,8 @@ module.exports = class SvgBackend {
       .reduce(Math.max, 0);
   }
 
-  fillLines(lines, frame) {
-    const { textAlign = "x" } = lines[0].attributedStyles[0].style;
-    const originX = frame.x + frame.width * textAligns[textAlign];
-    const originY = frame.y;
+  fillLines(lines, originX, originY) {
+    const { textAlign = "left" } = lines[0].attributedStyles[0].style;
 
     const $text = this.$(`<text />`).attr(
       "text-anchor",
@@ -201,32 +193,21 @@ module.exports = class SvgBackend {
 
   measureText(text, style) {
     const font = fontForStyle(style);
-    return font.layout(text).advanceWidth / font.unitsPerEm * style.fontSize;
+    const width =
+      font.layout(text).advanceWidth / font.unitsPerEm * style.fontSize;
+    return { width };
   }
 
-  drawImage(image, layout, resizeMode) {
-    const { x, y, width, height } = positionForImage(image, layout, resizeMode);
-
-    const clipPath = this.generateId();
-    const $clipPath = this.$("<clipPath />").attr("id", clipPath);
-    const $clipBody = this.$("<rect />")
-      .attr("x", layout.x)
-      .attr("y", layout.y)
-      .attr("width", layout.width)
-      .attr("height", layout.height);
-    $clipBody.appendTo($clipPath);
-    $clipPath.appendTo("defs");
-
+  drawImage(image, x, y, width, height) {
     const $image = this.$("<image />")
-      .attr("x", layout.x + x)
-      .attr("y", layout.y + y)
+      .attr("x", x)
+      .attr("y", y)
       .attr("width", width)
       .attr("height", height)
       .attr(
         "xlink:href",
         `data:image/png;base64,${image.imageData.toString("base64")}`
-      )
-      .attr("clip-path", `url(#${clipPath})`);
+      );
     this.$container.append($image);
   }
 };

@@ -4,13 +4,13 @@ const applyAlpha = (alpha, imageData) => {
   const target = imageData.data;
 
   for (let i = 0; i < target.length; i += 4) {
-    target[i + 3] *= alpha;
+    target[i + 3] = Math.round(target[i + 3] * alpha);
   }
 };
 
 const mergeDown = (targetData, foregroundData) => {
-  const foreground = targetData.data;
-  const target = foregroundData.data;
+  const foreground = foregroundData.data;
+  const target = targetData.data;
 
   for (let i = 0; i < target.length; i += 4) {
     const a0 = foreground[i + 3] / 255;
@@ -45,20 +45,23 @@ module.exports = class CanvasBackend {
   }
 
   popTransform() {
-    const { ctx } = this;
-    ctx.restore();
+    this.ctx.restore();
   }
 
   pushAlpha(alpha) {
-    const { ctx, stack, width, height } = this;
+    const { ctx, stackingContext, width, height } = this;
     const imageData = ctx.getImageData(0, 0, width, height);
-    stack.push({ alpha, imageData });
+    stackingContext.push({ alpha, imageData });
+
+    ctx.save();
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, width, height);
+    ctx.restore();
   }
 
   popAlpha() {
-    const { ctx, stack, width, height } = this;
-    const { alpha, imageData } = stack.pop();
+    const { ctx, stackingContext, width, height } = this;
+    const { alpha, imageData } = stackingContext.pop();
     const appliedImageData = ctx.getImageData(0, 0, width, height);
     applyAlpha(alpha, appliedImageData);
     mergeDown(imageData, appliedImageData);
@@ -66,7 +69,8 @@ module.exports = class CanvasBackend {
   }
 
   beginClip() {
-    this.save();
+    this.ctx.save();
+    this.ctx.beginPath();
     return this.ctx;
   }
 
@@ -75,7 +79,7 @@ module.exports = class CanvasBackend {
   }
 
   popClip() {
-    this.restore();
+    this.ctx.restore();
   }
 
   beginShape() {
@@ -89,7 +93,7 @@ module.exports = class CanvasBackend {
       ctx.fillStyle = fill;
       ctx.fill();
     }
-    if (stroke != null) {
+    if (stroke != null && lineWidth !== 0) {
       ctx.strokeStyle = stroke;
       ctx.lineWidth = lineWidth;
       ctx.stroke();
@@ -109,23 +113,28 @@ module.exports = class CanvasBackend {
     this.ctx.fillStyle = color;
   }
 
-  fillLines(lines, frame) {
+  fillLines(lines, originX, originY) {
     const { textAlign = "left" } = lines[0].attributedStyles[0].style;
     const { ctx } = this;
 
     ctx.textBaseline = "top";
     ctx.textAlign = textAlign;
 
+    // FIXME: This probably doesn't work in non-left layouts with multiple text styles
     enumerateLines(lines, ({ x, y, body, style }) => {
       this.applyTextStyle(style);
-      const textWidth = ctx.measureText(body);
-      ctx.fillText(body, frame.x + x, frame.y + y);
-      return x + textWidth;
+      const { width } = ctx.measureText(body);
+      ctx.fillText(body, originX + x, originY + y);
+      return x + width;
     });
   }
 
   measureText(text, style) {
     this.applyTextStyle(style);
     return this.ctx.measureText(text);
+  }
+
+  drawImage(image, x, y, width, height) {
+    this.ctx.drawImage(image.image, x, y, width, height);
   }
 };

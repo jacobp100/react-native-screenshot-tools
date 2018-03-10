@@ -312,7 +312,7 @@ module.exports = (backend, frame, settings, style, drawShadow = true) => {
       }
     : null;
   const backgroundParams = {
-    fill: style.backgroundColor || "none",
+    fill: style.backgroundColor,
     shadowColor: `rgba(${r}, ${g}, ${b}, ${a})`,
     ...shadowParams
   };

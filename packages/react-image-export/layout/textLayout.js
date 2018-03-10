@@ -7,7 +7,7 @@ const lineWidth = (backend, { text, attributedStyles }) =>
     let body = text.slice(start, end);
     // Trim trailling whitespace
     if (i === attributedStyles.length - 1) body = body.replace(/\s+$/, "");
-    return x + backend.measureText(body, style);
+    return x + backend.measureText(body, style).width;
   }, 0);
 
 const lineHeight = line =>

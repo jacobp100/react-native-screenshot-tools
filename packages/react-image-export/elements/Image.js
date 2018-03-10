@@ -1,3 +1,4 @@
+const { positionForImage } = require("../render/image");
 const readImage = require("../imageLoader");
 const Base = require("./Base");
 
@@ -19,6 +20,28 @@ module.exports = class Image extends Base {
   }
 
   draw(screenFrame) {
-    this.backend.drawImage(this.image, screenFrame, this.props.resizeMode);
+    const clipCtx = this.backend.beginClip();
+    clipCtx.rect(
+      screenFrame.x,
+      screenFrame.y,
+      screenFrame.width,
+      screenFrame.height
+    );
+    this.backend.pushClip();
+
+    const position = positionForImage(
+      this.image,
+      this.frame,
+      this.props.resizeMode
+    );
+    this.backend.drawImage(
+      this.image,
+      screenFrame.x + position.x,
+      screenFrame.y + position.y,
+      position.width,
+      position.height
+    );
+
+    this.backend.popClip();
   }
 };
