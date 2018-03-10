@@ -34,14 +34,14 @@ module.exports = class CanvasBackend {
     this.stackingContext = [];
   }
 
-  pushTransform(m, { top, left, width, height }) {
-    const x = left + width / 2;
-    const y = top + height / 2;
+  pushTransform(m, { x, y, width, height }) {
+    const tx = x + width / 2;
+    const ty = y + height / 2;
     const { ctx } = this;
     ctx.save();
-    ctx.translate(x, y);
+    ctx.translate(tx, ty);
     ctx.transform(...m);
-    ctx.translate(-x, -y);
+    ctx.translate(-tx, -ty);
   }
 
   popTransform() {
@@ -109,7 +109,7 @@ module.exports = class CanvasBackend {
     this.ctx.fillStyle = color;
   }
 
-  fillLines(lines, { top, left }) {
+  fillLines(lines, frame) {
     const { textAlign = "left" } = lines[0].attributedStyles[0].style;
     const { ctx } = this;
 
@@ -119,7 +119,7 @@ module.exports = class CanvasBackend {
     enumerateLines(lines, ({ x, y, body, style }) => {
       this.applyTextStyle(style);
       const textWidth = ctx.measureText(body);
-      ctx.fillText(body, left + x, top + y);
+      ctx.fillText(body, frame.x + x, frame.y + y);
       return x + textWidth;
     });
   }

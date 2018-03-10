@@ -15,7 +15,7 @@
     "lodash": "^4.17.5",
     "react": "^16.2.0",
     "react-is": "^1.0.0",
-    "react-test-renderer": "^16.2.0",
+    "react-reconciler": "^0.7.0",
     "xml-formatter": "^1.0.1",
     "yoga-layout": "^1.9.3"
   },

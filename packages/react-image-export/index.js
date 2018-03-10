@@ -1,8 +1,6 @@
-const { create } = require("react-test-renderer");
 // const { isElement } = require("react-is");
 const { CanvasBackend, SvgBackend } = require("./backends");
-const layoutRoot = require("./layout");
-const render = require("./render");
+const reconciler = require("./reconciler");
 
 const defaultSettings = {
   width: 500,
@@ -10,39 +8,17 @@ const defaultSettings = {
   dpi: 2
 };
 
-const getInstance = rootInstanceOrJsx => {
-  if (typeof rootInstanceOrJsx.toTree === "function") {
-    const rootInstance = rootInstanceOrJsx;
-    return rootInstance;
-  } else if (rootInstanceOrJsx) {
-    // FIXME: Use react-is
-    const element = rootInstanceOrJsx;
-    return create(element);
-  }
-  throw new Error("Expected a test renderer instance or plain JSX");
-};
-
-const renderBackend = async (
-  backend,
-  rootInstanceOrJsx,
-  settings = defaultSettings
-) => {
-  const rootInstance = getInstance(rootInstanceOrJsx);
-  const formattedRoot = await layoutRoot(backend, rootInstance, settings);
-  await render(backend, formattedRoot, settings);
+const renderBackend = async (backend, jsx, settings = defaultSettings) => {
+  const rootInstance = reconciler(jsx, backend, settings);
+  await rootInstance.layout();
+  await rootInstance.render();
   return backend;
 };
 
-module.exports.renderToSvg = async (rootInstanceOrJsx, settings) =>
-  String(
-    await renderBackend(new SvgBackend(settings), rootInstanceOrJsx, settings)
-  );
+module.exports.renderToSvg = async (jsx, settings) =>
+  String(await renderBackend(new SvgBackend(settings), jsx, settings));
 
-module.exports.renderToCanvas = async (ctx, rootInstanceOrJsx, settings) => {
-  await renderBackend(
-    new CanvasBackend(ctx, settings),
-    rootInstanceOrJsx,
-    settings
-  );
+module.exports.renderToCanvas = async (ctx, jsx, settings) => {
+  await renderBackend(new CanvasBackend(ctx, settings), jsx, settings);
   return ctx;
 };

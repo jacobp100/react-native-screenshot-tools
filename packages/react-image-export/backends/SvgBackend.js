@@ -55,12 +55,13 @@ module.exports = class SvgBackend {
     this.$container = this.$container.parent();
   }
 
-  pushTransform(m, { top, left, width, height }) {
-    const x = left + width / 2;
-    const y = top + height / 2;
+  pushTransform(m, { x, y, width, height }) {
+    const tx = x + width / 2;
+    const ty = y + height / 2;
+    const matrix = m.join(", ");
     const $group = this.$("<g />").attr(
       "transform",
-      `translate(${x}, ${y}) matrix(${m.join(", ")}) translate(${-x}, ${-y})`
+      `translate(${tx}, ${ty}) matrix(${matrix}) translate(${-tx}, ${-ty})`
     );
     this.pushGroup($group);
   }
@@ -173,10 +174,10 @@ module.exports = class SvgBackend {
       .reduce(Math.max, 0);
   }
 
-  fillLines(lines, { top, left, width }) {
-    const { textAlign = "left" } = lines[0].attributedStyles[0].style;
-    const originX = left + width * textAligns[textAlign];
-    const originY = top;
+  fillLines(lines, frame) {
+    const { textAlign = "x" } = lines[0].attributedStyles[0].style;
+    const originX = frame.x + frame.width * textAligns[textAlign];
+    const originY = frame.y;
 
     const $text = this.$(`<text />`).attr(
       "text-anchor",
@@ -209,16 +210,16 @@ module.exports = class SvgBackend {
     const clipPath = this.generateId();
     const $clipPath = this.$("<clipPath />").attr("id", clipPath);
     const $clipBody = this.$("<rect />")
-      .attr("x", layout.left)
-      .attr("y", layout.top)
+      .attr("x", layout.x)
+      .attr("y", layout.y)
       .attr("width", layout.width)
       .attr("height", layout.height);
     $clipBody.appendTo($clipPath);
     $clipPath.appendTo("defs");
 
     const $image = this.$("<image />")
-      .attr("x", layout.left + x)
-      .attr("y", layout.top + y)
+      .attr("x", layout.x + x)
+      .attr("y", layout.y + y)
       .attr("width", width)
       .attr("height", height)
       .attr(

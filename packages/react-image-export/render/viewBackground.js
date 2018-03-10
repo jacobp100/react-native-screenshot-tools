@@ -147,7 +147,7 @@ const drawSide = (
 
 const drawRect = (
   ctx,
-  { left: x, top: y, width, height },
+  { x, y, width, height },
   radii,
   insets,
   anticlockwise = false
@@ -169,13 +169,7 @@ const drawRect = (
   ctx.closePath();
 };
 
-const drawSideFill = (
-  ctx,
-  { left: x, top: y, width, height },
-  radii,
-  insets,
-  side
-) => {
+const drawSideFill = (ctx, { x, y, width, height }, radii, insets, side) => {
   drawSide(ctx, x, y, width, height, radii, [0, 0, 0, 0], side, {
     continuationCommand: MOVE
   });
@@ -186,13 +180,7 @@ const drawSideFill = (
   ctx.closePath();
 };
 
-const drawSideStroke = (
-  ctx,
-  { left: x, top: y, width, height },
-  radii,
-  insets,
-  side
-) => {
+const drawSideStroke = (ctx, { x, y, width, height }, radii, insets, side) => {
   drawSide(ctx, x, y, width, height, radii, insets, side, {
     continuationCommand: MOVE
   });
@@ -200,7 +188,7 @@ const drawSideStroke = (
 
 const drawAsSingleShape = (
   backend,
-  layout,
+  frame,
   settings,
   backgroundParams,
   borderRadius,
@@ -211,16 +199,16 @@ const drawAsSingleShape = (
   if (settings.platform === "ios") {
     drawIosBorder(
       backgroundCtx,
-      layout.left + borderWidth / 2,
-      layout.top + borderWidth / 2,
-      layout.width - borderWidth,
-      layout.height - borderWidth,
+      frame.x + borderWidth / 2,
+      frame.y + borderWidth / 2,
+      frame.width - borderWidth,
+      frame.height - borderWidth,
       borderRadius - borderWidth / 2
     );
   } else {
     drawRect(
       backgroundCtx,
-      layout,
+      frame,
       sidesOf(borderRadius),
       sidesOf(borderWidth * 0.5)
     );
@@ -238,7 +226,7 @@ const isSolidBorder = ({ borderColors, borderStyle }) =>
 
 const drawAsMultipleShapes = (
   backend,
-  layout,
+  frame,
   settings,
   backgroundParams,
   borderRadii,
@@ -250,7 +238,7 @@ const drawAsMultipleShapes = (
   const borderInsets = isSolidBorder({ borderStyle, borderColors })
     ? scaleSides(borderWidths, 0.5)
     : sidesOf(0);
-  drawRect(backgroundCtx, layout, borderRadii, borderInsets);
+  drawRect(backgroundCtx, frame, borderRadii, borderInsets);
   backend.commitShape(backgroundParams);
 
   if (sidesEqual(borderWidths) && sidesEqual(borderColors)) {
@@ -258,13 +246,13 @@ const drawAsMultipleShapes = (
     // Draw a border with a line
     const [borderWidth = 0] = borderWidths;
     const borderCtx = backend.beginShape();
-    drawRect(borderCtx, layout, borderRadii, scaleSides(borderWidths, 0.5));
+    drawRect(borderCtx, frame, borderRadii, scaleSides(borderWidths, 0.5));
     backend.commitShape({ stroke: borderColors[0], lineWidth: borderWidth });
   } else if (borderStyle === "solid") {
     // Solid border - use a filled shape (alpha values for border are okay here)
     borderColors.forEach((borderColor, side) => {
       const borderCtx = backend.beginShape();
-      drawSideFill(borderCtx, layout, borderRadii, borderWidths, side);
+      drawSideFill(borderCtx, frame, borderRadii, borderWidths, side);
       backend.commitShape({ fill: borderColor });
     });
   } else {
@@ -274,7 +262,7 @@ const drawAsMultipleShapes = (
       const borderCtx = backend.beginShape();
       drawSideStroke(
         borderCtx,
-        layout,
+        frame,
         borderRadii,
         scaleSides(borderWidths, 0.5),
         side
@@ -300,10 +288,10 @@ const canDrawSingleShape = style => {
   );
 };
 
-module.exports = (backend, layout, settings, style, drawShadow = true) => {
+module.exports = (backend, frame, settings, style, drawShadow = true) => {
   const borderWidths = getBorderWidths(style);
   const borderColors = getBorderColors(style);
-  const borderRadii = getScaledBorderRadii(style, layout.width, layout.height);
+  const borderRadii = getScaledBorderRadii(style, frame.width, frame.height);
 
   const {
     borderStyle = "solid",
@@ -334,7 +322,7 @@ module.exports = (backend, layout, settings, style, drawShadow = true) => {
     // When we are here, we can (eventually) do smooth iOS borders (bugs and all).
     drawAsSingleShape(
       backend,
-      layout,
+      frame,
       settings,
       backgroundParams,
       borderRadii[0],
@@ -344,7 +332,7 @@ module.exports = (backend, layout, settings, style, drawShadow = true) => {
   } else {
     drawAsMultipleShapes(
       backend,
-      layout,
+      frame,
       settings,
       backgroundParams,
       borderRadii,
@@ -355,19 +343,19 @@ module.exports = (backend, layout, settings, style, drawShadow = true) => {
   }
 };
 
-module.exports.clip = (ctx, layout, settings, style) => {
-  const borderRadii = getScaledBorderRadii(style, layout.width, layout.height);
+module.exports.clip = (ctx, frame, settings, style) => {
+  const borderRadii = getScaledBorderRadii(style, frame.width, frame.height);
 
   if (canDrawSingleShape(style) && settings.platform === "ios") {
     drawIosBorder(
       ctx,
-      layout.left,
-      layout.top,
-      layout.width,
-      layout.height,
+      frame.x,
+      frame.y,
+      frame.width,
+      frame.height,
       borderRadii[0]
     );
   } else {
-    drawRect(ctx, layout, borderRadii, sidesOf(0));
+    drawRect(ctx, frame, borderRadii, sidesOf(0));
   }
 };
