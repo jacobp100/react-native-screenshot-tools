@@ -42,7 +42,7 @@ const appendStyleTo = (attributedStyles, text, style) => {
   }
 };
 
-module.exports = class Text extends Base {
+class Text extends Base {
   constructor(...args) {
     super(...args);
     this.text = null;
@@ -56,12 +56,7 @@ module.exports = class Text extends Base {
     while (childElements.length !== 0) {
       const { element, style } = childElements.shift();
 
-      if (element == null || element === false) {
-        throw new Error(
-          "I don't think this happen. If it does, log an issue (with stack trace) on GitHub."
-        );
-        // Do nothing
-      } else if (element.constructor === Text) {
+      if (element instanceof Text) {
         const nextElements = element.children.map(childElement => ({
           element: childElement,
           style:
@@ -70,10 +65,14 @@ module.exports = class Text extends Base {
               : { ...style }
         }));
         childElements.unshift(...nextElements);
-      } else if (typeof element === "object" && element.text != null) {
+      } else if (element instanceof Text.Container) {
         const childText = String(element.text); // child might be a number
         text += childText;
         appendStyleTo(attributedStyles, childText, style);
+      } else {
+        throw new Error(
+          "I don't think this happen. If it does, log an issue (with stack trace) on GitHub."
+        );
       }
     }
 
@@ -96,4 +95,16 @@ module.exports = class Text extends Base {
   draw(screenFrame) {
     this.backend.fillLines(this.text, screenFrame);
   }
+}
+
+Text.Container = class TextContainer {
+  constructor(text) {
+    this.text = text;
+  }
+
+  updateText(text) {
+    this.text = text;
+  }
 };
+
+module.exports = Text;

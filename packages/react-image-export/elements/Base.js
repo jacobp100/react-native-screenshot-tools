@@ -12,23 +12,29 @@ module.exports = class Base {
     this.frame = null;
   }
 
-  toJson() {
-    return {
-      type: this.constructor.name,
-      props: this.props,
-      children: this.map(child => child.toJson()),
-      frame: this.frame,
-      text: this.text
-    };
-  }
-
   setProps({ children, style, ...props }) {
     this.props = props;
     this.style = flattenStyle(style) || {};
   }
 
   appendChild(child) {
+    this.removeChild(child, false);
     this.children.push(child);
+  }
+
+  insertBefore(child, beforeChild) {
+    this.removeChild(child, false);
+    const beforeIndex = this.children.indexOf(beforeChild);
+    this.children.splice(beforeIndex, 0, child);
+  }
+
+  removeChild(child, force = true) {
+    const index = this.children.indexOf(child);
+    if (index !== -1) {
+      this.children.splice(index, 1);
+    } else if (force) {
+      throw new Error("Could not remove non-existent child");
+    }
   }
 
   filteredChildren() {

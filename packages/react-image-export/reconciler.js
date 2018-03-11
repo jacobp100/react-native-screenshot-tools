@@ -4,7 +4,6 @@ const Root = require("./elements/Root");
 
 const emptyObject = {};
 
-/* eslint-disable no-unused-vars */
 const Renderer = ReactFiberReconciler({
   appendInitialChild(parentInstance, child) {
     parentInstance.appendChild(child);
@@ -15,11 +14,11 @@ const Renderer = ReactFiberReconciler({
     return new elements[type](backend, settings, props);
   },
 
-  createTextInstance(text, rootContainerInstance, internalInstanceHandle) {
-    return { text };
+  createTextInstance(text) {
+    return new elements.Text.Container(text);
   },
 
-  finalizeInitialChildren(element, type, props) {
+  finalizeInitialChildren() {
     return false;
   },
 
@@ -27,20 +26,19 @@ const Renderer = ReactFiberReconciler({
     return instance;
   },
 
-  prepareForCommit(c) {
+  prepareForCommit() {
     return true;
-    // Noop
   },
 
-  prepareUpdate(element, type, oldProps, newProps) {
+  prepareUpdate() {
     return null;
   },
 
-  resetAfterCommit(c) {
+  resetAfterCommit() {
     // Noop
   },
 
-  resetTextContent(element) {
+  resetTextContent() {
     // Noop
   },
 
@@ -52,7 +50,7 @@ const Renderer = ReactFiberReconciler({
     return emptyObject;
   },
 
-  shouldSetTextContent(type, props) {
+  shouldSetTextContent() {
     return false;
   },
 
@@ -69,9 +67,13 @@ const Renderer = ReactFiberReconciler({
       parentInstance.appendChild(child);
     },
 
-    insertBefore(parentInstance, child, beforeChild) {},
+    insertBefore(parentInstance, child, beforeChild) {
+      parentInstance.insertBefore(child, beforeChild);
+    },
 
-    insertInContainerBefore(parentInstance, child, beforeChild) {},
+    insertInContainerBefore(parentInstance, child, beforeChild) {
+      parentInstance.insertBefore(child, beforeChild);
+    },
 
     removeChild(parentInstance, child) {
       parentInstance.removeChild(child);
@@ -82,10 +84,10 @@ const Renderer = ReactFiberReconciler({
     },
 
     commitTextUpdate(textInstance, oldText, newText) {
-      textInstance.text = newText; // eslint-disable-line
+      textInstance.updateText(newText);
     },
 
-    commitMount(instance, type, newProps) {
+    commitMount() {
       // Noop
     },
 
@@ -95,7 +97,6 @@ const Renderer = ReactFiberReconciler({
     }
   }
 });
-/* eslint-enable */
 
 const render = (element, backend, settings) => {
   const root = new Root(backend, settings, {});
