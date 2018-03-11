@@ -16,11 +16,11 @@
     "react": "^16.2.0",
     "react-is": "^1.0.0",
     "react-reconciler": "^0.7.0",
-    "xml-formatter": "^1.0.1",
     "yoga-layout": "^1.9.3"
   },
   "devDependencies": {
     "canvas-prebuilt": "^1.6.5-prerelease.1",
-    "react-native": "^0.53.3"
+    "react-native": "^0.53.3",
+    "xml-formatter": "^1.0.1"
   }
 }

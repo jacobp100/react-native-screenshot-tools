@@ -1,7 +1,6 @@
 /* eslint-disable class-methods-use-this */
 const cheerio = require("cheerio");
 const { path } = require("d3-path");
-const format = require("xml-formatter");
 const chroma = require("chroma-js");
 const { fontForStyle } = require("../fontLoader");
 const { enumerateLines } = require("./util");
@@ -10,6 +9,12 @@ const textAnchors = {
   left: "start",
   center: "middle",
   right: "end"
+};
+
+const textAligns = {
+  left: 0,
+  center: 0.5,
+  right: 1
 };
 
 module.exports = class SvgBackend {
@@ -31,7 +36,7 @@ module.exports = class SvgBackend {
   }
 
   toString() {
-    return format(this.$.xml());
+    return this.$.xml();
   }
 
   generateId() {
@@ -168,7 +173,7 @@ module.exports = class SvgBackend {
       .reduce(Math.max, 0);
   }
 
-  fillLines(lines, originX, originY) {
+  fillLines(lines, screenFrame) {
     const { textAlign = "left" } = lines[0].attributedStyles[0].style;
 
     const $text = this.$(`<text />`).attr(
@@ -176,26 +181,35 @@ module.exports = class SvgBackend {
       textAnchors[textAlign]
     );
 
-    enumerateLines(lines, ({ y, body, style, i }) => {
-      const font = fontForStyle(style);
-      const baselineShift = font.ascent / font.unitsPerEm * style.fontSize;
-
+    const renderRun = ({ x, y, body, style, i }) => {
       const $tspan = this.$("<tspan/>")
-        .attr("x", i === 0 ? originX : null)
-        .attr("y", i === 0 ? originY + y + baselineShift : null)
+        .attr("x", i === 0 ? x : null)
+        .attr("y", i === 0 ? y : null)
         .attr("fill", style.color)
         .text(body);
       $text.append($tspan);
-    });
+      return x; // Don't advance x
+    };
+
+    enumerateLines(
+      this,
+      lines,
+      renderRun,
+      screenFrame.y,
+      screenFrame.x + screenFrame.width * textAligns[textAlign]
+    );
 
     this.$container.append($text);
   }
 
   measureText(text, style) {
     const font = fontForStyle(style);
-    const width =
-      font.layout(text).advanceWidth / font.unitsPerEm * style.fontSize;
-    return { width };
+    const scale = style.fontSize / font.unitsPerEm;
+    return {
+      width: font.layout(text).advanceWidth * scale,
+      emHeightAscent: font.ascent * scale,
+      emHeightDescent: font.descent * scale
+    };
   }
 
   drawImage(image, x, y, width, height) {

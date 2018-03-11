@@ -1,21 +1,31 @@
+const { max } = require("lodash/fp");
 const Base = require("./Base");
 const { breakLines, measureLines } = require("../layout/textLayout");
 
-const defaultStyles = {
+const getFilteredStyles = (styleKey, attributedStyles) =>
+  attributedStyles
+    .map(attributedStyle => attributedStyle.style[styleKey])
+    .filter(style => style != null);
+
+const getLineHeight = attributedStyles => {
+  const lineHeights = getFilteredStyles("lineHeight", attributedStyles);
+  if (lineHeights.length !== 0) return max(lineHeights);
+
+  const fontSizes = getFilteredStyles("fontSize", attributedStyles);
+  if (fontSizes.length !== 0) return Math.floor(1.25 * max(fontSizes));
+
+  return 18; // for fontSize of 14
+};
+
+const defaultStyles = attributedStyles => ({
   color: "black",
   fontFamily: "Helvetica",
   fontSize: 14,
   fontStyle: "normal",
   fontWeight: "normal",
-  lineHeight: 18,
-  textAlign: "left"
-};
-
-const textAligns = {
-  left: 0,
-  center: 0.5,
-  right: 1
-};
+  textAlign: "left",
+  lineHeight: getLineHeight(attributedStyles)
+});
 
 const appendStyleTo = (attributedStyles, text, style) => {
   const lastAttributedStyle =
@@ -39,11 +49,9 @@ module.exports = class Text extends Base {
   }
 
   extractText() {
-    const childElements = [
-      { element: this, style: { ...defaultStyles, ...this.style } }
-    ];
+    const childElements = [{ element: this, style: this.style }];
     let text = "";
-    const attributedStyles = [];
+    let attributedStyles = [];
 
     while (childElements.length !== 0) {
       const { element, style } = childElements.shift();
@@ -69,6 +77,13 @@ module.exports = class Text extends Base {
       }
     }
 
+    const defaultStyle = defaultStyles(attributedStyles);
+    attributedStyles = attributedStyles.map(({ start, end, style }) => ({
+      start,
+      end,
+      style: { ...defaultStyle, ...style }
+    }));
+
     return { text, attributedStyles };
   }
 
@@ -79,9 +94,6 @@ module.exports = class Text extends Base {
   }
 
   draw(screenFrame) {
-    const { textAlign = "left" } = this.text[0].attributedStyles[0].style;
-    const x = screenFrame.x + screenFrame.width * textAligns[textAlign];
-    const { y } = screenFrame;
-    this.backend.fillLines(this.text, x, y);
+    this.backend.fillLines(this.text, screenFrame);
   }
 };

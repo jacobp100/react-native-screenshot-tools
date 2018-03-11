@@ -3,6 +3,7 @@ import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import { toMatchImageSnapshot } from "jest-image-snapshot";
 import Canvas from "canvas-prebuilt";
+import format from "xml-formatter";
 import { renderToSvg, renderToCanvas } from "..";
 
 expect.extend({ toMatchImageSnapshot });
@@ -17,6 +18,9 @@ const settings = {
   height: 800,
   dpi: 1
 };
+
+// Note formatting the SVG messes up text layout slightly, as it adds whitespace
+const renderSvg = async jsx => format(await renderToSvg(jsx, settings));
 
 const renderPng = async jsx => {
   const canvas = new Canvas(settings.width, settings.height);
@@ -63,7 +67,7 @@ test("Render test 1", async () => {
     </View>
   );
 
-  expect(await renderToSvg(jsx, settings)).toMatchSnapshot();
+  expect(await renderSvg(jsx)).toMatchSnapshot();
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
@@ -169,6 +173,29 @@ test("Render test 2", async () => {
     </View>
   );
 
-  expect(await renderToSvg(jsx, settings)).toMatchSnapshot();
+  expect(await renderSvg(jsx)).toMatchSnapshot();
+  expect(await renderPng(jsx)).toMatchImageSnapshot();
+});
+
+test("Render test 3", async () => {
+  const jsx = (
+    <View style={{ flex: 1, backgroundColor: "#eee" }}>
+      {["left", "center", "right"].map(textAlign => (
+        <View key={textAlign} style={{ width: 300, borderWidth: 1 }}>
+          <Text style={{ textAlign }}>
+            Lorem ipsum{" "}
+            <Text
+              style={{ fontWeight: "bold", fontStyle: "italic", fontSize: 18 }}
+            >
+              dolor
+            </Text>{" "}
+            <Text style={{ fontSize: 24 }}>sit</Text> amet.
+          </Text>
+        </View>
+      ))}
+    </View>
+  );
+
+  expect(await renderSvg(jsx)).toMatchSnapshot();
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });

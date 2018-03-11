@@ -26,6 +26,12 @@ const mergeDown = (targetData, foregroundData) => {
   }
 };
 
+const textAligns = {
+  left: 0,
+  center: 0.5,
+  right: 1
+};
+
 module.exports = class CanvasBackend {
   constructor(ctx, { width, height }) {
     this.ctx = ctx;
@@ -107,31 +113,51 @@ module.exports = class CanvasBackend {
     fontSize = 12,
     color = "black"
   }) {
-    this.ctx.font = `${fontSize}px ${fontWeight} ${fontStyle} ${JSON.stringify(
+    this.ctx.font = `${fontWeight} ${fontStyle} ${fontSize}px ${JSON.stringify(
       fontFamily
     )}`;
     this.ctx.fillStyle = color;
   }
 
-  fillLines(lines, originX, originY) {
+  fillLines(lines, screenFrame) {
     const { textAlign = "left" } = lines[0].attributedStyles[0].style;
     const { ctx } = this;
 
-    ctx.textBaseline = "top";
-    ctx.textAlign = textAlign;
+    ctx.textBaseline = "alphabetic";
+    ctx.textAlign = "left";
 
-    // FIXME: This probably doesn't work in non-left layouts with multiple text styles
-    enumerateLines(lines, ({ x, y, body, style }) => {
+    const getStartX = runs => {
+      const totalWidth = runs.reduce((x, { body, style }) => {
+        this.applyTextStyle(style);
+        const { width } = ctx.measureText(body);
+        return x + width;
+      }, 0);
+
+      const startX =
+        screenFrame.x +
+        (screenFrame.width - totalWidth) * textAligns[textAlign];
+      return startX;
+    };
+
+    const renderRun = ({ x, y, body, style }) => {
       this.applyTextStyle(style);
       const { width } = ctx.measureText(body);
-      ctx.fillText(body, originX + x, originY + y);
+      ctx.fillText(body, x, y);
       return x + width;
-    });
+    };
+
+    // FIXME: This probably doesn't work in non-left layouts with multiple text styles
+    enumerateLines(this, lines, renderRun, screenFrame.y, getStartX);
   }
 
   measureText(text, style) {
     this.applyTextStyle(style);
-    return this.ctx.measureText(text);
+    const {
+      width,
+      emHeightAscent = style.fontSize * 0.66,
+      emHeightDescent = style.fontSize * 0.33
+    } = this.ctx.measureText(text);
+    return { width, emHeightAscent, emHeightDescent };
   }
 
   drawImage(image, x, y, width, height) {
