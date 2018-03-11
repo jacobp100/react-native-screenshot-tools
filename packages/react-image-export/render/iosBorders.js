@@ -486,7 +486,7 @@ function addCustomRoundedRect3b(ctx, x, y, width, height, r, r2) {
   ctx.lineTo(x + width / 2, y);
 }
 
-module.exports = (ctx, x, y, width, height, cornerRadius) => {
+module.exports = (ctx, { x, y, width, height }, cornerRadius) => {
   const limitedCornerRadius = Math.min(
     cornerRadius,
     Math.min(width, height) / 2.0 / 1.528

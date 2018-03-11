@@ -1,3 +1,4 @@
+const chroma = require("chroma-js");
 const Base = require("./Base");
 const renderViewBackground = require("../render/viewBackground");
 
@@ -6,6 +7,34 @@ module.exports = class View extends Base {
     const { backend, settings, props, style } = this;
     const drawShadow =
       settings.platform === "ios" || props.forceDrawShadow === true;
-    renderViewBackground(backend, screenFrame, settings, style, drawShadow);
+
+    const {
+      shadowColor = "black",
+      shadowOpacity = 0,
+      shadowRadius = 0,
+      shadowOffset = { width: 0, height: 0 }
+    } = style;
+
+    const [r, g, b, a] = chroma(shadowColor)
+      .alpha(shadowOpacity)
+      .rgba();
+
+    const hasShadow =
+      drawShadow &&
+      a !== 0 &&
+      (shadowRadius !== 0 ||
+        shadowOffset.width !== 0 ||
+        shadowOffset.height !== 0);
+
+    const shadowParams = hasShadow
+      ? {
+          shadowBlur: shadowRadius,
+          shadowOffsetX: shadowOffset.width,
+          shadowOffsetY: shadowOffset.height,
+          shadowColor: `rgba(${r}, ${g}, ${b}, ${a})`
+        }
+      : null;
+
+    renderViewBackground(backend, screenFrame, settings, style, shadowParams);
   }
 };

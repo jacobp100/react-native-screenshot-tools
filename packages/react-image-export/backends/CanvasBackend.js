@@ -93,13 +93,33 @@ module.exports = class CanvasBackend {
     return this.ctx;
   }
 
-  commitShape({ fill, stroke, lineWidth }) {
+  commitShape({
+    fill,
+    stroke,
+    lineWidth,
+    shadowBlur = 0,
+    shadowColor = "transparent",
+    shadowOffsetX = 0,
+    shadowOffsetY = 0
+  }) {
+    if (shadowColor !== "transparent" && stroke != null) {
+      throw new Error("Cannot apply shadow to a shape with a stroke");
+    }
+
     const { ctx } = this;
     if (fill != null) {
+      ctx.shadowBlur = shadowBlur;
+      ctx.shadowColor = shadowColor;
+      ctx.shadowOffsetX = shadowOffsetX;
+      ctx.shadowOffsetY = shadowOffsetY;
       ctx.fillStyle = fill;
       ctx.fill();
     }
     if (stroke != null && lineWidth !== 0) {
+      ctx.shadowBlur = 0;
+      ctx.shadowColor = "transparent";
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = 0;
       ctx.strokeStyle = stroke;
       ctx.lineWidth = lineWidth;
       ctx.stroke();
