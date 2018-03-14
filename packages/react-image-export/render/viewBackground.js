@@ -8,8 +8,6 @@ const {
 
 const { NONE, MOVE, LINE } = ContinuationCommand;
 
-const sidesOf = value => [value, value, value, value];
-
 const sidesEqual = sides =>
   sides[0] === sides[1] && sides[0] === sides[2] && sides[0] === sides[3];
 
@@ -19,6 +17,13 @@ const scaleSides = (sides, scale) => [
   sides[2] * scale,
   sides[3] * scale
 ];
+
+const outsetFrame = ({ x, y, width, height }, outset) => ({
+  x: x + outset,
+  y: y + outset,
+  width: width - 2 * outset,
+  height: height - 2 * outset
+});
 
 const getBorderWidths = ({
   borderTopWidth = 0,
@@ -186,48 +191,73 @@ const drawSideStroke = (ctx, { x, y, width, height }, radii, insets, side) => {
   });
 };
 
-const isSolidBorder = ({ borderColors, borderStyle }) =>
-  borderStyle === "solid" &&
-  borderColors.every(color => chroma(color).alpha() === 1);
-
-const shouldDrawIOSBorder = (style, settings) => {
-  if (settings.platform !== "ios") return false;
-  const borderWidths = getBorderWidths(style);
-  const borderColors = getBorderColors(style);
-  const borderRadii = getBorderRadii(style);
+const isSolidBorder = style => {
   const { borderStyle = "solid" } = style;
   return (
-    sidesEqual(borderRadii) &&
-    sidesEqual(borderWidths) &&
-    sidesEqual(borderColors) &&
-    isSolidBorder({ borderStyle, borderColors })
+    borderStyle === "solid" &&
+    getBorderColors(style).every(color => chroma(color).alpha() === 1)
   );
 };
 
-module.exports = (backend, frame, settings, style, shadowParams = null) => {
+const shouldDrawIOSBorder = (style, settings) => {
+  if (settings.platform !== "ios") return false;
+  return (
+    sidesEqual(getBorderRadii(style)) &&
+    sidesEqual(getBorderWidths(style)) &&
+    sidesEqual(getBorderColors(style)) &&
+    isSolidBorder(style)
+  );
+};
+
+const drawOutline = (ctx, frame, settings, style, insetScale = 0) => {
+  const useIOSBorderRendering = shouldDrawIOSBorder(style, settings);
+  const borderWidths = getBorderWidths(style);
+  const borderRadii = getScaledBorderRadii(style, frame.width, frame.height);
+
+  if (useIOSBorderRendering) {
+    const appliedInset = insetScale * borderWidths[0];
+    drawIosBorder(
+      ctx,
+      outsetFrame(frame, -appliedInset),
+      borderRadii[0] - appliedInset
+    );
+  } else {
+    const borderInsets = scaleSides(borderWidths, insetScale);
+    drawRect(ctx, frame, borderRadii, borderInsets);
+  }
+};
+
+module.exports.drawBackground = (
+  backend,
+  frame,
+  settings,
+  style,
+  shadowParams = null
+) => {
+  const backgroundParams = { fill: style.backgroundColor, ...shadowParams };
+
+  const backgroundCtx = backend.beginShape();
+  const shouldInset = isSolidBorder(style) && shadowParams == null;
+  drawOutline(backgroundCtx, frame, settings, style, shouldInset ? 0.5 : 0);
+  backend.commitShape(backgroundParams);
+};
+
+module.exports.drawBorders = (backend, frame, settings, style) => {
   const useIOSBorderRendering = shouldDrawIOSBorder(style, settings);
   const borderWidths = getBorderWidths(style);
   const borderColors = getBorderColors(style);
   const borderRadii = getScaledBorderRadii(style, frame.width, frame.height);
-
   const { borderStyle = "solid" } = style;
-  const backgroundParams = { fill: style.backgroundColor, ...shadowParams };
-
-  const backgroundCtx = backend.beginShape();
-  if (useIOSBorderRendering) {
-    drawIosBorder(backgroundCtx, frame, borderRadii[0]);
-  } else {
-    const borderInsets = isSolidBorder({ borderStyle, borderColors })
-      ? scaleSides(borderWidths, 0.5)
-      : sidesOf(0);
-    drawRect(backgroundCtx, frame, borderRadii, borderInsets);
-  }
-  backend.commitShape(backgroundParams);
 
   if (useIOSBorderRendering) {
     const [borderWidth = 0] = borderWidths;
     const borderCtx = backend.beginShape();
-    drawIosBorder(borderCtx, frame, borderRadii[0] - borderWidth / 2);
+    const inset = borderWidth / 2;
+    drawIosBorder(
+      borderCtx,
+      outsetFrame(frame, -inset),
+      borderRadii[0] - inset
+    );
     backend.commitShape({ stroke: borderColors[0], lineWidth: borderWidth });
   } else if (sidesEqual(borderWidths) && sidesEqual(borderColors)) {
     // The border is consistent in width and colour. It doesn't matter if it's solid
@@ -246,15 +276,10 @@ module.exports = (backend, frame, settings, style, shadowParams = null) => {
   } else {
     // Non-solid border. Use multiple lines.
     // Will look bad when border width varies.
+    const insets = scaleSides(borderWidths, 0.5);
     borderColors.forEach((borderColor, side) => {
       const borderCtx = backend.beginShape();
-      drawSideStroke(
-        borderCtx,
-        frame,
-        borderRadii,
-        scaleSides(borderWidths, 0.5),
-        side
-      );
+      drawSideStroke(borderCtx, frame, borderRadii, insets, side);
       backend.commitShape({
         stroke: borderColor,
         lineWidth: borderWidths[side]
@@ -264,11 +289,9 @@ module.exports = (backend, frame, settings, style, shadowParams = null) => {
 };
 
 module.exports.clip = (ctx, frame, settings, style) => {
-  const borderRadii = getScaledBorderRadii(style, frame.width, frame.height);
+  drawOutline(ctx, frame, settings, style, 0);
+};
 
-  if (shouldDrawIOSBorder(style, settings)) {
-    drawIosBorder(ctx, frame, borderRadii[0]);
-  } else {
-    drawRect(ctx, frame, borderRadii, sidesOf(0));
-  }
+module.exports.clipInside = (ctx, frame, settings, style) => {
+  drawOutline(ctx, frame, settings, style, 1);
 };

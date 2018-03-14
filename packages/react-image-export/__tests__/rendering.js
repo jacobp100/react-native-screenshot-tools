@@ -199,3 +199,92 @@ test("Render test 3", async () => {
   expect(await renderSvg(jsx)).toMatchSnapshot();
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
+
+test("Images", async () => {
+  const jsx = (
+    <View style={{ flex: 1, backgroundColor: "#eee" }}>
+      <Text>Resize mode</Text>
+      <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+        {["cover", "contain", "stretch", "center"].map(resizeMode => (
+          <View key={resizeMode} style={{ alignItems: "center" }}>
+            <Text>{resizeMode}</Text>
+            <Image
+              src={parrot}
+              style={{
+                resizeMode,
+                width: 100,
+                height: 100,
+                aspectRatio: undefined
+              }}
+            />
+          </View>
+        ))}
+      </View>
+      <Text>Resize mode using prop</Text>
+      <Image
+        src={parrot}
+        resizeMode="cover"
+        style={{ width: "100%", height: 100, aspectRatio: undefined }}
+      />
+      <Text>Border radii</Text>
+      <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+        {[0, 10, 20, 50, 100].map(borderRadius => (
+          <View key={borderRadius} style={{ alignItems: "center" }}>
+            <Text>{borderRadius}</Text>
+            <Image
+              src={parrot}
+              style={{
+                borderRadius,
+                resizeMode: "center",
+                width: 100,
+                height: 100,
+                aspectRatio: undefined
+              }}
+            />
+          </View>
+        ))}
+      </View>
+      <Text>Border widths</Text>
+      <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+        {[0, 1, 2, 5, 10].map(borderWidth => (
+          <View key={borderWidth} style={{ alignItems: "center" }}>
+            <Text>{borderWidth}</Text>
+            <Image
+              src={parrot}
+              style={{
+                borderWidth,
+                borderRadius: 20,
+                borderColor: "black",
+                resizeMode: "center",
+                width: 100,
+                height: 100,
+                aspectRatio: undefined
+              }}
+            />
+          </View>
+        ))}
+      </View>
+      <Text>Tint color</Text>
+      <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+        {["red", "green", "blue"].map(tintColor => (
+          <View key={tintColor} style={{ alignItems: "center" }}>
+            <Text>{tintColor}</Text>
+            <Image
+              src={parrot}
+              style={{
+                tintColor,
+                resizeMode: "contain",
+                width: 100,
+                height: 100,
+                aspectRatio: undefined
+              }}
+            />
+          </View>
+        ))}
+      </View>
+    </View>
+  );
+
+  expect(await renderSvg(jsx)).toMatchSnapshot();
+  expect(await renderPng(jsx)).toMatchImageSnapshot();
+});

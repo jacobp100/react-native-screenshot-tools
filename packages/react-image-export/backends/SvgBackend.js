@@ -78,6 +78,15 @@ module.exports = class SvgBackend {
     this.popGroup();
   }
 
+  pushCompositeOperation(compositeMode) {
+    const $group = this.$("<g />").attr("composite-mode", compositeMode);
+    this.pushGroup($group);
+  }
+
+  popCompositeOperation() {
+    this.popGroup();
+  }
+
   beginClip() {
     this.ctx = path();
     return this.ctx;

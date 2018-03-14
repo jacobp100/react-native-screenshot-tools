@@ -1,6 +1,6 @@
 const chroma = require("chroma-js");
 const Base = require("./Base");
-const renderViewBackground = require("../render/viewBackground");
+const { drawBackground, drawBorders } = require("../render/viewBackground");
 
 module.exports = class View extends Base {
   draw(screenFrame) {
@@ -35,6 +35,7 @@ module.exports = class View extends Base {
         }
       : null;
 
-    renderViewBackground(backend, screenFrame, settings, style, shadowParams);
+    drawBackground(backend, screenFrame, settings, style, shadowParams);
+    drawBorders(backend, screenFrame, settings, style);
   }
 };

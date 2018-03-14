@@ -15,8 +15,8 @@ module.exports.positionForImage = (image, layout, resizeMode = "contain") => {
     image.height *
     (resizeMode !== "stretch" ? scales[resizeMode] : heightScale);
 
-  const x = (layout.width - width) / 2;
-  const y = (layout.height - height) / 2;
+  const x = layout.x + (layout.width - width) / 2;
+  const y = layout.y + (layout.height - height) / 2;
 
   return { x, y, width, height };
 };

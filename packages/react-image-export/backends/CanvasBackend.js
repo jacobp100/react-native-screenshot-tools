@@ -1,10 +1,21 @@
+const chroma = require("chroma-js");
 const { enumerateLines } = require("./util");
 
-const applyAlpha = (alpha, imageData) => {
+const applyAlpha = alpha => imageData => {
   const target = imageData.data;
 
   for (let i = 0; i < target.length; i += 4) {
     target[i + 3] = Math.round(target[i + 3] * alpha);
+  }
+};
+
+const setColor = (r, g, b) => imageData => {
+  const target = imageData.data;
+
+  for (let i = 0; i < target.length; i += 4) {
+    target[i + 0] = r;
+    target[i + 1] = g;
+    target[i + 2] = b;
   }
 };
 
@@ -38,6 +49,31 @@ module.exports = class CanvasBackend {
     this.width = width;
     this.height = height;
     this.stackingContext = [];
+    this.alphas = [];
+    this.compositeOperations = ["source-over"];
+  }
+
+  pushStackingContext() {
+    const { ctx, stackingContext, width, height } = this;
+    const imageData = ctx.getImageData(0, 0, width, height);
+    stackingContext.push(imageData);
+
+    // Clear canvas with transparent black
+    this.ctx.putImageData(this.ctx.createImageData(width, height), 0, 0);
+  }
+
+  popStackingContext(appliedImageData) {
+    const { ctx, stackingContext } = this;
+    const imageData = stackingContext.pop();
+    mergeDown(imageData, appliedImageData);
+    ctx.putImageData(imageData, 0, 0);
+  }
+
+  transformPixels(transform) {
+    const { ctx, width, height } = this;
+    const appliedImageData = ctx.getImageData(0, 0, width, height);
+    transform(appliedImageData);
+    return appliedImageData;
   }
 
   pushTransform(m, { x, y, width, height }) {
@@ -55,23 +91,13 @@ module.exports = class CanvasBackend {
   }
 
   pushAlpha(alpha) {
-    const { ctx, stackingContext, width, height } = this;
-    const imageData = ctx.getImageData(0, 0, width, height);
-    stackingContext.push({ alpha, imageData });
-
-    ctx.save();
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.clearRect(0, 0, width, height);
-    ctx.restore();
+    this.pushStackingContext();
+    this.alphas.push(alpha);
   }
 
   popAlpha() {
-    const { ctx, stackingContext, width, height } = this;
-    const { alpha, imageData } = stackingContext.pop();
-    const appliedImageData = ctx.getImageData(0, 0, width, height);
-    applyAlpha(alpha, appliedImageData);
-    mergeDown(imageData, appliedImageData);
-    ctx.putImageData(imageData, 0, 0);
+    const alpha = this.alphas.pop();
+    this.popStackingContext(this.transformPixels(applyAlpha(alpha)));
   }
 
   beginClip() {
@@ -180,7 +206,15 @@ module.exports = class CanvasBackend {
     return { width, emHeightAscent, emHeightDescent };
   }
 
-  drawImage(image, x, y, width, height) {
+  drawImage(image, x, y, width, height, tintColor) {
+    // TODO: Move to {push,pop}TintColor
+    if (tintColor != null) this.pushStackingContext();
+
     this.ctx.drawImage(image.image, x, y, width, height);
+
+    if (tintColor != null) {
+      const [r, g, b] = chroma(tintColor).rgb();
+      this.popStackingContext(this.transformPixels(setColor(r, g, b)));
+    }
   }
 };
