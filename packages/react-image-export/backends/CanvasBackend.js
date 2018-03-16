@@ -50,6 +50,7 @@ module.exports = class CanvasBackend {
     this.height = height;
     this.stackingContext = [];
     this.alphas = [];
+    this.tintColors = [];
     this.compositeOperations = ["source-over"];
   }
 
@@ -98,6 +99,17 @@ module.exports = class CanvasBackend {
   popAlpha() {
     const alpha = this.alphas.pop();
     this.popStackingContext(this.transformPixels(applyAlpha(alpha)));
+  }
+
+  pushTintColor(tintColor) {
+    this.pushStackingContext();
+    const [r, g, b] = chroma(tintColor).rgb();
+    this.tintColors.push([r, g, b]);
+  }
+
+  popTintColor() {
+    const [r, g, b] = this.tintColors.pop();
+    this.popStackingContext(this.transformPixels(setColor(r, g, b)));
   }
 
   beginClip() {
@@ -206,15 +218,7 @@ module.exports = class CanvasBackend {
     return { width, emHeightAscent, emHeightDescent };
   }
 
-  drawImage(image, x, y, width, height, tintColor) {
-    // TODO: Move to {push,pop}TintColor
-    if (tintColor != null) this.pushStackingContext();
-
+  drawImage(image, x, y, width, height) {
     this.ctx.drawImage(image.image, x, y, width, height);
-
-    if (tintColor != null) {
-      const [r, g, b] = chroma(tintColor).rgb();
-      this.popStackingContext(this.transformPixels(setColor(r, g, b)));
-    }
   }
 };

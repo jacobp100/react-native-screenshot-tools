@@ -1,7 +1,11 @@
 const readImage = require("../imageLoader");
 const Base = require("./Base");
 const { positionForImage } = require("../render/image");
-const { clipInside, drawBorders } = require("../render/viewBackground");
+const {
+  drawBackground,
+  drawBorders,
+  clipInside
+} = require("../render/viewBackground");
 
 module.exports = class Image extends Base {
   constructor(...args) {
@@ -25,9 +29,13 @@ module.exports = class Image extends Base {
     const { resizeMode = style.resizeMode } = props;
     const { tintColor } = style;
 
+    drawBackground(backend, screenFrame, settings, style);
+
     const clipCtx = backend.beginClip();
     clipInside(clipCtx, screenFrame, settings, style);
     backend.pushClip();
+
+    if (tintColor != null) backend.pushTintColor(tintColor);
 
     const { x, y, width, height } = positionForImage(
       image,
@@ -35,6 +43,8 @@ module.exports = class Image extends Base {
       resizeMode
     );
     backend.drawImage(image, x, y, width, height, tintColor);
+
+    if (tintColor != null) backend.popTintColor();
 
     backend.popClip();
 

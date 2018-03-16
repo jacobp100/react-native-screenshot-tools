@@ -24,7 +24,7 @@ export default ({
   minimumValue = 0,
   maximumTrackTintColor = "#C7C7CC",
   value = 0,
-  thumbTintColor,
+  // thumbTintColor, - not supported on iOS apparently
   maximumTrackImage,
   minimumTrackImage,
   thumbImage,

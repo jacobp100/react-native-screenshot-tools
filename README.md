@@ -6,7 +6,7 @@ I want to be able to generate app store screenshots of React Native apps easily 
 
 `snapshotter` lets you generate screenshots easily. It's pretty much Jest without the testing stuff. It lets you do mocking the same way as Jest, so if you have native modules, you can just mock them out.
 
-### Usage
+## Usage
 
 In your React Native project, create a folder called `__snapshotter__`. Every JS file in here will run as a snapshot. Make an `index.js` file here,
 
@@ -28,3 +28,21 @@ snapshot("filename", () => (
 ```
 
 This will generate an SVG called `filename.svg`.
+
+## Current Progress
+
+* Almost all layout props are implemented ([issue](https://github.com/jacobp100/react-image-export/issues/10), [docs](https://facebook.github.io/react-native/docs/layout-props.html))
+* Most view props are implemented ([issue](https://github.com/jacobp100/react-image-export/issues/8), [docs](https://facebook.github.io/react-native/docs/view-props.html))
+* Some text style props are implemented ([issue](https://github.com/jacobp100/react-image-export/issues/9), [docs](https://facebook.github.io/react-native/docs/text-style-props.html))
+* Most image style props are implemented ([issue](https://github.com/jacobp100/react-image-export/issues/11), [docs](https://facebook.github.io/react-native/docs/image-style-props.html))
+
+We don't yet support RTL layouts (which accounts for almost all missing layout and view props).
+
+We only support 2D transforms. We should be able to support all but `perspective`.
+
+We have some native components working.
+
+* [iOS components issue](https://github.com/jacobp100/react-image-export/issues/5)
+* [Android components issue](https://github.com/jacobp100/react-image-export/issues/6)
+
+The test snapshotter is mostly working as proof of concept.

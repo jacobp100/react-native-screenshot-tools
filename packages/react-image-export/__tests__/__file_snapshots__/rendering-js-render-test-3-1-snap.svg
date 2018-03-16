@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="640" height="800">
+    <defs/>
+    <path d="M0,0L640,0L640,800L0,800L0,0Z" fill="#eee" stroke="none" stroke-width="0"/>
+    <path d="M0,0L300,0L300,32L0,32L0,0Z" fill="none" stroke="black" stroke-width="1"/>
+    <text text-anchor="start">
+        <tspan x="1" y="26.85009765625" fill="black">
+            Lorem ipsum
+        </tspan>
+        <tspan fill="black">
+             
+        </tspan>
+        <tspan fill="black">
+            dolor
+        </tspan>
+        <tspan fill="black">
+             
+        </tspan>
+        <tspan fill="black">
+            sit
+        </tspan>
+        <tspan fill="black">
+             amet.
+        </tspan>
+    </text>
+    <path d="M0,32L300,32L300,64L0,64L0,32Z" fill="none" stroke="black" stroke-width="1"/>
+    <text text-anchor="middle">
+        <tspan x="150" y="58.85009765625" fill="black">
+            Lorem ipsum
+        </tspan>
+        <tspan fill="black">
+             
+        </tspan>
+        <tspan fill="black">
+            dolor
+        </tspan>
+        <tspan fill="black">
+             
+        </tspan>
+        <tspan fill="black">
+            sit
+        </tspan>
+        <tspan fill="black">
+             amet.
+        </tspan>
+    </text>
+    <path d="M0,64L300,64L300,96L0,96L0,64Z" fill="none" stroke="black" stroke-width="1"/>
+    <text text-anchor="end">
+        <tspan x="299" y="90.85009765625" fill="black">
+            Lorem ipsum
+        </tspan>
+        <tspan fill="black">
+             
+        </tspan>
+        <tspan fill="black">
+            dolor
+        </tspan>
+        <tspan fill="black">
+             
+        </tspan>
+        <tspan fill="black">
+            sit
+        </tspan>
+        <tspan fill="black">
+             amet.
+        </tspan>
+    </text>
+</svg>

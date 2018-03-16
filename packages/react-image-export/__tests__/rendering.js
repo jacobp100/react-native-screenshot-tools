@@ -2,11 +2,15 @@ import * as path from "path";
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import { toMatchImageSnapshot } from "jest-image-snapshot";
+import { configureToMatchFileSnapshot } from "jest-file-snapshot";
 import Canvas from "canvas-prebuilt";
 import format from "xml-formatter";
 import { renderToSvg, renderToCanvas } from "..";
 
 expect.extend({ toMatchImageSnapshot });
+expect.extend({
+  toMatchFileSnapshot: configureToMatchFileSnapshot({ fileExtension: ".svg" })
+});
 
 const parrot = {
   // snapshotter would output this format, RN has some weird path format
@@ -67,7 +71,7 @@ test("Render test 1", async () => {
     </View>
   );
 
-  expect(await renderSvg(jsx)).toMatchSnapshot();
+  expect(await renderSvg(jsx)).toMatchFileSnapshot();
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
@@ -173,7 +177,7 @@ test("Render test 2", async () => {
     </View>
   );
 
-  expect(await renderSvg(jsx)).toMatchSnapshot();
+  expect(await renderSvg(jsx)).toMatchFileSnapshot();
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
@@ -196,7 +200,7 @@ test("Render test 3", async () => {
     </View>
   );
 
-  expect(await renderSvg(jsx)).toMatchSnapshot();
+  expect(await renderSvg(jsx)).toMatchFileSnapshot();
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
@@ -282,9 +286,27 @@ test("Images", async () => {
           </View>
         ))}
       </View>
+      <Text>Background color</Text>
+      <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+        {["red", "green", "blue"].map(backgroundColor => (
+          <View key={backgroundColor} style={{ alignItems: "center" }}>
+            <Text>{backgroundColor}</Text>
+            <Image
+              src={parrot}
+              style={{
+                backgroundColor,
+                resizeMode: "contain",
+                width: 100,
+                height: 100,
+                aspectRatio: undefined
+              }}
+            />
+          </View>
+        ))}
+      </View>
     </View>
   );
 
-  expect(await renderSvg(jsx)).toMatchSnapshot();
+  expect(await renderSvg(jsx)).toMatchFileSnapshot();
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });

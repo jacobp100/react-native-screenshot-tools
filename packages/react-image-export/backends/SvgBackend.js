@@ -78,6 +78,29 @@ module.exports = class SvgBackend {
     this.popGroup();
   }
 
+  pushTintColor(tintColor) {
+    const filter = this.generateId();
+    const $filter = this.$("<filter />").attr("id", filter);
+    this.$("<feFlood />")
+      .attr("flood-color", tintColor)
+      .attr("result", "flood")
+      .appendTo($filter);
+    this.$("<feComposite />")
+      .attr("in", "flood")
+      .attr("in2", "SourceGraphic")
+      .attr("operator", "in")
+      .attr("result", "comp")
+      .appendTo($filter);
+    $filter.appendTo("defs");
+
+    const $group = this.$("<g />").attr("filter", `url(#${filter})`);
+    this.pushGroup($group);
+  }
+
+  popTintColor() {
+    this.popGroup();
+  }
+
   pushCompositeOperation(compositeMode) {
     const $group = this.$("<g />").attr("composite-mode", compositeMode);
     this.pushGroup($group);
@@ -95,8 +118,9 @@ module.exports = class SvgBackend {
   pushClip() {
     const clipPath = this.generateId();
     const $clipPath = this.$("<clipPath />").attr("id", clipPath);
-    const $clipBody = this.$("<path />").attr("d", String(this.ctx));
-    $clipBody.appendTo($clipPath);
+    this.$("<path />")
+      .attr("d", String(this.ctx))
+      .appendTo($clipPath);
     $clipPath.appendTo("defs");
 
     const $group = this.$("<g />").attr("clip-path", `url(#${clipPath})`);
