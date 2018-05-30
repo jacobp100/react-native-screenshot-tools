@@ -62,7 +62,7 @@ test("Render test 1", async () => {
             borderBottomColor: "blue",
             borderLeftColor: "magenta",
             borderRadius: 33,
-            transform: [{ rotate: `${Math.floor(360 * i / 16)}deg` }]
+            transform: [{ rotate: `${Math.floor((360 * i) / 16)}deg` }]
           }}
         >
           <Text style={{ textAlign: "center" }}>Hello World</Text>
@@ -160,11 +160,11 @@ test("Render test 2", async () => {
         />
       </View>
       <Image
-        src={parrot}
+        source={parrot}
         style={{ width: "100%", height: 100, aspectRatio: undefined }}
       />
       <Image
-        src={parrot}
+        source={parrot}
         resizeMode="cover"
         style={{ width: "100%", height: 100, aspectRatio: undefined }}
       />
@@ -213,7 +213,7 @@ test("Images", async () => {
           <View key={resizeMode} style={{ alignItems: "center" }}>
             <Text>{resizeMode}</Text>
             <Image
-              src={parrot}
+              source={parrot}
               style={{
                 resizeMode,
                 width: 100,
@@ -226,7 +226,7 @@ test("Images", async () => {
       </View>
       <Text>Resize mode using prop</Text>
       <Image
-        src={parrot}
+        source={parrot}
         resizeMode="cover"
         style={{ width: "100%", height: 100, aspectRatio: undefined }}
       />
@@ -236,7 +236,7 @@ test("Images", async () => {
           <View key={borderRadius} style={{ alignItems: "center" }}>
             <Text>{borderRadius}</Text>
             <Image
-              src={parrot}
+              source={parrot}
               style={{
                 borderRadius,
                 resizeMode: "center",
@@ -254,7 +254,7 @@ test("Images", async () => {
           <View key={borderWidth} style={{ alignItems: "center" }}>
             <Text>{borderWidth}</Text>
             <Image
-              src={parrot}
+              source={parrot}
               style={{
                 borderWidth,
                 borderRadius: 20,
@@ -274,7 +274,7 @@ test("Images", async () => {
           <View key={tintColor} style={{ alignItems: "center" }}>
             <Text>{tintColor}</Text>
             <Image
-              src={parrot}
+              source={parrot}
               style={{
                 tintColor,
                 resizeMode: "contain",
@@ -292,7 +292,7 @@ test("Images", async () => {
           <View key={backgroundColor} style={{ alignItems: "center" }}>
             <Text>{backgroundColor}</Text>
             <Image
-              src={parrot}
+              source={parrot}
               style={{
                 backgroundColor,
                 resizeMode: "contain",

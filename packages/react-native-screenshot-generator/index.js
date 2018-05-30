@@ -6,7 +6,7 @@ const devices = [
     width: 320,
     height: 568,
     dpi: 1,
-    systemFont: "San Francisco",
+    systemFont: "Helvetica", // "San Francisco",
     platform: "ios"
   },
   {
@@ -14,7 +14,7 @@ const devices = [
     width: 320,
     height: 568,
     dpi: 2,
-    systemFont: "San Francisco",
+    systemFont: "Helvetica", // "San Francisco",
     platform: "ios"
   },
   {
@@ -22,7 +22,7 @@ const devices = [
     width: 375,
     height: 667,
     dpi: 2,
-    systemFont: "San Francisco",
+    systemFont: "Helvetica", // "San Francisco",
     platform: "ios"
   },
   {
@@ -30,7 +30,7 @@ const devices = [
     width: 375,
     height: 667,
     dpi: 3,
-    systemFont: "San Francisco",
+    systemFont: "Helvetica", // "San Francisco",
     platform: "ios"
   },
   {
@@ -38,7 +38,7 @@ const devices = [
     width: 414,
     height: 736,
     dpi: 3,
-    systemFont: "San Francisco",
+    systemFont: "Helvetica", // "San Francisco",
     platform: "ios"
   },
   {
@@ -46,7 +46,7 @@ const devices = [
     width: 375,
     height: 812,
     dpi: 3,
-    systemFont: "San Francisco",
+    systemFont: "Helvetica", // "San Francisco",
     platform: "ios"
   },
   {
@@ -77,7 +77,7 @@ devices
           "./assetFileTransformer.js"
         )
       },
-      testMatch: ["**/__snapshotter__/**/*.js"],
+      testMatch: ["**/__snapshotter__/**/*.js?(x)", "**/?(*.)+(snap).js?(x)"],
       testRunner: require.resolve("./testRunner"),
       reporters: [require.resolve("./reporter")],
       testEnvironmentOptions: settings

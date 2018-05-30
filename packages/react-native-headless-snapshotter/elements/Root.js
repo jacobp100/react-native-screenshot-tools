@@ -1,6 +1,7 @@
 const yoga = require("yoga-layout");
 const computeYogaNode = require("../layout/computeYogaNode");
 const Base = require("./Base");
+const { flattenStyle } = require("../stylesheet");
 
 const frameChanged = (a, b) =>
   a == null ||
@@ -26,7 +27,10 @@ module.exports = class Root extends Base {
     const buildNodeTree = async element => {
       const hostStyles = await element.getHostStyles();
       // Recreate tree on every frame to avoid resetting frame params
-      const node = computeYogaNode({ ...hostStyles, ...element.style }, config);
+      const node = computeYogaNode(
+        flattenStyle([hostStyles, element.style]),
+        config
+      );
       if (element.measureFunc) {
         node.setMeasureFunc(element.measureFunc.bind(element));
       }
@@ -76,6 +80,6 @@ module.exports = class Root extends Base {
       shouldUpdate = shouldUpdate || shouldComputeLayout;
     });
 
-    if (shouldUpdate) this.computeLayout(iteration + 1);
+    if (shouldUpdate) await this.layout(iteration + 1);
   }
 };

@@ -25,7 +25,7 @@ module.exports = async (
 
   const errorPromises = tests.map(async ({ fn, title }) => {
     try {
-      const jsx = fn();
+      const jsx = fn(settings);
       const svg = await renderToSvg(jsx, settings);
       await promisify(fs.writeFile)(
         path.join(testFilePath, "..", `${title}-${settings.name}.svg`),

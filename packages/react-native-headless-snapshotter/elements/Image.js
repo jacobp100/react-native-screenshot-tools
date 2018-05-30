@@ -15,13 +15,9 @@ module.exports = class Image extends Base {
 
   async getHostStyles() {
     const { props, settings } = this;
-    const image = await readImage(props.src.testUri, settings.testFilePath);
+    const image = await readImage(props.source.testUri, settings.testFilePath);
     this.image = image;
-    return {
-      width: image.width,
-      height: image.height,
-      aspectRatio: image.width / image.height
-    };
+    return { width: image.width, height: image.height };
   }
 
   draw(screenFrame) {

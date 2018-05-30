@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "integration",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "snapshotter"
+  },
+  "dependencies": {
+    "react": "^16.4.0",
+    "react-native": "^0.55.4",
+    "react-native-device-frames": "^1.0.0",
+    "react-native-screenshot-generator": "^1.0.0"
+  },
+  "workspaces": {
+    "nohoist": ["*", "*/**"]
+  }
+}

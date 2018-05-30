@@ -30,8 +30,8 @@ const Renderer = ReactFiberReconciler({
     return true;
   },
 
-  prepareUpdate() {
-    return null;
+  prepareUpdate(instance, tagName, prevProps, nextProps) {
+    instance.setProps(nextProps);
   },
 
   resetAfterCommit() {
