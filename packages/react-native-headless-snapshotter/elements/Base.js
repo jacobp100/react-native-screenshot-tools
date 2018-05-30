@@ -79,7 +79,7 @@ module.exports = class Base {
     };
 
     await this.draw(screenFrame);
-    const children = sortBy(getOr("style.zIndex", 0), this.filteredChildren());
+    const children = sortBy(getOr(0, "style.zIndex"), this.filteredChildren());
     /* eslint-disable */
     const offset = { x: screenFrame.x, y: screenFrame.y };
     for (const child of children) {

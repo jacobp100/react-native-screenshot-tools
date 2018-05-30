@@ -5,11 +5,15 @@ const reconciler = require("./reconciler");
 const defaultSettings = {
   width: 500,
   height: 500,
-  dpi: 2
+  dpi: 2,
+  systemFont: "Helvetica"
 };
 
-const renderBackend = async (backend, jsx, settings = defaultSettings) => {
-  const rootInstance = reconciler(jsx, backend, settings);
+const renderBackend = async (backend, jsx, settings) => {
+  const rootInstance = reconciler(jsx, backend, {
+    ...defaultSettings,
+    ...settings
+  });
   await rootInstance.layout();
   await rootInstance.render();
   return backend;

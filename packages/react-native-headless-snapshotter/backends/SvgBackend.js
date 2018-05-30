@@ -201,7 +201,7 @@ module.exports = class SvgBackend {
     line.attributedStyles
       .map(({ style }) => {
         const font = fontForStyle(style);
-        return font.ascent / font.unitsPerEm * style.fontSize;
+        return (font.ascent / font.unitsPerEm) * style.fontSize;
       })
       .reduce(Math.max, 0);
   }
@@ -219,6 +219,10 @@ module.exports = class SvgBackend {
         .attr("x", i === 0 ? x : null)
         .attr("y", i === 0 ? y : null)
         .attr("fill", style.color)
+        .attr("font-family", style.fontFamily)
+        .attr("font-size", `${style.fontSize}px`)
+        .attr("font-weight", style.fontWeight)
+        .attr("font-style", style.fontStyle)
         .text(body);
       $text.append($tspan);
       return x; // Don't advance x

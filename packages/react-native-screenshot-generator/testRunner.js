@@ -2,7 +2,7 @@
 const path = require("path");
 const fs = require("fs");
 const { promisify } = require("util");
-const { renderToSvg } = require("react-image-export");
+const { renderToSvg } = require("react-native-headless-snapshotter");
 
 module.exports = async (
   globalConfig,

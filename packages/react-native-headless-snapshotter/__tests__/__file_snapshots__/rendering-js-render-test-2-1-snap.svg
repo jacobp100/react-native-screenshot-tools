@@ -38,7 +38,7 @@
     </g>
     <path d="M0,726L640,726L640,727L0,727L0,726Z" fill="black" stroke="none" stroke-width="0"/>
     <text text-anchor="start">
-        <tspan x="0" y="798" fill="black">
+        <tspan x="0" y="798" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
             Hello world
         </tspan>
     </text>

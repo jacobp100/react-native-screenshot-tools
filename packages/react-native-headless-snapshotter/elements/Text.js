@@ -19,13 +19,18 @@ const getLineHeight = attributedStyles => {
 
 const defaultStyles = attributedStyles => ({
   color: "black",
-  fontFamily: "Helvetica",
+  fontFamily: "System",
   fontSize: 14,
   fontStyle: "normal",
   fontWeight: "normal",
   textAlign: "left",
   lineHeight: getLineHeight(attributedStyles)
 });
+
+const applySystemFont = (style, settings) =>
+  style.fontFamily === "System"
+    ? { ...style, fontFamily: settings.systemFont }
+    : style;
 
 const appendStyleTo = (attributedStyles, text, style) => {
   const lastAttributedStyle =
@@ -80,7 +85,7 @@ class Text extends Base {
     attributedStyles = attributedStyles.map(({ start, end, style }) => ({
       start,
       end,
-      style: { ...defaultStyle, ...style }
+      style: applySystemFont({ ...defaultStyle, ...style }, this.settings)
     }));
 
     return { text, attributedStyles };

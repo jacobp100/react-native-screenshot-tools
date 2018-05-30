@@ -6,6 +6,7 @@ const devices = [
     width: 320,
     height: 568,
     dpi: 1,
+    systemFont: "San Francisco",
     platform: "ios"
   },
   {
@@ -13,6 +14,7 @@ const devices = [
     width: 320,
     height: 568,
     dpi: 2,
+    systemFont: "San Francisco",
     platform: "ios"
   },
   {
@@ -20,6 +22,7 @@ const devices = [
     width: 375,
     height: 667,
     dpi: 2,
+    systemFont: "San Francisco",
     platform: "ios"
   },
   {
@@ -27,6 +30,7 @@ const devices = [
     width: 375,
     height: 667,
     dpi: 3,
+    systemFont: "San Francisco",
     platform: "ios"
   },
   {
@@ -34,6 +38,7 @@ const devices = [
     width: 414,
     height: 736,
     dpi: 3,
+    systemFont: "San Francisco",
     platform: "ios"
   },
   {
@@ -41,6 +46,7 @@ const devices = [
     width: 375,
     height: 812,
     dpi: 3,
+    systemFont: "San Francisco",
     platform: "ios"
   },
   {
@@ -48,6 +54,7 @@ const devices = [
     width: 320,
     height: 568,
     dpi: 2,
+    systemFont: "Roboto",
     platform: "android"
   }
 ];

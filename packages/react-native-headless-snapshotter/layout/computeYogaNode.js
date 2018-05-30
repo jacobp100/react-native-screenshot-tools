@@ -79,8 +79,14 @@ module.exports = (style, config) => {
   if (style.marginLeft != null) {
     yogaNode.setMargin(yoga.EDGE_LEFT, style.marginLeft);
   }
+  if (style.marginStart != null) {
+    yogaNode.setMargin(yoga.EDGE_START, style.marginStart);
+  }
   if (style.marginRight != null) {
     yogaNode.setMargin(yoga.EDGE_RIGHT, style.marginRight);
+  }
+  if (style.marginEnd != null) {
+    yogaNode.setMargin(yoga.EDGE_END, style.marginEnd);
   }
   if (style.marginVertical != null) {
     yogaNode.setMargin(yoga.EDGE_VERTICAL, style.marginVertical);
@@ -102,8 +108,14 @@ module.exports = (style, config) => {
   if (style.paddingLeft != null) {
     yogaNode.setPadding(yoga.EDGE_LEFT, style.paddingLeft);
   }
+  if (style.paddingStart != null) {
+    yogaNode.setPadding(yoga.EDGE_START, style.paddingStart);
+  }
   if (style.paddingRight != null) {
     yogaNode.setPadding(yoga.EDGE_RIGHT, style.paddingRight);
+  }
+  if (style.paddingEnd != null) {
+    yogaNode.setPadding(yoga.EDGE_END, style.paddingEnd);
   }
   if (style.paddingVertical != null) {
     yogaNode.setPadding(yoga.EDGE_VERTICAL, style.paddingVertical);
@@ -125,8 +137,14 @@ module.exports = (style, config) => {
   if (style.borderLeftWidth != null) {
     yogaNode.setBorder(yoga.EDGE_LEFT, style.borderLeftWidth);
   }
+  if (style.borderStartWidth != null) {
+    yogaNode.setBorder(yoga.EDGE_START, style.borderStartWidth);
+  }
   if (style.borderRightWidth != null) {
     yogaNode.setBorder(yoga.EDGE_RIGHT, style.borderRightWidth);
+  }
+  if (style.borderEndWidth != null) {
+    yogaNode.setBorder(yoga.EDGE_END, style.borderEndWidth);
   }
   if (style.borderWidth != null) {
     yogaNode.setBorder(yoga.EDGE_ALL, style.borderWidth);
@@ -158,8 +176,14 @@ module.exports = (style, config) => {
   if (style.left != null) {
     yogaNode.setPosition(yoga.EDGE_LEFT, style.left);
   }
+  if (style.start != null) {
+    yogaNode.setPosition(yoga.EDGE_START, style.start);
+  }
   if (style.right != null) {
     yogaNode.setPosition(yoga.EDGE_RIGHT, style.right);
+  }
+  if (style.end != null) {
+    yogaNode.setPosition(yoga.EDGE_END, style.end);
   }
   if (style.bottom != null) {
     yogaNode.setPosition(yoga.EDGE_BOTTOM, style.bottom);

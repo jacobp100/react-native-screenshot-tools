@@ -1,0 +1,20 @@
+{
+  "name": "react-native-screenshot-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "bin": {
+    "snapshotter": "./cli.js"
+  },
+  "dependencies": {
+    "babel-jest": "^23.0.0",
+    "chalk": "^2.4.1",
+    "fbjs-scripts": "^0.8.3",
+    "jest": "^23.0.0",
+    "system-components-js": "^1.0.0",
+    "react-native-headless-snapshotter": "^1.0.0"
+  },
+  "peerDependencies": {
+    "react-native": "^0.0.0"
+  }
+}
