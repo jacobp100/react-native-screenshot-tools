@@ -31,12 +31,12 @@ This will generate an SVG called `filename.svg`.
 
 ## Current Progress
 
-* Almost all layout props are implemented ([issue](https://github.com/jacobp100/react-image-export/issues/10), [docs](https://facebook.github.io/react-native/docs/layout-props.html))
+* All* layout props are implemented ([issue](https://github.com/jacobp100/react-image-export/issues/10), [docs](https://facebook.github.io/react-native/docs/layout-props.html))
 * Most view props are implemented ([issue](https://github.com/jacobp100/react-image-export/issues/8), [docs](https://facebook.github.io/react-native/docs/view-props.html))
-* Some text style props are implemented ([issue](https://github.com/jacobp100/react-image-export/issues/9), [docs](https://facebook.github.io/react-native/docs/text-style-props.html))
+* Most text style props are implemented ([issue](https://github.com/jacobp100/react-image-export/issues/9), [docs](https://facebook.github.io/react-native/docs/text-style-props.html))
 * Almost all image style props are implemented ([issue](https://github.com/jacobp100/react-image-export/issues/11), [docs](https://facebook.github.io/react-native/docs/image-style-props.html))
 
-We don't yet support RTL layouts (which accounts for almost all missing layout and view props).
+\* We don't yet support RTL layouts. The above issues have the RTL props moved to a separate [issue](https://github.com/jacobp100/react-image-export/issues/15)
 
 We only support 2D transforms. We should be able to support all but `perspective`.
 
