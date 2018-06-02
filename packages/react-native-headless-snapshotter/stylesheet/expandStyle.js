@@ -12,12 +12,6 @@ const styleShortHands = {
     borderBottomRightRadius: true,
     borderBottomLeftRadius: true
   },
-  borderStyle: {
-    borderTopStyle: true,
-    borderRightStyle: true,
-    borderBottomStyle: true,
-    borderLeftStyle: true
-  },
   borderWidth: {
     borderTopWidth: true,
     borderRightWidth: true,

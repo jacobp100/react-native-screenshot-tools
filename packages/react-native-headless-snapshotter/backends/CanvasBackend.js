@@ -43,6 +43,26 @@ const textAligns = {
   right: 1
 };
 
+const borderStyles = {
+  solid: [],
+  dotted: [1, 2],
+  dashed: [4, 5]
+};
+
+const drawLineDecoration = (ctx, x, y, width, textDecoration) => {
+  if (textDecoration.includes("underline")) {
+    const y0 = y + 2.5;
+    ctx.moveTo(x, y0);
+    ctx.lineTo(x + width, y0);
+  }
+  if (textDecoration.includes("line-through")) {
+    const y0 =
+      y - Math.round(ctx.measureText("x").actualBoundingBoxAscent / 2) + 0.5;
+    ctx.moveTo(x, y0);
+    ctx.lineTo(x + width, y0);
+  }
+};
+
 module.exports = class CanvasBackend {
   constructor(ctx, { width, height }) {
     this.ctx = ctx;
@@ -135,6 +155,8 @@ module.exports = class CanvasBackend {
     fill,
     stroke,
     lineWidth,
+    lineDash = [],
+    lineCap = "butt",
     shadowBlur = 0,
     shadowColor = "transparent",
     shadowOffsetX = 0,
@@ -160,6 +182,8 @@ module.exports = class CanvasBackend {
       ctx.shadowOffsetY = 0;
       ctx.strokeStyle = stroke;
       ctx.lineWidth = lineWidth;
+      ctx.setLineDash(lineDash);
+      ctx.lineCap = lineCap;
       ctx.stroke();
     }
   }
@@ -222,6 +246,21 @@ module.exports = class CanvasBackend {
           ctx.fillText(char, currentX, y);
           return currentX + charWidth;
         }, x);
+      }
+
+      if (style.textDecoration !== "none") {
+        ctx.beginPath();
+        ctx.strokeStyle = style.textDecorationColor;
+        ctx.strokeWidth = 1;
+        if (style.textDecorationStyle === "double") {
+          drawLineDecoration(ctx, x, y, width, style.textDecoration);
+          drawLineDecoration(ctx, x, y + 2, width, style.textDecoration);
+          ctx.setLineDash(borderStyles.solid);
+        } else {
+          drawLineDecoration(ctx, x, y, width, style.textDecoration);
+          ctx.setLineDash(borderStyles[style.textDecorationStyle]);
+        }
+        ctx.stroke();
       }
 
       return x + width;

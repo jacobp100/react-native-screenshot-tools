@@ -22,7 +22,7 @@ const parrot = {
 
 const settings = {
   width: 640,
-  height: 800,
+  height: 1000,
   dpi: 1
 };
 
@@ -216,15 +216,90 @@ test("Text", async () => {
       <Text>Kerning with letter spacing</Text>
       <Row>
         <Text>No letter spacing</Text>
-        <Text style={{ fontSize: 72 }}>AVAW</Text>
+        <Text style={{ fontSize: 42 }}>AVAW</Text>
         <Text>Infinitesimal letter spacing</Text>
-        <Text style={{ fontSize: 72, letterSpacing: 1e-9 }}>AVAW</Text>
+        <Text style={{ fontSize: 42, letterSpacing: 1e-9 }}>AVAW</Text>
       </Row>
       <Text>Font variants</Text>
       <Row>
         <Text style={{ fontSize: 24 }}>Hello World</Text>
         <Text style={{ fontSize: 24, fontVariant: ["small-caps"] }}>
           Hello World
+        </Text>
+      </Row>
+      <Text>Line decoration</Text>
+      <Row>
+        <Text
+          style={{ textDecoration: "underline", fontSize: 18, color: "blue" }}
+        >
+          Underlined <Text style={{ fontStyle: "italic" }}>text</Text> with{" "}
+          <Text style={{ fontSize: 24, color: "green" }}>mixed</Text> styles
+        </Text>
+        <Text
+          style={{
+            textDecoration: "underline",
+            textDecorationColor: "red",
+            fontSize: 18,
+            color: "blue"
+          }}
+        >
+          Underlined <Text style={{ fontStyle: "italic" }}>text</Text> with{" "}
+          <Text style={{ fontSize: 24, color: "green" }}>mixed</Text> styles
+        </Text>
+        <Text
+          style={{
+            textDecoration: "line-through",
+            textDecorationColor: "red",
+            fontSize: 18,
+            color: "blue"
+          }}
+        >
+          Underlined <Text style={{ fontStyle: "italic" }}>text</Text> with{" "}
+          <Text style={{ fontSize: 24, color: "green" }}>mixed</Text> styles
+        </Text>
+        <Text
+          style={{
+            textDecoration: "underline line-through",
+            textDecorationColor: "red",
+            fontSize: 18,
+            color: "blue"
+          }}
+        >
+          Underlined <Text style={{ fontStyle: "italic" }}>text</Text> with{" "}
+          <Text style={{ fontSize: 24, color: "green" }}>mixed</Text> styles
+        </Text>
+        <Text style={{ fontSize: 18, textDecorationStyle: "dotted" }}>
+          <Text style={{ textDecoration: "underline" }}>Dotted </Text>
+          <Text style={{ textDecoration: "line-through" }}>dotted </Text>
+          <Text style={{ textDecoration: "underline line-through" }}>
+            dotted
+          </Text>
+        </Text>
+        <Text style={{ fontSize: 18, textDecorationStyle: "dashed" }}>
+          <Text style={{ textDecoration: "underline" }}>Dashed </Text>
+          <Text style={{ textDecoration: "line-through" }}>dashed </Text>
+          <Text style={{ textDecoration: "underline line-through" }}>
+            dashed
+          </Text>
+        </Text>
+        <Text style={{ fontSize: 18, textDecorationStyle: "double" }}>
+          <Text style={{ textDecoration: "underline" }}>Double </Text>
+          <Text style={{ textDecoration: "line-through" }}>double </Text>
+          <Text style={{ textDecoration: "underline line-through" }}>
+            double
+          </Text>
+        </Text>
+      </Row>
+      <Text>Inheritance</Text>
+      <Row>
+        <Text style={{ color: "red", fontSize: 24 }}>
+          Hello{" "}
+          <Text style={{ fontWeight: "bold" }}>
+            World{" "}
+            <Text style={{ fontStyle: "italic", color: "blue" }}>
+              Foo <Text>Bar</Text>
+            </Text>
+          </Text>
         </Text>
       </Row>
     </View>

@@ -26,13 +26,21 @@ const defaultStyles = attributedStyles => ({
   textAlign: "left",
   lineHeight: getLineHeight(attributedStyles),
   fontVariant: [],
-  letterSpacing: 0
+  letterSpacing: 0,
+  textDecoration: "none",
+  textDecorationColor: "currentColor", // Internal value
+  textDecorationStyle: "solid"
 });
 
-const applySystemFont = (style, settings) =>
-  style.fontFamily === "System"
-    ? { ...style, fontFamily: settings.systemFont }
-    : style;
+const applyInternalValues = (style, settings) => ({
+  ...style,
+  fontFamily:
+    style.fontFamily === "System" ? settings.systemFont : style.fontFamily,
+  textDecorationColor:
+    style.textDecorationColor === "currentColor"
+      ? style.color
+      : style.textDecorationColor
+});
 
 const appendStyleTo = (attributedStyles, text, style) => {
   const lastAttributedStyle =
@@ -87,7 +95,7 @@ class Text extends Base {
     attributedStyles = attributedStyles.map(({ start, end, style }) => ({
       start,
       end,
-      style: applySystemFont({ ...defaultStyle, ...style }, this.settings)
+      style: applyInternalValues({ ...defaultStyle, ...style }, this.settings)
     }));
 
     return { text, attributedStyles };

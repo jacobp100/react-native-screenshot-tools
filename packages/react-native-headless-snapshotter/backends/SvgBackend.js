@@ -142,6 +142,8 @@ module.exports = class SvgBackend {
     fill = "none",
     stroke = "none",
     lineWidth = 0,
+    lineDash = [],
+    lineCap = "butt",
     shadowColor = "black",
     shadowBlur = 0,
     shadowOffsetX = 0,
@@ -191,6 +193,8 @@ module.exports = class SvgBackend {
         .attr("fill", fill)
         .attr("stroke", stroke)
         .attr("stroke-width", lineWidth)
+        .attr("stroke-dasharray", lineDash.join(", "))
+        .attr("stroke-linecap", lineCap)
         .attr("filter", filter != null ? `url(#${filter})` : null);
       this.$container.append($path);
     }
@@ -228,6 +232,7 @@ module.exports = class SvgBackend {
           "font-variant",
           style.fontVariant.includes("small-caps") ? "small-caps" : null
         )
+        .attr("text-decoration", style.textDecoration)
         .text(body);
       $text.append($tspan);
       return x; // Don't advance x

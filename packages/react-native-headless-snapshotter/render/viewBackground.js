@@ -8,6 +8,12 @@ const {
 
 const { NONE, MOVE, LINE } = ContinuationCommand;
 
+const lineDashes = {
+  solid: () => [],
+  dotted: width => ({ lineCap: "round", lineDash: [0, 1.5 * width] }),
+  dashed: width => ({ lineDash: [2 * width, width] })
+};
+
 const sidesEqual = sides =>
   sides[0] === sides[1] && sides[0] === sides[2] && sides[0] === sides[3];
 
@@ -112,7 +118,7 @@ const drawSide = (
 
   const startSide = anticlockwise ? (side + 1) % 4 : side;
   const endSide = anticlockwise ? side : (side + 1) % 4;
-  const completionFactor = Math.PI / 2 * (anticlockwise ? -1 : 1);
+  const completionFactor = (Math.PI / 2) * (anticlockwise ? -1 : 1);
 
   const startCorner = cornerEllipseAtSide(
     x,
@@ -258,14 +264,22 @@ module.exports.drawBorders = (backend, frame, settings, style) => {
       outsetFrame(frame, -inset),
       borderRadii[0] - inset
     );
-    backend.commitShape({ stroke: borderColors[0], lineWidth: borderWidth });
+    backend.commitShape({
+      stroke: borderColors[0],
+      lineWidth: borderWidth,
+      ...lineDashes[borderStyle](borderWidth)
+    });
   } else if (sidesEqual(borderWidths) && sidesEqual(borderColors)) {
     // The border is consistent in width and colour. It doesn't matter if it's solid
     // Draw a border with a line
     const [borderWidth = 0] = borderWidths;
     const borderCtx = backend.beginShape();
     drawRect(borderCtx, frame, borderRadii, scaleSides(borderWidths, 0.5));
-    backend.commitShape({ stroke: borderColors[0], lineWidth: borderWidth });
+    backend.commitShape({
+      stroke: borderColors[0],
+      lineWidth: borderWidth,
+      ...lineDashes[borderStyle](borderWidth)
+    });
   } else if (borderStyle === "solid") {
     // Solid border - use a filled shape (alpha values for border are okay here)
     borderColors.forEach((borderColor, side) => {
@@ -276,13 +290,15 @@ module.exports.drawBorders = (backend, frame, settings, style) => {
   } else {
     // Non-solid border. Use multiple lines.
     // Will look bad when border width varies.
+    // FIXME: Handle border style
     const insets = scaleSides(borderWidths, 0.5);
     borderColors.forEach((borderColor, side) => {
       const borderCtx = backend.beginShape();
       drawSideStroke(borderCtx, frame, borderRadii, insets, side);
       backend.commitShape({
         stroke: borderColor,
-        lineWidth: borderWidths[side]
+        lineWidth: borderWidths[side],
+        ...lineDashes[borderStyle](borderWidths[side])
       });
     });
   }
