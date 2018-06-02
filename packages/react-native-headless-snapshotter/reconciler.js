@@ -98,11 +98,14 @@ const Renderer = ReactFiberReconciler({
   }
 });
 
-const render = (element, backend, settings) => {
+const create = (element, backend, settings) => {
   const root = new Root(backend, settings, {});
   const node = Renderer.createContainer(root, false, false);
   Renderer.updateContainer(element, node, null);
-  return root;
+  return {
+    root,
+    update: e => Renderer.updateContainer(e, node, null)
+  };
 };
 
-module.exports = render;
+module.exports = create;

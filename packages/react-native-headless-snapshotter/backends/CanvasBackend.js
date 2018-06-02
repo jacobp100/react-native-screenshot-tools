@@ -31,7 +31,7 @@ const mergeDown = (targetData, foregroundData) => {
     for (let c = 0; c < 3; c += 1) {
       const c0 = foreground[i + c] / 255;
       const c1 = target[i + c] / 255;
-      target[i + c] = Math.round(255 * ((1 - a0) * a1 * c1 + a0 * c0) / a01);
+      target[i + c] = Math.round((255 * ((1 - a0) * a1 * c1 + a0 * c0)) / a01);
     }
     target[i + 3] = Math.round(255 * a01);
   }

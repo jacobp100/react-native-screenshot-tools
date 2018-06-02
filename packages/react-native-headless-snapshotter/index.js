@@ -1,6 +1,6 @@
 // const { isElement } = require("react-is");
 const { CanvasBackend, SvgBackend } = require("./backends");
-const reconciler = require("./reconciler");
+const createRenderer = require("./reconciler");
 
 const defaultSettings = {
   width: 500,
@@ -10,12 +10,13 @@ const defaultSettings = {
 };
 
 const renderBackend = async (backend, jsx, settings) => {
-  const rootInstance = reconciler(jsx, backend, {
+  const instance = createRenderer(jsx, backend, {
     ...defaultSettings,
     ...settings
   });
-  await rootInstance.layout();
-  await rootInstance.render();
+  await instance.root.layout();
+  await instance.root.render();
+  instance.update(null);
   return backend;
 };
 

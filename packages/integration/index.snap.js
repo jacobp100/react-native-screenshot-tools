@@ -21,7 +21,7 @@ snapshot("device frame", () => (
     >
       Something about the app
     </Text>
-    <Frame device="Apple iPhone 7 Gold" width="200">
+    <Frame device="Apple iPhone 5c Red" width={200}>
       <View
         style={{
           flex: 1,

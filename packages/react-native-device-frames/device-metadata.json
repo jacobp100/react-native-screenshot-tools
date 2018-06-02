@@ -1,0 +1,2576 @@
+[
+  {
+    "name": "Apple Macbook Space Grey",
+    "imageWidth": 3064,
+    "imageHeight": 1780,
+    "screenX": 380,
+    "screenY": 128,
+    "screenWidth": 2304,
+    "screenHeight": 1440
+  },
+  {
+    "name": "Apple Macbook Gold",
+    "imageWidth": 3064,
+    "imageHeight": 1780,
+    "screenX": 380,
+    "screenY": 128,
+    "screenWidth": 2304,
+    "screenHeight": 1440
+  },
+  {
+    "name": "Apple Macbook Air 13\"",
+    "imageWidth": 1963,
+    "imageHeight": 1137,
+    "screenX": 262,
+    "screenY": 80,
+    "screenWidth": 1440,
+    "screenHeight": 900
+  },
+  {
+    "name": "Apple Macbook Air 11\"",
+    "imageWidth": 1963,
+    "imageHeight": 1014,
+    "screenX": 299,
+    "screenY": 87,
+    "screenWidth": 1366,
+    "screenHeight": 768
+  },
+  {
+    "name": "Apple Macbook Pro 15\"",
+    "imageWidth": 3784,
+    "imageHeight": 2201,
+    "screenX": 452.125,
+    "screenY": 133.12387084960938,
+    "screenWidth": 2880,
+    "screenHeight": 1800
+  },
+  {
+    "name": "Apple Macbook Pro 13\"",
+    "imageWidth": 3409,
+    "imageHeight": 1995,
+    "screenX": 427,
+    "screenY": 136,
+    "screenWidth": 2560,
+    "screenHeight": 1600
+  },
+  {
+    "name": "Apple Watch 38mm Edition Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Edition Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + Flat Silver/White Nike Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + Flat Silver/White Nike Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + Flat Silver/Volt Nike Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + Flat Silver/Volt Nike Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Space Gray Aluminum + Black/Cool Gray Nike Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Space Gray Aluminum + Black/Cool Gray Nike Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Space Gray Aluminum + Black/Volt Nike Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Space Gray Aluminum + Black/Volt Nike Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Black Steel + Black Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Black Steel + Black Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Steel + White Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Steel + White Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Space Gray Aluminum + Black Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Space Gray Aluminum + Black Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + Turquoise Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + Turquoise Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + Red Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + Red Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + Yellow Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + Yellow Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Rose Gold Aluminum + Midnight Blue Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Rose Gold Aluminum + Midnight Blue Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + White Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + White Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + Concrete Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + Concrete Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + Cocoa Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + Cocoa Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + Ocean Blue Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + Ocean Blue Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Aluminum + Walnut Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Silver Aluminum + Pink Sand Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 42mm Rose Gold Aluminum + Midnight Blue Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Rose Gold Aluminum + Midnight Blue Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Space Black Steel + Black Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Space Black Steel + Black Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Steel + White Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Steel + White Open",
+    "imageWidth": 486,
+    "imageHeight": 3447,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Edition Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Edition Open",
+    "imageWidth": 486,
+    "imageHeight": 3447,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Space Gray Aluminum + Black Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Space Gray Aluminum + Black Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Turquoise Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Turquoise Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Red Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Red Open ",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + White Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + White Open",
+    "imageWidth": 486,
+    "imageHeight": 3447,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Green Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Green Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Yellow Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Yellow Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Gold Aluminum + Cocoa Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Cocoa Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Pink Sand Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Pink Sand Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Light Pink Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Light Pink Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Concrete Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Concrete Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Ocean Blue Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Ocean Blue Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 75.84362030029297,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Space Gray Aluminum + Black/Volt Nike Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Space Gray Aluminum + Black/Volt Nike Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Space Gray Aluminum + Black/Cool Gray Nike Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Space Gray Aluminum + Black/Cool Gray Nike Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Flat Silver/White Nike Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Flat Silver/White Nike Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Flat Silver/Volt Nike Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Silver Aluminum + Flat Silver/Volt Nike Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 38mm Rose Gold + Black Leather Closed",
+    "imageWidth": 425,
+    "imageHeight": 790,
+    "screenX": 66,
+    "screenY": 223,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Gold + Black Leather Closed",
+    "imageWidth": 425,
+    "imageHeight": 790,
+    "screenX": 66,
+    "screenY": 223,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Stainless Steel + Black Leather Closed",
+    "imageWidth": 425,
+    "imageHeight": 790,
+    "screenX": 66,
+    "screenY": 223,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Rose Gold + Lavender Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Rose Gold + Lavender Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Gold + Midnight Blue Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Gold + Midnight Blue Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Black Steel + Black Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Black Steel + Black Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Steel + White Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Steel + White Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Space Gray + Black Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Space Gray + Black Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Aluminum Rose Gold + Stone Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Aluminum Rose Gold + Stone Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Aluminum Gold + Antique White Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Aluminum Gold + Antique White Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Aluminum + Red Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Aluminum + Red Open ",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Aluminum + Blue Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Aluminum + Blue Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Aluminum + White Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Aluminum + White Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Aluminum + Green Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Aluminum + Green Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Aluminum + Fog Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Aluminum + Fog Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Aluminum + Walnut Closed",
+    "imageWidth": 425,
+    "imageHeight": 764,
+    "screenX": 66,
+    "screenY": 213,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 38mm Sport Aluminum + Walnut Open",
+    "imageWidth": 425,
+    "imageHeight": 3103,
+    "screenX": 66,
+    "screenY": 1172,
+    "screenWidth": 272,
+    "screenHeight": 340
+  },
+  {
+    "name": "Apple Watch 42mm Rose Gold + Black Leather Closed",
+    "imageWidth": 486,
+    "imageHeight": 869,
+    "screenX": 76,
+    "screenY": 239,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Gold + Black Leather Closed",
+    "imageWidth": 486,
+    "imageHeight": 869,
+    "screenX": 76,
+    "screenY": 239,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Stainless Steel + Black Leather Closed",
+    "imageWidth": 486,
+    "imageHeight": 869,
+    "screenX": 76,
+    "screenY": 239,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Rose Gold + Lavender Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Rose Gold + Lavender Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Gold + Midnight Blue Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Gold + Midnight Blue Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Black Steel + Black Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Black Steel + Black Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Steel + White Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Steel + White Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Space Gray + Black Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Space Gray + Black Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Aluminum Rose Gold + Stone Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Aluminum Rose Gold + Stone Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Aluminum Gold + Antique White Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Aluminum Gold + Antique White Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Aluminum + Red Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Aluminum + Red Open ",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Aluminum + Blue Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Aluminum + Blue Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Aluminum + White Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Aluminum + White Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Aluminum + Green Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Aluminum + Green Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Aluminum + Fog Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Aluminum + Fog Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Aluminum + Walnut Closed",
+    "imageWidth": 486,
+    "imageHeight": 871,
+    "screenX": 76,
+    "screenY": 240,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple Watch 42mm Sport Aluminum + Walnut Open",
+    "imageWidth": 486,
+    "imageHeight": 3448,
+    "screenX": 76,
+    "screenY": 1301,
+    "screenWidth": 312,
+    "screenHeight": 390
+  },
+  {
+    "name": "Apple iMac",
+    "imageWidth": 2788,
+    "imageHeight": 2310,
+    "screenX": 114,
+    "screenY": 121.5,
+    "screenWidth": 2560,
+    "screenHeight": 1440
+  },
+  {
+    "name": "Apple iMac Retina",
+    "imageWidth": 5577,
+    "imageHeight": 4619,
+    "screenX": 228,
+    "screenY": 241,
+    "screenWidth": 5120,
+    "screenHeight": 2880
+  },
+  {
+    "name": "Apple iPad Air 2 Space Gray",
+    "imageWidth": 1763,
+    "imageHeight": 2514,
+    "screenX": 111,
+    "screenY": 224,
+    "screenWidth": 1536,
+    "screenHeight": 2048
+  },
+  {
+    "name": "Apple iPad Air 2 Silver",
+    "imageWidth": 1763,
+    "imageHeight": 2514,
+    "screenX": 112,
+    "screenY": 224,
+    "screenWidth": 1536,
+    "screenHeight": 2048
+  },
+  {
+    "name": "Apple iPad Air 2 Gold",
+    "imageWidth": 1763,
+    "imageHeight": 2514,
+    "screenX": 112,
+    "screenY": 224,
+    "screenWidth": 1536,
+    "screenHeight": 2048
+  },
+  {
+    "name": "Apple iPad Mini 4 Space Gray",
+    "imageWidth": 1748,
+    "imageHeight": 2622,
+    "screenX": 106,
+    "screenY": 278,
+    "screenWidth": 1536,
+    "screenHeight": 2048
+  },
+  {
+    "name": "Apple iPad Mini 4 Silver",
+    "imageWidth": 1748,
+    "imageHeight": 2622,
+    "screenX": 106,
+    "screenY": 278,
+    "screenWidth": 1536,
+    "screenHeight": 2048
+  },
+  {
+    "name": "Apple iPad Mini 4 Gold",
+    "imageWidth": 1748,
+    "imageHeight": 2622,
+    "screenX": 106,
+    "screenY": 278,
+    "screenWidth": 1536,
+    "screenHeight": 2048
+  },
+  {
+    "name": "Apple iPad Pro Space Gray",
+    "imageWidth": 2326,
+    "imageHeight": 3192,
+    "screenX": 139,
+    "screenY": 216,
+    "screenWidth": 2048,
+    "screenHeight": 2732
+  },
+  {
+    "name": "Apple iPad Pro Silver",
+    "imageWidth": 2326,
+    "imageHeight": 3192,
+    "screenX": 139,
+    "screenY": 216,
+    "screenWidth": 2048,
+    "screenHeight": 2732
+  },
+  {
+    "name": "Apple iPad Pro Gold",
+    "imageWidth": 2326,
+    "imageHeight": 3192,
+    "screenX": 139,
+    "screenY": 216,
+    "screenWidth": 2048,
+    "screenHeight": 2732
+  },
+  {
+    "name": "Apple iPhone 5c Green",
+    "imageWidth": 767,
+    "imageHeight": 1617,
+    "screenX": 67,
+    "screenY": 239,
+    "screenWidth": 640,
+    "screenHeight": 1136
+  },
+  {
+    "name": "Apple iPhone 5c Blue",
+    "imageWidth": 767,
+    "imageHeight": 1617,
+    "screenX": 67,
+    "screenY": 239,
+    "screenWidth": 640,
+    "screenHeight": 1136
+  },
+  {
+    "name": "Apple iPhone 5c Yellow",
+    "imageWidth": 767,
+    "imageHeight": 1617,
+    "screenX": 67,
+    "screenY": 239,
+    "screenWidth": 640,
+    "screenHeight": 1136
+  },
+  {
+    "name": "Apple iPhone 5c Red",
+    "imageWidth": 767,
+    "imageHeight": 1617,
+    "screenX": 67,
+    "screenY": 239,
+    "screenWidth": 640,
+    "screenHeight": 1136
+  },
+  {
+    "name": "Apple iPhone 5c White",
+    "imageWidth": 767,
+    "imageHeight": 1617,
+    "screenX": 67,
+    "screenY": 239,
+    "screenWidth": 640,
+    "screenHeight": 1136
+  },
+  {
+    "name": "Apple iPhone 5s Silver",
+    "imageWidth": 760,
+    "imageHeight": 1609,
+    "screenX": 64,
+    "screenY": 238,
+    "screenWidth": 640,
+    "screenHeight": 1136
+  },
+  {
+    "name": "Apple iPhone 5s Gold",
+    "imageWidth": 760,
+    "imageHeight": 1609,
+    "screenX": 64,
+    "screenY": 238,
+    "screenWidth": 640,
+    "screenHeight": 1136
+  },
+  {
+    "name": "Apple iPhone 5s Space Gray",
+    "imageWidth": 760,
+    "imageHeight": 1609,
+    "screenX": 64,
+    "screenY": 238,
+    "screenWidth": 640,
+    "screenHeight": 1136
+  },
+  {
+    "name": "Apple iPhone 6s Rose Gold",
+    "imageWidth": 871,
+    "imageHeight": 1789,
+    "screenX": 61,
+    "screenY": 228,
+    "screenWidth": 750,
+    "screenHeight": 1334
+  },
+  {
+    "name": "Apple iPhone 6s Gold",
+    "imageWidth": 871,
+    "imageHeight": 1789,
+    "screenX": 61,
+    "screenY": 228,
+    "screenWidth": 750,
+    "screenHeight": 1334
+  },
+  {
+    "name": "Apple iPhone 6s Silver",
+    "imageWidth": 871,
+    "imageHeight": 1789,
+    "screenX": 61,
+    "screenY": 228,
+    "screenWidth": 750,
+    "screenHeight": 1334
+  },
+  {
+    "name": "Apple iPhone 6s Space Gray",
+    "imageWidth": 871,
+    "imageHeight": 1789,
+    "screenX": 61,
+    "screenY": 228,
+    "screenWidth": 750,
+    "screenHeight": 1334
+  },
+  {
+    "name": "Apple iPhone 6s Plus Space Gray",
+    "imageWidth": 1446,
+    "imageHeight": 2970,
+    "screenX": 102,
+    "screenY": 379,
+    "screenWidth": 1242,
+    "screenHeight": 2208
+  },
+  {
+    "name": "Apple iPhone 6s Plus Silver",
+    "imageWidth": 1446,
+    "imageHeight": 2970,
+    "screenX": 102,
+    "screenY": 379,
+    "screenWidth": 1242,
+    "screenHeight": 2208
+  },
+  {
+    "name": "Apple iPhone 6s Plus Gold",
+    "imageWidth": 1446,
+    "imageHeight": 2970,
+    "screenX": 102,
+    "screenY": 379,
+    "screenWidth": 1242,
+    "screenHeight": 2208
+  },
+  {
+    "name": "Apple iPhone 6s Plus Rose Gold",
+    "imageWidth": 1446,
+    "imageHeight": 2970,
+    "screenX": 102,
+    "screenY": 379,
+    "screenWidth": 1242,
+    "screenHeight": 2208
+  },
+  {
+    "name": "Apple iPhone 7 Jet Black",
+    "imageWidth": 871,
+    "imageHeight": 1789,
+    "screenX": 61,
+    "screenY": 228,
+    "screenWidth": 750,
+    "screenHeight": 1334
+  },
+  {
+    "name": "Apple iPhone 7 Matte Black",
+    "imageWidth": 871,
+    "imageHeight": 1789,
+    "screenX": 61,
+    "screenY": 228,
+    "screenWidth": 750,
+    "screenHeight": 1334
+  },
+  {
+    "name": "Apple iPhone 7 Silver",
+    "imageWidth": 871,
+    "imageHeight": 1789,
+    "screenX": 61,
+    "screenY": 228,
+    "screenWidth": 750,
+    "screenHeight": 1334
+  },
+  {
+    "name": "Apple iPhone 7 Gold",
+    "imageWidth": 871,
+    "imageHeight": 1789,
+    "screenX": 61,
+    "screenY": 228,
+    "screenWidth": 750,
+    "screenHeight": 1334
+  },
+  {
+    "name": "Apple iPhone 7 Rose Gold",
+    "imageWidth": 871,
+    "imageHeight": 1789,
+    "screenX": 61,
+    "screenY": 228,
+    "screenWidth": 750,
+    "screenHeight": 1334
+  },
+  {
+    "name": "Apple iPhone 7 Plus Jet Black",
+    "imageWidth": 1446,
+    "imageHeight": 2969,
+    "screenX": 104,
+    "screenY": 380,
+    "screenWidth": 1242,
+    "screenHeight": 2208
+  },
+  {
+    "name": "Apple iPhone 7 Plus Matte Black",
+    "imageWidth": 1446,
+    "imageHeight": 2970,
+    "screenX": 104,
+    "screenY": 380,
+    "screenWidth": 1242,
+    "screenHeight": 2208
+  },
+  {
+    "name": "Apple iPhone 7 Plus Rose Gold",
+    "imageWidth": 1446,
+    "imageHeight": 2970,
+    "screenX": 104,
+    "screenY": 380,
+    "screenWidth": 1242,
+    "screenHeight": 2208
+  },
+  {
+    "name": "Apple iPhone 7 Plus Silver",
+    "imageWidth": 1446,
+    "imageHeight": 2970,
+    "screenX": 104,
+    "screenY": 380,
+    "screenWidth": 1242,
+    "screenHeight": 2208
+  },
+  {
+    "name": "Apple iPhone 7 Plus Gold",
+    "imageWidth": 1446,
+    "imageHeight": 2970,
+    "screenX": 104,
+    "screenY": 380,
+    "screenWidth": 1242,
+    "screenHeight": 2208
+  },
+  {
+    "name": "Apple iPhone 8 Space Grey",
+    "imageWidth": 871,
+    "imageHeight": 1789,
+    "screenX": 61,
+    "screenY": 219,
+    "screenWidth": 750,
+    "screenHeight": 1334
+  },
+  {
+    "name": "Apple iPhone 8 Silver",
+    "imageWidth": 871,
+    "imageHeight": 1789,
+    "screenX": 61,
+    "screenY": 219,
+    "screenWidth": 750,
+    "screenHeight": 1334
+  },
+  {
+    "name": "Apple iPhone 8 Gold",
+    "imageWidth": 871,
+    "imageHeight": 1789,
+    "screenX": 61,
+    "screenY": 219,
+    "screenWidth": 750,
+    "screenHeight": 1334
+  },
+  {
+    "name": "Apple iPhone 8 Plus Space Grey",
+    "imageWidth": 1436,
+    "imageHeight": 2896,
+    "screenX": 98,
+    "screenY": 335,
+    "screenWidth": 1242,
+    "screenHeight": 2208
+  },
+  {
+    "name": "Apple iPhone 8 Plus Silver",
+    "imageWidth": 1436,
+    "imageHeight": 2896,
+    "screenX": 98,
+    "screenY": 335,
+    "screenWidth": 1242,
+    "screenHeight": 2208
+  },
+  {
+    "name": "Apple iPhone 8 Plus Gold",
+    "imageWidth": 1436,
+    "imageHeight": 2896,
+    "screenX": 98,
+    "screenY": 335,
+    "screenWidth": 1242,
+    "screenHeight": 2208
+  },
+  {
+    "name": "Apple iPhone SE Rose Gold",
+    "imageWidth": 760,
+    "imageHeight": 1608,
+    "screenX": 64,
+    "screenY": 237,
+    "screenWidth": 640,
+    "screenHeight": 1136
+  },
+  {
+    "name": "Apple iPhone SE Silver",
+    "imageWidth": 760,
+    "imageHeight": 1608,
+    "screenX": 64,
+    "screenY": 237,
+    "screenWidth": 640,
+    "screenHeight": 1136
+  },
+  {
+    "name": "Apple iPhone SE Gold",
+    "imageWidth": 760,
+    "imageHeight": 1608,
+    "screenX": 64,
+    "screenY": 237,
+    "screenWidth": 640,
+    "screenHeight": 1136
+  },
+  {
+    "name": "Apple iPhone SE Space Gray",
+    "imageWidth": 760,
+    "imageHeight": 1608,
+    "screenX": 64,
+    "screenY": 237,
+    "screenWidth": 640,
+    "screenHeight": 1136
+  },
+  {
+    "name": "Apple iPhone X Silver",
+    "imageWidth": 1295,
+    "imageHeight": 2610,
+    "screenX": 85,
+    "screenY": 77,
+    "screenWidth": 1125,
+    "screenHeight": 2436
+  },
+  {
+    "name": "Apple iPhone X Space Grey",
+    "imageWidth": 1295,
+    "imageHeight": 2611,
+    "screenX": 85,
+    "screenY": 77,
+    "screenWidth": 1125,
+    "screenHeight": 2436
+  },
+  {
+    "name": "Dell UltraSharp Ultra HD 5K Monitor 27\"",
+    "imageWidth": 5454,
+    "imageHeight": 4367,
+    "screenX": 167,
+    "screenY": 178,
+    "screenWidth": 5120,
+    "screenHeight": 2880
+  },
+  {
+    "name": "Dell UltraSharp Ultra HD 5K Monitor 27\" Turned",
+    "imageWidth": 3277,
+    "imageHeight": 5877,
+    "screenX": 218.9999999999991,
+    "screenY": 166.99999999999946,
+    "screenWidth": 2880.000000000001,
+    "screenHeight": 5120.000000000001
+  },
+  {
+    "name": "Dell UltraSharp Monitor 27\"",
+    "imageWidth": 2626,
+    "imageHeight": 2059,
+    "screenX": 33,
+    "screenY": 33,
+    "screenWidth": 2560,
+    "screenHeight": 1440
+  },
+  {
+    "name": "Dell UltraSharp Monitor 27\" Turned",
+    "imageWidth": 1553,
+    "imageHeight": 2891,
+    "screenX": 79.99999999999955,
+    "screenY": 32.99999999999974,
+    "screenWidth": 1440.0000000000005,
+    "screenHeight": 2560.0000000000005
+  },
+  {
+    "name": "Dell UltraSharp Monitor 24\"",
+    "imageWidth": 1974,
+    "imageHeight": 1751,
+    "screenX": 27,
+    "screenY": 27,
+    "screenWidth": 1920,
+    "screenHeight": 1200
+  },
+  {
+    "name": "Dell UltraSharp Monitor 24\" Turned",
+    "imageWidth": 1296,
+    "imageHeight": 2230,
+    "screenX": 69,
+    "screenY": 26.999999999999773,
+    "screenWidth": 1200,
+    "screenHeight": 1920.0000000000002
+  },
+  {
+    "name": "Dell XPS 13",
+    "imageWidth": 3864,
+    "imageHeight": 2207,
+    "screenX": 336,
+    "screenY": 60,
+    "screenWidth": 3200,
+    "screenHeight": 1800
+  },
+  {
+    "name": "Dell XPS 15",
+    "imageWidth": 5369,
+    "imageHeight": 2672,
+    "screenX": 730,
+    "screenY": 57,
+    "screenWidth": 3841,
+    "screenHeight": 2161
+  },
+  {
+    "name": "Google Pixel Very Silver",
+    "imageWidth": 1213,
+    "imageHeight": 2480,
+    "screenX": 62,
+    "screenY": 252,
+    "screenWidth": 1080,
+    "screenHeight": 1920
+  },
+  {
+    "name": "Google Pixel Quite Black",
+    "imageWidth": 1213,
+    "imageHeight": 2480,
+    "screenX": 62,
+    "screenY": 252,
+    "screenWidth": 1080,
+    "screenHeight": 1920
+  },
+  {
+    "name": "Google Pixel Really Blue",
+    "imageWidth": 1213,
+    "imageHeight": 2480,
+    "screenX": 62,
+    "screenY": 252,
+    "screenWidth": 1080,
+    "screenHeight": 1920
+  },
+  {
+    "name": "Google Pixel 2 Clearly White",
+    "imageWidth": 1237,
+    "imageHeight": 2537,
+    "screenX": 79,
+    "screenY": 296,
+    "screenWidth": 1080,
+    "screenHeight": 1920
+  },
+  {
+    "name": "Google PIxel 2 Kinda Blue",
+    "imageWidth": 1237,
+    "imageHeight": 2537,
+    "screenX": 79,
+    "screenY": 296,
+    "screenWidth": 1080,
+    "screenHeight": 1920
+  },
+  {
+    "name": "Google Pixel 2 Just Black",
+    "imageWidth": 1237,
+    "imageHeight": 2537,
+    "screenX": 79,
+    "screenY": 296,
+    "screenWidth": 1080,
+    "screenHeight": 1920
+  },
+  {
+    "name": "Google Pixel 2 XL Black and White",
+    "imageWidth": 1630,
+    "imageHeight": 3369,
+    "screenX": 91,
+    "screenY": 242,
+    "screenWidth": 1440,
+    "screenHeight": 2880
+  },
+  {
+    "name": "Google Pixel 2 XL Just Black",
+    "imageWidth": 1630,
+    "imageHeight": 3369,
+    "screenX": 91,
+    "screenY": 242,
+    "screenWidth": 1440,
+    "screenHeight": 2880
+  },
+  {
+    "name": "HTC One A9 Black",
+    "imageWidth": 1244,
+    "imageHeight": 2566,
+    "screenX": 79,
+    "screenY": 290,
+    "screenWidth": 1080,
+    "screenHeight": 1920
+  },
+  {
+    "name": "HTC One A9 White",
+    "imageWidth": 1244,
+    "imageHeight": 2566,
+    "screenX": 78,
+    "screenY": 290,
+    "screenWidth": 1080,
+    "screenHeight": 1920
+  },
+  {
+    "name": "HTC One M8 Gold",
+    "imageWidth": 1228,
+    "imageHeight": 2532,
+    "screenX": 72,
+    "screenY": 267,
+    "screenWidth": 1080,
+    "screenHeight": 1920
+  },
+  {
+    "name": "HTC One M8 Silver",
+    "imageWidth": 1228,
+    "imageHeight": 2532,
+    "screenX": 72,
+    "screenY": 267,
+    "screenWidth": 1080,
+    "screenHeight": 1920
+  },
+  {
+    "name": "HTC One M8 Black",
+    "imageWidth": 1228,
+    "imageHeight": 2532,
+    "screenX": 72,
+    "screenY": 267,
+    "screenWidth": 1080,
+    "screenHeight": 1920
+  },
+  {
+    "name": "Huawei P8 White",
+    "imageWidth": 1201,
+    "imageHeight": 2420,
+    "screenX": 61,
+    "screenY": 230,
+    "screenWidth": 1080,
+    "screenHeight": 1920
+  },
+  {
+    "name": "Huawei P8 Black",
+    "imageWidth": 1201,
+    "imageHeight": 2422,
+    "screenX": 61,
+    "screenY": 230,
+    "screenWidth": 1080,
+    "screenHeight": 1920
+  },
+  {
+    "name": "Microsoft Lumia 950 Black",
+    "imageWidth": 1642,
+    "imageHeight": 3240,
+    "screenX": 93,
+    "screenY": 366,
+    "screenWidth": 1440,
+    "screenHeight": 2560
+  },
+  {
+    "name": "Microsoft Lumia 950 White",
+    "imageWidth": 1642,
+    "imageHeight": 3240,
+    "screenX": 93,
+    "screenY": 366,
+    "screenWidth": 1440,
+    "screenHeight": 2560
+  },
+  {
+    "name": "Microsoft Surface Pro 3",
+    "imageWidth": 2286,
+    "imageHeight": 1532,
+    "screenX": 183,
+    "screenY": 117,
+    "screenWidth": 1920,
+    "screenHeight": 1280
+  },
+  {
+    "name": "Microsoft Surface Book",
+    "imageWidth": 4122,
+    "imageHeight": 2408,
+    "screenX": 561,
+    "screenY": 159,
+    "screenWidth": 3000,
+    "screenHeight": 2000
+  },
+  {
+    "name": "Microsoft Surface Pro 4",
+    "imageWidth": 3064,
+    "imageHeight": 4291,
+    "screenX": 164,
+    "screenY": 148,
+    "screenWidth": 2736,
+    "screenHeight": 1824
+  },
+  {
+    "name": "Motorola Moto 360 Men Gold + Cognac Closed",
+    "imageWidth": 429,
+    "imageHeight": 638,
+    "screenX": 31,
+    "screenY": 139,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Men Gold + Cognac Open",
+    "imageWidth": 429,
+    "imageHeight": 2423,
+    "screenX": 31,
+    "screenY": 851,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Men Gold + Black Closed",
+    "imageWidth": 429,
+    "imageHeight": 638,
+    "screenX": 31,
+    "screenY": 139,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Men Gold + Black Open",
+    "imageWidth": 429,
+    "imageHeight": 2423,
+    "screenX": 31,
+    "screenY": 851,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Men Silver + Cognac Closed",
+    "imageWidth": 429,
+    "imageHeight": 638,
+    "screenX": 31,
+    "screenY": 139,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Men Silver + Cognac Open",
+    "imageWidth": 429,
+    "imageHeight": 2423,
+    "screenX": 31,
+    "screenY": 851,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Men Silver + Black Closed",
+    "imageWidth": 429,
+    "imageHeight": 638,
+    "screenX": 31,
+    "screenY": 139,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Men Silver + Black Open",
+    "imageWidth": 429,
+    "imageHeight": 2423,
+    "screenX": 31,
+    "screenY": 851,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Men Black + Cognac Closed",
+    "imageWidth": 429,
+    "imageHeight": 638,
+    "screenX": 31,
+    "screenY": 139,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Men Black + Cognac Open",
+    "imageWidth": 429,
+    "imageHeight": 2423,
+    "screenX": 31,
+    "screenY": 851,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Men Black + Black Closed",
+    "imageWidth": 429,
+    "imageHeight": 638,
+    "screenX": 31,
+    "screenY": 139,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Men Black + Black Open",
+    "imageWidth": 429,
+    "imageHeight": 2423,
+    "screenX": 31,
+    "screenY": 851,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Women Gold + Stone Closed",
+    "imageWidth": 427,
+    "imageHeight": 597,
+    "screenX": 31,
+    "screenY": 118,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Women Gold + Stone Open",
+    "imageWidth": 427,
+    "imageHeight": 2313,
+    "screenX": 31,
+    "screenY": 807,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Women Gold + Blush Closed",
+    "imageWidth": 427,
+    "imageHeight": 597,
+    "screenX": 31,
+    "screenY": 118,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Women Gold + Blush Open",
+    "imageWidth": 427,
+    "imageHeight": 2313,
+    "screenX": 31,
+    "screenY": 807,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Women Silver + Stone Grey Closed",
+    "imageWidth": 427,
+    "imageHeight": 597,
+    "screenX": 31,
+    "screenY": 118,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Women Silver + Stone Grey Open",
+    "imageWidth": 427,
+    "imageHeight": 2313,
+    "screenX": 31,
+    "screenY": 807,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Women Silver + Blush Closed",
+    "imageWidth": 427,
+    "imageHeight": 597,
+    "screenX": 31,
+    "screenY": 118,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Women Silver + Blush Open",
+    "imageWidth": 427,
+    "imageHeight": 2313,
+    "screenX": 31,
+    "screenY": 807,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Women Rose Gold + Stone Grey Closed",
+    "imageWidth": 427,
+    "imageHeight": 597,
+    "screenX": 31,
+    "screenY": 118,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Women Rose Gold + Stone Grey Open",
+    "imageWidth": 427,
+    "imageHeight": 2313,
+    "screenX": 31,
+    "screenY": 807,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Women Rose Gold + Blush Closed",
+    "imageWidth": 427,
+    "imageHeight": 597,
+    "screenX": 31,
+    "screenY": 118,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto 360 Women Rose Gold + Blush Open",
+    "imageWidth": 427,
+    "imageHeight": 2313,
+    "screenX": 31,
+    "screenY": 807,
+    "screenWidth": 360,
+    "screenHeight": 325
+  },
+  {
+    "name": "Motorola Moto E Black",
+    "imageWidth": 658,
+    "imageHeight": 1276,
+    "screenX": 55,
+    "screenY": 186,
+    "screenWidth": 540,
+    "screenHeight": 960
+  },
+  {
+    "name": "Motorola Moto E White",
+    "imageWidth": 658,
+    "imageHeight": 1275,
+    "screenX": 55,
+    "screenY": 185,
+    "screenWidth": 540,
+    "screenHeight": 960
+  },
+  {
+    "name": "Motorola Moto G",
+    "imageWidth": 836,
+    "imageHeight": 1641,
+    "screenX": 55,
+    "screenY": 189,
+    "screenWidth": 720,
+    "screenHeight": 1280
+  },
+  {
+    "name": "Nexus 4",
+    "imageWidth": 855,
+    "imageHeight": 1670,
+    "screenX": 41,
+    "screenY": 185,
+    "screenWidth": 768,
+    "screenHeight": 1280
+  },
+  {
+    "name": "Nexus 5x",
+    "imageWidth": 1195,
+    "imageHeight": 2428,
+    "screenX": 53,
+    "screenY": 231,
+    "screenWidth": 1080,
+    "screenHeight": 1920
+  },
+  {
+    "name": "Nexus 6P",
+    "imageWidth": 1566,
+    "imageHeight": 3225,
+    "screenX": 59,
+    "screenY": 329,
+    "screenWidth": 1440,
+    "screenHeight": 2560
+  },
+  {
+    "name": "Nexus 9",
+    "imageWidth": 1758,
+    "imageHeight": 2581,
+    "screenX": 111,
+    "screenY": 260,
+    "screenWidth": 1536,
+    "screenHeight": 2048
+  },
+  {
+    "name": "Nokia 220 Black",
+    "imageWidth": 320,
+    "imageHeight": 746,
+    "screenX": 40,
+    "screenY": 96,
+    "screenWidth": 240,
+    "screenHeight": 320
+  },
+  {
+    "name": "Nokia 220 White",
+    "imageWidth": 320,
+    "imageHeight": 746,
+    "screenX": 40,
+    "screenY": 96,
+    "screenWidth": 240,
+    "screenHeight": 320
+  },
+  {
+    "name": "Nokia 220 Red",
+    "imageWidth": 320,
+    "imageHeight": 746,
+    "screenX": 40,
+    "screenY": 96,
+    "screenWidth": 240,
+    "screenHeight": 320
+  },
+  {
+    "name": "Nokia 220 Yellow",
+    "imageWidth": 320,
+    "imageHeight": 746,
+    "screenX": 40,
+    "screenY": 96,
+    "screenWidth": 240,
+    "screenHeight": 320
+  },
+  {
+    "name": "Nokia 220 Blue",
+    "imageWidth": 320,
+    "imageHeight": 746,
+    "screenX": 40,
+    "screenY": 96,
+    "screenWidth": 240,
+    "screenHeight": 320
+  },
+  {
+    "name": "Nokia 230 Black",
+    "imageWidth": 296,
+    "imageHeight": 700,
+    "screenX": 28,
+    "screenY": 67,
+    "screenWidth": 240,
+    "screenHeight": 320
+  },
+  {
+    "name": "Nokia 230 White",
+    "imageWidth": 296,
+    "imageHeight": 700,
+    "screenX": 28,
+    "screenY": 67,
+    "screenWidth": 240,
+    "screenHeight": 320
+  },
+  {
+    "name": "Nokia Asha 230 Black",
+    "imageWidth": 321,
+    "imageHeight": 544,
+    "screenX": 39,
+    "screenY": 101,
+    "screenWidth": 240,
+    "screenHeight": 320
+  },
+  {
+    "name": "Nokia Asha 230 White",
+    "imageWidth": 321,
+    "imageHeight": 544,
+    "screenX": 39,
+    "screenY": 101,
+    "screenWidth": 240,
+    "screenHeight": 320
+  },
+  {
+    "name": "Nokia Asha 230 Blue",
+    "imageWidth": 321,
+    "imageHeight": 544,
+    "screenX": 39,
+    "screenY": 101,
+    "screenWidth": 240,
+    "screenHeight": 320
+  },
+  {
+    "name": "Nokia Asha 230 Yellow",
+    "imageWidth": 321,
+    "imageHeight": 544,
+    "screenX": 39,
+    "screenY": 101,
+    "screenWidth": 240,
+    "screenHeight": 320
+  },
+  {
+    "name": "Nokia Asha 230 Red",
+    "imageWidth": 321,
+    "imageHeight": 544,
+    "screenX": 39,
+    "screenY": 101,
+    "screenWidth": 240,
+    "screenHeight": 320
+  },
+  {
+    "name": "Nokia Asha 230 Green",
+    "imageWidth": 321,
+    "imageHeight": 544,
+    "screenX": 39,
+    "screenY": 101,
+    "screenWidth": 240,
+    "screenHeight": 320
+  },
+  {
+    "name": "Nokia C3-00",
+    "imageWidth": 380,
+    "imageHeight": 756,
+    "screenX": 30,
+    "screenY": 106,
+    "screenWidth": 320,
+    "screenHeight": 240
+  },
+  {
+    "name": "Samsung Galaxy Grand Prime Black",
+    "imageWidth": 633,
+    "imageHeight": 1266,
+    "screenX": 47,
+    "screenY": 148,
+    "screenWidth": 540,
+    "screenHeight": 960
+  },
+  {
+    "name": "Samsung Galaxy Grand Prime Gold",
+    "imageWidth": 633,
+    "imageHeight": 1266,
+    "screenX": 47,
+    "screenY": 148,
+    "screenWidth": 540,
+    "screenHeight": 960
+  },
+  {
+    "name": "Samsung Galaxy Grand Prime White",
+    "imageWidth": 633,
+    "imageHeight": 1266,
+    "screenX": 47,
+    "screenY": 148,
+    "screenWidth": 540,
+    "screenHeight": 960
+  },
+  {
+    "name": "Samsung Galaxy Note 5 Black",
+    "imageWidth": 1568,
+    "imageHeight": 3146,
+    "screenX": 66,
+    "screenY": 290,
+    "screenWidth": 1440,
+    "screenHeight": 2560
+  },
+  {
+    "name": "Samsung Galaxy Note 5 Silver Titanium",
+    "imageWidth": 1568,
+    "imageHeight": 3146,
+    "screenX": 66,
+    "screenY": 290,
+    "screenWidth": 1440,
+    "screenHeight": 2560
+  },
+  {
+    "name": "Samsung Galaxy Note 5 Gold",
+    "imageWidth": 1568,
+    "imageHeight": 3146,
+    "screenX": 66,
+    "screenY": 290,
+    "screenWidth": 1440,
+    "screenHeight": 2560
+  },
+  {
+    "name": "Samsung Galaxy Note 5 White",
+    "imageWidth": 1568,
+    "imageHeight": 3146,
+    "screenX": 66,
+    "screenY": 290,
+    "screenWidth": 1440,
+    "screenHeight": 2560
+  },
+  {
+    "name": "Samsung Galaxy Note 5 Pink",
+    "imageWidth": 1568,
+    "imageHeight": 3146,
+    "screenX": 66,
+    "screenY": 290,
+    "screenWidth": 1440,
+    "screenHeight": 2560
+  },
+  {
+    "name": "Samsung Galaxy S Duos",
+    "imageWidth": 574,
+    "imageHeight": 1108,
+    "screenX": 48,
+    "screenY": 156,
+    "screenWidth": 480,
+    "screenHeight": 800
+  },
+  {
+    "name": "Samsung Galaxy S3",
+    "imageWidth": 845,
+    "imageHeight": 1630,
+    "screenX": 65,
+    "screenY": 158,
+    "screenWidth": 720,
+    "screenHeight": 1280
+  },
+  {
+    "name": "Samsung Galaxy S5 Black",
+    "imageWidth": 1236,
+    "imageHeight": 2418,
+    "screenX": 79,
+    "screenY": 247,
+    "screenWidth": 1080,
+    "screenHeight": 1920
+  },
+  {
+    "name": "Samsung Galaxy S5 White",
+    "imageWidth": 1236,
+    "imageHeight": 2418,
+    "screenX": 79,
+    "screenY": 247,
+    "screenWidth": 1080,
+    "screenHeight": 1920
+  },
+  {
+    "name": "Samsung Galaxy S7 Silver",
+    "imageWidth": 1588,
+    "imageHeight": 3236,
+    "screenX": 73,
+    "screenY": 338,
+    "screenWidth": 1440,
+    "screenHeight": 2560
+  },
+  {
+    "name": "Samsung Galaxy S7 Gold",
+    "imageWidth": 1588,
+    "imageHeight": 3236,
+    "screenX": 73,
+    "screenY": 338,
+    "screenWidth": 1440,
+    "screenHeight": 2560
+  },
+  {
+    "name": "Samsung Galaxy S7 Black",
+    "imageWidth": 1588,
+    "imageHeight": 3236,
+    "screenX": 73,
+    "screenY": 338,
+    "screenWidth": 1440,
+    "screenHeight": 2560
+  },
+  {
+    "name": "Samsung Galaxy S7 White",
+    "imageWidth": 1588,
+    "imageHeight": 3236,
+    "screenX": 73,
+    "screenY": 338,
+    "screenWidth": 1440,
+    "screenHeight": 2560
+  },
+  {
+    "name": "Samsung Galaxy S8 Midnight Black",
+    "imageWidth": 1536,
+    "imageHeight": 3338,
+    "screenX": 48,
+    "screenY": 187,
+    "screenWidth": 1440,
+    "screenHeight": 2960
+  },
+  {
+    "name": "Samsung Galaxy S8 Orchid Gray",
+    "imageWidth": 1536,
+    "imageHeight": 3338,
+    "screenX": 48,
+    "screenY": 187,
+    "screenWidth": 1440,
+    "screenHeight": 2960
+  },
+  {
+    "name": "Samsung Galaxy S8 Coral Blue",
+    "imageWidth": 1536,
+    "imageHeight": 3338,
+    "screenX": 48,
+    "screenY": 187,
+    "screenWidth": 1440,
+    "screenHeight": 2960
+  },
+  {
+    "name": "Samsung Galaxy S8 Arctic Silver",
+    "imageWidth": 1536,
+    "imageHeight": 3338,
+    "screenX": 48,
+    "screenY": 187,
+    "screenWidth": 1440,
+    "screenHeight": 2960
+  },
+  {
+    "name": "Samsung Galaxy S8 Maple Gold",
+    "imageWidth": 1536,
+    "imageHeight": 3338,
+    "screenX": 48,
+    "screenY": 187,
+    "screenWidth": 1440,
+    "screenHeight": 2960
+  },
+  {
+    "name": "Samsung Galaxy Y Black",
+    "imageWidth": 313,
+    "imageHeight": 558,
+    "screenX": 37,
+    "screenY": 116,
+    "screenWidth": 240,
+    "screenHeight": 320
+  },
+  {
+    "name": "Samsung Galaxy Y White",
+    "imageWidth": 313,
+    "imageHeight": 558,
+    "screenX": 37,
+    "screenY": 116,
+    "screenWidth": 240,
+    "screenHeight": 320
+  },
+  {
+    "name": "Sony SmartWatch 3 White Closed",
+    "imageWidth": 443,
+    "imageHeight": 736,
+    "screenX": 61,
+    "screenY": 186,
+    "screenWidth": 320,
+    "screenHeight": 320
+  },
+  {
+    "name": "Sony SmartWatch 3 White Open",
+    "imageWidth": 443,
+    "imageHeight": 2587,
+    "screenX": 61,
+    "screenY": 1095,
+    "screenWidth": 320,
+    "screenHeight": 320
+  },
+  {
+    "name": "Sony SmartWatch 3 Black Closed",
+    "imageWidth": 443,
+    "imageHeight": 736,
+    "screenX": 61,
+    "screenY": 186,
+    "screenWidth": 320,
+    "screenHeight": 320
+  },
+  {
+    "name": "Sony SmartWatch 3 Black Open",
+    "imageWidth": 443,
+    "imageHeight": 2587,
+    "screenX": 61,
+    "screenY": 1095,
+    "screenWidth": 320,
+    "screenHeight": 320
+  },
+  {
+    "name": "Sony W85OC 75\"",
+    "imageWidth": 1334,
+    "imageHeight": 804,
+    "screenX": 12,
+    "screenY": 14,
+    "screenWidth": 1280,
+    "screenHeight": 721
+  }
+]

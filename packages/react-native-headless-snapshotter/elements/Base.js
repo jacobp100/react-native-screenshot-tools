@@ -52,13 +52,20 @@ module.exports = class Base {
 
     if (style.display === "none") return;
 
+    const screenFrame = {
+      x: this.frame.x + parentOffset.x,
+      y: this.frame.y + parentOffset.y,
+      width: this.frame.width,
+      height: this.frame.height
+    };
+
     const hasTransform = style != null && style.transform != null;
     const hasAlpha =
       style != null && style.opacity != null && style.opacity !== 1;
     const hasClip = style.overflow === "hidden";
 
     if (hasTransform) {
-      backend.pushTransform(processTransform(style.transform), frame);
+      backend.pushTransform(processTransform(style.transform), screenFrame);
     }
 
     if (hasAlpha) {
@@ -70,13 +77,6 @@ module.exports = class Base {
       renderViewBackground.clip(ctx, frame, settings, style);
       backend.pushClip();
     }
-
-    const screenFrame = {
-      x: this.frame.x + parentOffset.x,
-      y: this.frame.y + parentOffset.y,
-      width: this.frame.width,
-      height: this.frame.height
-    };
 
     await this.draw(screenFrame);
     const children = sortBy(getOr(0, "style.zIndex"), this.filteredChildren());

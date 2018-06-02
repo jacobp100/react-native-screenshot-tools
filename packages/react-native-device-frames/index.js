@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Image } from "react-native";
-import frames from "./frames";
-import offsets from "./offsets";
+import devices from "./devices";
+import metadata from "./device-metadata.json";
 
 // FIXME: Shouldn't rely on our snapshotter
 const appFrame = {
@@ -9,20 +9,12 @@ const appFrame = {
   height: global.snapshotterSettings.height
 };
 
-const imageWidth = 871;
-
 export default class Frame extends Component {
   constructor({ device }) {
     super();
 
-    this.source = frames[device];
-    const possibleOffsetNames = device
-      .split(" ")
-      .map((_, i, words) => words.slice(0, i + 1).join(" "));
-    this.offset = possibleOffsetNames
-      .map(offsetName => offsets[offsetName])
-      .find(offset => offset != null);
-    this.scale = this.offset.width / imageWidth;
+    this.source = devices[device];
+    this.metadata = metadata.find(md => md.name === device);
 
     this.state = { layout: null };
 
@@ -50,8 +42,45 @@ export default class Frame extends Component {
     return { imageFrame, containerFrame };
   }
 
-  render() {
+  renderAppFrame(imageFrame) {
     const { direction = Frame.PORTRAIT, children } = this.props;
+
+    const imageTransform = {
+      [Frame.PORTRAIT]: [],
+      [Frame.LANDSCAPE]: [{ rotate: "-90deg" }],
+      [Frame.LANDSCAPE_REVERSE]: [{ rotate: "90deg" }]
+    }[direction];
+
+    const m = this.metadata;
+    const screenScale = m.screenWidth / m.imageWidth;
+    const scale = screenScale * (imageFrame.width / appFrame.width);
+    const positionScale = imageFrame.width / m.imageWidth;
+
+    return (
+      <View
+        style={[
+          appFrame,
+          {
+            position: "absolute",
+            top: 0,
+            left: 0,
+            transform: [
+              { translateX: (appFrame.width * (scale - 1)) / 2 },
+              { translateY: (appFrame.height * (scale - 1)) / 2 },
+              { translateX: m.screenX * positionScale },
+              { translateY: m.screenY * positionScale },
+              { scale }
+            ]
+          }
+        ]}
+      >
+        {children}
+      </View>
+    );
+  }
+
+  render() {
+    const { direction = Frame.PORTRAIT } = this.props;
     const { layout } = this.state;
     const { containerFrame, imageFrame } = this.getFrames(layout);
 
@@ -63,23 +92,7 @@ export default class Frame extends Component {
 
     return (
       <View style={containerFrame}>
-        {imageFrame != null && (
-          <View
-            style={[
-              appFrame,
-              {
-                position: "absolute",
-                top: 0,
-                left: 0,
-                transform: [
-                  { scale: (this.scale * imageFrame.width) / appFrame.width }
-                ]
-              }
-            ]}
-          >
-            {children}
-          </View>
-        )}
+        {imageFrame != null && this.renderAppFrame(imageFrame)}
         <Image
           source={this.source}
           style={[imageFrame, { transform: imageTransform }]}
