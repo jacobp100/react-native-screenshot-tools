@@ -63,6 +63,20 @@ class Text extends Base {
     this.text = null;
   }
 
+  normalizeStyle(style) {
+    if (this.settings.platform === "android") {
+      return {
+        ...style,
+        fontVariant: [],
+        letterSpacing: 0,
+        textDecorationColor: "currentColor",
+        textDecorationStyle: "solid",
+        writingDirection: "ltr"
+      };
+    }
+    return style;
+  }
+
   extractText() {
     const childElements = [{ element: this, style: this.style }];
     let text = "";

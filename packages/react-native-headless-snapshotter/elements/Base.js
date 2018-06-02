@@ -14,7 +14,7 @@ module.exports = class Base {
 
   setProps({ children, style, ...props }) {
     this.props = props;
-    this.style = flattenStyle(style) || {};
+    this.style = this.normalizeStyle(flattenStyle(style) || {}, props);
   }
 
   appendChild(child) {
@@ -42,6 +42,10 @@ module.exports = class Base {
   }
 
   /* eslint-disable */
+  normalizeStyle(styles) {
+    return styles;
+  }
+
   async getHostStyles() {
     return {};
   }

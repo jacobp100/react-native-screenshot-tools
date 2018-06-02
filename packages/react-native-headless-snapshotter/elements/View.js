@@ -3,10 +3,25 @@ const Base = require("./Base");
 const { drawBackground, drawBorders } = require("../render/viewBackground");
 
 module.exports = class View extends Base {
+  normalizeStyle(style, props) {
+    if (this.settings.platform === "android") {
+      const { elevation = 0 } = style;
+      const shadow = props.forceDrawShadow
+        ? null
+        : {
+            shadowRadius: elevation,
+            shadowOffset: { width: 0, height: elevation },
+            shadowColor: "black",
+            shadowOpacity: 0.38
+          };
+      const zIndex = elevation in style ? { zIndex: elevation } : null;
+      return { ...style, ...shadow, ...zIndex };
+    }
+    return style;
+  }
+
   draw(screenFrame) {
-    const { backend, settings, props, style } = this;
-    const drawShadow =
-      settings.platform === "ios" || props.forceDrawShadow === true;
+    const { backend, settings, style } = this;
 
     const {
       shadowColor = "black",
@@ -20,7 +35,6 @@ module.exports = class View extends Base {
       .rgba();
 
     const hasShadow =
-      drawShadow &&
       a !== 0 &&
       (shadowRadius !== 0 ||
         shadowOffset.width !== 0 ||

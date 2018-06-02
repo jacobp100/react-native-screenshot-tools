@@ -13,6 +13,13 @@ module.exports = class Image extends Base {
     this.image = null;
   }
 
+  normalizeStyle(style) {
+    if (this.settings.platform === "ios") {
+      return { ...style, overlayColor: "transparent" };
+    }
+    return style;
+  }
+
   async getHostStyles() {
     const {
       props: { source },
