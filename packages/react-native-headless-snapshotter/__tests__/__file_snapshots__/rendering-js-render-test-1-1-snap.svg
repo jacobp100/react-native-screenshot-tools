@@ -8,10 +8,10 @@
         <path d="M100.334524,100.334524C94.14582329037093,106.5232242679412,85.75214416470496,110,77.00000000000001,110L43,110C34.24785583529507,110,25.8541767096291,106.52322426794123,19.66547622084396,100.3345237791561L33.807612,89.727922C36.24558476439934,93.10357687342248,39.55218563208594,95,43.00000000000001,95L77,95C83.09997926630952,95,88.9501192629858,93.10357687342247,93.2634559672906,89.72792206135784Z" fill="blue" stroke="none" stroke-width="0"/>
         <path d="M19.665476,100.334524C13.476775732058801,94.14582329037096,10.000000000000007,85.75214416470497,10,77.00000000000001L10,43C10,34.247855835295056,13.47677573205879,25.854176709629066,19.665476220843946,19.66547622084392L33.807612,23.20101C31.369638924750433,28.452028723321632,30,35.57393828449277,30,43.00000000000001L30,77C30,81.7738968171118,31.36963892475044,86.35226724929325,33.80761184457489,89.72792206135787Z" fill="magenta" stroke="none" stroke-width="0"/>
         <text text-anchor="middle">
-            <tspan x="65" y="53" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="65" y="53" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 Hello
             </tspan>
-            <tspan x="65" y="71" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="65" y="71" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 World
             </tspan>
         </text>
@@ -23,10 +23,10 @@
         <path d="M220.334524,100.334524C214.14582329037094,106.5232242679412,205.75214416470496,110,197,110L163,110C154.24785583529507,110,145.8541767096291,106.52322426794123,139.66547622084397,100.3345237791561L153.807612,89.727922C156.24558476439935,93.10357687342248,159.55218563208592,95,163,95L197,95C203.09997926630953,95,208.9501192629858,93.10357687342247,213.2634559672906,89.72792206135784Z" fill="blue" stroke="none" stroke-width="0"/>
         <path d="M139.665476,100.334524C133.4767757320588,94.14582329037096,130,85.75214416470497,130,77.00000000000001L130,43C130,34.247855835295056,133.4767757320588,25.854176709629066,139.66547622084394,19.66547622084392L153.807612,23.20101C151.36963892475043,28.452028723321632,150,35.57393828449277,150,43.00000000000001L150,77C150,81.7738968171118,151.36963892475043,86.35226724929325,153.8076118445749,89.72792206135787Z" fill="magenta" stroke="none" stroke-width="0"/>
         <text text-anchor="middle">
-            <tspan x="185" y="53" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="185" y="53" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 Hello
             </tspan>
-            <tspan x="185" y="71" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="185" y="71" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 World
             </tspan>
         </text>
@@ -38,10 +38,10 @@
         <path d="M340.334524,100.334524C334.1458232903709,106.5232242679412,325.752144164705,110,317,110L283,110C274.24785583529507,110,265.8541767096291,106.52322426794123,259.66547622084397,100.3345237791561L273.807612,89.727922C276.2455847643993,93.10357687342248,279.5521856320859,95,283,95L317,95C323.0999792663095,95,328.9501192629858,93.10357687342247,333.2634559672906,89.72792206135784Z" fill="blue" stroke="none" stroke-width="0"/>
         <path d="M259.665476,100.334524C253.4767757320588,94.14582329037096,250,85.75214416470497,250,77.00000000000001L250,43C250,34.247855835295056,253.4767757320588,25.854176709629066,259.66547622084397,19.66547622084392L273.807612,23.20101C271.36963892475046,28.452028723321632,270,35.57393828449277,270,43.00000000000001L270,77C270,81.7738968171118,271.36963892475046,86.35226724929325,273.8076118445749,89.72792206135787Z" fill="magenta" stroke="none" stroke-width="0"/>
         <text text-anchor="middle">
-            <tspan x="305" y="53" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="305" y="53" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 Hello
             </tspan>
-            <tspan x="305" y="71" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="305" y="71" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 World
             </tspan>
         </text>
@@ -53,10 +53,10 @@
         <path d="M460.334524,100.334524C454.1458232903709,106.5232242679412,445.752144164705,110,437,110L403,110C394.24785583529507,110,385.8541767096291,106.52322426794123,379.66547622084397,100.3345237791561L393.807612,89.727922C396.2455847643993,93.10357687342248,399.5521856320859,95,403,95L437,95C443.0999792663095,95,448.9501192629858,93.10357687342247,453.2634559672906,89.72792206135784Z" fill="blue" stroke="none" stroke-width="0"/>
         <path d="M379.665476,100.334524C373.4767757320588,94.14582329037096,370,85.75214416470497,370,77.00000000000001L370,43C370,34.247855835295056,373.4767757320588,25.854176709629066,379.66547622084397,19.66547622084392L393.807612,23.20101C391.36963892475046,28.452028723321632,390,35.57393828449277,390,43.00000000000001L390,77C390,81.7738968171118,391.36963892475046,86.35226724929325,393.8076118445749,89.72792206135787Z" fill="magenta" stroke="none" stroke-width="0"/>
         <text text-anchor="middle">
-            <tspan x="425" y="53" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="425" y="53" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 Hello
             </tspan>
-            <tspan x="425" y="71" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="425" y="71" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 World
             </tspan>
         </text>
@@ -68,10 +68,10 @@
         <path d="M100.334524,220.334524C94.14582329037093,226.5232242679412,85.75214416470496,230,77.00000000000001,230L43,230C34.24785583529507,230,25.8541767096291,226.52322426794123,19.66547622084396,220.3345237791561L33.807612,209.727922C36.24558476439934,213.1035768734225,39.55218563208594,215,43.00000000000001,215L77,215C83.09997926630952,215,88.9501192629858,213.10357687342247,93.2634559672906,209.72792206135784Z" fill="blue" stroke="none" stroke-width="0"/>
         <path d="M19.665476,220.334524C13.476775732058801,214.14582329037094,10.000000000000007,205.752144164705,10,197L10,163C10,154.24785583529504,13.47677573205879,145.85417670962906,19.665476220843946,139.6654762208439L33.807612,143.20101C31.369638924750433,148.45202872332163,30,155.57393828449278,30,163L30,197C30,201.7738968171118,31.36963892475044,206.35226724929325,33.80761184457489,209.72792206135787Z" fill="magenta" stroke="none" stroke-width="0"/>
         <text text-anchor="middle">
-            <tspan x="65" y="173" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="65" y="173" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 Hello
             </tspan>
-            <tspan x="65" y="191" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="65" y="191" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 World
             </tspan>
         </text>
@@ -83,10 +83,10 @@
         <path d="M220.334524,220.334524C214.14582329037094,226.5232242679412,205.75214416470496,230,197,230L163,230C154.24785583529507,230,145.8541767096291,226.52322426794123,139.66547622084397,220.3345237791561L153.807612,209.727922C156.24558476439935,213.1035768734225,159.55218563208592,215,163,215L197,215C203.09997926630953,215,208.9501192629858,213.10357687342247,213.2634559672906,209.72792206135784Z" fill="blue" stroke="none" stroke-width="0"/>
         <path d="M139.665476,220.334524C133.4767757320588,214.14582329037094,130,205.752144164705,130,197L130,163C130,154.24785583529504,133.4767757320588,145.85417670962906,139.66547622084394,139.6654762208439L153.807612,143.20101C151.36963892475043,148.45202872332163,150,155.57393828449278,150,163L150,197C150,201.7738968171118,151.36963892475043,206.35226724929325,153.8076118445749,209.72792206135787Z" fill="magenta" stroke="none" stroke-width="0"/>
         <text text-anchor="middle">
-            <tspan x="185" y="173" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="185" y="173" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 Hello
             </tspan>
-            <tspan x="185" y="191" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="185" y="191" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 World
             </tspan>
         </text>
@@ -98,10 +98,10 @@
         <path d="M340.334524,220.334524C334.1458232903709,226.5232242679412,325.752144164705,230,317,230L283,230C274.24785583529507,230,265.8541767096291,226.52322426794123,259.66547622084397,220.3345237791561L273.807612,209.727922C276.2455847643993,213.1035768734225,279.5521856320859,215,283,215L317,215C323.0999792663095,215,328.9501192629858,213.10357687342247,333.2634559672906,209.72792206135784Z" fill="blue" stroke="none" stroke-width="0"/>
         <path d="M259.665476,220.334524C253.4767757320588,214.14582329037094,250,205.752144164705,250,197L250,163C250,154.24785583529504,253.4767757320588,145.85417670962906,259.66547622084397,139.6654762208439L273.807612,143.20101C271.36963892475046,148.45202872332163,270,155.57393828449278,270,163L270,197C270,201.7738968171118,271.36963892475046,206.35226724929325,273.8076118445749,209.72792206135787Z" fill="magenta" stroke="none" stroke-width="0"/>
         <text text-anchor="middle">
-            <tspan x="305" y="173" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="305" y="173" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 Hello
             </tspan>
-            <tspan x="305" y="191" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="305" y="191" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 World
             </tspan>
         </text>
@@ -113,10 +113,10 @@
         <path d="M460.334524,220.334524C454.1458232903709,226.5232242679412,445.752144164705,230,437,230L403,230C394.24785583529507,230,385.8541767096291,226.52322426794123,379.66547622084397,220.3345237791561L393.807612,209.727922C396.2455847643993,213.1035768734225,399.5521856320859,215,403,215L437,215C443.0999792663095,215,448.9501192629858,213.10357687342247,453.2634559672906,209.72792206135784Z" fill="blue" stroke="none" stroke-width="0"/>
         <path d="M379.665476,220.334524C373.4767757320588,214.14582329037094,370,205.752144164705,370,197L370,163C370,154.24785583529504,373.4767757320588,145.85417670962906,379.66547622084397,139.6654762208439L393.807612,143.20101C391.36963892475046,148.45202872332163,390,155.57393828449278,390,163L390,197C390,201.7738968171118,391.36963892475046,206.35226724929325,393.8076118445749,209.72792206135787Z" fill="magenta" stroke="none" stroke-width="0"/>
         <text text-anchor="middle">
-            <tspan x="425" y="173" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="425" y="173" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 Hello
             </tspan>
-            <tspan x="425" y="191" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="425" y="191" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 World
             </tspan>
         </text>
@@ -128,10 +128,10 @@
         <path d="M100.334524,340.334524C94.14582329037093,346.5232242679412,85.75214416470496,350,77.00000000000001,350L43,350C34.24785583529507,350,25.8541767096291,346.5232242679412,19.66547622084396,340.3345237791561L33.807612,329.727922C36.24558476439934,333.10357687342247,39.55218563208594,335,43.00000000000001,335L77,335C83.09997926630952,335,88.9501192629858,333.10357687342247,93.2634559672906,329.72792206135784Z" fill="blue" stroke="none" stroke-width="0"/>
         <path d="M19.665476,340.334524C13.476775732058801,334.14582329037097,10.000000000000007,325.752144164705,10,317L10,283C10,274.24785583529507,13.47677573205879,265.8541767096291,19.665476220843946,259.6654762208439L33.807612,263.20101C31.369638924750433,268.45202872332163,30,275.5739382844928,30,283L30,317C30,321.7738968171118,31.36963892475044,326.3522672492932,33.80761184457489,329.72792206135784Z" fill="magenta" stroke="none" stroke-width="0"/>
         <text text-anchor="middle">
-            <tspan x="65" y="293" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="65" y="293" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 Hello
             </tspan>
-            <tspan x="65" y="311" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="65" y="311" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 World
             </tspan>
         </text>
@@ -143,10 +143,10 @@
         <path d="M220.334524,340.334524C214.14582329037094,346.5232242679412,205.75214416470496,350,197,350L163,350C154.24785583529507,350,145.8541767096291,346.5232242679412,139.66547622084397,340.3345237791561L153.807612,329.727922C156.24558476439935,333.10357687342247,159.55218563208592,335,163,335L197,335C203.09997926630953,335,208.9501192629858,333.10357687342247,213.2634559672906,329.72792206135784Z" fill="blue" stroke="none" stroke-width="0"/>
         <path d="M139.665476,340.334524C133.4767757320588,334.14582329037097,130,325.752144164705,130,317L130,283C130,274.24785583529507,133.4767757320588,265.8541767096291,139.66547622084394,259.6654762208439L153.807612,263.20101C151.36963892475043,268.45202872332163,150,275.5739382844928,150,283L150,317C150,321.7738968171118,151.36963892475043,326.3522672492932,153.8076118445749,329.72792206135784Z" fill="magenta" stroke="none" stroke-width="0"/>
         <text text-anchor="middle">
-            <tspan x="185" y="293" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="185" y="293" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 Hello
             </tspan>
-            <tspan x="185" y="311" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="185" y="311" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 World
             </tspan>
         </text>
@@ -158,10 +158,10 @@
         <path d="M340.334524,340.334524C334.1458232903709,346.5232242679412,325.752144164705,350,317,350L283,350C274.24785583529507,350,265.8541767096291,346.5232242679412,259.66547622084397,340.3345237791561L273.807612,329.727922C276.2455847643993,333.10357687342247,279.5521856320859,335,283,335L317,335C323.0999792663095,335,328.9501192629858,333.10357687342247,333.2634559672906,329.72792206135784Z" fill="blue" stroke="none" stroke-width="0"/>
         <path d="M259.665476,340.334524C253.4767757320588,334.14582329037097,250,325.752144164705,250,317L250,283C250,274.24785583529507,253.4767757320588,265.8541767096291,259.66547622084397,259.6654762208439L273.807612,263.20101C271.36963892475046,268.45202872332163,270,275.5739382844928,270,283L270,317C270,321.7738968171118,271.36963892475046,326.3522672492932,273.8076118445749,329.72792206135784Z" fill="magenta" stroke="none" stroke-width="0"/>
         <text text-anchor="middle">
-            <tspan x="305" y="293" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="305" y="293" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 Hello
             </tspan>
-            <tspan x="305" y="311" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="305" y="311" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 World
             </tspan>
         </text>
@@ -173,10 +173,10 @@
         <path d="M460.334524,340.334524C454.1458232903709,346.5232242679412,445.752144164705,350,437,350L403,350C394.24785583529507,350,385.8541767096291,346.5232242679412,379.66547622084397,340.3345237791561L393.807612,329.727922C396.2455847643993,333.10357687342247,399.5521856320859,335,403,335L437,335C443.0999792663095,335,448.9501192629858,333.10357687342247,453.2634559672906,329.72792206135784Z" fill="blue" stroke="none" stroke-width="0"/>
         <path d="M379.665476,340.334524C373.4767757320588,334.14582329037097,370,325.752144164705,370,317L370,283C370,274.24785583529507,373.4767757320588,265.8541767096291,379.66547622084397,259.6654762208439L393.807612,263.20101C391.36963892475046,268.45202872332163,390,275.5739382844928,390,283L390,317C390,321.7738968171118,391.36963892475046,326.3522672492932,393.8076118445749,329.72792206135784Z" fill="magenta" stroke="none" stroke-width="0"/>
         <text text-anchor="middle">
-            <tspan x="425" y="293" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="425" y="293" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 Hello
             </tspan>
-            <tspan x="425" y="311" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="425" y="311" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 World
             </tspan>
         </text>
@@ -188,10 +188,10 @@
         <path d="M100.334524,460.334524C94.14582329037093,466.5232242679412,85.75214416470496,470,77.00000000000001,470L43,470C34.24785583529507,470,25.8541767096291,466.5232242679412,19.66547622084396,460.3345237791561L33.807612,449.727922C36.24558476439934,453.10357687342247,39.55218563208594,455,43.00000000000001,455L77,455C83.09997926630952,455,88.9501192629858,453.10357687342247,93.2634559672906,449.72792206135784Z" fill="blue" stroke="none" stroke-width="0"/>
         <path d="M19.665476,460.334524C13.476775732058801,454.14582329037097,10.000000000000007,445.752144164705,10,437L10,403C10,394.24785583529507,13.47677573205879,385.8541767096291,19.665476220843946,379.6654762208439L33.807612,383.20101C31.369638924750433,388.45202872332163,30,395.5739382844928,30,403L30,437C30,441.7738968171118,31.36963892475044,446.3522672492932,33.80761184457489,449.72792206135784Z" fill="magenta" stroke="none" stroke-width="0"/>
         <text text-anchor="middle">
-            <tspan x="65" y="413" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="65" y="413" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 Hello
             </tspan>
-            <tspan x="65" y="431" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="65" y="431" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 World
             </tspan>
         </text>
@@ -203,10 +203,10 @@
         <path d="M220.334524,460.334524C214.14582329037094,466.5232242679412,205.75214416470496,470,197,470L163,470C154.24785583529507,470,145.8541767096291,466.5232242679412,139.66547622084397,460.3345237791561L153.807612,449.727922C156.24558476439935,453.10357687342247,159.55218563208592,455,163,455L197,455C203.09997926630953,455,208.9501192629858,453.10357687342247,213.2634559672906,449.72792206135784Z" fill="blue" stroke="none" stroke-width="0"/>
         <path d="M139.665476,460.334524C133.4767757320588,454.14582329037097,130,445.752144164705,130,437L130,403C130,394.24785583529507,133.4767757320588,385.8541767096291,139.66547622084394,379.6654762208439L153.807612,383.20101C151.36963892475043,388.45202872332163,150,395.5739382844928,150,403L150,437C150,441.7738968171118,151.36963892475043,446.3522672492932,153.8076118445749,449.72792206135784Z" fill="magenta" stroke="none" stroke-width="0"/>
         <text text-anchor="middle">
-            <tspan x="185" y="413" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="185" y="413" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 Hello
             </tspan>
-            <tspan x="185" y="431" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="185" y="431" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 World
             </tspan>
         </text>
@@ -218,10 +218,10 @@
         <path d="M340.334524,460.334524C334.1458232903709,466.5232242679412,325.752144164705,470,317,470L283,470C274.24785583529507,470,265.8541767096291,466.5232242679412,259.66547622084397,460.3345237791561L273.807612,449.727922C276.2455847643993,453.10357687342247,279.5521856320859,455,283,455L317,455C323.0999792663095,455,328.9501192629858,453.10357687342247,333.2634559672906,449.72792206135784Z" fill="blue" stroke="none" stroke-width="0"/>
         <path d="M259.665476,460.334524C253.4767757320588,454.14582329037097,250,445.752144164705,250,437L250,403C250,394.24785583529507,253.4767757320588,385.8541767096291,259.66547622084397,379.6654762208439L273.807612,383.20101C271.36963892475046,388.45202872332163,270,395.5739382844928,270,403L270,437C270,441.7738968171118,271.36963892475046,446.3522672492932,273.8076118445749,449.72792206135784Z" fill="magenta" stroke="none" stroke-width="0"/>
         <text text-anchor="middle">
-            <tspan x="305" y="413" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="305" y="413" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 Hello
             </tspan>
-            <tspan x="305" y="431" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="305" y="431" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 World
             </tspan>
         </text>
@@ -233,10 +233,10 @@
         <path d="M460.334524,460.334524C454.1458232903709,466.5232242679412,445.752144164705,470,437,470L403,470C394.24785583529507,470,385.8541767096291,466.5232242679412,379.66547622084397,460.3345237791561L393.807612,449.727922C396.2455847643993,453.10357687342247,399.5521856320859,455,403,455L437,455C443.0999792663095,455,448.9501192629858,453.10357687342247,453.2634559672906,449.72792206135784Z" fill="blue" stroke="none" stroke-width="0"/>
         <path d="M379.665476,460.334524C373.4767757320588,454.14582329037097,370,445.752144164705,370,437L370,403C370,394.24785583529507,373.4767757320588,385.8541767096291,379.66547622084397,379.6654762208439L393.807612,383.20101C391.36963892475046,388.45202872332163,390,395.5739382844928,390,403L390,437C390,441.7738968171118,391.36963892475046,446.3522672492932,393.8076118445749,449.72792206135784Z" fill="magenta" stroke="none" stroke-width="0"/>
         <text text-anchor="middle">
-            <tspan x="425" y="413" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="425" y="413" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 Hello
             </tspan>
-            <tspan x="425" y="431" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal">
+            <tspan x="425" y="431" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
                 World
             </tspan>
         </text>

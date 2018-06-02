@@ -223,6 +223,11 @@ module.exports = class SvgBackend {
         .attr("font-size", `${style.fontSize}px`)
         .attr("font-weight", style.fontWeight)
         .attr("font-style", style.fontStyle)
+        .attr("letter-spacing", `${style.letterSpacing}px`)
+        .attr(
+          "font-variant",
+          style.fontVariant.includes("small-caps") ? "small-caps" : null
+        )
         .text(body);
       $text.append($tspan);
       return x; // Don't advance x
@@ -243,7 +248,9 @@ module.exports = class SvgBackend {
     const font = fontForStyle(style);
     const scale = style.fontSize / font.unitsPerEm;
     return {
-      width: font.layout(text).advanceWidth * scale,
+      width:
+        font.layout(text).advanceWidth * scale +
+        style.letterSpacing * text.length,
       emHeightAscent: font.ascent * scale,
       emHeightDescent: font.descent * scale
     };

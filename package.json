@@ -7,9 +7,7 @@
   "scripts": {
     "test": "jest"
   },
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "devDependencies": {
     "babel-preset-react-native": "^4.0.0",
     "eslint": "^4.19.1",
@@ -19,8 +17,5 @@
     "jest": "^23.0.0",
     "jest-image-snapshot": "^2.3.0",
     "prettier": "^1.12.1"
-  },
-  "jest": {
-    "preset": "react-native"
   }
 }

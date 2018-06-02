@@ -1,11 +1,14 @@
 import * as path from "path";
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
 import { toMatchImageSnapshot } from "jest-image-snapshot";
 import { configureToMatchFileSnapshot } from "jest-file-snapshot";
 import Canvas from "canvas-prebuilt";
 import format from "xml-formatter";
 import { renderToSvg, renderToCanvas } from "..";
+
+const View = "View";
+const Text = "Text";
+const Image = "Image";
 
 expect.extend({ toMatchImageSnapshot });
 expect.extend({
@@ -14,7 +17,7 @@ expect.extend({
 
 const parrot = {
   // snapshotter would output this format, RN has some weird path format
-  testUri: path.join(__dirname, "/parrot.png")
+  absoluteFilePath: path.join(__dirname, "/parrot.png")
 };
 
 const settings = {
@@ -168,9 +171,7 @@ test("Render test 2", async () => {
         resizeMode="cover"
         style={{ width: "100%", height: 100, aspectRatio: undefined }}
       />
-      <View
-        style={{ height: StyleSheet.hairlineWidth, backgroundColor: "black" }}
-      />
+      <View style={{ height: 1, backgroundColor: "black" }} />
       <View>
         <Text>Hello world</Text>
       </View>
@@ -181,12 +182,19 @@ test("Render test 2", async () => {
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
-test("Render test 3", async () => {
+test("Text", async () => {
+  const Row = ({ children }) => (
+    <View style={{ width: 450, borderWidth: 1, marginBottom: 12 }}>
+      {children}
+    </View>
+  );
+
   const jsx = (
-    <View style={{ flex: 1, backgroundColor: "#eee" }}>
-      {["left", "center", "right"].map(textAlign => (
-        <View key={textAlign} style={{ width: 300, borderWidth: 1 }}>
-          <Text style={{ textAlign }}>
+    <View style={{ flex: 1, alignItems: "center", backgroundColor: "#eee" }}>
+      <Text>Text alignment</Text>
+      <Row>
+        {["left", "center", "right"].map(textAlign => (
+          <Text key={textAlign} style={{ textAlign }}>
             Lorem ipsum{" "}
             <Text
               style={{ fontWeight: "bold", fontStyle: "italic", fontSize: 18 }}
@@ -195,8 +203,30 @@ test("Render test 3", async () => {
             </Text>{" "}
             <Text style={{ fontSize: 24 }}>sit</Text> amet.
           </Text>
-        </View>
-      ))}
+        ))}
+      </Row>
+      <Text>Letter spacing</Text>
+      <Row>
+        {[0, 1, 2, 5, 10].map(letterSpacing => (
+          <Text key={letterSpacing} style={{ letterSpacing }}>
+            Letter spacing
+          </Text>
+        ))}
+      </Row>
+      <Text>Kerning with letter spacing</Text>
+      <Row>
+        <Text>No letter spacing</Text>
+        <Text style={{ fontSize: 72 }}>AVAW</Text>
+        <Text>Infinitesimal letter spacing</Text>
+        <Text style={{ fontSize: 72, letterSpacing: 1e-9 }}>AVAW</Text>
+      </Row>
+      <Text>Font variants</Text>
+      <Row>
+        <Text style={{ fontSize: 24 }}>Hello World</Text>
+        <Text style={{ fontSize: 24, fontVariant: ["small-caps"] }}>
+          Hello World
+        </Text>
+      </Row>
     </View>
   );
 

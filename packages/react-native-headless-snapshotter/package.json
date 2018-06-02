@@ -21,7 +21,6 @@
     "canvas-prebuilt": "^1.6.5-prerelease.1",
     "jest-file-snapshot": "^1.0.0",
     "jest-image-snapshot": "^2.4.1",
-    "react-native": "^0.55.4",
     "xml-formatter": "^1.0.1"
   }
 }

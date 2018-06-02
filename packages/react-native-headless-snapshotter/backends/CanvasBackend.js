@@ -165,13 +165,16 @@ module.exports = class CanvasBackend {
   }
 
   applyTextStyle({
-    fontFamily = "Helvetica",
-    fontWeight = "normal",
-    fontStyle = "normal",
-    fontSize = 12,
-    color = "black"
+    fontFamily,
+    fontWeight,
+    fontStyle,
+    fontSize,
+    color,
+    fontVariant
   }) {
-    this.ctx.font = `${fontWeight} ${fontStyle} ${fontSize}px ${JSON.stringify(
+    // We can only do small caps (and this doesn't work in node-canvas 😞)
+    const variant = fontVariant.includes("small-caps") ? "small-caps" : "";
+    this.ctx.font = `${fontStyle} ${variant} ${fontWeight} ${fontSize}px ${JSON.stringify(
       fontFamily
     )}`;
     this.ctx.fillStyle = color;
@@ -199,8 +202,28 @@ module.exports = class CanvasBackend {
 
     const renderRun = ({ x, y, body, style }) => {
       this.applyTextStyle(style);
-      const { width } = ctx.measureText(body);
-      ctx.fillText(body, x, y);
+
+      let width;
+      if (style.letterSpacing === 0) {
+        ctx.fillText(body, x, y);
+        ({ width } = ctx.measureText(body));
+      } else {
+        width = Array.from(body).reduce((offsetX, char, i, text) => {
+          const prevChar = i > 0 ? text[i - 1] : null;
+          const { width: charWidth } = ctx.measureText(char);
+          const kerning =
+            prevChar != null
+              ? 0
+              : ctx.measureText(char + prevChar).width -
+                charWidth -
+                ctx.measureText(prevChar).width;
+          const currentX =
+            offsetX + kerning + (prevChar != null ? style.letterSpacing : 0);
+          ctx.fillText(char, currentX, y);
+          return currentX + charWidth;
+        }, x);
+      }
+
       return x + width;
     };
 
@@ -215,7 +238,11 @@ module.exports = class CanvasBackend {
       emHeightAscent = style.fontSize * 0.66,
       emHeightDescent = style.fontSize * 0.33
     } = this.ctx.measureText(text);
-    return { width, emHeightAscent, emHeightDescent };
+    return {
+      width: width + style.letterSpacing * text.length,
+      emHeightAscent,
+      emHeightDescent
+    };
   }
 
   drawImage(image, x, y, width, height) {

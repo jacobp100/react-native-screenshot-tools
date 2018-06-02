@@ -14,8 +14,17 @@ module.exports = class Image extends Base {
   }
 
   async getHostStyles() {
-    const { props, settings } = this;
-    const image = await readImage(props.source.testUri, settings.testFilePath);
+    const {
+      props: { source },
+      settings
+    } = this;
+    let image;
+    if (source.absoluteFilePath) {
+      image = await readImage(source.absoluteFilePath, settings.testFilePath);
+    } else {
+      // FIXME: Network requests
+      throw new Error("Unhandled image source");
+    }
     this.image = image;
     return { width: image.width, height: image.height };
   }

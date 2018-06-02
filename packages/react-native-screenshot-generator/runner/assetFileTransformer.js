@@ -7,7 +7,7 @@ module.exports = {
   // the Jest snapshot.
   process: (_, filename) =>
     `module.exports = {
-      testUri: ${JSON.stringify(filename)}
+      absoluteFilePath: ${JSON.stringify(filename)}
     };`,
   getCacheKey: createCacheKeyFunction([__filename])
 };

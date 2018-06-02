@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="640" height="800">
+    <defs/>
+    <path d="M0,0L640,0L640,800L0,800L0,0Z" fill="#eee" stroke="none" stroke-width="0"/>
+    <text text-anchor="start">
+        <tspan x="274" y="16" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+            Text alignment
+        </tspan>
+    </text>
+    <path d="M95,18L545,18L545,110L95,110L95,18Z" fill="none" stroke="black" stroke-width="1"/>
+    <text text-anchor="start">
+        <tspan x="96" y="44.85009765625" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+            Lorem ipsum
+        </tspan>
+        <tspan fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+             
+        </tspan>
+        <tspan fill="black" font-family="Helvetica" font-size="18px" font-weight="bold" font-style="italic" letter-spacing="0px">
+            dolor
+        </tspan>
+        <tspan fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+             
+        </tspan>
+        <tspan fill="black" font-family="Helvetica" font-size="24px" font-weight="normal" font-style="normal" letter-spacing="0px">
+            sit
+        </tspan>
+        <tspan fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+             amet.
+        </tspan>
+    </text>
+    <text text-anchor="middle">
+        <tspan x="320" y="74.85009765625" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+            Lorem ipsum
+        </tspan>
+        <tspan fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+             
+        </tspan>
+        <tspan fill="black" font-family="Helvetica" font-size="18px" font-weight="bold" font-style="italic" letter-spacing="0px">
+            dolor
+        </tspan>
+        <tspan fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+             
+        </tspan>
+        <tspan fill="black" font-family="Helvetica" font-size="24px" font-weight="normal" font-style="normal" letter-spacing="0px">
+            sit
+        </tspan>
+        <tspan fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+             amet.
+        </tspan>
+    </text>
+    <text text-anchor="end">
+        <tspan x="544" y="104.85009765625" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+            Lorem ipsum
+        </tspan>
+        <tspan fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+             
+        </tspan>
+        <tspan fill="black" font-family="Helvetica" font-size="18px" font-weight="bold" font-style="italic" letter-spacing="0px">
+            dolor
+        </tspan>
+        <tspan fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+             
+        </tspan>
+        <tspan fill="black" font-family="Helvetica" font-size="24px" font-weight="normal" font-style="normal" letter-spacing="0px">
+            sit
+        </tspan>
+        <tspan fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+             amet.
+        </tspan>
+    </text>
+    <text text-anchor="start">
+        <tspan x="276" y="138" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+            Letter spacing
+        </tspan>
+    </text>
+    <path d="M95,140L545,140L545,232L95,232L95,140Z" fill="none" stroke="black" stroke-width="1"/>
+    <text text-anchor="start">
+        <tspan x="96" y="157" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+            Letter spacing
+        </tspan>
+    </text>
+    <text text-anchor="start">
+        <tspan x="96" y="175" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="1px">
+            Letter spacing
+        </tspan>
+    </text>
+    <text text-anchor="start">
+        <tspan x="96" y="193" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="2px">
+            Letter spacing
+        </tspan>
+    </text>
+    <text text-anchor="start">
+        <tspan x="96" y="211" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="5px">
+            Letter spacing
+        </tspan>
+    </text>
+    <text text-anchor="start">
+        <tspan x="96" y="229" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="10px">
+            Letter spacing
+        </tspan>
+    </text>
+    <text text-anchor="start">
+        <tspan x="237" y="260" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+            Kerning with letter spacing
+        </tspan>
+    </text>
+    <path d="M95,262L545,262L545,480L95,480L95,262Z" fill="none" stroke="black" stroke-width="1"/>
+    <text text-anchor="start">
+        <tspan x="96" y="279" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+            No letter spacing
+        </tspan>
+    </text>
+    <text text-anchor="start">
+        <tspan x="96" y="362" fill="black" font-family="Helvetica" font-size="72px" font-weight="normal" font-style="normal" letter-spacing="0px">
+            AVAW
+        </tspan>
+    </text>
+    <text text-anchor="start">
+        <tspan x="96" y="387" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+            Infinitesimal letter spacing
+        </tspan>
+    </text>
+    <text text-anchor="start">
+        <tspan x="96" y="470" fill="black" font-family="Helvetica" font-size="72px" font-weight="normal" font-style="normal" letter-spacing="1e-9px">
+            AVAW
+        </tspan>
+    </text>
+    <text text-anchor="start">
+        <tspan x="279" y="508" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px">
+            Font variants
+        </tspan>
+    </text>
+    <path d="M95,510L545,510L545,572L95,572L95,510Z" fill="none" stroke="black" stroke-width="1"/>
+    <text text-anchor="start">
+        <tspan x="96" y="538" fill="black" font-family="Helvetica" font-size="24px" font-weight="normal" font-style="normal" letter-spacing="0px">
+            Hello World
+        </tspan>
+    </text>
+    <text text-anchor="start">
+        <tspan x="96" y="568" fill="black" font-family="Helvetica" font-size="24px" font-weight="normal" font-style="normal" letter-spacing="0px" font-variant="small-caps">
+            Hello World
+        </tspan>
+    </text>
+</svg>

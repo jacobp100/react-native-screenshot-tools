@@ -24,7 +24,9 @@ const defaultStyles = attributedStyles => ({
   fontStyle: "normal",
   fontWeight: "normal",
   textAlign: "left",
-  lineHeight: getLineHeight(attributedStyles)
+  lineHeight: getLineHeight(attributedStyles),
+  fontVariant: [],
+  letterSpacing: 0
 });
 
 const applySystemFont = (style, settings) =>
