@@ -66,7 +66,7 @@ module.exports = class Base {
     const hasTransform = style != null && style.transform != null;
     const hasAlpha =
       style != null && style.opacity != null && style.opacity !== 1;
-    const hasClip = style.overflow === "hidden";
+    const hasClip = style.overflow === "hidden" || style.overflow === "scroll";
 
     if (hasTransform) {
       backend.pushTransform(processTransform(style.transform), screenFrame);
@@ -76,13 +76,14 @@ module.exports = class Base {
       backend.pushAlpha(style.opacity);
     }
 
+    await this.draw(screenFrame);
+
     if (hasClip) {
       const ctx = backend.beginClip();
       renderViewBackground.clip(ctx, frame, settings, style);
       backend.pushClip();
     }
 
-    await this.draw(screenFrame);
     const children = sortBy(getOr(0, "style.zIndex"), this.filteredChildren());
     /* eslint-disable */
     const offset = { x: screenFrame.x, y: screenFrame.y };

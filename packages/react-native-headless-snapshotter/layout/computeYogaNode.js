@@ -53,6 +53,12 @@ const flexWrap = {
   "wrap-reverse": yoga.WRAP_WRAP_REVERSE
 };
 
+const overflow = {
+  visible: yoga.OVERFLOW_VISIBLE,
+  hidden: yoga.OVERFLOW_HIDDEN,
+  scroll: yoga.OVERFLOW_SCROLL
+};
+
 module.exports = (style, config) => {
   const yogaNode = yoga.Node.createWithConfig(config);
 
@@ -215,6 +221,10 @@ module.exports = (style, config) => {
 
   if (style.flexWrap != null && style.flexWrap in flexWrap) {
     yogaNode.setFlexWrap(flexWrap[style.flexWrap]);
+  }
+
+  if (style.overflow != null && style.overflow in overflow) {
+    yogaNode.setOverflow(overflow[style.overflow]);
   }
 
   return yogaNode;

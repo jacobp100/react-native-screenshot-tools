@@ -33,7 +33,7 @@ export default class ScrollView extends Component {
       style,
       contentContainerStyle,
       children,
-      centerContent,
+      // centerContent, FIXME
       endFillColor,
       ...props
     } = this.props;
@@ -49,8 +49,6 @@ export default class ScrollView extends Component {
         <View
           style={[
             horizontal && styles.contentContainerHorizontal,
-            centerContent && horizontal && { marginHorizontal: "auto" },
-            centerContent && !horizontal && { marginVertical: "auto" },
             contentContainerStyle
           ]}
           onLayout={this.handleContentOnLayout}

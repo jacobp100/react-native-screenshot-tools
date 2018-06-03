@@ -79,11 +79,19 @@ const cornerEllipseAtSide = (x, y, width, height, radii, insets, side) => {
   const radius = radii[side];
   const insetBefore = insets[(side + 3) % 4];
   const insetAfter = insets[side];
+  const xInset = side % 2 === 0 ? insetBefore : insetAfter;
+  const yInset = side % 2 === 0 ? insetAfter : insetBefore;
   return {
-    rx: Math.max(radius - (side % 2 === 0 ? insetBefore : insetAfter), 0),
-    ry: Math.max(radius - (side % 2 === 0 ? insetAfter : insetBefore), 0),
-    x: x + [0, 1, 1, 0][side] * width + [1, -1, -1, 1][side] * radius,
-    y: y + [0, 0, 1, 1][side] * height + [1, 1, -1, -1][side] * radius
+    rx: Math.max(radius - xInset, 0),
+    ry: Math.max(radius - yInset, 0),
+    x:
+      x +
+      [0, 1, 1, 0][side] * width +
+      [1, -1, -1, 1][side] * Math.max(xInset, radius),
+    y:
+      y +
+      [0, 0, 1, 1][side] * height +
+      [1, 1, -1, -1][side] * Math.max(yInset, radius)
   };
 };
 
@@ -305,9 +313,5 @@ module.exports.drawBorders = (backend, frame, settings, style) => {
 };
 
 module.exports.clip = (ctx, frame, settings, style) => {
-  drawOutline(ctx, frame, settings, style, 0);
-};
-
-module.exports.clipInside = (ctx, frame, settings, style) => {
   drawOutline(ctx, frame, settings, style, 1);
 };

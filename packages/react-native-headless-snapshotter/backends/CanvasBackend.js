@@ -28,15 +28,18 @@ const mergeDown = (targetData, foregroundData) => {
   const foreground = foregroundData.data;
   const target = targetData.data;
 
+  const s = 1 / 255;
   for (let i = 0; i < target.length; i += 4) {
-    const a0 = foreground[i + 3] / 255;
-    const a1 = target[i + 3] / 255;
+    const a0 = foreground[i + 3] * s;
+    const a1 = target[i + 3] * s;
     const a01 = a0 + (1 - a0) * a1;
 
+    const as = 1 / a01;
+
     for (let c = 0; c < 3; c += 1) {
-      const c0 = foreground[i + c] / 255;
-      const c1 = target[i + c] / 255;
-      target[i + c] = ((255 * ((1 - a0) * a1 * c1 + a0 * c0)) / a01) | 0;
+      const c0 = foreground[i + c];
+      const c1 = target[i + c];
+      target[i + c] = (((1 - a0) * a1 * c1 + a0 * c0) * as) | 0;
     }
     target[i + 3] = (255 * a01) | 0;
   }

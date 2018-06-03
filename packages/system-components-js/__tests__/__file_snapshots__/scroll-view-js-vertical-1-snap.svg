@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="300">
+    <defs>
+        <clipPath id="0">
+            <path d="M5,5L295,5L295,195L5,195L5,5Z"/>
+        </clipPath>
+    </defs>
+    <path d="M0,0L300,0L300,300L0,300L0,0Z" fill="white" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+    <path d="M2.5,2.5L297.5,2.5L297.5,197.5L2.5,197.5L2.5,2.5Z" fill="none" stroke="black" stroke-width="5" stroke-dasharray="" stroke-linecap="butt"/>
+    <g clip-path="url(#0)">
+        <path d="M5,5L295,5L295,50L5,50L5,5Z" fill="red" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <path d="M5,50L295,50L295,95L5,95L5,50Z" fill="yellow" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <path d="M5,95L295,95L295,140L5,140L5,95Z" fill="green" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <path d="M5,140L295,140L295,185L5,185L5,140Z" fill="blue" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <path d="M5,185L295,185L295,230L5,230L5,185Z" fill="magenta" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+    </g>
+</svg>

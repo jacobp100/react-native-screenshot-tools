@@ -4,7 +4,7 @@ const { positionForImage } = require("../render/image");
 const {
   drawBackground,
   drawBorders,
-  clipInside
+  clip
 } = require("../render/viewBackground");
 
 module.exports = class Image extends Base {
@@ -44,7 +44,7 @@ module.exports = class Image extends Base {
     drawBackground(backend, screenFrame, settings, style);
 
     const clipCtx = backend.beginClip();
-    clipInside(clipCtx, screenFrame, settings, style);
+    clip(clipCtx, screenFrame, settings, style);
     backend.pushClip();
 
     if (tintColor != null) backend.pushTintColor(tintColor);

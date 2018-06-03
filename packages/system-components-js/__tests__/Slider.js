@@ -1,12 +1,11 @@
-import * as path from "path";
 import React from "react";
 import { toMatchImageSnapshot } from "jest-image-snapshot";
 import { configureToMatchFileSnapshot } from "jest-file-snapshot";
 import Canvas from "canvas-prebuilt";
 import format from "xml-formatter";
 import { renderToSvg, renderToCanvas } from "react-native-headless-snapshotter";
-import SwitchIOS from "../Switch.ios";
-import SwitchAndroid from "../Switch.android";
+import SliderIOS from "../Slider.ios";
+import SliderAndroid from "../Slider.android";
 
 const View = "View";
 
@@ -16,8 +15,8 @@ expect.extend({
 });
 
 const settings = {
-  width: 100,
-  height: 200,
+  width: 200,
+  height: 400,
   dpi: 1
 };
 
@@ -35,22 +34,26 @@ const renderPng = async (jsx, userSettings = settings) => {
   return canvas.toBuffer();
 };
 
-test("ios switches", async () => {
+test("ios", async () => {
   const jsx = (
     <View style={{ flex: 1, padding: 5, justifyContent: "space-between" }}>
-      <SwitchIOS value={true} />
-      <SwitchIOS value={false} />
-      <SwitchIOS
-        value={true}
-        thumbTintColor="red"
-        tintColor="blue"
-        onTintColor="lime"
+      <SliderIOS value={1} />
+      <SliderIOS value={0.5} />
+      <SliderIOS value={0} />
+      <SliderIOS
+        value={1}
+        maximumTrackTintColor="red"
+        minimumTrackTintColor="lime"
       />
-      <SwitchIOS
-        value={false}
-        thumbTintColor="red"
-        tintColor="blue"
-        onTintColor="lime"
+      <SliderIOS
+        value={0.5}
+        maximumTrackTintColor="red"
+        minimumTrackTintColor="lime"
+      />
+      <SliderIOS
+        value={0}
+        maximumTrackTintColor="red"
+        minimumTrackTintColor="lime"
       />
     </View>
   );
@@ -69,13 +72,30 @@ test("ios switches", async () => {
   ).toMatchImageSnapshot();
 });
 
-test("android switches", async () => {
+test("android", async () => {
   const jsx = (
     <View style={{ flex: 1, padding: 5, justifyContent: "space-between" }}>
-      <SwitchAndroid value={true} />
-      <SwitchAndroid value={false} />
-      <SwitchAndroid value={true} thumbTintColor="red" tintColor="blue" />
-      <SwitchAndroid value={false} thumbTintColor="red" tintColor="blue" />
+      <SliderAndroid value={1} />
+      <SliderAndroid value={0.5} />
+      <SliderAndroid value={0} />
+      <SliderAndroid
+        value={1}
+        thumbTintColor="orange"
+        maximumTrackTintColor="red"
+        minimumTrackTintColor="lime"
+      />
+      <SliderAndroid
+        value={0.5}
+        thumbTintColor="orange"
+        maximumTrackTintColor="red"
+        minimumTrackTintColor="lime"
+      />
+      <SliderAndroid
+        value={0}
+        thumbTintColor="orange"
+        maximumTrackTintColor="red"
+        minimumTrackTintColor="lime"
+      />
     </View>
   );
 

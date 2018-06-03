@@ -43,7 +43,7 @@ const renderPng = async (jsx, userSettings = settings) => {
 debugger;
 
 test(
-  "ios tab bar styles",
+  "ios styles",
   async () => {
     const jsx = (
       <View
@@ -105,7 +105,7 @@ test(
   60000
 );
 
-test("ios tab bar with content", async () => {
+test("with content", async () => {
   const jsx = (
     <View style={{ flex: 1, backgroundColor: "white" }}>
       <TabBarIOS style={{ flex: 1 }}>
@@ -165,7 +165,7 @@ test("ios tab bar with content", async () => {
   ).toMatchImageSnapshot();
 });
 
-test("ios tab bar other tab selected", async () => {
+test("content with other tab selected", async () => {
   const jsx = (
     <View style={{ flex: 1, backgroundColor: "white" }}>
       <TabBarIOS style={{ flex: 1 }}>

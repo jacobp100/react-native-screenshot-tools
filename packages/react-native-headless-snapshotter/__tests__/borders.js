@@ -40,6 +40,23 @@ test("No border radius", async () => {
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
+test("No border radius with border", async () => {
+  const jsx = (
+    <View
+      style={{
+        backgroundColor: "red",
+        width: 100,
+        height: 100,
+        borderWidth: 5,
+        borderColor: "blue"
+      }}
+    />
+  );
+
+  expect(await renderSvg(jsx)).toMatchFileSnapshot();
+  expect(await renderPng(jsx)).toMatchImageSnapshot();
+});
+
 test("Small border radius", async () => {
   const jsx = (
     <View
