@@ -183,12 +183,12 @@ module.exports = class CanvasBackend {
       throw new Error("Cannot apply shadow to a shape with a stroke");
     }
 
-    const { ctx } = this;
+    const { ctx, dpi } = this;
     if (fill != null) {
-      ctx.shadowBlur = shadowBlur;
+      ctx.shadowBlur = shadowBlur * dpi;
       ctx.shadowColor = shadowColor;
-      ctx.shadowOffsetX = shadowOffsetX;
-      ctx.shadowOffsetY = shadowOffsetY;
+      ctx.shadowOffsetX = shadowOffsetX * dpi;
+      ctx.shadowOffsetY = shadowOffsetY * dpi;
       ctx.fillStyle = fill;
       ctx.fill();
     }
