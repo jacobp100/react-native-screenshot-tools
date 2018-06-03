@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="500" height="500">
+    <defs/>
+    <g opacity="0.66">
+        <path d="M0,0L100,0L100,200L0,200L0,0Z" fill="red" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <path d="M10,10L110,10L110,110L10,110L10,10Z" fill="yellow" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <g opacity="0.66">
+            <path d="M10,110L110,110L110,210L10,210L10,110Z" fill="green" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+            <path d="M20,120L120,120L120,170L20,170L20,120Z" fill="blue" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+            <g opacity="0.66">
+                <path d="M20,170L120,170L120,220L20,220L20,170Z" fill="purple" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+            </g>
+        </g>
+    </g>
+</svg>

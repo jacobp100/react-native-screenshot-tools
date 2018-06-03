@@ -1,6 +1,10 @@
 const { max } = require("lodash/fp");
 const Base = require("./Base");
-const { breakLines, measureLines } = require("../layout/textLayout");
+const {
+  breakLines,
+  measureLines,
+  truncateLines
+} = require("../layout/textLayout");
 
 const getFilteredStyles = (styleKey, attributedStyles) =>
   attributedStyles
@@ -117,7 +121,11 @@ class Text extends Base {
 
   measureFunc(width) {
     const styledText = this.extractText();
-    this.text = breakLines(this.backend, styledText, width);
+    let text = breakLines(this.backend, styledText, width);
+    if (Number.isFinite(this.props.numberOfLines)) {
+      text = truncateLines(this.backend, text, this.props.numberOfLines, width);
+    }
+    this.text = text;
     return measureLines(this.backend, this.text);
   }
 

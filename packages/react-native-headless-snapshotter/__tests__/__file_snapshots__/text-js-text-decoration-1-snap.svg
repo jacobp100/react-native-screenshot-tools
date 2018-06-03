@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="500" height="500">
+    <defs/>
+    <text text-anchor="start">
+        <tspan x="0" y="26.31005859375" fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+            Underlined 
+        </tspan>
+        <tspan fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="italic" letter-spacing="0px" text-decoration="none">
+            text
+        </tspan>
+        <tspan fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+             with
+        </tspan>
+        <tspan fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+             
+        </tspan>
+        <tspan fill="green" font-family="Helvetica" font-size="24px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+            mixed
+        </tspan>
+        <tspan fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+             styles
+        </tspan>
+    </text>
+    <text text-anchor="start">
+        <tspan x="0" y="56.31005859375" fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="underline">
+            Underlined 
+        </tspan>
+        <tspan fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="italic" letter-spacing="0px" text-decoration="underline">
+            text
+        </tspan>
+        <tspan fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="underline">
+             with
+        </tspan>
+        <tspan fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="underline">
+             
+        </tspan>
+        <tspan fill="green" font-family="Helvetica" font-size="24px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="underline">
+            mixed
+        </tspan>
+        <tspan fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="underline">
+             styles
+        </tspan>
+    </text>
+    <text text-anchor="start">
+        <tspan x="0" y="86.31005859375" fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="line-through">
+            Underlined 
+        </tspan>
+        <tspan fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="italic" letter-spacing="0px" text-decoration="line-through">
+            text
+        </tspan>
+        <tspan fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="line-through">
+             with
+        </tspan>
+        <tspan fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="line-through">
+             
+        </tspan>
+        <tspan fill="green" font-family="Helvetica" font-size="24px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="line-through">
+            mixed
+        </tspan>
+        <tspan fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="line-through">
+             styles
+        </tspan>
+    </text>
+    <text text-anchor="start">
+        <tspan x="0" y="116.31005859375" fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="underline-linethrough">
+            Underlined 
+        </tspan>
+        <tspan fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="italic" letter-spacing="0px" text-decoration="underline-linethrough">
+            text
+        </tspan>
+        <tspan fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="underline-linethrough">
+             with
+        </tspan>
+        <tspan fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="underline-linethrough">
+             
+        </tspan>
+        <tspan fill="green" font-family="Helvetica" font-size="24px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="underline-linethrough">
+            mixed
+        </tspan>
+        <tspan fill="blue" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="underline-linethrough">
+             styles
+        </tspan>
+    </text>
+</svg>

@@ -2,12 +2,17 @@ const LineBreaker = require("linebreak");
 
 const max = numbers => numbers.reduce((a, b) => Math.max(a, b), 0);
 
-const lineWidth = (backend, { text, attributedStyles }) =>
-  attributedStyles.reduce((x, { start, end, style }, i) => {
-    let body = text.slice(start, end);
-    // Trim trailling whitespace
-    if (i === attributedStyles.length - 1) body = body.replace(/\s+$/, "");
-    return x + backend.measureText(body, style).width;
+const measureRun = (backend, { text }, { start, end, style }, isTail) => {
+  let body = text.slice(start, end);
+  // Trim trailling whitespace
+  if (isTail) body = body.replace(/\s+$/, "");
+  return backend.measureText(body, style).width;
+};
+
+const lineWidth = (backend, line) =>
+  line.attributedStyles.reduce((x, run, i, attributedStyles) => {
+    const isTail = i === attributedStyles.length - 1;
+    return x + measureRun(backend, line, run, isTail);
   }, 0);
 
 const lineHeight = line =>
@@ -31,8 +36,7 @@ const textSlice = (textStyle, start, end) => ({
 });
 
 module.exports.breakLines = (backend, textStyle, width) => {
-  const { text } = textStyle;
-  const breaker = new LineBreaker(text);
+  const breaker = new LineBreaker(textStyle.text);
 
   const lines = [];
   let lineStart = 0;
@@ -64,6 +68,43 @@ module.exports.breakLines = (backend, textStyle, width) => {
   }
 
   return lines;
+};
+
+const appendTextMatchingLastStyle = (line, text) => {
+  const lastAttributedStyle = line.attributedStyles.slice(-1)[0];
+  return {
+    text: `${line.text}${text}`,
+    attributedStyles: [
+      ...line.attributedStyles,
+      {
+        start: lastAttributedStyle.end,
+        end: lastAttributedStyle.end + text.length,
+        style: lastAttributedStyle.style
+      }
+    ]
+  };
+};
+
+module.exports.truncateLines = (backend, lines, numberOfLines, width) => {
+  if (lines.length <= numberOfLines) return lines;
+
+  const { text: fullText, attributedStyles } = lines[numberOfLines - 1];
+  for (let i = fullText.length; i < 0; i += 1) {
+    const truncatedText = fullText.slice(0, i).replace(/\s*$/, "");
+    const truncatedLine = textSlice(
+      { text: truncatedText, attributedStyles },
+      0,
+      truncatedText.length
+    );
+    const ellipsisedLine = appendTextMatchingLastStyle(truncatedLine, "...");
+
+    if (lineWidth(backend, ellipsisedLine) <= width) {
+      return [...lines.slice(0, numberOfLines - 1), ellipsisedLine];
+    }
+  }
+
+  // We cannot ellipsise - just return lines in range
+  return lines.slice(0, numberOfLines);
 };
 
 module.exports.measureLines = (backend, lines) => ({

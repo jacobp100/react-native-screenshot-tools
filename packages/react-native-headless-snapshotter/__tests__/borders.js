@@ -22,16 +22,17 @@ const settings = {
 };
 
 // Note formatting the SVG messes up text layout slightly, as it adds whitespace
-const renderSvg = async jsx => format(await renderToSvg(jsx, settings));
+const renderSvg = async (jsx, userSettings = settings) =>
+  format(await renderToSvg(jsx, userSettings));
 
-const renderPng = async jsx => {
-  const canvas = new Canvas(settings.width, settings.height);
+const renderPng = async (jsx, userSettings = settings) => {
+  const canvas = new Canvas(userSettings.width, userSettings.height);
   const ctx = canvas.getContext("2d");
-  await renderToCanvas(ctx, jsx, settings);
+  await renderToCanvas(ctx, jsx, userSettings);
   return canvas.toBuffer();
 };
 
-it("No border radius", async () => {
+test("No border radius", async () => {
   const jsx = (
     <View style={{ backgroundColor: "red", width: 100, height: 50 }} />
   );
@@ -40,7 +41,7 @@ it("No border radius", async () => {
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
-it("Small border radius", async () => {
+test("Small border radius", async () => {
   const jsx = (
     <View
       style={{
@@ -56,7 +57,7 @@ it("Small border radius", async () => {
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
-it("Border radius larger than height", async () => {
+test("Border radius larger than height", async () => {
   const jsx = (
     <View
       style={{
@@ -72,7 +73,7 @@ it("Border radius larger than height", async () => {
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
-it("Border radius larger than width", async () => {
+test("Border radius larger than width", async () => {
   const jsx = (
     <View
       style={{
@@ -88,7 +89,7 @@ it("Border radius larger than width", async () => {
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
-it("Varying border radii", async () => {
+test("Varying border radii", async () => {
   const jsx = (
     <View
       style={{
@@ -109,7 +110,7 @@ it("Varying border radii", async () => {
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
-it("Varying border radii dashed", async () => {
+test("Varying border radii dashed", async () => {
   const jsx = (
     <View
       style={{
@@ -131,7 +132,7 @@ it("Varying border radii dashed", async () => {
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
-it("Varying border radii dotted", async () => {
+test("Varying border radii dotted", async () => {
   const jsx = (
     <View
       style={{
@@ -153,7 +154,7 @@ it("Varying border radii dotted", async () => {
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
-it("Varying border widths", async () => {
+test("Varying border widths", async () => {
   const jsx = (
     <View
       style={{
@@ -174,7 +175,7 @@ it("Varying border widths", async () => {
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
-it("Varying border colors", async () => {
+test("Varying border colors", async () => {
   const jsx = (
     <View
       style={{
@@ -195,7 +196,7 @@ it("Varying border colors", async () => {
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
-it("Varying border colors dashed", async () => {
+test("Varying border colors dashed", async () => {
   const jsx = (
     <View
       style={{
@@ -217,7 +218,7 @@ it("Varying border colors dashed", async () => {
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
-it("Varying border colors dotted", async () => {
+test("Varying border colors dotted", async () => {
   const jsx = (
     <View
       style={{
@@ -239,7 +240,7 @@ it("Varying border colors dotted", async () => {
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
-it("Varying border colors and widths", async () => {
+test("Varying border colors and widths", async () => {
   const jsx = (
     <View
       style={{
@@ -263,7 +264,7 @@ it("Varying border colors and widths", async () => {
   expect(await renderPng(jsx)).toMatchImageSnapshot();
 });
 
-it("Varying border colors, radii and widths", async () => {
+test("Varying border colors, radii and widths", async () => {
   const jsx = (
     <View
       style={{
@@ -288,4 +289,93 @@ it("Varying border colors, radii and widths", async () => {
 
   expect(await renderSvg(jsx)).toMatchFileSnapshot();
   expect(await renderPng(jsx)).toMatchImageSnapshot();
+});
+
+test("iOS borders", async () => {
+  // If it looks like this test has bugs, it's because iOS's border drawing also has bugs
+
+  const Row = ({ children }) => (
+    <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+      {children}
+    </View>
+  );
+
+  const Cell = ({ title, children }) => (
+    <View style={{ alignItems: "center" }}>
+      <Text>{title}</Text>
+      {children}
+    </View>
+  );
+
+  const IOSDemo = ({ width, height, borderRadius }) => (
+    <View style={{ width, height, backgroundColor: "red", borderRadius }} />
+  );
+
+  const RegularDemo = ({ width, height, borderRadius }) => (
+    <View
+      style={{
+        width,
+        height,
+        backgroundColor: "red",
+        borderRadius,
+        borderTopLeftRadius: borderRadius + 1e-3
+      }}
+    />
+  );
+
+  const Demo = ({ width, height, borderRadius }) => (
+    <Row>
+      <Cell title="ios">
+        <IOSDemo width={width} height={height} borderRadius={borderRadius} />
+      </Cell>
+      <Cell title="regular">
+        <RegularDemo
+          width={width}
+          height={height}
+          borderRadius={borderRadius}
+        />
+      </Cell>
+    </Row>
+  );
+
+  const jsx = (
+    <View style={{ flexDirection: "row" }}>
+      <View style={{ flex: 1 }}>
+        <Demo width={100} height={100} borderRadius={0} />
+        <Demo width={100} height={100} borderRadius={5} />
+        <Demo width={100} height={100} borderRadius={10} />
+        <Demo width={100} height={100} borderRadius={20} />
+        <Demo width={100} height={100} borderRadius={30} />
+        <Demo width={100} height={100} borderRadius={40} />
+        <Demo width={100} height={100} borderRadius={50} />
+      </View>
+      <View style={{ flex: 1 }}>
+        <Demo width={50} height={100} borderRadius={0} />
+        <Demo width={50} height={100} borderRadius={3} />
+        <Demo width={50} height={100} borderRadius={5} />
+        <Demo width={50} height={100} borderRadius={10} />
+        <Demo width={50} height={100} borderRadius={15} />
+        <Demo width={50} height={100} borderRadius={20} />
+        <Demo width={50} height={100} borderRadius={25} />
+      </View>
+      <View style={{ flex: 1 }}>
+        <Demo width={100} height={50} borderRadius={0} />
+        <Demo width={100} height={50} borderRadius={3} />
+        <Demo width={100} height={50} borderRadius={5} />
+        <Demo width={100} height={50} borderRadius={10} />
+        <Demo width={100} height={50} borderRadius={15} />
+        <Demo width={100} height={50} borderRadius={20} />
+        <Demo width={100} height={50} borderRadius={25} />
+      </View>
+    </View>
+  );
+
+  const iosSettings = {
+    ...settings,
+    width: 1000,
+    height: 1000,
+    platform: "ios"
+  };
+  expect(await renderSvg(jsx, iosSettings)).toMatchFileSnapshot();
+  expect(await renderPng(jsx, iosSettings)).toMatchImageSnapshot();
 });
