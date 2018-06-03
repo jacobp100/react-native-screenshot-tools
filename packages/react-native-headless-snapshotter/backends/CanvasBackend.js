@@ -64,14 +64,26 @@ const drawLineDecoration = (ctx, x, y, width, textDecoration) => {
 };
 
 module.exports = class CanvasBackend {
-  constructor(ctx, { width, height }) {
-    this.ctx = ctx;
-    this.width = width;
-    this.height = height;
+  constructor(canvas, { dpi }) {
+    this.ctx = canvas.getContext("2d");
+    this.width = canvas.width;
+    this.height = canvas.height;
+    this.dpi = dpi;
     this.stackingContext = [];
     this.alphas = [];
     this.tintColors = [];
     this.compositeOperations = ["source-over"];
+
+    this.prepare();
+  }
+
+  prepare() {
+    this.ctx.save();
+    this.ctx.scale(this.dpi, this.dpi);
+  }
+
+  tearDown() {
+    this.ctx.restore();
   }
 
   pushStackingContext() {

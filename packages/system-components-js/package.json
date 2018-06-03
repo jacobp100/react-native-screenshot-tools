@@ -2,5 +2,10 @@
   "name": "system-components-js",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest-file-snapshot": "^1.0.0",
+    "jest-image-snapshot": "^2.4.1",
+    "react-native-headless-snapshotter": "^1.0.0"
+  }
 }

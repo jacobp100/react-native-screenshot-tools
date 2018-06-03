@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="200">
+    <defs>
+        <filter id="0" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+            <feOffset dx="0" dy="0" result="onBlur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.12"/>
+            <feComposite in2="onBlur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <filter id="1" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+            <feOffset dx="0" dy="1" result="onBlur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.2376"/>
+            <feComposite in2="onBlur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <filter id="2" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+            <feOffset dx="0" dy="0" result="onBlur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.12"/>
+            <feComposite in2="onBlur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <filter id="3" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+            <feOffset dx="0" dy="1" result="onBlur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.2376"/>
+            <feComposite in2="onBlur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <filter id="4" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+            <feOffset dx="0" dy="0" result="onBlur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.12"/>
+            <feComposite in2="onBlur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <filter id="5" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+            <feOffset dx="0" dy="1" result="onBlur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.2376"/>
+            <feComposite in2="onBlur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <filter id="6" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+            <feOffset dx="0" dy="0" result="onBlur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.12"/>
+            <feComposite in2="onBlur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <filter id="7" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+            <feOffset dx="0" dy="1" result="onBlur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.2376"/>
+            <feComposite in2="onBlur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    <path d="M15,8L35,8C38.86599324881555,8,42,11.134006751184446,42,14.999999999999998L42,15C42,18.865993248815553,38.865993248815556,22,35,22L15,22C11.13400675118445,22,8.000000000000002,18.865993248815556,8,15.000000000000002L8,15C7.999999999999998,11.13400675118445,11.134006751184444,8.000000000000002,14.999999999999996,8Z" fill="rgba(0, 150, 136, 0.5)" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+    <path d="M35,5L35,5C40.52284749830793,5,45,9.477152501692064,45,14.999999999999998L45,15C45,20.522847498307932,40.52284749830794,25,35,25L35,25C29.477152501692068,25,25,20.522847498307936,25,15.000000000000004L25,15C25,9.47715250169207,29.47715250169206,5.000000000000002,34.99999999999999,5Z" fill="#009688" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt" filter="url(#0)"/>
+    <path d="M35,5L35,5C40.52284749830793,5,45,9.477152501692064,45,14.999999999999998L45,15C45,20.522847498307932,40.52284749830794,25,35,25L35,25C29.477152501692068,25,25,20.522847498307936,25,15.000000000000004L25,15C25,9.47715250169207,29.47715250169206,5.000000000000002,34.99999999999999,5Z" fill="#009688" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt" filter="url(#1)"/>
+    <path d="M35,5L35,5C40.52284749830793,5,45,9.477152501692064,45,14.999999999999998L45,15C45,20.522847498307932,40.52284749830794,25,35,25L35,25C29.477152501692068,25,25,20.522847498307936,25,15.000000000000004L25,15C25,9.47715250169207,29.47715250169206,5.000000000000002,34.99999999999999,5Z" fill="#009688" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+    <path d="M15,65L35,65C38.86599324881555,65,42,68.13400675118444,42,72L42,72C42,75.86599324881556,38.865993248815556,79,35,79L15,79C11.13400675118445,79,8.000000000000002,75.86599324881556,8,72L8,72C7.999999999999998,68.13400675118444,11.134006751184444,65,14.999999999999996,65Z" fill="rgba(34, 31, 31, 0.26)" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+    <path d="M15,62L15,62C20.522847498307932,62,25,66.47715250169206,25,72L25,72C25,77.52284749830793,20.522847498307936,82,15.000000000000004,82L15,82C9.47715250169207,82,5.000000000000002,77.52284749830794,5,72L5,72C4.999999999999998,66.47715250169207,9.477152501692062,62,14.999999999999996,62Z" fill="#F1F1F1" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt" filter="url(#2)"/>
+    <path d="M15,62L15,62C20.522847498307932,62,25,66.47715250169206,25,72L25,72C25,77.52284749830793,20.522847498307936,82,15.000000000000004,82L15,82C9.47715250169207,82,5.000000000000002,77.52284749830794,5,72L5,72C4.999999999999998,66.47715250169207,9.477152501692062,62,14.999999999999996,62Z" fill="#F1F1F1" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt" filter="url(#3)"/>
+    <path d="M15,62L15,62C20.522847498307932,62,25,66.47715250169206,25,72L25,72C25,77.52284749830793,20.522847498307936,82,15.000000000000004,82L15,82C9.47715250169207,82,5.000000000000002,77.52284749830794,5,72L5,72C4.999999999999998,66.47715250169207,9.477152501692062,62,14.999999999999996,62Z" fill="#F1F1F1" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+    <path d="M15,121L35,121C38.86599324881555,121,42,124.13400675118444,42,128L42,128C42,131.86599324881556,38.865993248815556,135,35,135L15,135C11.13400675118445,135,8.000000000000002,131.86599324881556,8,128L8,128C7.999999999999998,124.13400675118444,11.134006751184444,121,14.999999999999996,121Z" fill="rgba(0, 150, 136, 0.5)" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+    <path d="M35,118L35,118C40.52284749830793,118,45,122.47715250169206,45,128L45,128C45,133.52284749830793,40.52284749830794,138,35,138L35,138C29.477152501692068,138,25,133.52284749830793,25,128L25,128C25,122.47715250169207,29.47715250169206,118,34.99999999999999,118Z" fill="red" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt" filter="url(#4)"/>
+    <path d="M35,118L35,118C40.52284749830793,118,45,122.47715250169206,45,128L45,128C45,133.52284749830793,40.52284749830794,138,35,138L35,138C29.477152501692068,138,25,133.52284749830793,25,128L25,128C25,122.47715250169207,29.47715250169206,118,34.99999999999999,118Z" fill="red" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt" filter="url(#5)"/>
+    <path d="M35,118L35,118C40.52284749830793,118,45,122.47715250169206,45,128L45,128C45,133.52284749830793,40.52284749830794,138,35,138L35,138C29.477152501692068,138,25,133.52284749830793,25,128L25,128C25,122.47715250169207,29.47715250169206,118,34.99999999999999,118Z" fill="red" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+    <path d="M15,178L35,178C38.86599324881555,178,42,181.13400675118444,42,185L42,185C42,188.86599324881556,38.865993248815556,192,35,192L15,192C11.13400675118445,192,8.000000000000002,188.86599324881556,8,185L8,185C7.999999999999998,181.13400675118444,11.134006751184444,178,14.999999999999996,178Z" fill="rgba(34, 31, 31, 0.26)" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+    <path d="M15,175L15,175C20.522847498307932,175,25,179.47715250169207,25,185L25,185C25,190.52284749830793,20.522847498307936,195,15.000000000000004,195L15,195C9.47715250169207,195,5.000000000000002,190.52284749830793,5,185L5,185C4.999999999999998,179.47715250169207,9.477152501692062,175,14.999999999999996,175Z" fill="blue" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt" filter="url(#6)"/>
+    <path d="M15,175L15,175C20.522847498307932,175,25,179.47715250169207,25,185L25,185C25,190.52284749830793,20.522847498307936,195,15.000000000000004,195L15,195C9.47715250169207,195,5.000000000000002,190.52284749830793,5,185L5,185C4.999999999999998,179.47715250169207,9.477152501692062,175,14.999999999999996,175Z" fill="blue" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt" filter="url(#7)"/>
+    <path d="M15,175L15,175C20.522847498307932,175,25,179.47715250169207,25,185L25,185C25,190.52284749830793,20.522847498307936,195,15.000000000000004,195L15,195C9.47715250169207,195,5.000000000000002,190.52284749830793,5,185L5,185C4.999999999999998,179.47715250169207,9.477152501692062,175,14.999999999999996,175Z" fill="blue" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+</svg>

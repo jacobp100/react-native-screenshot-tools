@@ -25,10 +25,10 @@ const scaleSides = (sides, scale) => [
 ];
 
 const outsetFrame = ({ x, y, width, height }, outset) => ({
-  x: x + outset,
-  y: y + outset,
-  width: width - 2 * outset,
-  height: height - 2 * outset
+  x: x - outset,
+  y: y - outset,
+  width: width + 2 * outset,
+  height: height + 2 * outset
 });
 
 const getBorderWidths = ({

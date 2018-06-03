@@ -70,6 +70,8 @@ module.exports = class Root extends Base {
     };
     applyNodeTree(this);
 
+    rootNode.freeRecursive();
+
     let shouldUpdate;
     affectedComponents.forEach(child => {
       const shouldComputeLayout = typeof child.props.onLayout === "function";

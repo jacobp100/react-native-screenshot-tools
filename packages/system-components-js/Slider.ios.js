@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import Thumb, { thumbSize } from "./util/Thumb";
+import Thumb, { thumbSize } from "./util/ThumbIOS";
 
 const inset = thumbSize / 2;
 
@@ -45,10 +45,7 @@ export default ({
         position={{ left: position, right: 0 }}
       />
       <View style={{ paddingHorizontal: inset }}>
-        <Thumb
-          style={{ marginHorizontal: -inset, left: position }}
-          thumbTintColor={thumbTintColor}
-        />
+        <Thumb style={{ marginHorizontal: -inset, left: position }} />
       </View>
     </View>
   );

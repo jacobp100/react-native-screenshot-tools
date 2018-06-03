@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import Thumb from "./util/Thumb";
+import Thumb from "./util/ThumbIOS";
 
 // Only tested for 2x and 3x. We don't have a 1x device.
 const baseBorderWidth = 2 - StyleSheet.hairlineWidth;

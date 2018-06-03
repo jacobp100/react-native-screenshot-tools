@@ -27,8 +27,7 @@ const renderSvg = async (jsx, userSettings = settings) =>
 
 const renderPng = async (jsx, userSettings = settings) => {
   const canvas = new Canvas(userSettings.width, userSettings.height);
-  const ctx = canvas.getContext("2d");
-  await renderToCanvas(ctx, jsx, userSettings);
+  await renderToCanvas(canvas, jsx, userSettings);
   return canvas.toBuffer();
 };
 
