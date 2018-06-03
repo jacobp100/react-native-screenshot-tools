@@ -1,11 +1,16 @@
 const chroma = require("chroma-js");
 const { enumerateLines } = require("./util");
 
+/* eslint-disable no-bitwise */
+/*
+NOTE: (expr) | 0 is basically Math.floor(expr).
+There seems to be a bug somewhere when using the latter that makes the tests go from 20s to 120s
+*/
 const applyAlpha = alpha => imageData => {
   const target = imageData.data;
 
   for (let i = 0; i < target.length; i += 4) {
-    target[i + 3] = Math.round(target[i + 3] * alpha);
+    target[i + 3] = (target[i + 3] * alpha) | 0;
   }
 };
 
@@ -31,9 +36,9 @@ const mergeDown = (targetData, foregroundData) => {
     for (let c = 0; c < 3; c += 1) {
       const c0 = foreground[i + c] / 255;
       const c1 = target[i + c] / 255;
-      target[i + c] = Math.round((255 * ((1 - a0) * a1 * c1 + a0 * c0)) / a01);
+      target[i + c] = ((255 * ((1 - a0) * a1 * c1 + a0 * c0)) / a01) | 0;
     }
-    target[i + 3] = Math.round(255 * a01);
+    target[i + 3] = (255 * a01) | 0;
   }
 };
 

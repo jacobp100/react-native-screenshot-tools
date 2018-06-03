@@ -40,10 +40,11 @@ const renderPng = async (jsx, userSettings = settings) => {
   return canvas.toBuffer();
 };
 
+debugger;
+
 test(
-  "ios tab bar",
+  "ios tab bar styles",
   async () => {
-    console.time("TAB BAR");
     const jsx = (
       <View
         style={{
@@ -100,7 +101,6 @@ test(
     expect(
       await renderPng(jsx, { ...settings, platform: "ios", dpi: 3 })
     ).toMatchImageSnapshot();
-    console.timeEnd("TAB BAR");
   },
   60000
 );
