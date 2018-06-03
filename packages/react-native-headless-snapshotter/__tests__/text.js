@@ -3,7 +3,6 @@ import React from "react";
 import { toMatchImageSnapshot } from "jest-image-snapshot";
 import { configureToMatchFileSnapshot } from "jest-file-snapshot";
 import Canvas from "canvas-prebuilt";
-import format from "xml-formatter";
 import { renderToSvg, renderToCanvas } from "..";
 
 const View = "View";
@@ -22,7 +21,7 @@ const settings = {
 };
 
 // Note formatting the SVG messes up text layout slightly, as it adds whitespace
-const renderSvg = async jsx => format(await renderToSvg(jsx, settings));
+const renderSvg = jsx => renderToSvg(jsx, settings);
 
 const renderPng = async jsx => {
   const canvas = new Canvas(settings.width, settings.height);
@@ -177,6 +176,36 @@ test("Inheritance", async () => {
           </Text>
         </Text>
       </Text>
+    </View>
+  );
+
+  expect(await renderSvg(jsx)).toMatchFileSnapshot();
+  expect(await renderPng(jsx)).toMatchImageSnapshot();
+});
+
+test("Truncation", async () => {
+  const jsx = (
+    <View>
+      {[1, 2, 3, 4, 5].map(numberOfLines => (
+        <Text
+          key={numberOfLines}
+          numberOfLines={numberOfLines}
+          style={{ marginBottom: 24 }}
+        >
+          Lorem ipsum dolor sit amet, natum dicam intellegebat et ius. Lucilius
+          assueverit cu nec, quo probatus eleifend senserit ex. Eum an viris
+          verear aperiam, duo dicta timeam mandamus ex. Ei agam consequuntur
+          mediocritatem ius, eam ex dolore accusamus, ut quas dolore aperiam
+          vix. Pri rebum mucius audiam in, causae epicurei cum ad, te mei
+          verterem detraxit. Cibo latine cu ius. Animal suscipit expetenda mea
+          ex. Democritum moderatius ea quo, ad vel omnes integre pericula, eu
+          vide option laoreet eos. Erant noluisse qui cu, quando audiam inimicus
+          eu quo, omnis solet discere ei nam. Te homero feugiat quo, alii
+          discere ei est. Erat neglegentur in nam. Lorem phaedrum duo cu, id qui
+          integre epicuri. Meis summo nonumes ut quo. Pri ei partem vidisse, est
+          prodesset definiebas constituam ea.
+        </Text>
+      ))}
     </View>
   );
 

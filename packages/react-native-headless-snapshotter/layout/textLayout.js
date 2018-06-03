@@ -89,8 +89,8 @@ module.exports.truncateLines = (backend, lines, numberOfLines, width) => {
   if (lines.length <= numberOfLines) return lines;
 
   const { text: fullText, attributedStyles } = lines[numberOfLines - 1];
-  for (let i = fullText.length; i < 0; i += 1) {
-    const truncatedText = fullText.slice(0, i).replace(/\s*$/, "");
+  for (let i = fullText.length; i > 0; i -= 1) {
+    const truncatedText = fullText.slice(0, i).replace(/[\s,.]*$/, "");
     const truncatedLine = textSlice(
       { text: truncatedText, attributedStyles },
       0,
