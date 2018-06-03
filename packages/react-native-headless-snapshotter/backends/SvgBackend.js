@@ -35,6 +35,10 @@ module.exports = class SvgBackend {
     this.defId = 0;
   }
 
+  setUp() {}
+
+  tearDown() {}
+
   toString() {
     return this.$.xml();
   }

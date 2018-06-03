@@ -14,9 +14,15 @@ const renderBackend = async (backend, jsx, settings) => {
     ...defaultSettings,
     ...settings
   });
+
   await instance.root.layout();
+
+  backend.setUp();
   await instance.root.render();
+  backend.tearDown();
+
   instance.update(null);
+
   return backend;
 };
 

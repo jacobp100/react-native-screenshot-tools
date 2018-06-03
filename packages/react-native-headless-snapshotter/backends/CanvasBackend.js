@@ -78,11 +78,9 @@ module.exports = class CanvasBackend {
     this.alphas = [];
     this.tintColors = [];
     this.compositeOperations = ["source-over"];
-
-    this.prepare();
   }
 
-  prepare() {
+  setUp() {
     this.ctx.save();
     this.ctx.scale(this.dpi, this.dpi);
   }
