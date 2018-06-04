@@ -23,6 +23,8 @@ function getItem(sections, index) {
 }
 
 export default class SectionList extends PureComponent {
+  static defaultProps = { ...VirtualizedList.defaultProps };
+
   getItemCount() {
     return this.props.sections.reduce(
       (v, section) => v + section.data.length + 2, // Add two for the section header and footer.
@@ -149,22 +151,22 @@ export default class SectionList extends PureComponent {
   }
 }
 
-const ItemWithSeparator = () => {
+const ItemWithSeparator = props => {
   const separatorProps = {
     highlighted: false,
-    leadingItem: this.props.item,
-    leadingSection: this.props.leadingSection,
-    section: this.props.section,
-    trailingItem: this.props.trailingItem,
-    trailingSection: this.props.trailingSection
+    leadingItem: props.item,
+    leadingSection: props.leadingSection,
+    section: props.section,
+    trailingItem: props.trailingItem,
+    trailingSection: props.trailingSection
   };
   const leadingSeparatorProps = {
     highlighted: false,
-    leadingItem: this.props.leadingItem,
-    leadingSection: this.props.leadingSection,
-    section: this.props.section,
-    trailingItem: this.props.item,
-    trailingSection: this.props.trailingSection
+    leadingItem: props.leadingItem,
+    leadingSection: props.leadingSection,
+    section: props.section,
+    trailingItem: props.item,
+    trailingSection: props.trailingSection
   };
 
   const {
@@ -173,8 +175,8 @@ const ItemWithSeparator = () => {
     item,
     index,
     section
-  } = this.props;
-  const element = this.props.renderItem({
+  } = props;
+  const element = props.renderItem({
     item,
     index,
     section,

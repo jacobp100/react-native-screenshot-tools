@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="300">
+    <defs>
+        <clipPath id="0">
+            <path d="M0,0L300,0L300,300L0,300L0,0Z"/>
+        </clipPath>
+    </defs>
+    <g transform="translate(150, 150) matrix(1, 0, 0, -1, 0, 0) translate(-150, -150)">
+        <g clip-path="url(#0)">
+            <g transform="translate(150, 21) matrix(1, 0, 0, -1, 0, 0) translate(-150, -21)">
+                <text text-anchor="start">
+                    <tspan x="12" y="28" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                        Hello
+                    </tspan>
+                </text>
+            </g>
+            <g transform="translate(150, 63) matrix(1, 0, 0, -1, 0, 0) translate(-150, -63)">
+                <text text-anchor="start">
+                    <tspan x="12" y="70" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                        World
+                    </tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

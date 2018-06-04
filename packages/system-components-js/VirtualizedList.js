@@ -2,40 +2,39 @@ import React from "react";
 import { View } from "react-native";
 import ScrollView from "./ScrollView";
 
-const defaultKeyExtractor = item => item.key;
-
-const defaultRenderScrollComponent = props => <ScrollView {...props} />;
-
 const renderComponent = Component =>
   typeof Component === "function" ? <Component /> : Component;
 
-export default ({
+const VirtualizedList = ({
   data,
   getItemCount,
   getItem,
   renderItem,
-  keyExtractor = defaultKeyExtractor,
-  renderScrollComponent = defaultRenderScrollComponent,
-  CellRendererComponent = View,
-  ItemSeparatorComponent = null,
-  ListEmptyComponent = null,
-  ListHeaderComponent = null,
-  ListFooterComponent = null,
+  keyExtractor,
+  renderScrollComponent,
+  CellRendererComponent,
+  ItemSeparatorComponent,
+  ListEmptyComponent,
+  ListHeaderComponent,
+  ListFooterComponent,
   inverted,
   style,
   ...props
 }) => {
   const inversionStyle = inverted
-    ? { [props.horizontal ? "scaleX" : "scaleY"]: -1 }
+    ? { transform: [{ [props.horizontal ? "scaleX" : "scaleY"]: -1 }] }
     : null;
 
   const length = getItemCount(data);
-  const items = Array.from({ length }, (_, i) => {
-    const item = getItem(data, i);
+  const items = Array.from({ length }, (_, index) => {
+    const item = getItem(data, index);
     return (
-      <CellRendererComponent key={keyExtractor(item)} style={inversionStyle}>
-        {renderItem(item)}
-        {i !== length - 1 ? renderComponent(ItemSeparatorComponent) : null}
+      <CellRendererComponent
+        key={keyExtractor(item, index)}
+        style={inversionStyle}
+      >
+        {renderItem({ item, index })}
+        {index !== length - 1 ? renderComponent(ItemSeparatorComponent) : null}
       </CellRendererComponent>
     );
   });
@@ -57,3 +56,15 @@ export default ({
     children
   });
 };
+
+VirtualizedList.defaultProps = {
+  keyExtractor: item => item.key,
+  renderScrollComponent: props => <ScrollView {...props} />,
+  CellRendererComponent: View,
+  ItemSeparatorComponent: null,
+  ListEmptyComponent: null,
+  ListHeaderComponent: null,
+  ListFooterComponent: null
+};
+
+export default VirtualizedList;

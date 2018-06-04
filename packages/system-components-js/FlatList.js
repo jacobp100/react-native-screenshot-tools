@@ -7,7 +7,7 @@ const styles = {
 };
 
 export default class FlatList extends PureComponent {
-  static defaultProps = { numColumns: 1 };
+  static defaultProps = { ...VirtualizedList.defaultProps, numColumns: 1 };
 
   getItem = (data, index) => {
     const { numColumns } = this.props;

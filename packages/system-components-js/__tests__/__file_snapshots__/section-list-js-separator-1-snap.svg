@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="300">
+    <defs>
+        <clipPath id="0">
+            <path d="M0,0L300,0L300,300L0,300L0,0Z"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#0)">
+        <path d="M0,0L300,0L300,26L0,26L0,0Z" fill="white" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <text text-anchor="start">
+            <tspan x="8" y="20" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                Hello
+            </tspan>
+        </text>
+        <path d="M0,26L300,26L300,27L0,27L0,26Z" fill="#eee" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <path d="M0,27L300,27L300,53L0,53L0,27Z" fill="white" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <text text-anchor="start">
+            <tspan x="8" y="47" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                World
+            </tspan>
+        </text>
+        <path d="M0,53L300,53L300,79L0,79L0,53Z" fill="white" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <text text-anchor="start">
+            <tspan x="8" y="73" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                Foo
+            </tspan>
+        </text>
+        <path d="M0,79L300,79L300,80L0,80L0,79Z" fill="#eee" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <path d="M0,80L300,80L300,106L0,106L0,80Z" fill="white" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <text text-anchor="start">
+            <tspan x="8" y="100" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                Bar
+            </tspan>
+        </text>
+        <path d="M0,106L300,106L300,107L0,107L0,106Z" fill="#eee" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <path d="M0,107L300,107L300,133L0,133L0,107Z" fill="white" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <text text-anchor="start">
+            <tspan x="8" y="127" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                Buzz
+            </tspan>
+        </text>
+    </g>
+</svg>

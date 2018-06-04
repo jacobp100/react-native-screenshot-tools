@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="300">
+    <defs>
+        <clipPath id="0">
+            <path d="M0,0L300,0L300,300L0,300L0,0Z"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#0)">
+        <path d="M0,0L300,0L300,26L0,26L0,0Z" fill="#ddd" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <text text-anchor="start">
+            <tspan x="8" y="20" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                List Header
+            </tspan>
+        </text>
+        <path d="M0,26L300,26L300,52L0,52L0,26Z" fill="#eee" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <text text-anchor="start">
+            <tspan x="8" y="46" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                Section Header
+            </tspan>
+        </text>
+        <path d="M0,52L300,52L300,78L0,78L0,52Z" fill="white" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <text text-anchor="start">
+            <tspan x="8" y="72" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                Hello
+            </tspan>
+        </text>
+        <path d="M0,78L300,78L300,79L0,79L0,78Z" fill="#eee" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <path d="M0,79L300,79L300,105L0,105L0,79Z" fill="white" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <text text-anchor="start">
+            <tspan x="8" y="99" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                World
+            </tspan>
+        </text>
+        <path d="M0,105L300,105L300,131L0,131L0,105Z" fill="#eee" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <text text-anchor="start">
+            <tspan x="8" y="125" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                Section Footer
+            </tspan>
+        </text>
+        <path d="M0,131L300,131L300,157L0,157L0,131Z" fill="#eee" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <text text-anchor="start">
+            <tspan x="8" y="151" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                Section Header
+            </tspan>
+        </text>
+        <path d="M0,157L300,157L300,183L0,183L0,157Z" fill="white" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <text text-anchor="start">
+            <tspan x="8" y="177" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                Foo
+            </tspan>
+        </text>
+        <path d="M0,183L300,183L300,184L0,184L0,183Z" fill="#eee" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <path d="M0,184L300,184L300,210L0,210L0,184Z" fill="white" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <text text-anchor="start">
+            <tspan x="8" y="204" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                Bar
+            </tspan>
+        </text>
+        <path d="M0,210L300,210L300,211L0,211L0,210Z" fill="#eee" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <path d="M0,211L300,211L300,237L0,237L0,211Z" fill="white" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <text text-anchor="start">
+            <tspan x="8" y="231" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                Buzz
+            </tspan>
+        </text>
+        <path d="M0,237L300,237L300,263L0,263L0,237Z" fill="#eee" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <text text-anchor="start">
+            <tspan x="8" y="257" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                Section Footer
+            </tspan>
+        </text>
+        <path d="M0,263L300,263L300,289L0,289L0,263Z" fill="#ddd" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+        <text text-anchor="start">
+            <tspan x="8" y="283" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                List Footer
+            </tspan>
+        </text>
+    </g>
+</svg>

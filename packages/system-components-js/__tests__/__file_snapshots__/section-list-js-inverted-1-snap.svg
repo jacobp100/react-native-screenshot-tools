@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="300">
+    <defs>
+        <clipPath id="0">
+            <path d="M0,0L300,0L300,300L0,300L0,0Z"/>
+        </clipPath>
+    </defs>
+    <g transform="translate(150, 150) matrix(1, 0, 0, -1, 0, 0) translate(-150, -150)">
+        <g clip-path="url(#0)">
+            <g transform="translate(150, 0) matrix(1, 0, 0, -1, 0, 0) translate(-150, 0)"/>
+            <g transform="translate(150, 13) matrix(1, 0, 0, -1, 0, 0) translate(-150, -13)">
+                <path d="M0,0L300,0L300,26L0,26L0,0Z" fill="white" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+                <text text-anchor="start">
+                    <tspan x="8" y="20" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                        Hello
+                    </tspan>
+                </text>
+            </g>
+            <g transform="translate(150, 39) matrix(1, 0, 0, -1, 0, 0) translate(-150, -39)">
+                <path d="M0,26L300,26L300,52L0,52L0,26Z" fill="white" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+                <text text-anchor="start">
+                    <tspan x="8" y="46" fill="black" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+                        World
+                    </tspan>
+                </text>
+            </g>
+            <g transform="translate(150, 52) matrix(1, 0, 0, -1, 0, 0) translate(-150, -52)"/>
+        </g>
+    </g>
+</svg>
