@@ -285,7 +285,7 @@ test("inverted", async () => {
 test("empty state", async () => {
   const jsx = (
     <SectionList
-      data={[]}
+      sections={[]}
       ListEmptyComponent={
         <View style={{ padding: 12, alignItems: "center" }}>
           <Text>Empty</Text>

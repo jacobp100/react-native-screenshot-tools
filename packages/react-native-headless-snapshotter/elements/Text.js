@@ -5,6 +5,7 @@ const {
   measureLines,
   truncateLines
 } = require("../layout/textLayout");
+const { getInnerFrame } = require("../layout/util");
 
 const getFilteredStyles = (styleKey, attributedStyles) =>
   attributedStyles
@@ -130,7 +131,7 @@ class Text extends Base {
   }
 
   draw(screenFrame) {
-    this.backend.fillLines(this.text, screenFrame);
+    this.backend.fillLines(this.text, getInnerFrame(screenFrame, this.style));
   }
 }
 

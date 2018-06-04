@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="500">
+    <defs/>
+    <text text-anchor="middle">
+        <tspan x="150" y="28" fill="#007AFF" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+            Hello
+        </tspan>
+    </text>
+    <path d="M2,38L298,38C299.1045694996616,38,300,38.89543050033841,300,40L300,70C300,71.10456949966158,299.1045694996616,72,298,72L2,72C0.895430500338414,72,4.440892098500626e-16,71.1045694996616,0,70L0,40C-4.440892098500626e-16,38.89543050033841,0.8954305003384124,38,1.9999999999999991,38Z" fill="#2196F3" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+    <text text-anchor="middle">
+        <tspan x="150" y="62" fill="white" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+            HELLO
+        </tspan>
+    </text>
+    <text text-anchor="middle">
+        <tspan x="150" y="100" fill="red" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+            Hello
+        </tspan>
+    </text>
+    <path d="M2,110L298,110C299.1045694996616,110,300,110.8954305003384,300,112L300,142C300,143.10456949966158,299.1045694996616,144,298,144L2,144C0.895430500338414,144,4.440892098500626e-16,143.10456949966158,0,142L0,112C-4.440892098500626e-16,110.89543050033842,0.8954305003384124,110,1.9999999999999991,110Z" fill="red" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+    <text text-anchor="middle">
+        <tspan x="150" y="134" fill="white" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+            HELLO
+        </tspan>
+    </text>
+    <text text-anchor="middle">
+        <tspan x="150" y="172" fill="#cdcdcd" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+            Hello
+        </tspan>
+    </text>
+    <path d="M2,182L298,182C299.1045694996616,182,300,182.89543050033842,300,184L300,214C300,215.10456949966158,299.1045694996616,216,298,216L2,216C0.895430500338414,216,4.440892098500626e-16,215.10456949966158,0,214L0,184C-4.440892098500626e-16,182.89543050033842,0.8954305003384124,182,1.9999999999999991,182Z" fill="#dfdfdf" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+    <text text-anchor="middle">
+        <tspan x="150" y="206" fill="#a1a1a1" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+            HELLO
+        </tspan>
+    </text>
+    <text text-anchor="middle">
+        <tspan x="150" y="244" fill="#cdcdcd" font-family="Helvetica" font-size="18px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+            Hello
+        </tspan>
+    </text>
+    <path d="M2,254L298,254C299.1045694996616,254,300,254.89543050033842,300,256L300,286C300,287.1045694996616,299.1045694996616,288,298,288L2,288C0.895430500338414,288,4.440892098500626e-16,287.1045694996616,0,286L0,256C-4.440892098500626e-16,254.89543050033842,0.8954305003384124,254,1.9999999999999991,254Z" fill="#dfdfdf" stroke="none" stroke-width="0" stroke-dasharray="" stroke-linecap="butt"/>
+    <text text-anchor="middle">
+        <tspan x="150" y="278" fill="#a1a1a1" font-family="Helvetica" font-size="14px" font-weight="normal" font-style="normal" letter-spacing="0px" text-decoration="none">
+            HELLO
+        </tspan>
+    </text>
+</svg>
