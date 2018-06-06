@@ -2,7 +2,8 @@
 const cheerio = require("cheerio");
 const { path } = require("d3-path");
 const chroma = require("chroma-js");
-const { fontForStyle } = require("../fontLoader");
+// const { fontForStyle } = require("../fontLoader");
+const { fontForStyle } = require("../localFontLoader");
 const { enumerateLines } = require("./util");
 
 const textAnchors = {
@@ -227,7 +228,8 @@ module.exports = class SvgBackend {
         .attr("x", i === 0 ? x : null)
         .attr("y", i === 0 ? y : null)
         .attr("fill", style.color)
-        .attr("font-family", style.fontFamily)
+        .attr("font-family", "Helvetica Neue")
+        // .attr("font-family", style.fontFamily)
         .attr("font-size", `${style.fontSize}px`)
         .attr("font-weight", style.fontWeight)
         .attr("font-style", style.fontStyle)
@@ -260,8 +262,8 @@ module.exports = class SvgBackend {
       width:
         font.layout(text).advanceWidth * scale +
         style.letterSpacing * text.length,
-      emHeightAscent: font.ascent * scale,
-      emHeightDescent: font.descent * scale
+      emHeightAscent: Math.abs(font.ascent * scale),
+      emHeightDescent: Math.abs(font.descent * scale)
     };
   }
 

@@ -65,7 +65,7 @@ const appendStyleTo = (attributedStyles, text, style) => {
 class Text extends Base {
   constructor(...args) {
     super(...args);
-    this.text = null;
+    this.body = null;
   }
 
   normalizeStyle(style) {
@@ -120,18 +120,23 @@ class Text extends Base {
     return { text, attributedStyles };
   }
 
-  measureFunc(width) {
+  measureFunc(outerWidth) {
+    const { width } = getInnerFrame(
+      { x: 0, y: 0, width: outerWidth, height: 0 },
+      this.style
+    );
+
     const styledText = this.extractText();
-    let text = breakLines(this.backend, styledText, width);
+    let body = breakLines(this.backend, styledText, width);
     if (Number.isFinite(this.props.numberOfLines)) {
-      text = truncateLines(this.backend, text, this.props.numberOfLines, width);
+      body = truncateLines(this.backend, body, this.props.numberOfLines, width);
     }
-    this.text = text;
-    return measureLines(this.backend, this.text);
+    this.body = body;
+    return measureLines(this.backend, this.body);
   }
 
   draw(screenFrame) {
-    this.backend.fillLines(this.text, getInnerFrame(screenFrame, this.style));
+    this.backend.fillLines(this.body, getInnerFrame(screenFrame, this.style));
   }
 }
 

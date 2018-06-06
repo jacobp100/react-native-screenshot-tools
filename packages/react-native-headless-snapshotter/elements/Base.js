@@ -52,7 +52,7 @@ module.exports = class Base {
   /* eslint-enable */
 
   async render(parentOffset = { x: 0, y: 0 }) {
-    const { backend, settings, frame, style } = this;
+    const { backend, settings, style } = this;
 
     if (style.display === "none") return;
 
@@ -80,7 +80,7 @@ module.exports = class Base {
 
     if (hasClip) {
       const ctx = backend.beginClip();
-      renderViewBackground.clip(ctx, frame, settings, style);
+      renderViewBackground.clip(ctx, screenFrame, settings, style);
       backend.pushClip();
     }
 

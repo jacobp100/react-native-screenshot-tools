@@ -6,7 +6,7 @@ const defaultSettings = {
   width: 500,
   height: 500,
   dpi: 2,
-  systemFont: "Helvetica"
+  systemFont: "SF Pro Display"
 };
 
 const renderBackend = async (backend, jsx, settings) => {

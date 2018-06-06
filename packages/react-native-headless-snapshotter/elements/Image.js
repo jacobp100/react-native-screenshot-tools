@@ -27,7 +27,7 @@ module.exports = class Image extends Base {
     } = this;
     let image;
     if (source.absoluteFilePath) {
-      image = await readImage(source.absoluteFilePath, settings.testFilePath);
+      image = await readImage(source.absoluteFilePath, settings);
     } else {
       // FIXME: Network requests
       throw new Error("Unhandled image source");

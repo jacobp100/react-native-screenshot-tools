@@ -9,6 +9,7 @@
     "d3-path": "^1.0.5",
     "font-manager": "^0.3.0",
     "fontkit": "^1.7.7",
+    "glob": "^7.1.2",
     "line-break": "^1.1.0",
     "linebreak": "^0.3.0",
     "lodash": "^4.17.10",

@@ -1,7 +1,9 @@
+export { default as Button } from "./Button";
 export { default as FlatList } from "./FlatList";
 export { default as ScrollView } from "./ScrollView";
 export { default as SectionList } from "./SectionList";
 export { default as Slider } from "./Slider";
 export { default as Switch } from "./Switch";
+export { default as TabBarIOS } from "./TabBarIOS";
 export { default as TouchableOpacity } from "./TouchableOpacity";
 export { default as VirtualizedList } from "./VirtualizedList";

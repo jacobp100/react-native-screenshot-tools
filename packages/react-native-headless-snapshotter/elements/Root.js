@@ -73,7 +73,8 @@ module.exports = class Root extends Base {
     rootNode.freeRecursive();
 
     let shouldUpdate;
-    affectedComponents.forEach(child => {
+    // Reverse to stop errors from components being unmounted
+    [...affectedComponents].reverse().forEach(child => {
       const shouldComputeLayout = typeof child.props.onLayout === "function";
       if (shouldComputeLayout) {
         const event = { nativeEvent: { layout: child.frame } };

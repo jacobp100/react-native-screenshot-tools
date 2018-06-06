@@ -56,6 +56,9 @@ const Renderer = ReactFiberReconciler({
   },
   createInstance(type, props, rootContainerInstance) {
     const { backend, settings } = rootContainerInstance;
+    if (elements[type] == null) {
+      throw new Error(`Cannot render instance of ${type}`);
+    }
     return new elements[type](backend, settings, props);
   },
   appendInitialChild(parentInstance, child) {

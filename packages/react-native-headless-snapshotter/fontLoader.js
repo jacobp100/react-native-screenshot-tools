@@ -18,14 +18,14 @@ const keyFor = ({ fontFamily, fontWeight, fontStyle }) =>
   `${fontFamily} (weight: ${numberWeight(fontWeight)} style: ${fontStyle})`;
 
 const weightNames = [
-  { match: "thin", value: "100" },
   { match: "ultra light", value: "200" },
+  { match: "semi bold", value: "600" },
+  { match: "ultra bold", value: "800" },
+  { match: "thin", value: "100" },
   { match: "light", value: "300" },
   { match: "normal", value: "400" },
   { match: "medium", value: "500" },
-  { match: "semi bold", value: "600" },
   { match: "bold", value: "700" },
-  { match: "ultra bold", value: "800" },
   { match: "heavy", value: "900" },
   { match: "100", value: "100" },
   { match: "200", value: "200" },

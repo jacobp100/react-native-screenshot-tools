@@ -18,15 +18,6 @@ const shadows = {
   }
 };
 
-const layouts = {
-  1: { justifyContent: "space-around" },
-  2: { justifyContent: "space-around" },
-  3: { justifyContent: "space-between", paddingHorizontal: 38 },
-  4: { justifyContent: "space-between", paddingHorizontal: 23 },
-  5: { justifyContent: "space-between", paddingHorizontal: 14 },
-  DEFAULT: { justifyContent: "space-around" }
-};
-
 module.exports = ({
   translucent = true,
   barStyle = "default",
@@ -40,7 +31,7 @@ module.exports = ({
   style,
   children
 }) => (
-  <View style={style}>
+  <View style={[{ flex: 1 }, style]}>
     {Children.map(
       children,
       ({ props }) => (props.selected ? props.children : null)
@@ -48,8 +39,8 @@ module.exports = ({
     <View
       style={{
         height: 49,
-        flexDirection: "row",
-        ...(layouts[Children.count(children)] || layouts.DEFAULT)
+        marginTop: -49,
+        flexDirection: "row"
       }}
     >
       <View style={[StyleSheet.absoluteFill, shadows[barStyle]]} />
@@ -59,38 +50,28 @@ module.exports = ({
       {Children.toArray(children)
         .slice(0, 5)
         .map(({ props: { title, selected, icon, selectedIcon = icon } }, i) => (
-          <View key={i} style={{ width: 48 }}>
-            <View
+          <View
+            key={i}
+            style={{ flex: 1, alignItems: "center", paddingTop: 4 }}
+          >
+            <Image
+              source={selected ? selectedIcon : icon}
               style={{
-                width: 48,
-                height: 32,
-                marginTop: 3,
-                alignItems: "center",
-                justifyContent: "center"
+                marginBottom: 2,
+                width: 30,
+                height: 30,
+                tintColor: selected ? tintColor : unselectedItemTintColor
               }}
+            />
+            <Text
+              style={{
+                fontSize: 10,
+                color: selected ? tintColor : unselectedTintColor
+              }}
+              numberOfLines={1}
             >
-              {icon != null ? (
-                <Image
-                  source={selected ? selectedIcon : icon}
-                  style={{
-                    width: 23,
-                    height: 23,
-                    tintColor: selected ? tintColor : unselectedItemTintColor
-                  }}
-                />
-              ) : null}
-            </View>
-            <View style={{ width: 48, marginTop: -1 }}>
-              <Text
-                style={{
-                  textAlign: "center",
-                  fontSize: 10,
-                  color: selected ? tintColor : unselectedTintColor
-                }}
-              >
-                {title}
-              </Text>
-            </View>
+              {title}
+            </Text>
           </View>
         ))}
     </View>

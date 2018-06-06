@@ -33,6 +33,7 @@ module.exports = async (
       );
       return { title, error: null };
     } catch (error) {
+      console.log("ERR", error);
       return { title, error };
     }
   });

@@ -14,6 +14,11 @@ module.exports = ({ results }, i) => {
   console.log(devices[i].name);
 
   testResults.forEach(suiteResults => {
+    if (suiteResults.failureMessage) {
+      console.error(chalk.red(suiteResults.failureMessage));
+      return;
+    }
+
     if (suiteResults.testExecError) {
       const e = suiteResults.testExecError;
       console.error(chalk.red(e.message));

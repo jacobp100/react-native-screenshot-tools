@@ -10,6 +10,13 @@ I want to be able to generate app store screenshots of React Native apps easily 
 
 `react-native-device-frames` is a react component that wraps its children in a device frame. This is useful for app screenshots.
 
+## Prerequisites
+
+Download [Roboto fonts](https://fonts.google.com/specimen/Roboto) (click "select this font", expand the window that pops up, and then click the download icon)
+Download [San Francisco fonts](https://developer.apple.com/fonts/)
+
+Extract these into `packages/react-native-headless-snapshotter/fonts` (anywhere in this folder is fine)
+
 ## Usage
 
 In your React Native project, create a folder called `__snapshotter__`. Every JS file in here will run as a snapshot. Make an `index.js` file here,

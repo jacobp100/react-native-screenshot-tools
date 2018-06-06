@@ -4,7 +4,7 @@ module.exports = [
     width: 320,
     height: 568,
     dpi: 1,
-    systemFont: "Helvetica", // "San Francisco",
+    systemFont: "SF Pro Display", // "San Francisco",
     platform: "ios"
   },
   {
@@ -12,7 +12,7 @@ module.exports = [
     width: 320,
     height: 568,
     dpi: 2,
-    systemFont: "Helvetica", // "San Francisco",
+    systemFont: "SF Pro Display", // "San Francisco",
     platform: "ios"
   },
   {
@@ -20,7 +20,7 @@ module.exports = [
     width: 375,
     height: 667,
     dpi: 2,
-    systemFont: "Helvetica", // "San Francisco",
+    systemFont: "SF Pro Display", // "San Francisco",
     platform: "ios"
   },
   {
@@ -28,7 +28,7 @@ module.exports = [
     width: 375,
     height: 667,
     dpi: 3,
-    systemFont: "Helvetica", // "San Francisco",
+    systemFont: "SF Pro Display", // "San Francisco",
     platform: "ios"
   },
   {
@@ -36,7 +36,7 @@ module.exports = [
     width: 414,
     height: 736,
     dpi: 3,
-    systemFont: "Helvetica", // "San Francisco",
+    systemFont: "SF Pro Display", // "San Francisco",
     platform: "ios"
   },
   {
@@ -44,7 +44,7 @@ module.exports = [
     width: 375,
     height: 812,
     dpi: 3,
-    systemFont: "Helvetica", // "San Francisco",
+    systemFont: "SF Pro Display", // "San Francisco",
     platform: "ios"
   },
   {
