@@ -21,7 +21,7 @@ const renderBackend = async (backend, jsx, settings) => {
   await instance.root.render();
   backend.tearDown();
 
-  instance.update(null);
+  instance.unmount();
 
   return backend;
 };

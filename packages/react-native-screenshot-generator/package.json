@@ -17,5 +17,9 @@
   },
   "peerDependencies": {
     "react-native": "^0.0.0"
-  }
+  },
+  "bundledDependencies": [
+    "react-native-headless-snapshotter",
+    "system-components-js"
+  ]
 }

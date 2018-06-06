@@ -9,3 +9,4 @@ Platform.select = p => p[snapshotterSettings.os];
 const JS = require("system-components-js");
 
 Object.keys(JS).forEach(mock => jest.doMock(mock, () => JS[mock]));
+jest.doMock("StatusBar", () => () => null);

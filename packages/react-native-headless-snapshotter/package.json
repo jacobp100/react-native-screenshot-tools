@@ -14,7 +14,7 @@
     "lodash": "^4.17.10",
     "react": "^16.4.0",
     "react-is": "^16.4.0",
-    "react-reconciler": "0.7",
+    "react-reconciler": "0.11.0",
     "yoga-layout": "^1.9.3"
   },
   "devDependencies": {

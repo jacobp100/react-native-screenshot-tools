@@ -5109,9 +5109,9 @@ react-proxy@^1.1.7:
     lodash "^4.6.1"
     react-deep-force-update "^1.0.0"
 
-react-reconciler@0.7:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.7.0.tgz#9614894103e5f138deeeb5eabaf3ee80eb1d026d"
+react-reconciler@0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.11.0.tgz#b072b5a87bee85a0716f9ce0d8bc759c128c40ac"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
