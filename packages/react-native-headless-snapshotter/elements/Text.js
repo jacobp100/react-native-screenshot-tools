@@ -6,6 +6,7 @@ const {
   truncateLines
 } = require("../layout/textLayout");
 const { getInnerFrame } = require("../layout/util");
+const getIOSFont = require("./iosFonts");
 
 const getFilteredStyles = (styleKey, attributedStyles) =>
   attributedStyles
@@ -37,15 +38,27 @@ const defaultStyles = attributedStyles => ({
   textDecorationStyle: "solid"
 });
 
-const applyInternalValues = (style, settings) => ({
-  ...style,
-  fontFamily:
-    style.fontFamily === "System" ? settings.systemFont : style.fontFamily,
-  textDecorationColor:
-    style.textDecorationColor === "currentColor"
-      ? style.color
-      : style.textDecorationColor
-});
+const applyInternalValues = (inputStyle, settings) => {
+  const style = { ...inputStyle };
+
+  if (style.fontFamily !== "System") {
+    // pass
+  } else if (settings.platform === "ios") {
+    const { fontFamily, letterSpacing } = getIOSFont(style);
+    style.fontFamily = fontFamily;
+    if (style.letterSpacing === 0) style.letterSpacing = letterSpacing;
+  } else if (settings.platform === "android") {
+    style.fontFamily = "Roboto";
+  } else {
+    style.fontFamily = settings.fontFamily;
+  }
+
+  if (style.textDecorationColor === "currentColor") {
+    style.textDecorationColor = style.color;
+  }
+
+  return style;
+};
 
 const appendStyleTo = (attributedStyles, text, style) => {
   const lastAttributedStyle =

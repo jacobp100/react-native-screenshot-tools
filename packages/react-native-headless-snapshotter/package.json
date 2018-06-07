@@ -13,6 +13,7 @@
     "line-break": "^1.1.0",
     "linebreak": "^0.3.0",
     "lodash": "^4.17.10",
+    "polylinear-scale": "^1.1.6",
     "react": "^16.4.0",
     "react-is": "^16.4.0",
     "react-reconciler": "0.11.0",

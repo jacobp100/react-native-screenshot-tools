@@ -230,11 +230,10 @@ module.exports = class CanvasBackend {
     ctx.textAlign = "left";
 
     const getStartX = runs => {
-      const totalWidth = runs.reduce((x, { body, style }) => {
-        this.applyTextStyle(style);
-        const { width } = ctx.measureText(body);
-        return x + width;
-      }, 0);
+      const totalWidth = runs.reduce(
+        (x, { body, style }) => x + this.measureText(body, style).width,
+        0
+      );
 
       const startX =
         screenFrame.x +

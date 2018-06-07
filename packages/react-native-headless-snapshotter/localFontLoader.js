@@ -69,6 +69,8 @@ glob.sync(path.join(__dirname, "**/*.{otf,ttf}")).forEach(filename => {
   addFont(font);
 });
 
+module.exports.hasFontForStyle = style => fonts[keyFor(style)] != null;
+
 module.exports.fontForStyle = style => {
   const key = keyFor(style);
   const font = fonts[key];

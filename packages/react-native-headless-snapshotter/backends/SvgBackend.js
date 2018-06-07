@@ -215,7 +215,7 @@ module.exports = class SvgBackend {
       .reduce(Math.max, 0);
   }
 
-  fillLines(lines, screenFrame) {
+  fillLinesTextElements(lines, screenFrame) {
     const { textAlign = "left" } = lines[0].attributedStyles[0].style;
 
     const $text = this.$(`<text />`).attr(
@@ -253,6 +253,59 @@ module.exports = class SvgBackend {
     );
 
     this.$container.append($text);
+  }
+
+  fillLinesPath(lines, screenFrame) {
+    const { textAlign = "left" } = lines[0].attributedStyles[0].style;
+    const $body = this.$("<g />");
+
+    const renderRun = ({ x, y, body, style }) => {
+      const font = fontForStyle(style);
+      const run = font.layout(body);
+      const scale = style.fontSize / font.unitsPerEm;
+      const { letterSpacing } = style;
+      const xPositions = run.positions.reduce(
+        (acc, position) => {
+          const previousPosition = acc[acc.length - 1];
+          return [
+            ...acc,
+            previousPosition + position.xAdvance * scale + letterSpacing
+          ];
+        },
+        [0]
+      );
+      run.glyphs.forEach((glyph, i) => {
+        const $char = this.$("<path />")
+          .attr(
+            "transform",
+            `translate(${x + xPositions[i]}, ${y}) scale(${scale}, ${-scale})`
+          )
+          .attr("d", glyph.path.toSVG())
+          .attr("fill", style.color);
+        $body.append($char);
+      });
+      return x + xPositions[xPositions.length - 1];
+    };
+
+    const getStartX = runs => {
+      const totalWidth = runs.reduce(
+        (x, { body, style }) => x + this.measureText(body, style).width,
+        0
+      );
+
+      const startX =
+        screenFrame.x +
+        (screenFrame.width - totalWidth) * textAligns[textAlign];
+      return startX;
+    };
+
+    enumerateLines(this, lines, renderRun, screenFrame.y, getStartX);
+
+    this.$container.append($body);
+  }
+
+  fillLines(lines, screenFrame) {
+    this.fillLinesPath(lines, screenFrame);
   }
 
   measureText(text, style) {
