@@ -20,6 +20,15 @@ module.exports = async (
   };
   environment.global.testFilePath = testFilePath;
 
+  const Frame = runtime.requireModule(
+    require.resolve("react-native-device-frames")
+  ).default;
+  Frame.defaultProps.device = settings.device;
+
+  environment.global.snapshotter = {
+    Frame
+  };
+
   runtime.requireModule(require.resolve("./customMocks"));
   runtime.requireModule(testFilePath);
 

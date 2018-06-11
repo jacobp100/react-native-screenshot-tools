@@ -14,6 +14,7 @@ export default class Frame extends Component {
     super();
 
     this.source = devices[device];
+    console.log(device);
     this.metadata = metadata.find(md => md.name === device);
 
     this.state = { layout: null };
@@ -103,6 +104,10 @@ export default class Frame extends Component {
     );
   }
 }
+
+Frame.defaultProps = {
+  device: null
+};
 
 Frame.PORTRAIT = 0;
 Frame.LANDSCAPE = 1;
