@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View } from "react-native";
+import DeviceContext from "./DeviceContext";
 
 const styles = {
   baseVertical: {
@@ -35,6 +36,7 @@ export default class ScrollView extends Component {
       children,
       // centerContent, FIXME
       endFillColor,
+      automaticallyAdjustContentInsets = true,
       ...props
     } = this.props;
 
@@ -53,6 +55,12 @@ export default class ScrollView extends Component {
           ]}
           onLayout={this.handleContentOnLayout}
         >
+          {automaticallyAdjustContentInsets && (
+            // This might not work with some flex layouts
+            <DeviceContext.Consumer>
+              {({ safeArea }) => <View style={{ height: safeArea.top }} />}
+            </DeviceContext.Consumer>
+          )}
           {children}
         </View>
         <View style={{ flex: 1, backgroundColor: endFillColor }} />

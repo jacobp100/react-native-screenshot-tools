@@ -11,6 +11,7 @@ module.exports = async (
   runtime,
   testFilePath
 ) => {
+  const runtimeRequire = m => runtime.requireModule(require.resolve(m));
   const settings = { ...config.testEnvironmentOptions, testFilePath };
 
   const tests = [];
@@ -20,9 +21,11 @@ module.exports = async (
   };
   environment.global.testFilePath = testFilePath;
 
-  const Frame = runtime.requireModule(
-    require.resolve("react-native-device-frames")
-  ).default;
+  const React = runtimeRequire("react");
+  const { default: DeviceContext, defaults } = runtimeRequire(
+    "system-components-js/DeviceContext"
+  );
+  const { default: Frame } = runtimeRequire("react-native-device-frames");
   Frame.defaultProps.device = settings.device;
 
   environment.global.snapshotter = {
@@ -34,7 +37,11 @@ module.exports = async (
 
   const errorPromises = tests.map(async ({ fn, title }) => {
     try {
-      const jsx = fn(settings);
+      const jsx = React.createElement(
+        DeviceContext.Provider,
+        { value: { ...defaults, ...settings.deviceContext } },
+        fn(settings)
+      );
       const svg = await renderToSvg(jsx, settings);
       await promisify(fs.writeFile)(
         path.join(testFilePath, "..", `${title}-${settings.name}.svg`),

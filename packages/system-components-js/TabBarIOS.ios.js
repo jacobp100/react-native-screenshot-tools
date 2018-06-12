@@ -1,5 +1,6 @@
 import React, { Children } from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
+import DeviceContext from "./DeviceContext";
 
 // FIXME: Use itemPositioning, we need iOS size classes
 // FIXME: We need to support icons
@@ -36,45 +37,54 @@ module.exports = ({
       children,
       ({ props }) => (props.selected ? props.children : null)
     )}
-    <View
-      style={{
-        height: 49,
-        marginTop: -49,
-        flexDirection: "row"
-      }}
-    >
-      <View style={[StyleSheet.absoluteFill, shadows[barStyle]]} />
-      <View
-        style={[StyleSheet.absoluteFill, { backgroundColor: barTintColor }]}
-      />
-      {Children.toArray(children)
-        .slice(0, 5)
-        .map(({ props: { title, selected, icon, selectedIcon = icon } }, i) => (
+    <DeviceContext.Consumer>
+      {({ safeArea }) => (
+        <View
+          style={{
+            height: 49 + safeArea.top,
+            marginTop: -49 + safeArea.top,
+            flexDirection: "row"
+          }}
+        >
+          <View style={[StyleSheet.absoluteFill, shadows[barStyle]]} />
           <View
-            key={i}
-            style={{ flex: 1, alignItems: "center", paddingTop: 4 }}
-          >
-            <Image
-              source={selected ? selectedIcon : icon}
-              style={{
-                marginBottom: 2,
-                width: 30,
-                height: 30,
-                tintColor: selected ? tintColor : unselectedItemTintColor
-              }}
-            />
-            <Text
-              style={{
-                fontSize: 10,
-                color: selected ? tintColor : unselectedTintColor
-              }}
-              numberOfLines={1}
-            >
-              {title}
-            </Text>
-          </View>
-        ))}
-    </View>
+            style={[StyleSheet.absoluteFill, { backgroundColor: barTintColor }]}
+          />
+          {Children.toArray(children)
+            .slice(0, 5)
+            .map(
+              (
+                { props: { title, selected, icon, selectedIcon = icon } },
+                i
+              ) => (
+                <View
+                  key={i}
+                  style={{ flex: 1, alignItems: "center", paddingTop: 4 }}
+                >
+                  <Image
+                    source={selected ? selectedIcon : icon}
+                    style={{
+                      marginBottom: 2,
+                      width: 30,
+                      height: 30,
+                      tintColor: selected ? tintColor : unselectedItemTintColor
+                    }}
+                  />
+                  <Text
+                    style={{
+                      fontSize: 10,
+                      color: selected ? tintColor : unselectedTintColor
+                    }}
+                    numberOfLines={1}
+                  >
+                    {title}
+                  </Text>
+                </View>
+              )
+            )}
+        </View>
+      )}
+    </DeviceContext.Consumer>
   </View>
 );
 

@@ -1,21 +1,14 @@
 module.exports = [
   {
-    name: "1x-test",
-    device: "Apple iPhone X Silver",
-    width: 320,
-    height: 568,
-    dpi: 1,
-    systemFont: "SF Pro Display", // "San Francisco",
-    platform: "ios"
-  },
-  {
     name: "iPhone-SE",
     device: "Apple iPhone SE Silver",
     width: 320,
     height: 568,
     dpi: 2,
-    systemFont: "SF Pro Display", // "San Francisco",
     platform: "ios"
+    deviceContext: {
+      safeArea: { top: 20, right: 0, bottom: 0, left: 0 }
+    },
   },
   {
     name: "iPhone-6",
@@ -23,8 +16,10 @@ module.exports = [
     width: 375,
     height: 667,
     dpi: 2,
-    systemFont: "SF Pro Display", // "San Francisco",
     platform: "ios"
+    deviceContext: {
+      safeArea: { top: 20, right: 0, bottom: 0, left: 0 }
+    },
   },
   {
     name: "iPhone-6-Plus",
@@ -32,8 +27,10 @@ module.exports = [
     width: 375,
     height: 667,
     dpi: 3,
-    systemFont: "SF Pro Display", // "San Francisco",
     platform: "ios"
+    deviceContext: {
+      safeArea: { top: 20, right: 0, bottom: 0, left: 0 }
+    },
   },
   {
     name: "iPhone-7-Plus",
@@ -41,8 +38,10 @@ module.exports = [
     width: 414,
     height: 736,
     dpi: 3,
-    systemFont: "SF Pro Display", // "San Francisco",
     platform: "ios"
+    deviceContext: {
+      safeArea: { top: 20, right: 0, bottom: 0, left: 0 }
+    },
   },
   {
     name: "iPhone-X",
@@ -50,16 +49,9 @@ module.exports = [
     width: 375,
     height: 812,
     dpi: 3,
-    systemFont: "SF Pro Display", // "San Francisco",
     platform: "ios"
-  },
-  {
-    name: "Some-Android-Phone",
-    device: "Apple iPhone X Silver",
-    width: 320,
-    height: 568,
-    dpi: 2,
-    systemFont: "Roboto",
-    platform: "android"
+    deviceContext: {
+      safeArea: { top: 24, right: 0, bottom: 34, left: 0 }
+    },
   }
 ];
