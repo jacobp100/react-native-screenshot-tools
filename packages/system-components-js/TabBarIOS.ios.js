@@ -41,8 +41,8 @@ module.exports = ({
       {({ safeArea }) => (
         <View
           style={{
-            height: 49 + safeArea.top,
-            marginTop: -49 + safeArea.top,
+            height: 49 + safeArea.bottom,
+            marginTop: -49 + safeArea.bottom,
             flexDirection: "row"
           }}
         >
