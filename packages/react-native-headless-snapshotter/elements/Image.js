@@ -26,6 +26,9 @@ module.exports = class Image extends Base {
       settings
     } = this;
     let image;
+
+    if (source == null) return null;
+
     if (source.absoluteFilePath) {
       image = await readImage(source.absoluteFilePath, settings);
     } else {
@@ -38,6 +41,10 @@ module.exports = class Image extends Base {
 
   draw(screenFrame) {
     const { backend, settings, props, style, image } = this;
+
+    // Draw borders & background?
+    if (image == null) return;
+
     const { resizeMode = style.resizeMode } = props;
     const { tintColor } = style;
 

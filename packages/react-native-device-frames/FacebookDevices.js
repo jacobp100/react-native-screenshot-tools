@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 export default {
   "Apple iPad Air 2 Gold": require("./FacebookDevices/Apple-iPad-Air-2-Gold.png"),
   "Apple iPad Air 2 Silver": require("./FacebookDevices/Apple-iPad-Air-2-Silver.png"),

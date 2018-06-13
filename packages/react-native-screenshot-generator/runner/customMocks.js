@@ -35,5 +35,3 @@ jest.doMock("Dimensions", () => ({
   addEventListener() {},
   removeEventListener() {}
 }));
-
-jest.doMock("StatusBar", () => () => null);

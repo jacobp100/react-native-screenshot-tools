@@ -8,6 +8,7 @@ export { default as SafeAreaView } from "./SafeAreaView";
 export { default as ScrollView } from "./ScrollView";
 export { default as SectionList } from "./SectionList";
 export { default as Slider } from "./Slider";
+export { default as StatusBar } from "./StatusBar";
 export { default as Switch } from "./Switch";
 export { default as TabBarIOS } from "./TabBarIOS";
 export { default as TouchableHighlight } from "./TouchableHighlight";

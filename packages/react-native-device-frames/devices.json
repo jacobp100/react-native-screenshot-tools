@@ -1,0 +1,90 @@
+{
+  "Apple iPad Air 2": {
+    "frames": {
+      "Gold": "Apple iPad Air 2 Gold",
+      "Silver": "Apple iPad Air 2 Silver",
+      "Space Gray": "Apple iPad Air 2 Space Gray"
+    },
+    "statusBars": {},
+    "deviceContext": {
+      "safeArea": { "top": 20, "right": 0, "bottom": 0, "left": 0 }
+    }
+  },
+  "Apple iPad Mini 4": {
+    "frames": {
+      "Gold": "Apple iPad Mini 4 Gold",
+      "Silver": "Apple iPad Mini 4 Silver",
+      "Space Gray": "Apple iPad Mini 4 Space Gray"
+    },
+    "statusBars": {},
+    "deviceContext": {
+      "safeArea": { "top": 20, "right": 0, "bottom": 0, "left": 0 }
+    }
+  },
+  "Apple iPad Pro": {
+    "frames": {
+      "Gold": "Apple iPad Pro Gold",
+      "Silver": "Apple iPad Pro Silver",
+      "Space Gray": "Apple iPad Pro Space Gray"
+    },
+    "statusBars": {},
+    "deviceContext": {
+      "safeArea": { "top": 20, "right": 0, "bottom": 0, "left": 0 }
+    }
+  },
+  "Apple iPhone 8": {
+    "frames": {
+      "Gold": "Apple iPhone 8 Gold",
+      "Silver": "Apple iPhone 8 Silver",
+      "Space Gray": "Apple iPhone 8 Space Grey"
+    },
+    "statusBars": {
+      "landscape": "Apple iPhone 8 Landscape",
+      "portrait": "Apple iPhone 8 Portrait"
+    },
+    "deviceContext": {
+      "safeArea": { "top": 20, "right": 0, "bottom": 0, "left": 0 }
+    }
+  },
+  "Apple iPhone 8 Plus": {
+    "frames": {
+      "Gold": "Apple iPhone 8 Plus Gold",
+      "Silver": "Apple iPhone 8 Plus Silver",
+      "Space Gray": "Apple iPhone 8 Plus Space Grey"
+    },
+    "statusBars": {
+      "landscape": "Apple iPhone 8 Plus Landscape",
+      "portrait": "Apple iPhone 8 Plus Portrait"
+    },
+    "deviceContext": {
+      "safeArea": { "top": 20, "right": 0, "bottom": 0, "left": 0 }
+    }
+  },
+  "Apple iPhone SE": {
+    "frames": {
+      "Gold": "Apple iPhone SE Gold",
+      "Rose Gold": "Apple iPhone SE Rose Gold",
+      "Silver": "Apple iPhone SE Silver",
+      "Space Gray": "Apple iPhone SE Space Gray"
+    },
+    "statusBars": {
+      "landscape": "Apple iPhone SE Landscape",
+      "portrait": "Apple iPhone SE Portrait"
+    },
+    "deviceContext": {
+      "safeArea": { "top": 20, "right": 0, "bottom": 0, "left": 0 }
+    }
+  },
+  "Apple iPhone X": {
+    "frames": {
+      "Silver": "Apple iPhone X Silver",
+      "Space Gray": "Apple iPhone X Space Grey"
+    },
+    "statusBars": {
+      "portrait": "Apple iPhone X Portrait"
+    },
+    "deviceContext": {
+      "safeArea": { "top": 24, "right": 0, "bottom": 34, "left": 0 }
+    }
+  }
+}
