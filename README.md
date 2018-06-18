@@ -43,7 +43,7 @@ This will generate an SVG called `filename.svg`.
 ## Current Progress
 
 - All(\*) layout props are implemented ([issue](https://github.com/jacobp100/react-image-export/issues/10), [docs](https://facebook.github.io/react-native/docs/layout-props.html))
-- All-but-one props are implemented ([issue](https://github.com/jacobp100/react-image-export/issues/8), [docs](https://facebook.github.io/react-native/docs/view-props.html))
+- All-but-one view style props are implemented ([issue](https://github.com/jacobp100/react-image-export/issues/8), [docs](https://facebook.github.io/react-native/docs/view-props.html))
 - Most text style props are implemented ([issue](https://github.com/jacobp100/react-image-export/issues/9), [docs](https://facebook.github.io/react-native/docs/text-style-props.html))
 - All-but-one image style props are implemented ([issue](https://github.com/jacobp100/react-image-export/issues/11), [docs](https://facebook.github.io/react-native/docs/image-style-props.html))
 
