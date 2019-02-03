@@ -7,6 +7,8 @@
     },
     "statusBars": {},
     "deviceContext": {
+      "width": 1536,
+      "height": 2048,
       "safeArea": { "top": 20, "right": 0, "bottom": 0, "left": 0 }
     }
   },
@@ -18,6 +20,8 @@
     },
     "statusBars": {},
     "deviceContext": {
+      "width": 1536,
+      "height": 2048,
       "safeArea": { "top": 20, "right": 0, "bottom": 0, "left": 0 }
     }
   },
@@ -43,6 +47,8 @@
       "portrait": "Apple iPhone 8 Portrait"
     },
     "deviceContext": {
+      "width": 2048,
+      "height": 2732,
       "safeArea": { "top": 20, "right": 0, "bottom": 0, "left": 0 }
     }
   },
@@ -57,6 +63,8 @@
       "portrait": "Apple iPhone 8 Plus Portrait"
     },
     "deviceContext": {
+      "width": 1242,
+      "height": 2208,
       "safeArea": { "top": 20, "right": 0, "bottom": 0, "left": 0 }
     }
   },
@@ -72,6 +80,8 @@
       "portrait": "Apple iPhone SE Portrait"
     },
     "deviceContext": {
+      "width": 640,
+      "height": 1136,
       "safeArea": { "top": 20, "right": 0, "bottom": 0, "left": 0 }
     }
   },
@@ -84,6 +94,8 @@
       "portrait": "Apple iPhone X Portrait"
     },
     "deviceContext": {
+      "width": 1125,
+      "height": 2436,
       "safeArea": { "top": 24, "right": 0, "bottom": 34, "left": 0 }
     }
   }

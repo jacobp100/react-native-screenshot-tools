@@ -44,7 +44,7 @@ const applyInternalValues = (inputStyle, settings) => {
   if (style.fontFamily !== "System") {
     // pass
   } else if (settings.platform === "ios") {
-    const { fontFamily, letterSpacing } = getIOSFont(style);
+    const { fontFamily, letterSpacing } = getIOSFont(this.backend, style);
     style.fontFamily = fontFamily;
     if (style.letterSpacing === 0) style.letterSpacing = letterSpacing;
   } else if (settings.platform === "android") {
@@ -133,14 +133,24 @@ class Text extends Base {
     return { text, attributedStyles };
   }
 
+  async getHostStyles() {
+    // Ensure we've loaded the fonts we need to do text layout
+    this.styledText = this.extractText();
+    await Promise.all(
+      this.styledText.attributedStyles
+        .map(a => a.style)
+        .map(style => this.backend.loadFont(style))
+    );
+    return null;
+  }
+
   measureFunc(outerWidth) {
     const { width } = getInnerFrame(
       { x: 0, y: 0, width: outerWidth, height: 0 },
       this.style
     );
 
-    const styledText = this.extractText();
-    let body = breakLines(this.backend, styledText, width);
+    let body = breakLines(this.backend, this.styledText, width);
     if (Number.isFinite(this.props.numberOfLines)) {
       body = truncateLines(this.backend, body, this.props.numberOfLines, width);
     }

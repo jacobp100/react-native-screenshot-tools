@@ -1,15 +1,10 @@
 import React, { Component } from "react";
 import { View, Image } from "react-native";
+import DeviceContext from "system-components-js/DeviceContext";
 import AppContainer from "./AppContainer";
 import FacebookDevices from "./FacebookDevices";
 import devices from "./devices.json";
 import framePositions from "./framePositions.json";
-
-// FIXME: Shouldn't rely on our snapshotter
-const appFrame = {
-  width: global.snapshotterSettings.width,
-  height: global.snapshotterSettings.height
-};
 
 export default class Frame extends Component {
   constructor({ device, color }) {
@@ -46,35 +41,32 @@ export default class Frame extends Component {
     return { imageFrame, containerFrame };
   }
 
-  renderAppFrame(imageFrame) {
-    const { device, direction = Frame.PORTRAIT, children } = this.props;
+  renderAppFrame(deviceContext, imageFrame, imageTransform) {
+    const { device, children } = this.props;
 
-    const imageTransform = {
-      [Frame.PORTRAIT]: [],
-      [Frame.LANDSCAPE]: [{ rotate: "-90deg" }],
-      [Frame.LANDSCAPE_REVERSE]: [{ rotate: "90deg" }]
-    }[direction];
-
-    const { screenWidth, imageWidth, screenX, screenY } = this.framePosition;
+    const screenWidth = deviceContext.width;
+    const { imageWidth, screenX, screenY } = this.framePosition;
     const screenScale = screenWidth / imageWidth;
-    const scale = screenScale * (imageFrame.width / appFrame.width);
+    const scale = screenScale * (imageFrame.width / screenWidth);
     const positionScale = imageFrame.width / imageWidth;
 
     return (
       <AppContainer
         device={device}
         style={[
-          appFrame,
           {
+            width: deviceContext.width,
+            height: deviceContext.height,
             position: "absolute",
             top: 0,
             left: 0,
             transform: [
-              { translateX: (appFrame.width * (scale - 1)) / 2 },
-              { translateY: (appFrame.height * (scale - 1)) / 2 },
+              { translateX: (deviceContext.width * (scale - 1)) / 2 },
+              { translateY: (deviceContext.height * (scale - 1)) / 2 },
               { translateX: screenX * positionScale },
               { translateY: screenY * positionScale },
-              { scale }
+              { scale },
+              imageTransform
             ]
           }
         ]}
@@ -97,7 +89,13 @@ export default class Frame extends Component {
 
     return (
       <View style={containerFrame}>
-        {imageFrame != null && this.renderAppFrame(imageFrame)}
+        <DeviceContext.Consumer>
+          {deviceContext =>
+            imageFrame != null
+              ? this.renderAppFrame(deviceContext, imageFrame, imageTransform)
+              : null
+          }
+        </DeviceContext.Consumer>
         <Image
           source={this.source}
           style={[imageFrame, { transform: imageTransform }]}

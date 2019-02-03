@@ -1,4 +1,4 @@
-const LineBreaker = require("linebreak");
+const LineBreaker = require("@craigmorton/linebreak");
 
 const max = numbers => numbers.reduce((a, b) => Math.max(a, b), 0);
 
@@ -36,6 +36,7 @@ const textSlice = (textStyle, start, end) => ({
 });
 
 module.exports.breakLines = (backend, textStyle, width) => {
+  // Assumes fonts already loaded
   const breaker = new LineBreaker(textStyle.text);
 
   const lines = [];

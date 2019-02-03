@@ -1,4 +1,3 @@
-const readImage = require("../imageLoader");
 const Base = require("./Base");
 const { positionForImage } = require("../render/image");
 const {
@@ -25,16 +24,12 @@ module.exports = class Image extends Base {
       props: { source },
       settings
     } = this;
-    let image;
 
     if (source == null) return null;
 
-    if (source.absoluteFilePath) {
-      image = await readImage(source.absoluteFilePath, settings);
-    } else {
-      // FIXME: Network requests
-      throw new Error("Unhandled image source");
-    }
+    const filePath =
+      typeof source === "string" ? source : source.absoluteFilePath;
+    const image = await this.backend.readImage(filePath, settings);
     this.image = image;
     return { width: image.width, height: image.height };
   }

@@ -1,18 +1,13 @@
-const path = require("path");
-const glob = require("glob");
-const fontkit = require("fontkit");
-
 const weights = {
   normal: "400",
   bold: "700"
 };
 
-const fonts = {};
-
 const numberWeight = weight => weights[weight] || weight;
 
-const keyFor = ({ fontFamily, fontWeight, fontStyle }) =>
+const keyForStyle = ({ fontFamily, fontWeight, fontStyle }) =>
   `${fontFamily} (weight: ${numberWeight(fontWeight)} style: ${fontStyle})`;
+module.exports.keyForStyle = keyForStyle;
 
 const weightNames = [
   { match: "ultralight", value: "200" },
@@ -49,33 +44,21 @@ const matchNames = (target, names, defaultValue) => {
   return match ? match.value : defaultValue;
 };
 
-const addFont = font => {
+const normalizeStyles = subfamilyName => {
+  const fontWeight = matchNames(subfamilyName, weightNames, "400");
+  const fontStyle = matchNames(subfamilyName, italicNames, "normal");
+  return { fontWeight, fontStyle };
+};
+
+module.exports.keyForFont = font => {
   const fontFamily = font.familyName;
-  const fontWeight = matchNames(font.subfamilyName, weightNames, "400");
-  const fontStyle = matchNames(font.subfamilyName, italicNames, "normal");
-  const key = keyFor({ fontFamily, fontWeight, fontStyle });
+  const { fontWeight, fontStyle } = normalizeStyles(font.subfamilyName);
+
+  const key = keyForStyle({ fontFamily, fontWeight, fontStyle });
 
   if (!fontFamily || !fontWeight || !fontStyle) {
     throw new Error(`Could not find styles for font: ${key}`);
-  } else if (fonts[key] != null) {
-    throw new Error(`Duplicate definition for font: ${key}`);
   }
 
-  fonts[key] = font;
-};
-
-glob.sync(path.join(__dirname, "**/*.{otf,ttf}")).forEach(filename => {
-  const font = fontkit.openSync(filename);
-  addFont(font);
-});
-
-module.exports.hasFontForStyle = style => fonts[keyFor(style)] != null;
-
-module.exports.fontForStyle = style => {
-  const key = keyFor(style);
-  const font = fonts[key];
-  if (font == null) {
-    throw new Error(`No font defined for ${key}`);
-  }
-  return font;
+  return key;
 };

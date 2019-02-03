@@ -1,35 +1,22 @@
 // const { isElement } = require("react-is");
-const { CanvasBackend, SvgBackend } = require("./backends");
-const createRenderer = require("./reconciler");
+const { CanvasBackend, SvgBackend } = require("./backend-render");
+const LocalFontLoader = require("./backend-font-loader/LocalBackend");
+const imageLoader = require("./backend-image-loader/NodeCanvasBackend");
+const createBackend = require("./createBackend");
+const render = require("./render");
 
-const defaultSettings = {
-  width: 500,
-  height: 500,
-  dpi: 2,
-  systemFont: "SF Pro Display"
-};
+const fontLoader = new LocalFontLoader();
 
-const renderBackend = async (backend, jsx, settings) => {
-  const instance = createRenderer(jsx, backend, {
-    ...defaultSettings,
-    ...settings
-  });
-
-  await instance.root.layout();
-
-  backend.setUp();
-  await instance.root.render();
-  backend.tearDown();
-
-  instance.unmount();
-
+const renderWithBackend = async (renderBackend, jsx, settings) => {
+  const backend = createBackend({ renderBackend, fontLoader, imageLoader });
+  await render(backend, jsx, settings);
   return backend;
 };
 
 module.exports.renderToSvg = async (jsx, settings) =>
-  String(await renderBackend(new SvgBackend(settings), jsx, settings));
+  String(await renderWithBackend(new SvgBackend(settings), jsx, settings));
 
 module.exports.renderToCanvas = async (ctx, jsx, settings) => {
-  await renderBackend(new CanvasBackend(ctx, settings), jsx, settings);
+  await renderWithBackend(new CanvasBackend(ctx, settings), jsx, settings);
   return ctx;
 };

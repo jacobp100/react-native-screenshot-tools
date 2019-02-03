@@ -72,7 +72,7 @@ const drawLineDecoration = (ctx, x, y, width, textDecoration) => {
 };
 
 module.exports = class CanvasBackend {
-  constructor(canvas, { dpi }) {
+  constructor(canvas, { dpi = 1 } = {}) {
     this.ctx = canvas.getContext("2d");
     this.width = canvas.width;
     this.height = canvas.height;

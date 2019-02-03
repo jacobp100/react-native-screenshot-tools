@@ -8,19 +8,24 @@
     "test": "jest"
   },
   "workspaces": [
-    "packages/*"
+    "packages/app-store-designer",
+    "packages/jest-file-snapshot",
+    "packages/react-native-device-frames",
+    "packages/react-native-headless-snapshotter",
+    "packages/react-native-screenshot-generator",
+    "packages/system-components-js"
   ],
   "devDependencies": {
+    "babel-eslint": "9.0.0",
     "babel-preset-react-native": "^4.0.0",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint": "5.6.0",
+    "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.0",
+    "eslint-plugin-react": "^7.12.4",
     "jest": "^23.0.0",
     "jest-image-snapshot": "^2.3.0",
     "prettier": "^1.12.1"
-  },
-  "dependencies": {
-    "babel-eslint": "^8.2.3"
   }
 }

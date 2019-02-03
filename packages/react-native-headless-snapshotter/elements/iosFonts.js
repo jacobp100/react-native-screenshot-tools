@@ -1,5 +1,4 @@
 const scale = require("polylinear-scale");
-const { hasFontForStyle } = require("../localFontLoader");
 
 const textScale = scale(
   [6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
@@ -49,9 +48,9 @@ const displayScale = scale(
 const DISPLAY = "SF Pro Display";
 const TEXT = "SF Pro Text";
 
-module.exports = style => {
+module.exports = (backend, style) => {
   let fontFamily = style.fontSize > 20 ? DISPLAY : TEXT;
-  if (!hasFontForStyle({ ...style, fontFamily })) fontFamily = DISPLAY;
+  if (!backend.hasFontForStyle({ ...style, fontFamily })) fontFamily = DISPLAY;
   const letterSpacing =
     fontFamily === DISPLAY
       ? displayScale(style.fontSize)

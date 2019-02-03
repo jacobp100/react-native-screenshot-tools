@@ -5,8 +5,5 @@
   "license": "MIT",
   "dependencies": {
     "system-components-js": "^1.0.0"
-  },
-  "devDependencies": {
-    "node-fetch": "^2.1.2"
   }
 }

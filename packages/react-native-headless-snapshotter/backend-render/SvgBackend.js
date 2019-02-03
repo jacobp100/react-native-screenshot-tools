@@ -2,20 +2,12 @@
 const cheerio = require("cheerio");
 const { path } = require("d3-path");
 const chroma = require("chroma-js");
-// const { fontForStyle } = require("../fontLoader");
-const { fontForStyle } = require("../localFontLoader");
-const { enumerateLines } = require("./util");
+const { enumerateLines, textAligns } = require("./util");
 
 const textAnchors = {
   left: "start",
   center: "middle",
   right: "end"
-};
-
-const textAligns = {
-  left: 0,
-  center: 0.5,
-  right: 1
 };
 
 module.exports = class SvgBackend {
@@ -206,16 +198,7 @@ module.exports = class SvgBackend {
     this.ctx = null;
   }
 
-  lineBaseline(line) {
-    line.attributedStyles
-      .map(({ style }) => {
-        const font = fontForStyle(style);
-        return (font.ascent / font.unitsPerEm) * style.fontSize;
-      })
-      .reduce(Math.max, 0);
-  }
-
-  fillLinesTextElements(lines, screenFrame) {
+  fillLines(lines, screenFrame) {
     const { textAlign = "left" } = lines[0].attributedStyles[0].style;
 
     const $text = this.$(`<text />`).attr(
@@ -255,69 +238,11 @@ module.exports = class SvgBackend {
     this.$container.append($text);
   }
 
-  fillLinesPath(lines, screenFrame) {
-    const { textAlign = "left" } = lines[0].attributedStyles[0].style;
-    const $body = this.$("<g />");
-
-    const renderRun = ({ x, y, body, style }) => {
-      const font = fontForStyle(style);
-      const run = font.layout(body);
-      const scale = style.fontSize / font.unitsPerEm;
-      const { letterSpacing } = style;
-      const xPositions = run.positions.reduce(
-        (acc, position) => {
-          const previousPosition = acc[acc.length - 1];
-          return [
-            ...acc,
-            previousPosition + position.xAdvance * scale + letterSpacing
-          ];
-        },
-        [0]
-      );
-      run.glyphs.forEach((glyph, i) => {
-        const $char = this.$("<path />")
-          .attr(
-            "transform",
-            `translate(${x + xPositions[i]}, ${y}) scale(${scale}, ${-scale})`
-          )
-          .attr("d", glyph.path.toSVG())
-          .attr("fill", style.color);
-        $body.append($char);
-      });
-      return x + xPositions[xPositions.length - 1];
-    };
-
-    const getStartX = runs => {
-      const totalWidth = runs.reduce(
-        (x, { body, style }) => x + this.measureText(body, style).width,
-        0
-      );
-
-      const startX =
-        screenFrame.x +
-        (screenFrame.width - totalWidth) * textAligns[textAlign];
-      return startX;
-    };
-
-    enumerateLines(this, lines, renderRun, screenFrame.y, getStartX);
-
-    this.$container.append($body);
-  }
-
-  fillLines(lines, screenFrame) {
-    this.fillLinesPath(lines, screenFrame);
-  }
-
-  measureText(text, style) {
-    const font = fontForStyle(style);
-    const scale = style.fontSize / font.unitsPerEm;
-    return {
-      width:
-        font.layout(text).advanceWidth * scale +
-        style.letterSpacing * text.length,
-      emHeightAscent: Math.abs(font.ascent * scale),
-      emHeightDescent: Math.abs(font.descent * scale)
-    };
+  measureText() {
+    throw new Error(
+      "The SVG backend cannot measure text on its own. " +
+        "You'll need to add a font loader to your setup"
+    );
   }
 
   drawImage(image, x, y, width, height) {

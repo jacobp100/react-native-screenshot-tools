@@ -17,7 +17,7 @@
     "threads": "^0.11.0"
   },
   "peerDependencies": {
-    "react-native": "^0.0.0"
+    "react-native": "*"
   },
   "bundledDependencies": [
     "react-native-headless-snapshotter",

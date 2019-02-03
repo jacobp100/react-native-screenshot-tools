@@ -1,6 +1,12 @@
 const { max, map } = require("lodash/fp");
 const { lineHeight } = require("../layout/textLayout");
 
+module.exports.textAligns = {
+  left: 0,
+  center: 0.5,
+  right: 1
+};
+
 module.exports.enumerateLines = (
   backend,
   lines,
