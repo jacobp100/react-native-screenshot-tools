@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "lodash": "^4.17.11",
     "react": "^16.8.0-alpha.1",
     "react-dom": "^16.8.0-alpha.1",
     "react-file-drop": "^0.2.7",

@@ -7,11 +7,8 @@ import BrowserBackend from "react-native-headless-snapshotter/backend-image-load
 import createBackend from "react-native-headless-snapshotter/createBackend";
 import render from "react-native-headless-snapshotter/render";
 import DeviceContext, { defaults } from "system-components-js/DeviceContext";
-import { Frame } from "react-native-device-frames";
-
-const Image = "Image";
-const Text = "Text";
-const View = "View";
+import Layout from "./Layout";
+import useFileLoader from "./useFileLoader";
 
 const App = () => {
   let [file, setFile] = React.useState(null);
@@ -21,6 +18,12 @@ const App = () => {
   };
   const dpi = 2;
   const ref = React.useRef(null);
+
+  const { filesLoading, loadFiles } = useFileLoader({
+    onFileLoaded: f => setFile(f)
+  });
+
+  const View = "View";
 
   React.useEffect(() => {
     const canvas = ref.current;
@@ -34,17 +37,12 @@ const App = () => {
 
     const jsx = (
       <DeviceContext.Provider value={{ ...defaults, ...size }}>
-        <View style={{ ...size, backgroundColor: "orange", padding: 32 }}>
-          <Text style={{ fontSize: 96, textAlign: "center", marginBottom: 24 }}>
-            Hello world!
-          </Text>
-          <Frame device="Apple iPhone SE" align={Frame.STRETCH}>
-            {file != null ? (
-              <Image style={{ width: "100%", height: "100%" }} source={file} />
-            ) : (
-              <View />
-            )}
-          </Frame>
+        <View style={size}>
+          <Layout
+            title="Hello World"
+            source={file != null ? file.uri : null}
+            backgroundColor="white"
+          />
         </View>
       </DeviceContext.Provider>
     );
@@ -53,7 +51,7 @@ const App = () => {
   });
 
   return (
-    <FileDrop onDrop={f => setFile(URL.createObjectURL(f[0]))}>
+    <FileDrop onDrop={loadFiles}>
       <canvas
         width={size.width * dpi}
         height={size.height * dpi}
