@@ -1,6 +1,6 @@
 const path = require("path");
 const glob = require("glob");
-const fontkit = require("fontkit-browserified");
+const { default: fontkit } = require("fontkit-browserified");
 const FontKitBackend = require("./fontKitBackend");
 const { keyForStyle, keyForFont } = require("./util");
 

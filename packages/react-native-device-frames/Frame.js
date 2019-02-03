@@ -1,10 +1,15 @@
 import React, { Component } from "react";
-import { View, Image } from "react-native";
+import { View, Image } from "react-native-snapshotter-mocks";
 import DeviceContext from "system-components-js/DeviceContext";
 import AppContainer from "./AppContainer";
 import FacebookDevices from "./FacebookDevices";
 import devices from "./devices.json";
 import framePositions from "./framePositions.json";
+
+const scaleFrame = ({ width, height }, scale) => ({
+  width: width * scale,
+  height: height * scale
+});
 
 export default class Frame extends Component {
   constructor({ device, color }) {
@@ -15,94 +20,119 @@ export default class Frame extends Component {
     this.source = FacebookDevices[frame];
     this.framePosition = framePositions.find(md => md.name === frame);
 
-    this.state = { layout: null };
+    this.state = { containerLayout: null, imageLayout: null };
 
-    this.handleLayout = ({ nativeEvent: { layout } }) =>
-      this.setState(s => (s.layout == null ? { layout } : null));
+    this.handleContainerLayout = ({ nativeEvent: { layout } }) =>
+      this.setState(s =>
+        s.containerLayout == null ? { containerLayout: layout } : null
+      );
+    this.handleImageLayout = ({ nativeEvent: { layout } }) =>
+      this.setState(s =>
+        s.imageLayout == null ? { imageLayout: layout } : null
+      );
   }
 
-  getFrames() {
-    const { layout } = this.state;
-
-    if (layout == null) {
-      return { imageFrame: null, containerFrame: null };
-    }
-
-    const { width = layout.width, direction = Frame.PORTRAIT } = this.props;
-
-    const imageFrame = {
-      width,
-      height: (layout.height * width) / layout.width
-    };
-    const containerFrame =
-      direction === Frame.PORTRAIT
-        ? imageFrame
-        : { width: imageFrame.height, height: imageFrame.width };
-    return { imageFrame, containerFrame };
-  }
-
-  renderAppFrame(deviceContext, imageFrame, imageTransform) {
+  renderAppFrame(deviceContext, scale) {
     const { device, children } = this.props;
+    const { screenX, screenY } = this.framePosition;
 
-    const screenWidth = deviceContext.width;
-    const { imageWidth, screenX, screenY } = this.framePosition;
-    const screenScale = screenWidth / imageWidth;
-    const scale = screenScale * (imageFrame.width / screenWidth);
-    const positionScale = imageFrame.width / imageWidth;
+    const style = [
+      {
+        backgroundColor: "black",
+        width: deviceContext.width,
+        height: deviceContext.height,
+        position: "absolute",
+        top: 0,
+        left: 0,
+        transform: [
+          { translate: [-deviceContext.width / 2, -deviceContext.height / 2] },
+          { scale },
+          { translate: [deviceContext.width / 2, deviceContext.height / 2] },
+          { translate: [screenX, screenY] }
+        ]
+      }
+    ];
 
-    return (
-      <AppContainer
-        device={device}
-        style={[
-          {
-            width: deviceContext.width,
-            height: deviceContext.height,
-            position: "absolute",
-            top: 0,
-            left: 0,
-            transform: [
-              { translateX: (deviceContext.width * (scale - 1)) / 2 },
-              { translateY: (deviceContext.height * (scale - 1)) / 2 },
-              { translateX: screenX * positionScale },
-              { translateY: screenY * positionScale },
-              { scale },
-              imageTransform
-            ]
-          }
-        ]}
-      >
-        {children}
-      </AppContainer>
-    );
+    return React.createElement(AppContainer, { device, style }, children);
   }
 
   render() {
-    const { direction = Frame.PORTRAIT } = this.props;
-    const { layout } = this.state;
-    const { containerFrame, imageFrame } = this.getFrames(layout);
+    const { direction = Frame.PORTRAIT, align = Frame.STRETCH } = this.props;
+    const { containerLayout, imageLayout } = this.state;
 
-    const imageTransform = {
-      [Frame.PORTRAIT]: [],
-      [Frame.LANDSCAPE]: [{ rotate: "-90deg" }],
-      [Frame.LANDSCAPE_REVERSE]: [{ rotate: "90deg" }]
-    }[direction];
+    if (direction !== Frame.PORTRAIT) {
+      throw new Error("Non portrait frames don't work. Fix me please :D");
+    }
 
-    return (
-      <View style={containerFrame}>
-        <DeviceContext.Consumer>
-          {deviceContext =>
-            imageFrame != null
-              ? this.renderAppFrame(deviceContext, imageFrame, imageTransform)
-              : null
-          }
-        </DeviceContext.Consumer>
-        <Image
-          source={this.source}
-          style={[imageFrame, { transform: imageTransform }]}
-          resizeMode="stretch"
-          onLayout={this.handleLayout}
-        />
-      </View>
+    let imageTransform = [];
+    let scale = 1;
+    let imageFrame = null;
+
+    if (containerLayout != null && imageLayout != null) {
+      const [containerWidth, containerHeight] =
+        direction === Frame.PORTRAIT
+          ? [containerLayout.width, containerLayout.height]
+          : [containerLayout.height, containerLayout.width];
+      const [imageWidth, imageHeight] =
+        direction === Frame.PORTRAIT
+          ? [imageLayout.width, imageLayout.height]
+          : [imageLayout.height, imageLayout.width];
+      const xScale = containerWidth / imageWidth;
+      const yScale = containerHeight / imageHeight;
+
+      if (align === Frame.STRETCH) {
+        scale = Math.min(xScale, yScale);
+      } else if (direction === Frame.PORTRAIT) {
+        scale = xScale;
+      } else {
+        scale = yScale;
+      }
+
+      imageFrame = scaleFrame(imageLayout, scale);
+
+      const rotate = {
+        [Frame.PORTRAIT]: null,
+        [Frame.LANDSCAPE]: "-90deg",
+        [Frame.LANDSCAPE_REVERSE]: "90deg"
+      }[direction];
+
+      const alignments = {
+        [Frame.ALIGN_START]: 0,
+        [Frame.STRETCH]: 0.5,
+        [Frame.ALIGN_END]: 1
+      };
+
+      const xAlignment =
+        alignments[direction !== Frame.PORTRAIT ? align : Frame.STRETCH];
+      const yAlignment =
+        alignments[direction === Frame.PORTRAIT ? align : Frame.STRETCH];
+      const translate = [
+        (containerWidth - imageWidth * scale) * xAlignment,
+        (containerHeight - imageHeight * scale) * yAlignment
+      ];
+
+      imageTransform =
+        rotate != null ? [{ translate }, { rotate }] : [{ translate }];
+    }
+
+    return React.createElement(
+      View,
+      {
+        style: { flex: 1, overflow: "hidden" },
+        onLayout: this.handleContainerLayout
+      },
+      React.createElement(DeviceContext.Consumer, null, deviceContext =>
+        React.createElement(
+          View,
+          { style: { transform: imageTransform } },
+          this.renderAppFrame(deviceContext, scale),
+          React.createElement(Image, {
+            source: this.source,
+            style: imageFrame,
+            onLayout: this.handleImageLayout
+          })
+        )
+      )
     );
   }
 }
@@ -114,3 +144,7 @@ Frame.defaultProps = {
 Frame.PORTRAIT = 0;
 Frame.LANDSCAPE = 1;
 Frame.LANDSCAPE_REVERSE = 2;
+
+Frame.STRETCH = 0;
+Frame.ALIGN_START = 1;
+Frame.ALIGN_END = 2;

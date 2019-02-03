@@ -13,6 +13,7 @@
     "packages/react-native-device-frames",
     "packages/react-native-headless-snapshotter",
     "packages/react-native-screenshot-generator",
+    "packages/react-native-snapshotter-mocks",
     "packages/system-components-js"
   ],
   "devDependencies": {

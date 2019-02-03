@@ -36,7 +36,7 @@ module.exports.drawArc = (
     throw new Error("This only handles a quarter arc maximum");
   }
 
-  const h = 4 / 3 * Math.tan((endAngle - startAngle) / 4);
+  const h = (4 / 3) * Math.tan((endAngle - startAngle) / 4);
   const sx = cx + rx * Math.cos(startAngle);
   const sy = cy + ry * Math.sin(startAngle);
 

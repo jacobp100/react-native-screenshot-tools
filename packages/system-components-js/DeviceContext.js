@@ -6,4 +6,6 @@ const {
   safeArea = { top: 0, right: 0, bottom: 0, left: 0 }
 } = global.snapshotterSettings || {};
 
-export default React.createContext({ width, height, safeArea });
+export const defaults = { width, height, safeArea };
+
+export default React.createContext(defaults);

@@ -28,8 +28,8 @@ module.exports = ({
   addFont: (...args) => {
     if (fontLoader != null) fontLoader.addFont(...args);
   },
-  loadFont: (...args) => {
-    if (fontLoader != null) fontLoader.loadFont(...args);
+  loadFont: async (...args) => {
+    if (fontLoader != null) await fontLoader.loadFont(...args);
   },
   measureText: (...args) =>
     fontLoader != null

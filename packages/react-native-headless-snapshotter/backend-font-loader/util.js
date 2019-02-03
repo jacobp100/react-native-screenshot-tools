@@ -6,7 +6,7 @@ const weights = {
 const numberWeight = weight => weights[weight] || weight;
 
 const keyForStyle = ({ fontFamily, fontWeight, fontStyle }) =>
-  `${fontFamily} (weight: ${numberWeight(fontWeight)} style: ${fontStyle})`;
+  `${fontFamily} (weight: ${numberWeight(fontWeight)}, style: ${fontStyle})`;
 module.exports.keyForStyle = keyForStyle;
 
 const weightNames = [

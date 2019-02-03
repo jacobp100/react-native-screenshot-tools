@@ -24,6 +24,8 @@ module.exports = class SvgBackend {
       .attr("width", width)
       .attr("height", height);
 
+    this.ctx = null;
+
     this.$container = this.$("svg");
     this.defId = 0;
   }

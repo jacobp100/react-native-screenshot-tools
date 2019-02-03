@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import FileDrop from "react-file-drop";
 import CanvasBackend from "react-native-headless-snapshotter/backend-render/CanvasBackend";
 import FetchBackend from "react-native-headless-snapshotter/backend-font-loader/FetchBackend";
 import BrowserBackend from "react-native-headless-snapshotter/backend-image-loader/BrowserBackend";
 import createBackend from "react-native-headless-snapshotter/createBackend";
 import render from "react-native-headless-snapshotter/render";
+import DeviceContext, { defaults } from "system-components-js/DeviceContext";
 import { Frame } from "react-native-device-frames";
 
 const Image = "Image";
@@ -12,8 +14,12 @@ const Text = "Text";
 const View = "View";
 
 const App = () => {
-  const size = 500;
-  const dpi = window.devicePixelRatio;
+  let [file, setFile] = React.useState(null);
+  const size = {
+    width: 640,
+    height: 1136
+  };
+  const dpi = 2;
   const ref = React.useRef(null);
 
   React.useEffect(() => {
@@ -21,34 +27,40 @@ const App = () => {
 
     const backend = createBackend({
       renderBackend: new CanvasBackend(canvas, { dpi }),
-      imageLoader: new BrowserBackend()
-      // fontLoader: new FetchBackend()
+      imageLoader: new BrowserBackend(),
+      fontLoader: new FetchBackend(),
+      rasterizeText: true
     });
 
     const jsx = (
-      <Frame device="Apple iPhone 5c Red">
-        <View>
-          <View style={{ width: 100, backgroundColor: "red" }}>
-            <Text>Here come dat boi</Text>
-          </View>
-          <View style={{ width: 100, backgroundColor: "lime" }}>
-            <Text>Oh shit waddup</Text>
-          </View>
-          <Image source="https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/smiling-face-with-smiling-eyes.png" />
+      <DeviceContext.Provider value={{ ...defaults, ...size }}>
+        <View style={{ ...size, backgroundColor: "orange", padding: 32 }}>
+          <Text style={{ fontSize: 96, textAlign: "center", marginBottom: 24 }}>
+            Hello world!
+          </Text>
+          <Frame device="Apple iPhone SE" align={Frame.STRETCH}>
+            {file != null ? (
+              <Image style={{ width: "100%", height: "100%" }} source={file} />
+            ) : (
+              <View />
+            )}
+          </Frame>
         </View>
-      </Frame>
+      </DeviceContext.Provider>
     );
 
     render(backend, jsx, {});
   });
 
   return (
-    <canvas
-      width={size * dpi}
-      height={size * dpi}
-      style={{ width: size, height: size }}
-      ref={ref}
-    />
+    <FileDrop onDrop={f => setFile(URL.createObjectURL(f[0]))}>
+      <canvas
+        width={size.width * dpi}
+        height={size.height * dpi}
+        style={size}
+        ref={ref}
+      />
+    </FileDrop>
   );
 };
 

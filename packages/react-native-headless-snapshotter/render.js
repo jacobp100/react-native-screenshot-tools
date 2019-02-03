@@ -4,7 +4,7 @@ const defaultSettings = {
   width: 500,
   height: 500,
   dpi: 2,
-  systemFont: "SF Pro Display"
+  systemFont: "Open Sans"
 };
 
 module.exports = async (backend, jsx, settings) => {

@@ -2,7 +2,7 @@ const { enumerateLines, textAligns } = require("../backend-render/util");
 
 module.exports = class FontKitBackend {
   measureText(text, style) {
-    const font = this.loadFont(style);
+    const font = this.getLoadedFont(style);
     const scale = style.fontSize / font.unitsPerEm;
     return {
       width:
@@ -33,11 +33,11 @@ module.exports = class FontKitBackend {
       );
       run.glyphs.forEach((glyph, i) => {
         const path = glyph.path
-          .translate(x + xPositions[i], y)
-          .scale(scale, -scale);
+          .scale(scale, -scale)
+          .translate(x + xPositions[i], y);
 
         renderBackend.beginShape();
-        path.toFunction()(renderBackend);
+        path.toFunction()(renderBackend.ctx);
 
         renderBackend.commitShape({ fill: style.color });
       });

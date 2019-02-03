@@ -50,7 +50,7 @@ const applyInternalValues = (inputStyle, settings) => {
   } else if (settings.platform === "android") {
     style.fontFamily = "Roboto";
   } else {
-    style.fontFamily = settings.fontFamily;
+    style.fontFamily = settings.systemFont;
   }
 
   if (style.textDecorationColor === "currentColor") {

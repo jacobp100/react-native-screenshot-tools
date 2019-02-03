@@ -1,11 +1,11 @@
-const fontkit = require("fontkit-browserified");
+const { default: fontkit } = require("fontkit-browserified");
 const FontKitBackend = require("./fontKitBackend");
 const { keyForStyle, keyForFont } = require("./util");
 
-const titleCase = s => s[0].toUpperCase() + s.slice(1).toLowerCase();
+const titleCase = s => s.slice(0, 1).toUpperCase() + s.slice(1).toLowerCase();
 
 module.exports = class FetchFontLoader extends FontKitBackend {
-  constructor(fetch = global.fetch) {
+  constructor(fetch = global.fetch.bind(global)) {
     super();
     this.fetch = fetch;
     this.customFonts = {};
@@ -17,7 +17,8 @@ module.exports = class FetchFontLoader extends FontKitBackend {
 
   async downloadFont(src) {
     const response = await this.fetch(src);
-    const buffer = await response.arrayBuffer();
+    const arrayBuffer = await response.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
     const font = fontkit.create(buffer);
     return font;
   }
@@ -55,11 +56,11 @@ module.exports = class FetchFontLoader extends FontKitBackend {
     if (this.googleFonts[key]) return;
 
     // TODO: Handle variants, use somebody else's url
-    const src = `https://code.thisarmy.com/fontsinfo/woffs/${style.familyName
-      .split(/s+/)
+    const src = `https://code.thisarmy.com/fontsinfo/woffs/${style.fontFamily
+      .split(/\s+/g)
       .map(titleCase)
-      .join("")}`;
-    const font = await this.loadFont(src);
+      .join("")}-Regular.woff`;
+    const font = await this.downloadFont(src);
     this.googleFonts[key] = font;
   }
 };

@@ -4,6 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "react-native-snapshotter-mocks": "^1.0.0",
     "system-components-js": "^1.0.0"
+  },
+  "peerDependencies": {
+    "react": "*"
   }
 }
