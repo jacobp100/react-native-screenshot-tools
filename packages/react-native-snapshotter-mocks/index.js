@@ -10,7 +10,7 @@ module.exports.Text = "Text";
 module.exports.Image = props => React.createElement("Image", props);
 module.exports.Image.resolveAssetSource = source => {
   const absoulteFilePath =
-    typeof source === "string" ? source : source.absoluteFilePath;
+    typeof source === "string" ? source : source.uri;
 
   const { width, height } =
     source.width != null && source.height != null

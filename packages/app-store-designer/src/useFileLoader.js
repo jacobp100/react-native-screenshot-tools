@@ -1,18 +1,19 @@
 import React from "react";
 
 export default ({ onFileLoaded }) => {
-  const [filesLoading, setFilesLoading] = React.useState();
+  const [filesLoading, setFilesLoading] = React.useState(0);
 
   const loadFile = file => {
     setFilesLoading(s => s + 1);
     let didResolve = false;
     const image = new Image();
+    const { name } = file;
     const uri = URL.createObjectURL(file);
     image.onload = () => {
       if (!didResolve) {
         didResolve = true;
         setFilesLoading(s => s - 1);
-        const { name, width, height } = image;
+        const { width, height } = image;
         onFileLoaded({ uri, name, width, height });
       }
     };

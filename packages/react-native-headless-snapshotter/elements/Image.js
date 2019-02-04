@@ -27,8 +27,7 @@ module.exports = class Image extends Base {
 
     if (source == null) return null;
 
-    const filePath =
-      typeof source === "string" ? source : source.absoluteFilePath;
+    const filePath = typeof source === "string" ? source : source.uri;
     const image = await this.backend.readImage(filePath, settings);
     this.image = image;
     return { width: image.width, height: image.height };

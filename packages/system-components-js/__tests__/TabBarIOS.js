@@ -17,7 +17,7 @@ expect.extend({
 
 const parrot = {
   // snapshotter would output this format, RN has some weird path format
-  absoluteFilePath: path.join(__dirname, "/parrot.png")
+  uri: path.join(__dirname, "/parrot.png")
 };
 
 const settings = {

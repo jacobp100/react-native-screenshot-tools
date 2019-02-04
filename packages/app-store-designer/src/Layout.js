@@ -1,20 +1,20 @@
 import React from "react";
-import { Frame } from "react-native-device-frames";
+import { Frame, ExistingScreenshots } from "react-native-device-frames";
 
-const Image = "Image";
 const Text = "Text";
 const View = "View";
 
 export default ({
-  title = "",
-  source = null,
-  backgroundColor = "white",
-  fontSize = 96,
-  textAlign = "center",
+  device,
+  title,
+  sources,
+  backgroundColor,
+  fontSize,
+  textAlign,
   textBelowDevice,
-  scaleDevice = true,
-  padding = "5%",
-  spacing = 16
+  scaleDevice,
+  padding,
+  spacing
 }) => {
   const textStyle = {
     fontSize,
@@ -25,12 +25,8 @@ export default ({
   const text = <Text style={textStyle}>{title}</Text>;
 
   const frame = (
-    <Frame device="Apple iPhone SE" align={Frame.STRETCH}>
-      {source != null ? (
-        <Image style={{ width: "100%", height: "100%" }} source={source} />
-      ) : (
-        <View />
-      )}
+    <Frame device={device} align={Frame.STRETCH}>
+      <ExistingScreenshots sources={sources} />
     </Frame>
   );
 
