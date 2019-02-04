@@ -1,5 +1,5 @@
 import React from "react";
-import { Pagination, Select, Empty } from "antd";
+import { Card, Pagination, Select, Empty } from "antd";
 import devices from "react-native-device-frames/devices.json";
 import StoreContext from "./StoreContext";
 import Layout from "./Layout";
@@ -41,7 +41,7 @@ export default () => {
   const { dpi, width, height } = devices[device].deviceContext;
 
   const form = (
-    <>
+    <Card>
       <Select value={device} onChange={setDevice}>
         {table.columns.map(device => (
           <Select.Option key={device} value={device}>
@@ -50,23 +50,27 @@ export default () => {
         ))}
       </Select>
       <Pagination
-        current={index}
+        size="small"
+        current={index + 1}
         total={table.rows.length}
-        onChange={setIndex}
+        pageSize={1}
+        onChange={value => setIndex(value - 1)}
       />
       <ItemConfig index={index} />
-    </>
+    </Card>
   );
 
   return (
-    <div>
+    <div style={{ display: "flex", padding: 32 }}>
       {form}
-      <canvas
-        width={width * dpi}
-        height={height * dpi}
-        style={{ width, height }}
-        ref={ref}
-      />
+      <div style={{ flex: 1, overflow: "scroll" }}>
+        <canvas
+          width={width * dpi}
+          height={height * dpi}
+          style={{ width, height }}
+          ref={ref}
+        />
+      </div>
     </div>
   );
 };
