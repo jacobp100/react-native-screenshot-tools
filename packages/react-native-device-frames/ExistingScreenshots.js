@@ -4,7 +4,7 @@ import DeviceContext from "system-components-js/DeviceContext";
 
 const sourceFit = (baseSize, source) => {
   const { width, height } = Image.resolveAssetSource(source);
-  return Math.abs(baseSize.width - width * baseSize.height - height);
+  return Math.abs((baseSize.width - width) * (baseSize.height - height));
 };
 
 export default ({ sources }) =>

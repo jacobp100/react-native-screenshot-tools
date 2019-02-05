@@ -12,11 +12,13 @@ const scaleFrame = ({ width, height }, scale) => ({
 });
 
 export default class Frame extends Component {
-  constructor({ device, color }) {
+  constructor({ device, color, colors = [color] }) {
     super();
 
     const { frames } = devices[device];
-    const frame = frames[color] || Object.values(frames)[0];
+    const frame =
+      colors.reduce((current, c) => current || frames[c], null) ||
+      Object.values(frames)[0];
     this.source = FacebookDevices[frame];
     this.framePosition = framePositions.find(md => md.name === frame);
 

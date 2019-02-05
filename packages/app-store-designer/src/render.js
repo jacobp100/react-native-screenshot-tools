@@ -21,5 +21,5 @@ export default ({ dpi, width, height, children, canvas }) => {
     </DeviceContext.Provider>
   );
 
-  render(backend, jsx, {});
+  return render(backend, jsx, {});
 };

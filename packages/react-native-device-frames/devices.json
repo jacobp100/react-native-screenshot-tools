@@ -51,8 +51,8 @@
     },
     "deviceContext": {
       "dpi": 2,
-      "width": 2048,
-      "height": 2732,
+      "width": 750,
+      "height": 1334,
       "safeArea": { "top": 20, "right": 0, "bottom": 0, "left": 0 }
     }
   },

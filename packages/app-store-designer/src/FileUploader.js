@@ -3,12 +3,13 @@ import FileDrop from "react-file-drop";
 import { Spin } from "antd";
 import StoreContext from "./StoreContext";
 import useFileLoader from "./useFileLoader";
-import { addFile } from "./store";
+import { addImage, setConfig } from "./store";
 
 export default ({ children }) => {
   const { dispatch } = React.useContext(StoreContext);
   const { filesLoading, loadFiles } = useFileLoader({
-    onFileLoaded: f => dispatch(addFile(f))
+    onImage: f => dispatch(addImage(f)),
+    onConfig: f => dispatch(setConfig(f))
   });
   return (
     <Spin spinning={filesLoading > 0}>
