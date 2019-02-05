@@ -17,17 +17,17 @@ import {
 import render from "./render";
 
 const renderIntoCanvas = async (config, device) => {
-  const { dpi, width, height } = devices[device].deviceContext;
+  const { width, height } = devices[device].deviceContext;
   const canvas = document.createElement("canvas");
-  canvas.width = width * dpi;
-  canvas.height = height * dpi;
+  canvas.width = width;
+  canvas.height = height;
 
   const ctx = canvas.getContext("2d");
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, width, height);
 
   await render({
-    dpi,
+    dpi: 1,
     width,
     height,
     children: <Layout device={device} {...config} />,
@@ -102,7 +102,9 @@ export default () => {
         dataSource={dataSource}
       />
       <div style={{ textAlign: "center" }}>
-        <Button onClick={render}>Export Screenshots</Button>
+        <Button type="primary" size="large" onClick={render}>
+          Export Screenshots
+        </Button>
       </div>
     </Spin>
   );

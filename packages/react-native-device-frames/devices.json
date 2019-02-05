@@ -27,15 +27,42 @@
       "safeArea": { "top": 20, "right": 0, "bottom": 0, "left": 0 }
     }
   },
-  "Apple iPad Pro": {
+  "Apple iPad Pro 12.9": {
     "frames": {
-      "Gold": "Apple iPad Pro Gold",
       "Silver": "Apple iPad Pro Silver",
       "Space Gray": "Apple iPad Pro Space Gray"
     },
     "statusBars": {},
     "deviceContext": {
       "dpi": 2,
+      "width": 2048,
+      "height": 2732,
+      "safeArea": { "top": 20, "right": 0, "bottom": 0, "left": 0 }
+    }
+  },
+  "Apple iPad Pro 9.7": {
+    "frames": {
+      "Silver": "Apple iPad Pro Silver",
+      "Space Gray": "Apple iPad Pro Space Gray"
+    },
+    "statusBars": {},
+    "deviceContext": {
+      "dpi": 2,
+      "width": 1668,
+      "height": 2388,
+      "safeArea": { "top": 20, "right": 0, "bottom": 0, "left": 0 }
+    }
+  },
+  "Apple iPad Pro 10.5": {
+    "frames": {
+      "Silver": "Apple iPad Pro Silver",
+      "Space Gray": "Apple iPad Pro Space Gray"
+    },
+    "statusBars": {},
+    "deviceContext": {
+      "dpi": 2,
+      "width": 2224,
+      "height": 1668,
       "safeArea": { "top": 20, "right": 0, "bottom": 0, "left": 0 }
     }
   },
@@ -43,7 +70,7 @@
     "frames": {
       "Gold": "Apple iPhone 8 Gold",
       "Silver": "Apple iPhone 8 Silver",
-      "Space Gray": "Apple iPhone 8 Space Grey"
+      "Space Gray": "Apple iPhone 8 Space Gray"
     },
     "statusBars": {
       "landscape": "Apple iPhone 8 Landscape",
@@ -60,7 +87,7 @@
     "frames": {
       "Gold": "Apple iPhone 8 Plus Gold",
       "Silver": "Apple iPhone 8 Plus Silver",
-      "Space Gray": "Apple iPhone 8 Plus Space Grey"
+      "Space Gray": "Apple iPhone 8 Plus Space Gray"
     },
     "statusBars": {
       "landscape": "Apple iPhone 8 Plus Landscape",
@@ -94,7 +121,7 @@
   "Apple iPhone X": {
     "frames": {
       "Silver": "Apple iPhone X Silver",
-      "Space Gray": "Apple iPhone X Space Grey"
+      "Space Gray": "Apple iPhone X Space Gray"
     },
     "statusBars": {
       "portrait": "Apple iPhone X Portrait"
@@ -103,6 +130,57 @@
       "dpi": 3,
       "width": 1125,
       "height": 2436,
+      "safeArea": { "top": 24, "right": 0, "bottom": 34, "left": 0 }
+    }
+  },
+  "Apple iPhone XR": {
+    "frames": {
+      "Blue": "Apple iPhone XR Blue",
+      "Coral": "Apple iPhone XR Coral",
+      "Red": "Apple iPhone XR Red",
+      "Silver": "Apple iPhone XR Silver",
+      "Space Gray": "Apple iPhone XR Space Gray",
+      "Yellow": "Apple iPhone XR Yellow"
+    },
+    "statusBars": {
+      "portrait": "Apple iPhone X Portrait"
+    },
+    "deviceContext": {
+      "dpi": 2,
+      "width": 828,
+      "height": 1792,
+      "safeArea": { "top": 24, "right": 0, "bottom": 34, "left": 0 }
+    }
+  },
+  "Apple iPhone XS": {
+    "frames": {
+      "Silver": "Apple iPhone XS Silver",
+      "Space Gray": "Apple iPhone XS Space Gray",
+      "Gold": "Apple iPhone XS Gold"
+    },
+    "statusBars": {
+      "portrait": "Apple iPhone X Portrait"
+    },
+    "deviceContext": {
+      "dpi": 3,
+      "width": 1125,
+      "height": 2436,
+      "safeArea": { "top": 24, "right": 0, "bottom": 34, "left": 0 }
+    }
+  },
+  "Apple iPhone XS Max": {
+    "frames": {
+      "Silver": "Apple iPhone XS Max Silver",
+      "Space Gray": "Apple iPhone XS Max Space Gray",
+      "Gold": "Apple iPhone XS Max Gold"
+    },
+    "statusBars": {
+      "portrait": "Apple iPhone X Portrait"
+    },
+    "deviceContext": {
+      "dpi": 3,
+      "width": 1242,
+      "height": 2688,
       "safeArea": { "top": 24, "right": 0, "bottom": 34, "left": 0 }
     }
   }

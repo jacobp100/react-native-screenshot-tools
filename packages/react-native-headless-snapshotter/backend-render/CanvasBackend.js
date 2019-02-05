@@ -85,7 +85,7 @@ module.exports = class CanvasBackend {
 
   setUp() {
     this.ctx.save();
-    this.ctx.scale(this.dpi, this.dpi);
+    // this.ctx.scale(this.dpi, this.dpi);
   }
 
   tearDown() {

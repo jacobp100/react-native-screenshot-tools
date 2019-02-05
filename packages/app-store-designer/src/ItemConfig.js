@@ -48,8 +48,10 @@ export default ({ index = 0 }) => {
         >
           <Select.Option value="Silver">Silver</Select.Option>
           <Select.Option value="Space Gray">Space Gray</Select.Option>
-          <Select.Option value="Gold,Silver">Gold</Select.Option>
-          <Select.Option value="Rose Gold,Silver">Rose Gold</Select.Option>
+          <Select.Option value="Gold,Yellow,Silver">Gold</Select.Option>
+          <Select.Option value="Rose Gold,Coral,Silver">
+            Rose Gold
+          </Select.Option>
         </Select>
       </Form.Item>
       <Form.Item label="Font Size">

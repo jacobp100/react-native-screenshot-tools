@@ -19,12 +19,13 @@ export default ({
   padding,
   spacing
 }) => {
-  const { dpi } = devices[device].deviceContext; // FIXME
+  const scale = /iPad/.test(device) ? 2 : 1;
+  const { dpi } = devices[device].deviceContext; // FIXME - text sizes
   const textStyle = {
     color,
-    fontSize: fontSize * dpi,
+    fontSize: fontSize * dpi * scale,
     textAlign,
-    [textBelowDevice ? "marginTop" : "marginBottom"]: spacing
+    [textBelowDevice ? "marginTop" : "marginBottom"]: spacing * scale
   };
 
   const text = title ? <Text style={textStyle}>{title}</Text> : null;
@@ -59,7 +60,7 @@ export default ({
   const style = {
     flex: 1,
     backgroundColor,
-    padding,
+    padding: padding * scale,
     [textBelowDevice ? "paddingTop" : "paddingBottom"]: scaleDevice ? null : 0
   };
 

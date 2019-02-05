@@ -342,7 +342,7 @@
     "screenHeight": 2208
   },
   {
-    "name": "Apple iPhone 8 Plus Space Grey",
+    "name": "Apple iPhone 8 Plus Space Gray",
     "imageWidth": 1642,
     "imageHeight": 3008,
     "screenX": 200,
@@ -360,7 +360,7 @@
     "screenHeight": 1334
   },
   {
-    "name": "Apple iPhone 8 Space Grey",
+    "name": "Apple iPhone 8 Space Gray",
     "imageWidth": 950,
     "imageHeight": 1894,
     "screenX": 100,
@@ -414,7 +414,7 @@
     "screenHeight": 2436
   },
   {
-    "name": "Apple iPhone X Space Grey",
+    "name": "Apple iPhone X Space Gray",
     "imageWidth": 1405,
     "imageHeight": 2796,
     "screenX": 140,
@@ -423,570 +423,111 @@
     "screenHeight": 2436
   },
   {
-    "name": "Google PIxel 2 Kinda Blue",
-    "imageWidth": 1280,
-    "imageHeight": 2600,
-    "screenX": 100,
-    "screenY": 340,
-    "screenWidth": 1080,
-    "screenHeight": 1920
+    "name": "Apple iPhone XR Blue",
+    "imageWidth": 1048,
+    "imageHeight": 2025,
+    "screenX": 110,
+    "screenY": 110,
+    "screenWidth": 828,
+    "screenHeight": 1792
   },
   {
-    "name": "Google Pixel 2 Clearly White",
-    "imageWidth": 1280,
-    "imageHeight": 2600,
-    "screenX": 100,
-    "screenY": 340,
-    "screenWidth": 1080,
-    "screenHeight": 1920
+    "name": "Apple iPhone XR Coral",
+    "imageWidth": 1048,
+    "imageHeight": 2025,
+    "screenX": 110,
+    "screenY": 110,
+    "screenWidth": 828,
+    "screenHeight": 1792
   },
   {
-    "name": "Google Pixel 2 Just Black",
-    "imageWidth": 1280,
-    "imageHeight": 2600,
-    "screenX": 100,
-    "screenY": 340,
-    "screenWidth": 1080,
-    "screenHeight": 1920
+    "name": "Apple iPhone XR Red",
+    "imageWidth": 1048,
+    "imageHeight": 2025,
+    "screenX": 110,
+    "screenY": 110,
+    "screenWidth": 828,
+    "screenHeight": 1792
   },
   {
-    "name": "Google Pixel 2 XL Black and White",
-    "imageWidth": 1840,
-    "imageHeight": 3560,
-    "screenX": 200,
-    "screenY": 340,
-    "screenWidth": 1440,
-    "screenHeight": 2880
+    "name": "Apple iPhone XR Silver",
+    "imageWidth": 1048,
+    "imageHeight": 2025,
+    "screenX": 110,
+    "screenY": 110,
+    "screenWidth": 828,
+    "screenHeight": 1792
   },
   {
-    "name": "Google Pixel 2 XL Just Black",
-    "imageWidth": 1840,
-    "imageHeight": 3560,
-    "screenX": 200,
-    "screenY": 340,
-    "screenWidth": 1440,
-    "screenHeight": 2880
+    "name": "Apple iPhone XR Space Gray",
+    "imageWidth": 1048,
+    "imageHeight": 2025,
+    "screenX": 110,
+    "screenY": 110,
+    "screenWidth": 828,
+    "screenHeight": 1792
   },
   {
-    "name": "Google Pixel Quite Black",
-    "imageWidth": 1480,
-    "imageHeight": 2920,
-    "screenX": 200,
-    "screenY": 500,
-    "screenWidth": 1080,
-    "screenHeight": 1920
+    "name": "Apple iPhone XR Yellow",
+    "imageWidth": 1048,
+    "imageHeight": 2025,
+    "screenX": 110,
+    "screenY": 110,
+    "screenWidth": 828,
+    "screenHeight": 1792
   },
   {
-    "name": "Google Pixel Really Blue",
-    "imageWidth": 1480,
-    "imageHeight": 2920,
-    "screenX": 200,
-    "screenY": 500,
-    "screenWidth": 1080,
-    "screenHeight": 1920
+    "name": "Apple iPhone XS Gold",
+    "imageWidth": 1385,
+    "imageHeight": 2676,
+    "screenX": 130,
+    "screenY": 120,
+    "screenWidth": 1125,
+    "screenHeight": 2436
   },
   {
-    "name": "Google Pixel Very Silver",
-    "imageWidth": 1480,
-    "imageHeight": 2920,
-    "screenX": 200,
-    "screenY": 500,
-    "screenWidth": 1080,
-    "screenHeight": 1920
-  },
-  {
-    "name": "HTC One A9 Black",
-    "imageWidth": 1246,
-    "imageHeight": 2549,
-    "screenX": 80,
-    "screenY": 293,
-    "screenWidth": 1080,
-    "screenHeight": 1920
-  },
-  {
-    "name": "HTC One A9 White",
-    "imageWidth": 1246,
-    "imageHeight": 2549,
-    "screenX": 79,
-    "screenY": 293,
-    "screenWidth": 1080,
-    "screenHeight": 1920
-  },
-  {
-    "name": "HTC One M8 Black",
-    "imageWidth": 1228,
-    "imageHeight": 2513,
-    "screenX": 72,
-    "screenY": 267,
-    "screenWidth": 1080,
-    "screenHeight": 1920
-  },
-  {
-    "name": "HTC One M8 Gold",
-    "imageWidth": 1228,
-    "imageHeight": 2513,
-    "screenX": 72,
-    "screenY": 267,
-    "screenWidth": 1080,
-    "screenHeight": 1920
-  },
-  {
-    "name": "HTC One M8 Silver",
-    "imageWidth": 1228,
-    "imageHeight": 2513,
-    "screenX": 72,
-    "screenY": 267,
-    "screenWidth": 1080,
-    "screenHeight": 1920
-  },
-  {
-    "name": "Huawei P8 Black",
-    "imageWidth": 1280,
-    "imageHeight": 2560,
-    "screenX": 100,
-    "screenY": 320,
-    "screenWidth": 1080,
-    "screenHeight": 1920
-  },
-  {
-    "name": "Huawei P8 White",
-    "imageWidth": 1280,
-    "imageHeight": 2560,
-    "screenX": 100,
-    "screenY": 320,
-    "screenWidth": 1080,
-    "screenHeight": 1920
-  },
-  {
-    "name": "Microsoft Lumia 950 Black",
-    "imageWidth": 1642,
-    "imageHeight": 3215,
-    "screenX": 93,
-    "screenY": 366,
-    "screenWidth": 1440,
-    "screenHeight": 2560
-  },
-  {
-    "name": "Microsoft Lumia 950 White",
-    "imageWidth": 1642,
-    "imageHeight": 3215,
-    "screenX": 93,
-    "screenY": 366,
-    "screenWidth": 1440,
-    "screenHeight": 2560
-  },
-  {
-    "name": "Microsoft Surface Pro 3",
-    "imageWidth": 2320,
-    "imageHeight": 1680,
-    "screenX": 200,
-    "screenY": 200,
-    "screenWidth": 1920,
-    "screenHeight": 1280
-  },
-  {
-    "name": "Microsoft Surface Pro 4",
-    "imageWidth": 3216,
-    "imageHeight": 2224,
-    "screenX": 240,
-    "screenY": 200,
-    "screenWidth": 2736,
-    "screenHeight": 1824
-  },
-  {
-    "name": "Motorola Moto E Black",
-    "imageWidth": 658,
-    "imageHeight": 1265,
-    "screenX": 55,
-    "screenY": 185,
-    "screenWidth": 540,
-    "screenHeight": 960
-  },
-  {
-    "name": "Motorola Moto E White",
-    "imageWidth": 658,
-    "imageHeight": 1265,
-    "screenX": 55,
-    "screenY": 185,
-    "screenWidth": 540,
-    "screenHeight": 960
-  },
-  {
-    "name": "Motorola Moto G",
-    "imageWidth": 920,
-    "imageHeight": 1780,
-    "screenX": 100,
-    "screenY": 250,
-    "screenWidth": 720,
-    "screenHeight": 1280
-  },
-  {
-    "name": "Nexus 4",
-    "imageWidth": 855,
-    "imageHeight": 1658,
-    "screenX": 41,
-    "screenY": 185,
-    "screenWidth": 768,
-    "screenHeight": 1280
-  },
-  {
-    "name": "Nexus 5x",
-    "imageWidth": 1195,
-    "imageHeight": 2406,
-    "screenX": 53,
-    "screenY": 231,
-    "screenWidth": 1080,
-    "screenHeight": 1920
-  },
-  {
-    "name": "Nexus 6P",
-    "imageWidth": 1566,
-    "imageHeight": 3198,
-    "screenX": 59,
-    "screenY": 329,
-    "screenWidth": 1440,
-    "screenHeight": 2560
-  },
-  {
-    "name": "Nexus 9",
-    "imageWidth": 1896,
-    "imageHeight": 2648,
-    "screenX": 180,
-    "screenY": 300,
-    "screenWidth": 1536,
-    "screenHeight": 2048
-  },
-  {
-    "name": "Nokia 220 Black",
-    "imageWidth": 320,
-    "imageHeight": 741,
-    "screenX": 40,
-    "screenY": 96,
-    "screenWidth": 240,
-    "screenHeight": 320
-  },
-  {
-    "name": "Nokia 220 Blue",
-    "imageWidth": 320,
-    "imageHeight": 741,
-    "screenX": 40,
-    "screenY": 96,
-    "screenWidth": 240,
-    "screenHeight": 320
-  },
-  {
-    "name": "Nokia 220 Red",
-    "imageWidth": 320,
-    "imageHeight": 741,
-    "screenX": 40,
-    "screenY": 96,
-    "screenWidth": 240,
-    "screenHeight": 320
-  },
-  {
-    "name": "Nokia 220 White",
-    "imageWidth": 320,
-    "imageHeight": 741,
-    "screenX": 40,
-    "screenY": 96,
-    "screenWidth": 240,
-    "screenHeight": 320
-  },
-  {
-    "name": "Nokia 220 Yellow",
-    "imageWidth": 320,
-    "imageHeight": 741,
-    "screenX": 40,
-    "screenY": 96,
-    "screenWidth": 240,
-    "screenHeight": 320
-  },
-  {
-    "name": "Nokia 230 Black",
-    "imageWidth": 296,
-    "imageHeight": 695,
-    "screenX": 28,
-    "screenY": 67,
-    "screenWidth": 240,
-    "screenHeight": 320
-  },
-  {
-    "name": "Nokia 230 White",
-    "imageWidth": 296,
-    "imageHeight": 695,
-    "screenX": 28,
-    "screenY": 67,
-    "screenWidth": 240,
-    "screenHeight": 320
-  },
-  {
-    "name": "Nokia Asha 230 Black",
-    "imageWidth": 321,
-    "imageHeight": 539,
-    "screenX": 39,
-    "screenY": 101,
-    "screenWidth": 240,
-    "screenHeight": 320
-  },
-  {
-    "name": "Nokia Asha 230 Blue",
-    "imageWidth": 321,
-    "imageHeight": 539,
-    "screenX": 39,
-    "screenY": 101,
-    "screenWidth": 240,
-    "screenHeight": 320
-  },
-  {
-    "name": "Nokia Asha 230 Green",
-    "imageWidth": 321,
-    "imageHeight": 539,
-    "screenX": 39,
-    "screenY": 101,
-    "screenWidth": 240,
-    "screenHeight": 320
-  },
-  {
-    "name": "Nokia Asha 230 Red",
-    "imageWidth": 321,
-    "imageHeight": 539,
-    "screenX": 39,
-    "screenY": 101,
-    "screenWidth": 240,
-    "screenHeight": 320
-  },
-  {
-    "name": "Nokia Asha 230 White",
-    "imageWidth": 321,
-    "imageHeight": 539,
-    "screenX": 39,
-    "screenY": 101,
-    "screenWidth": 240,
-    "screenHeight": 320
-  },
-  {
-    "name": "Nokia Asha 230 Yellow",
-    "imageWidth": 321,
-    "imageHeight": 539,
-    "screenX": 39,
-    "screenY": 101,
-    "screenWidth": 240,
-    "screenHeight": 320
-  },
-  {
-    "name": "Nokia C3 00",
-    "imageWidth": 380,
-    "imageHeight": 751,
-    "screenX": 190,
-    "screenY": 375,
-    "screenWidth": 0,
-    "screenHeight": 0
-  },
-  {
-    "name": "Samsung Galaxy Grand Prime Black",
-    "imageWidth": 700,
-    "imageHeight": 1360,
-    "screenX": 80,
-    "screenY": 200,
-    "screenWidth": 540,
-    "screenHeight": 960
-  },
-  {
-    "name": "Samsung Galaxy Grand Prime Gold",
-    "imageWidth": 700,
-    "imageHeight": 1360,
-    "screenX": 80,
-    "screenY": 200,
-    "screenWidth": 540,
-    "screenHeight": 960
-  },
-  {
-    "name": "Samsung Galaxy Grand Prime White",
-    "imageWidth": 700,
-    "imageHeight": 1360,
-    "screenX": 80,
-    "screenY": 200,
-    "screenWidth": 540,
-    "screenHeight": 960
-  },
-  {
-    "name": "Samsung Galaxy Note 5 Black",
-    "imageWidth": 1568,
-    "imageHeight": 3117,
-    "screenX": 66,
-    "screenY": 290,
-    "screenWidth": 1440,
-    "screenHeight": 2560
-  },
-  {
-    "name": "Samsung Galaxy Note 5 Gold",
-    "imageWidth": 1568,
-    "imageHeight": 3117,
-    "screenX": 66,
-    "screenY": 290,
-    "screenWidth": 1440,
-    "screenHeight": 2560
-  },
-  {
-    "name": "Samsung Galaxy Note 5 Pink",
-    "imageWidth": 1568,
-    "imageHeight": 3117,
-    "screenX": 66,
-    "screenY": 290,
-    "screenWidth": 1440,
-    "screenHeight": 2560
-  },
-  {
-    "name": "Samsung Galaxy Note 5 Silver Titanium",
-    "imageWidth": 1568,
-    "imageHeight": 3117,
-    "screenX": 66,
-    "screenY": 290,
-    "screenWidth": 1440,
-    "screenHeight": 2560
-  },
-  {
-    "name": "Samsung Galaxy Note 5 White",
-    "imageWidth": 1568,
-    "imageHeight": 3117,
-    "screenX": 66,
-    "screenY": 290,
-    "screenWidth": 1440,
-    "screenHeight": 2560
-  },
-  {
-    "name": "Samsung Galaxy S Duos",
-    "imageWidth": 574,
-    "imageHeight": 1100,
-    "screenX": 48,
-    "screenY": 156,
-    "screenWidth": 480,
-    "screenHeight": 800
-  },
-  {
-    "name": "Samsung Galaxy S3",
-    "imageWidth": 920,
-    "imageHeight": 1680,
-    "screenX": 100,
-    "screenY": 200,
-    "screenWidth": 720,
-    "screenHeight": 1280
-  },
-  {
-    "name": "Samsung Galaxy S5 Black",
-    "imageWidth": 1320,
-    "imageHeight": 2518,
-    "screenX": 120,
-    "screenY": 300,
-    "screenWidth": 1080,
-    "screenHeight": 1920
-  },
-  {
-    "name": "Samsung Galaxy S5 White",
-    "imageWidth": 1320,
-    "imageHeight": 2518,
-    "screenX": 120,
-    "screenY": 300,
-    "screenWidth": 1080,
-    "screenHeight": 1920
-  },
-  {
-    "name": "Samsung Galaxy S7 Black",
-    "imageWidth": 1720,
-    "imageHeight": 3360,
+    "name": "Apple iPhone XS Max Gold",
+    "imageWidth": 1522,
+    "imageHeight": 2968,
     "screenX": 140,
-    "screenY": 400,
-    "screenWidth": 1440,
-    "screenHeight": 2560
+    "screenY": 138,
+    "screenWidth": 1242,
+    "screenHeight": 2688
   },
   {
-    "name": "Samsung Galaxy S7 Gold",
-    "imageWidth": 1720,
-    "imageHeight": 3360,
+    "name": "Apple iPhone XS Max Silver",
+    "imageWidth": 1522,
+    "imageHeight": 2968,
     "screenX": 140,
-    "screenY": 400,
-    "screenWidth": 1440,
-    "screenHeight": 2560
+    "screenY": 138,
+    "screenWidth": 1242,
+    "screenHeight": 2688
   },
   {
-    "name": "Samsung Galaxy S7 Silver",
-    "imageWidth": 1720,
-    "imageHeight": 3360,
+    "name": "Apple iPhone XS Max Space Gray",
+    "imageWidth": 1522,
+    "imageHeight": 2968,
     "screenX": 140,
-    "screenY": 400,
-    "screenWidth": 1440,
-    "screenHeight": 2560
+    "screenY": 138,
+    "screenWidth": 1242,
+    "screenHeight": 2688
   },
   {
-    "name": "Samsung Galaxy S7 White",
-    "imageWidth": 1720,
-    "imageHeight": 3360,
-    "screenX": 140,
-    "screenY": 400,
-    "screenWidth": 1440,
-    "screenHeight": 2560
+    "name": "Apple iPhone XS Silver",
+    "imageWidth": 1385,
+    "imageHeight": 2676,
+    "screenX": 130,
+    "screenY": 120,
+    "screenWidth": 1125,
+    "screenHeight": 2436
   },
   {
-    "name": "Samsung Galaxy S8 Arctic Silver",
-    "imageWidth": 1640,
-    "imageHeight": 3600,
-    "screenX": 100,
-    "screenY": 320,
-    "screenWidth": 1440,
-    "screenHeight": 2960
-  },
-  {
-    "name": "Samsung Galaxy S8 Coral Blue",
-    "imageWidth": 1640,
-    "imageHeight": 3600,
-    "screenX": 100,
-    "screenY": 320,
-    "screenWidth": 1440,
-    "screenHeight": 2960
-  },
-  {
-    "name": "Samsung Galaxy S8 Maple Gold",
-    "imageWidth": 1640,
-    "imageHeight": 3600,
-    "screenX": 100,
-    "screenY": 320,
-    "screenWidth": 1440,
-    "screenHeight": 2960
-  },
-  {
-    "name": "Samsung Galaxy S8 Midnight Black",
-    "imageWidth": 1640,
-    "imageHeight": 3600,
-    "screenX": 100,
-    "screenY": 320,
-    "screenWidth": 1440,
-    "screenHeight": 2960
-  },
-  {
-    "name": "Samsung Galaxy S8 Orchid Gray",
-    "imageWidth": 1640,
-    "imageHeight": 3600,
-    "screenX": 100,
-    "screenY": 320,
-    "screenWidth": 1440,
-    "screenHeight": 2960
-  },
-  {
-    "name": "Samsung Galaxy Y Black",
-    "imageWidth": 313,
-    "imageHeight": 553,
-    "screenX": 37,
-    "screenY": 116,
-    "screenWidth": 240,
-    "screenHeight": 320
-  },
-  {
-    "name": "Samsung Galaxy Y White",
-    "imageWidth": 313,
-    "imageHeight": 553,
-    "screenX": 37,
-    "screenY": 116,
-    "screenWidth": 240,
-    "screenHeight": 320
+    "name": "Apple iPhone XS Space Gray",
+    "imageWidth": 1385,
+    "imageHeight": 2676,
+    "screenX": 130,
+    "screenY": 120,
+    "screenWidth": 1125,
+    "screenHeight": 2436
   }
 ]

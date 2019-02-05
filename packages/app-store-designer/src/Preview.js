@@ -65,9 +65,9 @@ export default () => {
       {form}
       <div style={{ flex: 1, overflow: "scroll" }}>
         <canvas
-          width={width * dpi}
-          height={height * dpi}
-          style={{ width, height }}
+          width={width}
+          height={height}
+          style={{ width: width / dpi, height: height / dpi }}
           ref={ref}
         />
       </div>
